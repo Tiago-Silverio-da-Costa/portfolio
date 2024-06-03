@@ -16,9 +16,10 @@ const config: Config = {
       colors: {
         bgColor: "#0d1117",
         secondarybBg: "#010409",
-        highlightText: "#4493f8",
-        highlightElement: "#4493f8",
+        highlightText: "#39d353",
+        highlightElement: "#216e39",
         defaultText: "#e6edf3",
+        borderColor: "#30363d"
         
       },
     },
