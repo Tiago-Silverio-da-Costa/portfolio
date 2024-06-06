@@ -2,11 +2,10 @@
 import styled from "styled-components"
 
 export const HeroContainer = styled.div<{
-	$bg: string;
+  $bg: string;
 }>`
 background-image: url(${({ $bg }) => $bg});
 	background-size: cover;
-	container-type: inline-size;
 	position: relative;
       width: 10rem;
   height: 10rem;
@@ -16,7 +15,7 @@ background-image: url(${({ $bg }) => $bg});
 
 
 export const ReactChild = styled.div<{
-	$icon: string;
+  $icon: string;
 }>`
 
   width: 100%;
@@ -49,11 +48,12 @@ display: block;
   0% {
     transform: translate(-50%, -50%) rotate(-360deg);
   }
+}
 `;
 
 
 export const NextChild = styled.div<{
-	$icon: string;
+  $icon: string;
 }>`
 
   width: 100%;
@@ -86,10 +86,11 @@ display: block;
   0% {
     transform: translate(-50%, -50%) rotate(-360deg);
   }
+}
 `;
 
 export const JSChild = styled.div<{
-	$icon: string;
+  $icon: string;
 }>`
 
   width: 100%;
@@ -122,4 +123,5 @@ display: block;
   0% {
     transform: translate(-50%, -50%) rotate(-360deg);
   }
+}
 `;
