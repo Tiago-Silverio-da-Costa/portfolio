@@ -1,28 +1,29 @@
-import { ReactChild, HeroContainer, NextChild, JSChild, JavaChild, TypeChild, HTMLChild, CSSChild, NodeChild, ExpressChild, PostgresChild, SqliteChild, RedisChild, PrismaChild, PythonChild, TailwindChild, StyledChild } from "@/styles/hero";
+"use client";
+
+import { TypeAnimation } from 'react-type-animation';
+import System from './system';
 
 export default function Hero() {
 
     return (
-        <section className="max-w-5xl w-5/6 mx-auto flex justify-center">
-        <HeroContainer $bg={`/me.jpeg`}>
-            <ReactChild $icon={`/react.svg`} />
-            <NextChild $icon={`/next.svg`} />
-            <JSChild $icon={`/js.svg`} />
-            <CSSChild $icon={`/css.svg`} />
-            <TailwindChild $icon={`/tailwind.svg`} />
-            <StyledChild $icon={`/styled.svg`} />
-            <NodeChild $icon={`/node.svg`} />
-
-            <JavaChild $icon={`/java.svg`} />
-            <TypeChild $icon={`/types.svg`} />
-            <HTMLChild $icon={`/html.svg`} />
-            <ExpressChild $icon={`/ex.svg`} />
-            <PostgresChild $icon={`/postgres.svg`} />
-            <SqliteChild $icon={`/sqlite.svg`} />
-            <RedisChild $icon={`/redis.svg`} />
-            <PrismaChild $icon={`/prisma.svg`} />
-            <PythonChild $icon={`/py.svg`} />
-        </HeroContainer>
+        <section>
+            <div className="mx-auto w-5/6 max-w-5xl py-8 flex flex-col gap-40 justify-center items-center">
+                <TypeAnimation
+                    sequence={[
+                        // Same substring at the start will only be typed out once, initially
+                        `Hello, visitor! I'm Tiago S. C. `,
+                        1000, // wait 1s before replacing "Mice" with "Hamsters"
+                        `Hello, visitor! I'm Software Engineer`,
+                        1000,
+                    ]}
+                    wrapper="span"
+                    speed={2}
+                    deletionSpeed={2}
+                    style={{ fontSize: '2em', display: 'inline-block' }}
+                    repeat={Infinity}
+                />
+                <System />
+            </div>
         </section>
     )
 }
