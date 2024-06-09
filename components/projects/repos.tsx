@@ -128,7 +128,7 @@ export default function Repos() {
 
     return (
         <>
-            {projects?.map((projs: Tprojects) => (
+            {/* {projects?.map((projs: Tprojects) => (
                 <>
                     <div key={projs.id} className="group relative">
                         <div className="transition-all duration-300 flex items-center justify-center gap-4 group-hover:absolute group-hover:w-full group-hover:h-full group-hover:bg-borderColor/50 ">
@@ -143,14 +143,15 @@ export default function Repos() {
                         <div className="rounded-bl-md rounded-br-md bg-borderColor flex items-center w-full h-6 px-2">
                             <div className="flex items-center gap-2 justify-start">
                                 <div className="flex rounded-full w-2 h-2 bg-highlightElement"></div>
-                                {/* change dot color */}
                                 <p className="text-xs text-textOpacity tracking-tighter">{projs.programming_language}</p>
                             </div>
                         </div>
                     </div>
 
                 </>
-            ))}
+            ))} */}
+
+
             <div className="cursor-pointer flex p-2 justify-center items-center bg-highlightElement text-defaultText">
                 <FaPlus onClick={() => setOpenPopup(!openPopup)} />
             </div>

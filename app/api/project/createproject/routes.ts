@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { TCreateProject } from "./utils";
-import { toTitle } from "../utils";
+import { toTitle } from "../../utils";
 import { prisma } from "@/adapters/db";
 
 export async function POST(req: NextRequest) {
@@ -86,7 +86,11 @@ export async function POST(req: NextRequest) {
                 gif,
                 video,
                 programming_language,
-                techs,
+                Tech: {
+                    create: {
+                        name: techs
+                    }
+                },
                 url_repo,
                 url_project
             },

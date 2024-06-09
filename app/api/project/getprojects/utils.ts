@@ -13,7 +13,12 @@ export async function getProjectsData() {
             image: true,
             video: true,
             programming_language: true,
-            techs: true,
+            Tech: {
+                select: {
+                    name: true,
+                    id: true
+                }
+            },
             url_project: true,
             url_repo: true,
         }
