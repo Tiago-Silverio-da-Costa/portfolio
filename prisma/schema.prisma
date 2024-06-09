@@ -13,17 +13,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Techs {
+  id      Int       @id @default(autoincrement())
+  name    String
+  Project Project[]
+}
+
 model Project {
-  id                   Int    @id @default(autoincrement())
+  id                   Int     @id @default(autoincrement())
   name                 String
   desc                 String
-  Image                String
+  image                String
   gif                  String
   video                String
-  Programming_language String
-  techs                String
+  programming_language String
   url_repo             String
   url_project          String
+  Tech                 Techs[]
 }
 
 model Experience {

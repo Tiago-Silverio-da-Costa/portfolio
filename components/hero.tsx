@@ -9,14 +9,14 @@ export default function Hero() {
         <section>
             <div className="mx-auto w-5/6 max-w-5xl py-8 flex flex-col gap-40 justify-center items-center">
                 <div className="flex gap-2 items-center">
-                    <p className="text-2xl font-medium">Hello, visitor! I'm </p>
+                    <p className="text-2xl font-medium">Hello, visitor! I&apos;m </p>
                     <TypeAnimation
                         sequence={[
                             // Same substring at the start will only be typed out once, initially
                             `Tiago S. C.`,
-                            3000, 
+                            2000, 
                             `Software Engineer`,
-                            3000, 
+                            2000, 
                         ]}
                         wrapper="p"
                         deletionSpeed={1}

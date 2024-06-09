@@ -6,10 +6,10 @@ import Projects from "@/components/projects";
 export default function Home() {
   return (
     <>
-    <Header />
+    {/* <Header /> */}
     {/* <Hero /> */}
-    {/* <HeroOld /> */}
-    <Projects />
+    <HeroOld />
+    {/* <Projects  /> */}
     
     </>
 
