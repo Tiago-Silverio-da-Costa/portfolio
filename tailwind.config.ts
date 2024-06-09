@@ -19,6 +19,7 @@ const config: Config = {
         highlightText: "#39d353",
         highlightElement: "#216e39",
         defaultText: "#e6edf3",
+        textOpacity: "#8d96a0",
         borderColor: "#30363d"
         
       },

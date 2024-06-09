@@ -3,7 +3,7 @@ import { ReactChild, HeroContainer, NextChild, JSChild, JavaChild, TypeChild, HT
 export default function System() {
 
     return (
-        <section className="max-w-5xl w-5/6 mx-auto flex justify-center">
+        <section className="hidden max-w-5xl w-5/6 mx-auto md:flex justify-center">
         <HeroContainer $bg={`/me.jpeg`}>
             <ReactChild $icon={`/react.svg`} />
             <NextChild $icon={`/next.svg`} />
