@@ -9,9 +9,7 @@ export default function Projects() {
             <h1 className="text-3xl">Personal Endeavors: A showcase of projects</h1>
             {/* <FiltersNSearch /> */}
 
-            <div className="relative flex flex-wrap  gap-4 flex-col md:flex-row items-center justify-center py-8">
                 <Repos />
-            </div>
         </section>
     )
 }

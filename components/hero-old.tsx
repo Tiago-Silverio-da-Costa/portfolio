@@ -31,7 +31,7 @@ export default function HeroOld() {
             <div className="flex items-center justify-center min-h-screen mx-auto max-w-5xl w-5/6 py-8">
                 <div className="flex flex-col items-center gap-4 w-fit border border-borderColor rounded-2xl px-4 py-6">
 
-                    <Image src="https://avatars.githubusercontent.com/u/72054311?v=4" className="rounded-full" alt="Tiago S. C." width={300} height={300} />
+                    <Image src="https://avatars.githubusercontent.com/u/72054311?v=4" priority className="rounded-full" alt="Tiago S. C." width={300} height={300} />
 
                     <div className="flex flex-col items-start gap-2">
 
