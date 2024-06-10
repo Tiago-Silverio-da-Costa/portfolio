@@ -3,7 +3,7 @@
 import { ProjectSchema, TCreateProject } from "@/components/commom/schemaproject";
 import { zodResolver } from "@hookform/resolvers/zod"
 import Image from "next/image"
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FaRocket } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
@@ -12,14 +12,37 @@ import Alert from "../commom/alert";
 import { FormBtn, FormFieldError, FormFieldGrp, FormFieldWrapper, Spin } from "@/styles/projects/index";
 import { PiSpinnerBold } from "react-icons/pi";
 import { IoMdClose } from "react-icons/io";
+import { FaTrashAlt } from "react-icons/fa";
+import { MdEdit } from "react-icons/md";
+import Update from "./update";
 
 function refreshPage() {
     window.location.reload();
 }
 
+interface Project {
+    id: number;
+    name: string;
+    description: string;
+    image_url: string;
+    gif_url: string;
+    video_url: string;
+    programming_language: string;
+    repo_url: string;
+    project_url: string;
+}
+
 export default function Repos() {
-    const [openPopup, setOpenPopup] = useState<boolean>(false)
-    const [projects, setProjects] = useState<TCreateProject>()
+    const [openPopupCreation, setOpenPopupCreation] = useState<boolean>(false)
+    const [openPopupUpdate, setOpenPopupUpdate] = useState<boolean>(false)
+    const [openPopupProject, setOpenPopupProject] = useState<boolean>(false)
+    const [projects, setProjects] = useState<Project[] | null>(null)
+    const [selectedProjectId, setSelectedProjectId] = useState<number | null>(null);
+    const [selectedName, setSelectedName] = useState<string>("")
+    const [selectedVideoUrl, setSelectedVideoUrl] = useState<string>("")
+    const [selectedRepoUrl, setSelectedRepoUrl] = useState<string>("")
+    const [selectedProjectUrl, setSelectedProjectUrl] = useState<string>("")
+    const [selectedDescription, setSelectedDescription] = useState<string>("")
 
     const {
         handleSubmit,
@@ -34,19 +57,48 @@ export default function Repos() {
     })
 
     const getProjects = async () => {
-        const response = await fetch("http://localhost:4000/getprojects", {
-            credentials: "include",
-            cache: "no-cache",
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
+        try {
+
+            const response = await fetch("http://localhost:4000/getprojects", {
+                credentials: "include",
+                cache: "no-cache",
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+
+            if (!response.ok) {
+                throw new Error("Failed to fetch projects");
             }
-        })
 
-        const project = await response.json()
-        setProjects(project.data)
+            const responseData = await response.json();
 
+            const projectsData: Project[] = responseData;
 
+            setProjects(projectsData);
+        } catch (error) {
+            console.error("Error fetching projects:", error);
+        }
+    }
+
+    const deleteProject = async (id: number) => {
+        try {
+            const response = await fetch(`http://localhost:4000/deleteproject/${id}`, {
+                credentials: "include",
+                cache: "no-cache",
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            if (!response.ok) {
+                throw new Error("Failed to delete project");
+            }
+            refreshPage()
+        } catch (error) {
+            console.error("Error deleting project:", error);
+        }
     }
 
     useEffect(() => {
@@ -55,8 +107,6 @@ export default function Repos() {
         //     document.documentElement.style.overflow = "hidden";
         // }
     }, [])
-
-
 
     const onSubmit = async (data: TCreateProject) => {
         clearErrors()
@@ -139,207 +189,285 @@ export default function Repos() {
         }
     }
 
-
     return (
-        <div className="relative flex flex-wrap  gap-4 flex-col md:flex-row items-center justify-center py-8">
-
-            <div className="group relative">
-                <div className="transition-all duration-300 flex items-center justify-center gap-4 group-hover:absolute group-hover:w-full group-hover:h-full group-hover:bg-borderColor/50 ">
-                    <a href={projects?.repo_url} target="_blank" className="hidden group-hover:flex border bg-borderColor p-2 rounded-full text-2xl">
-                        <FaGithub />
-                    </a>
-                    <a href={projects?.project_url} target="_blank" className="hidden group-hover:flex border bg-borderColor p-2 rounded-full text-xl">
-                        <FaRocket />
-                    </a>
-                </div>
-                <Image className="rounded-tl-md rounded-tr-md" src={projects?.image_url as string} alt="" width={410} height={400} />
-                <div className="rounded-bl-md rounded-br-md bg-borderColor flex items-center w-full h-6 px-2">
-                    <div className="flex items-center gap-2 justify-start">
-                        <div className="flex rounded-full w-2 h-2 bg-highlightElement"></div>
-                        <p className="text-xs text-textOpacity tracking-tighter">{projects?.programming_language}</p>
+        <>
+            <div className="relative flex flex-wrap  gap-4 flex-col md:flex-row items-center justify-center py-8">
+                {projects?.map((project) =>
+                    <div className="hover:scale-125 transition-all duration-300 flex flex-col justify-center" key={project.id}>
+                        <div className="flex items-center justify-center gap-2 rounded-tl-md rounded-tr-md border-t border-t-borderColor border-x border-x-borderColor bg-secondarybBg py-2 px-2 text-sm">
+                            <a href={project.repo_url} target="_blank" className="group-hover:flex border-2 p-1 rounded-md hover:text-highlightText hover:border-highlightText transition-all duration-300">
+                                <FaGithub />
+                            </a>
+                            <a href={project.project_url} target="_blank" className="group-hover:flex border-2 p-1 rounded-md hover:text-highlightText hover:border-highlightText transition-all duration-300">
+                                <FaRocket />
+                            </a>
+                            <div onClick={() => deleteProject(project.id)} className="cursor-pointer group-hover:flex border-2 p-1 rounded-md hover:text-highlightText hover:border-highlightText transition-all duration-300">
+                                <FaTrashAlt />
+                            </div>
+                            <div onClick={async () => {
+                                setOpenPopupUpdate(!openPopupUpdate);
+                                setSelectedProjectId(project.id);
+                            }}
+                                className="cursor-pointer group-hover:flex border-2 p-1 rounded-md hover:text-highlightText hover:border-highlightText transition-all duration-300">
+                                <MdEdit />
+                            </div>
+                        </div>
+                        <div className="group w-fit ">
+                            <Image onClick={async () => {
+                                setOpenPopupProject(!openPopupProject);
+                                setSelectedProjectId(project.id);
+                                setSelectedName(project.name);
+                                setSelectedDescription(project.description);
+                                setSelectedVideoUrl(project.video_url);
+                                setSelectedRepoUrl(project.repo_url);
+                                setSelectedProjectUrl(project.project_url);
+                            }} className="block transition-all duration-300 group-hover:hidden cursor-pointer border-x border-x-borderColor" src={project.image_url as string} alt="" width={410} height={400} />
+                            <Image onClick={async () => {
+                                setOpenPopupProject(!openPopupProject);
+                                setSelectedProjectId(project.id);
+                                setSelectedName(project.name);
+                                setSelectedDescription(project.description);
+                                setSelectedVideoUrl(project.video_url);
+                                setSelectedRepoUrl(project.repo_url);
+                                setSelectedProjectUrl(project.project_url);
+                            }} className="hidden transition-all duration-300 group-hover:block cursor-pointer border-x border-x-borderColor" src={project.gif_url as string} alt="" width={410} height={400} />
+                        </div>
+                        <div className="border-b border-b-borderColor border-x border-x-borderColor rounded-bl-md rounded-br-md bg-secondarybBg flex items-center h-6 px-2">
+                            <div className="flex items-center gap-2 justify-start">
+                                <div className="flex rounded-full w-2 h-2 bg-highlightElement"></div>
+                                <p className="text-xs text-textOpacity tracking-tighter">{project.programming_language}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                )}
 
-
-            <div className="cursor-pointer flex p-2 justify-center items-center bg-highlightElement text-defaultText">
-                <FaPlus onClick={() => setOpenPopup(!openPopup)} />
-            </div>
-
-            {openPopup && (
-                <>
-                    <div className="flex flex-col items-center justify-center fixed bottom-0 left-0 top-0 select-none w-screen z-50 bg-secondarybBg">
-                        <form className="md:overflow-hidden overflow-y-scroll relative bg-primary grid justify-items-center w-full h-full md:mx-auto md:h-[unset] md:w-5/6 max-w-[40rem] px-12" onSubmit={handleSubmit(onSubmit)} autoComplete="on">
-                            <div
-                                onClick={() => setOpenPopup(!openPopup)}
-                                className={` absolute top-0 right-0 flex items-center justify-center text-primary bg-secondary px-4 py-2 font-bold text-lg hover:opacity-75 cursor-pointer`}><IoMdClose /></div>
-                            <div className="bg-primary mx-auto w-full max-w-[40rem] relative flex justify-start gap-4 border-b border-b-secondaryText py-2">
-                                <h1 className="uppercase font-light text-sm text-center w-full">Creation area</h1>
-                            </div>
-                            {Object.keys(errors).length > 0 && (
-                                <Alert type="error">
-                                    {errors.root?.message ??
-                                        "Check the fields and try again!"}
-                                </Alert>
-                            )}
-                            {isSubmitSuccessful && (
-                                <Alert type="success">
-                                    Project created successfully!
-                                </Alert>
-                            )}
-                            <div className="flex flex-col md:flex-row items-start justify-between gap-8 mt-6 w-full">
-                                <FormFieldWrapper $error={!!errors.name}>
-                                    <FormFieldGrp>
-                                        <input
-                                            {...register("name")}
-                                            inputMode="text"
-                                            placeholder="Name"
-                                            maxLength={100}
-                                            readOnly={isSubmitting}
-                                        />
-                                    </FormFieldGrp>
-                                    {errors.name && (
-                                        <FormFieldError>{errors.name.message}</FormFieldError>
-                                    )}
-                                </FormFieldWrapper>
-                                <FormFieldWrapper $error={!!errors.programming_language}>
-                                    <FormFieldGrp>
-                                        <input
-                                            {...register("programming_language")}
-                                            inputMode="text"
-                                            placeholder="Language"
-                                            maxLength={100}
-                                            readOnly={isSubmitting}
-                                        />
-                                    </FormFieldGrp>
-                                    {errors.programming_language && (
-                                        <FormFieldError>{errors.programming_language.message}</FormFieldError>
-                                    )}
-                                </FormFieldWrapper>
-                            </div>
-
-                            <div className="flex flex-col gap-2 mt-8 w-full">
-                                <FormFieldWrapper $error={!!errors.description}>
-                                    <FormFieldGrp>
-                                        <textarea
-                                            {...register("description")}
-                                            inputMode="text"
-                                            placeholder="description"
-                                            maxLength={5000}
-                                            readOnly={isSubmitting}
-                                            cols={10}
-                                            rows={8}
-                                        />
-                                    </FormFieldGrp>
-                                    {errors.description && (
-                                        <FormFieldError>{errors.description.message}</FormFieldError>
-                                    )}
-                                </FormFieldWrapper>
-                            </div>
-
-                            <div className="flex flex-col md:flex-row items-start justify-between gap-8 mt-6 w-full">
-                                <FormFieldWrapper $error={!!errors.image_url}>
-                                    <FormFieldGrp>
-                                        <input
-                                            {...register("image_url")}
-                                            inputMode="text"
-                                            placeholder="image_url"
-                                            maxLength={200}
-                                            readOnly={isSubmitting}
-                                        />
-                                    </FormFieldGrp>
-                                    {errors.image_url && (
-                                        <FormFieldError>{errors.image_url.message}</FormFieldError>
-                                    )}
-                                </FormFieldWrapper>
-                                <FormFieldWrapper $error={!!errors.gif_url}>
-                                    <FormFieldGrp>
-                                        <input
-                                            {...register("gif_url")}
-                                            inputMode="text"
-                                            placeholder="gif_url"
-                                            maxLength={200}
-                                            readOnly={isSubmitting}
-                                        />
-                                    </FormFieldGrp>
-                                    {errors.gif_url && (
-                                        <FormFieldError>{errors.gif_url.message}</FormFieldError>
-                                    )}
-                                </FormFieldWrapper>
-                                <FormFieldWrapper $error={!!errors.video_url}>
-                                    <FormFieldGrp>
-                                        <input
-                                            {...register("video_url")}
-                                            inputMode="text"
-                                            placeholder="video_url"
-                                            maxLength={200}
-                                            readOnly={isSubmitting}
-                                        />
-                                    </FormFieldGrp>
-                                    {errors.video_url && (
-                                        <FormFieldError>{errors.video_url.message}</FormFieldError>
-                                    )}
-                                </FormFieldWrapper>
-                            </div>
-
-                            <div className="flex flex-col md:flex-row items-start justify-between gap-8 mt-6 w-full">
-                                <FormFieldWrapper $error={!!errors.project_url}>
-                                    <FormFieldGrp>
-                                        <input
-                                            {...register("project_url")}
-                                            inputMode="text"
-                                            placeholder="project_url"
-                                            maxLength={200}
-                                            readOnly={isSubmitting}
-                                        />
-                                    </FormFieldGrp>
-                                    {errors.project_url && (
-                                        <FormFieldError>{errors.project_url.message}</FormFieldError>
-                                    )}
-                                </FormFieldWrapper>
-                                <FormFieldWrapper $error={!!errors.repo_url}>
-                                    <FormFieldGrp>
-                                        <input
-                                            {...register("repo_url")}
-                                            inputMode="text"
-                                            placeholder="repositório"
-                                            maxLength={200}
-                                            readOnly={isSubmitting}
-                                        />
-                                    </FormFieldGrp>
-                                    {errors.repo_url && (
-                                        <FormFieldError>{errors.repo_url.message}</FormFieldError>
-                                    )}
-                                </FormFieldWrapper>
-                            </div>
-
-
-                            <div className="flex items-start justify-end w-full gap-4 mt-8 pb-4">
-                                <button
-                                    onClick={() => setOpenPopup(!openPopup)}
-                                    type="submit"
-                                    className="flex items-center justify-center text-secondary bg-transparent border-secondaryText border px-6 py-2 font-bold text-sm w-fit">Cancelar</button>
-                                <FormBtn
-                                    type="submit"
-                                    $isSubmitting={isSubmitting}
-                                    disabled={isSubmitting}
-                                >
-                                    {isSubmitting && (
-                                        <div className="text-xl">
-                                            <Spin>
-                                                <PiSpinnerBold className="text-primary" />
-                                            </Spin>
+                {
+                    openPopupProject && selectedProjectId !== null && (
+                        <div className="flex flex-col items-center justify-center fixed bottom-0 left-0 top-0 select-none w-screen z-50 bg-secondarybBg">
+                            <div className="md:overflow-hidden overflow-y-scroll relative bg-primary grid items-start justify-items-center w-full h-full md:mx-auto md:h-[unset] md:w-5/6 max-w-[40rem] px-12" >
+                                <div
+                                    onClick={() => setOpenPopupProject(!openPopupProject)}
+                                    className={`absolute top-0 right-0 flex items-center justify-center text-primary bg-secondary px-4 py-2 font-bold text-lg hover:opacity-75 cursor-pointer`}><IoMdClose /></div>
+                                <div className="bg-primary mx-auto w-full max-w-[40rem] relative flex justify-start gap-4 border-b border-b-secondaryText py-2">
+                                    <h1 className="uppercase font-light text-sm text-center w-full">{selectedName}</h1>
+                                </div>
+                                <div className="flex items-center justify-center gap-8 mt-6 w-full">
+                                    <div className="w-full pt-4">
+                                        <div className="pb-4 relative">
+                                            <iframe
+                                                className="mx-auto "
+                                                width="560"
+                                                height="315"
+                                                src={selectedVideoUrl}
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                            ></iframe>
                                         </div>
-                                    )}
-                                    <span>Criar</span>
-                                </FormBtn>
+                                    </div>
+                                </div>
+                                <div className="flex gap-2 items-center justify-center">
+                                    <a href={selectedRepoUrl} target="_blank" className="group-hover:flex border-2 p-1 rounded-md hover:text-highlightText hover:border-highlightText transition-all duration-300">
+                                        <FaGithub />
+                                    </a>
+                                    <a href={selectedProjectUrl} target="_blank" className="group-hover:flex border-2 p-1 rounded-md hover:text-highlightText hover:border-highlightText transition-all duration-300">
+                                        <FaRocket />
+                                    </a>
+                                </div>
+                                <div className="max-w-[40rem] w-full mt-4">
+                                    <p className="text-center">{selectedDescription}</p>
+                                </div>
                             </div>
-                        </form>
-                    </div>
-                </>
-            )}
+                        </div>
+                    )
+                }
 
-        </div>
+                {
+                    openPopupUpdate && selectedProjectId !== null && (
+                        <>
+                            <Update id={selectedProjectId as number} setOpenPopupUpdate={setOpenPopupUpdate} />
+                        </>
+                    )
+                }
 
+
+                <div className="cursor-pointer flex p-2 justify-center items-center bg-highlightElement text-defaultText">
+                    <FaPlus onClick={() => setOpenPopupCreation(!openPopupCreation)} />
+                </div>
+
+                {openPopupCreation && (
+                    <>
+                        <div className="flex flex-col items-center justify-center fixed bottom-0 left-0 top-0 select-none w-screen z-50 bg-secondarybBg">
+                            <form className="md:overflow-hidden overflow-y-scroll relative bg-primary grid justify-items-center w-full h-full md:mx-auto md:h-[unset] md:w-5/6 max-w-[40rem] px-12" onSubmit={handleSubmit(onSubmit)} autoComplete="on">
+                                <div
+                                    onClick={() => setOpenPopupCreation(!openPopupCreation)}
+                                    className={` absolute top-0 right-0 flex items-center justify-center text-primary bg-secondary px-4 py-2 font-bold text-lg hover:opacity-75 cursor-pointer`}><IoMdClose /></div>
+                                <div className="bg-primary mx-auto w-full max-w-[40rem] relative flex justify-start gap-4 border-b border-b-secondaryText py-2">
+                                    <h1 className="uppercase font-light text-sm text-center w-full">Creation area</h1>
+                                </div>
+                                {Object.keys(errors).length > 0 && (
+                                    <Alert type="error">
+                                        {errors.root?.message ??
+                                            "Check the fields and try again!"}
+                                    </Alert>
+                                )}
+                                {isSubmitSuccessful && (
+                                    <Alert type="success">
+                                        Project created successfully!
+                                    </Alert>
+                                )}
+                                <div className="flex flex-col md:flex-row items-start justify-between gap-8 mt-6 w-full">
+                                    <FormFieldWrapper $error={!!errors.name}>
+                                        <FormFieldGrp>
+                                            <input
+                                                {...register("name")}
+                                                inputMode="text"
+                                                placeholder="Name"
+                                                maxLength={100}
+                                                readOnly={isSubmitting}
+                                            />
+                                        </FormFieldGrp>
+                                        {errors.name && (
+                                            <FormFieldError>{errors.name.message}</FormFieldError>
+                                        )}
+                                    </FormFieldWrapper>
+                                    <FormFieldWrapper $error={!!errors.programming_language}>
+                                        <FormFieldGrp>
+                                            <input
+                                                {...register("programming_language")}
+                                                inputMode="text"
+                                                placeholder="Language"
+                                                maxLength={100}
+                                                readOnly={isSubmitting}
+                                            />
+                                        </FormFieldGrp>
+                                        {errors.programming_language && (
+                                            <FormFieldError>{errors.programming_language.message}</FormFieldError>
+                                        )}
+                                    </FormFieldWrapper>
+                                </div>
+
+                                <div className="flex flex-col gap-2 mt-8 w-full">
+                                    <FormFieldWrapper $error={!!errors.description}>
+                                        <FormFieldGrp>
+                                            <textarea
+                                                {...register("description")}
+                                                inputMode="text"
+                                                placeholder="description"
+                                                maxLength={5000}
+                                                readOnly={isSubmitting}
+                                                cols={10}
+                                                rows={8}
+                                            />
+                                        </FormFieldGrp>
+                                        {errors.description && (
+                                            <FormFieldError>{errors.description.message}</FormFieldError>
+                                        )}
+                                    </FormFieldWrapper>
+                                </div>
+
+                                <div className="flex flex-col md:flex-row items-start justify-between gap-8 mt-6 w-full">
+                                    <FormFieldWrapper $error={!!errors.image_url}>
+                                        <FormFieldGrp>
+                                            <input
+                                                {...register("image_url")}
+                                                inputMode="text"
+                                                placeholder="image_url"
+                                                maxLength={200}
+                                                readOnly={isSubmitting}
+                                            />
+                                        </FormFieldGrp>
+                                        {errors.image_url && (
+                                            <FormFieldError>{errors.image_url.message}</FormFieldError>
+                                        )}
+                                    </FormFieldWrapper>
+                                    <FormFieldWrapper $error={!!errors.gif_url}>
+                                        <FormFieldGrp>
+                                            <input
+                                                {...register("gif_url")}
+                                                inputMode="text"
+                                                placeholder="gif_url"
+                                                maxLength={200}
+                                                readOnly={isSubmitting}
+                                            />
+                                        </FormFieldGrp>
+                                        {errors.gif_url && (
+                                            <FormFieldError>{errors.gif_url.message}</FormFieldError>
+                                        )}
+                                    </FormFieldWrapper>
+                                    <FormFieldWrapper $error={!!errors.video_url}>
+                                        <FormFieldGrp>
+                                            <input
+                                                {...register("video_url")}
+                                                inputMode="text"
+                                                placeholder="video_url"
+                                                maxLength={200}
+                                                readOnly={isSubmitting}
+                                            />
+                                        </FormFieldGrp>
+                                        {errors.video_url && (
+                                            <FormFieldError>{errors.video_url.message}</FormFieldError>
+                                        )}
+                                    </FormFieldWrapper>
+                                </div>
+
+                                <div className="flex flex-col md:flex-row items-start justify-between gap-8 mt-6 w-full">
+                                    <FormFieldWrapper $error={!!errors.project_url}>
+                                        <FormFieldGrp>
+                                            <input
+                                                {...register("project_url")}
+                                                inputMode="text"
+                                                placeholder="project_url"
+                                                maxLength={200}
+                                                readOnly={isSubmitting}
+                                            />
+                                        </FormFieldGrp>
+                                        {errors.project_url && (
+                                            <FormFieldError>{errors.project_url.message}</FormFieldError>
+                                        )}
+                                    </FormFieldWrapper>
+                                    <FormFieldWrapper $error={!!errors.repo_url}>
+                                        <FormFieldGrp>
+                                            <input
+                                                {...register("repo_url")}
+                                                inputMode="text"
+                                                placeholder="repositório"
+                                                maxLength={200}
+                                                readOnly={isSubmitting}
+                                            />
+                                        </FormFieldGrp>
+                                        {errors.repo_url && (
+                                            <FormFieldError>{errors.repo_url.message}</FormFieldError>
+                                        )}
+                                    </FormFieldWrapper>
+                                </div>
+
+
+                                <div className="flex items-start justify-end w-full gap-4 mt-8 pb-4">
+                                    <button
+                                        onClick={() => setOpenPopupCreation(!openPopupCreation)}
+                                        type="submit"
+                                        className="flex items-center justify-center text-secondary bg-transparent border-secondaryText border px-6 py-2 font-bold text-sm w-fit">Cancelar</button>
+                                    <FormBtn
+                                        type="submit"
+                                        $isSubmitting={isSubmitting}
+                                        disabled={isSubmitting}
+                                    >
+                                        {isSubmitting && (
+                                            <div className="text-xl">
+                                                <Spin>
+                                                    <PiSpinnerBold className="text-primary" />
+                                                </Spin>
+                                            </div>
+                                        )}
+                                        <span>Criar</span>
+                                    </FormBtn>
+                                </div>
+                            </form>
+                        </div>
+                    </>
+                )}
+            </div>
+
+        </>
     )
 }
