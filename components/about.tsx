@@ -5,7 +5,7 @@ import Education from "./education";
 export default function About() {
 
     return (
-        <section className="mx-auto w-5/6 max-w-5xl flex flex-col py-8">
+        <section id="about" className="mx-auto w-5/6 max-w-5xl flex flex-col py-8">
             <h1 className="text-3xl font-bold">
                 Know me better
             </h1>
