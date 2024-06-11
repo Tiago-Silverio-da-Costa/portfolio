@@ -193,7 +193,7 @@ export default function Repos() {
         <>
             <div className="relative flex flex-wrap  gap-4 flex-col md:flex-row items-center justify-center py-8">
                 {projects?.map((project) =>
-                    <div className="hover:scale-125 transition-all duration-300 flex flex-col justify-center" key={project.id}>
+                    <div className="hover:scale-125 transition-all duration-500 flex flex-col justify-center" key={project.id}>
                         <div className="flex items-center justify-center gap-2 rounded-tl-md rounded-tr-md border-t border-t-borderColor border-x border-x-borderColor bg-secondarybBg py-2 px-2 text-sm">
                             <a href={project.repo_url} target="_blank" className="group-hover:flex border-2 p-1 rounded-md hover:text-highlightText hover:border-highlightText transition-all duration-300">
                                 <FaGithub />
@@ -212,7 +212,7 @@ export default function Repos() {
                                 <MdEdit />
                             </div>
                         </div>
-                        <div className="group w-fit ">
+                        <div className="group w-fit transition-all duration-500">
                             <Image onClick={async () => {
                                 setOpenPopupProject(!openPopupProject);
                                 setSelectedProjectId(project.id);
@@ -221,7 +221,7 @@ export default function Repos() {
                                 setSelectedVideoUrl(project.video_url);
                                 setSelectedRepoUrl(project.repo_url);
                                 setSelectedProjectUrl(project.project_url);
-                            }} className="block transition-all duration-300 group-hover:hidden cursor-pointer border-x border-x-borderColor" src={project.image_url as string} alt="" width={410} height={400} />
+                            }} className="block group-hover:hidden cursor-pointer border-x border-x-borderColor" src={project.image_url as string} alt="" width={410} height={400} />
                             <Image onClick={async () => {
                                 setOpenPopupProject(!openPopupProject);
                                 setSelectedProjectId(project.id);
@@ -230,11 +230,36 @@ export default function Repos() {
                                 setSelectedVideoUrl(project.video_url);
                                 setSelectedRepoUrl(project.repo_url);
                                 setSelectedProjectUrl(project.project_url);
-                            }} className="hidden transition-all duration-300 group-hover:block cursor-pointer border-x border-x-borderColor" src={project.gif_url as string} alt="" width={410} height={400} />
+                            }} className="hidden group-hover:block cursor-pointer border-x border-x-borderColor" src={project.gif_url as string} alt="" width={410} height={400} />
                         </div>
                         <div className="border-b border-b-borderColor border-x border-x-borderColor rounded-bl-md rounded-br-md bg-secondarybBg flex items-center h-6 px-2">
                             <div className="flex items-center gap-2 justify-start">
-                                <div className="flex rounded-full w-2 h-2 bg-highlightElement"></div>
+                                <div className={`flex rounded-full w-2 h-2 
+                                ${project.programming_language === "Go" ? "bg-bgGo" : ""}
+                                ${project.programming_language === "Python" ? "bg-bgPython" : ""}
+                                ${project.programming_language === "Ruby" ? "bg-bgRuby" : ""}
+                                ${project.programming_language === "Rust" ? "bg-bgRust" : ""}
+                                ${project.programming_language === "Typescript" ? "bg-bgTypescript" : ""}
+                                ${project.programming_language === "Javascript" ? "bg-bgJavascript" : ""}
+                                ${project.programming_language === "Java" ? "bg-bgJava" : ""}
+                                ${project.programming_language === "C" ? "bg-bgC" : ""}
+                                ${project.programming_language === "C++" ? "bg-bgCpp" : ""}
+                                ${project.programming_language === "Crystal" ? "bg-bgCrystal" : ""}
+                                ${project.programming_language === "Dart" ? "bg-bgDart" : ""}
+                                ${project.programming_language === "Elixir" ? "bg-bgElixir" : ""}
+                                ${project.programming_language === "Erlang" ? "bg-bgErlang" : ""}
+                                ${project.programming_language === "Haskell" ? "bg-bgHaskell" : ""}
+                                ${project.programming_language === "HTML" ? "bg-bgHtml" : ""}
+                                ${project.programming_language === "CSS" ? "bg-bgCss" : ""}
+                                ${project.programming_language === "PHP" ? "bg-bgPhp" : ""}
+                                ${project.programming_language === "Shell" ? "bg-bgShell" : ""}
+                                ${project.programming_language === "Swift" ? "bg-bgSwift" : ""}
+                                ${project.programming_language === "Kotlin" ? "bg-bgKotlin" : ""}
+                                ${project.programming_language === "Lua" ? "bg-bgLua" : ""}
+                                ${project.programming_language === "Perl" ? "bg-bgPerl" : ""}
+                                ${project.programming_language === "R" ? "bg-bgR" : ""}
+                                ${project.programming_language === "Scala" ? "bg-bgScala" : ""}
+                                    `}></div>
                                 <p className="text-xs text-textOpacity tracking-tighter">{project.programming_language}</p>
                             </div>
                         </div>
@@ -248,14 +273,14 @@ export default function Repos() {
                                 <div
                                     onClick={() => setOpenPopupProject(!openPopupProject)}
                                     className={`absolute top-0 right-0 flex items-center justify-center text-primary bg-secondary px-4 py-2 font-bold text-lg hover:opacity-75 cursor-pointer`}><IoMdClose /></div>
-                                <div className="bg-primary mx-auto w-full max-w-[40rem] relative flex justify-start gap-4 border-b border-b-secondaryText py-2">
+                                <div className="bg-bg-primary mx-auto w-full max-w-[40rem] relative flex justify-start gap-4 border-b border-b-secondaryText py-2">
                                     <h1 className="uppercase font-light text-sm text-center w-full">{selectedName}</h1>
                                 </div>
                                 <div className="flex items-center justify-center gap-8 mt-6 w-full">
                                     <div className="w-full pt-4">
                                         <div className="pb-4 relative">
                                             <iframe
-                                                className="mx-auto "
+                                                className="mx-auto"
                                                 width="560"
                                                 height="315"
                                                 src={selectedVideoUrl}
@@ -301,7 +326,7 @@ export default function Repos() {
                                 <div
                                     onClick={() => setOpenPopupCreation(!openPopupCreation)}
                                     className={` absolute top-0 right-0 flex items-center justify-center text-primary bg-secondary px-4 py-2 font-bold text-lg hover:opacity-75 cursor-pointer`}><IoMdClose /></div>
-                                <div className="bg-primary mx-auto w-full max-w-[40rem] relative flex justify-start gap-4 border-b border-b-secondaryText py-2">
+                                <div className="bg-bg-primary mx-auto w-full max-w-[40rem] relative flex justify-start gap-4 border-b border-b-secondaryText py-2">
                                     <h1 className="uppercase font-light text-sm text-center w-full">Creation area</h1>
                                 </div>
                                 {Object.keys(errors).length > 0 && (

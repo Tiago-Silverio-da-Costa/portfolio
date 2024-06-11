@@ -76,21 +76,23 @@ export default function Update({ id, setOpenPopupUpdate }: UpdateProps) {
 
     useEffect(() => {
         getProject()
-    },[])
+    }, [])
 
     const onSubmit = async (data: TCreateProject) => {
         clearErrors()
 
         const responseData = await fetch(`http://localhost:4000/updateproject/${id}`, {
             credentials: "include",
-            cache: "no-cache",
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
-            }
+            },
+            body: JSON.stringify({
+                ...data,
+            })
         })
 
-        if (responseData.status === 201) {
+        if (responseData.status === 201 || responseData.status === 200) {
             refreshPage()
             reset(
                 {
@@ -107,7 +109,6 @@ export default function Update({ id, setOpenPopupUpdate }: UpdateProps) {
                     keepIsSubmitted: true
                 }
             )
-            setOpenPopupUpdate(false);
             return;
         } else if (responseData.status === 400) {
             const response: {
