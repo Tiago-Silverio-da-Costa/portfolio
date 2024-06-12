@@ -9,27 +9,27 @@ export default function Header() {
     const [openPopup, setOpenPopup] = useState(false);
 
     return (
-        <header className="bg-secondarybBg border-b border-b-borderColor">
+        <header>
             <div className="mx-auto w-5/6 max-w-5xl flex justify-end md:justify-center py-8">
                 <nav className="items-center  gap-4 justify-center hidden md:flex">
                     <ul>
                         <li>
-                            <Link className="text-defaultText font-bold hover:text-highlightText transition-all duration-300" href="/#projects">Projects</Link>
+                            <Link className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#projects">Projects</Link>
                         </li>
                     </ul>
                     <ul>
                         <li>
-                            <Link className="text-defaultText font-bold hover:text-highlightText transition-all duration-300" href="/#experience">Experience</Link>
+                            <Link className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#experience">Experience</Link>
                         </li>
                     </ul>
                     <ul>
                         <li>
-                            <Link className="text-defaultText font-bold hover:text-highlightText transition-all duration-300" href="/#about">About</Link>
+                            <Link className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#about">About</Link>
                         </li>
                     </ul>
                     <ul>
                         <li>
-                            <Link className="text-defaultText font-bold hover:text-highlightText transition-all duration-300" href="/#contact">Contact</Link>
+                            <Link className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#contact">Contact</Link>
                         </li>
                     </ul>
                 </nav>
@@ -57,17 +57,17 @@ export default function Header() {
                                 <CgCloseO />
                             </button>
                             <ul className="flex flex-col gap-4 mt-8">
-                                <li onClick={() => setOpenPopup(false)}>
-                                    <Link className="text-defaultText font-bold hover:text-highlightText transition-all duration-300" href="#home">Ínicio</Link>{/* e galeria */}
+                                <li>
+                                    <Link onClick={() => setOpenPopup(false)} className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#projects">Projects</Link>
                                 </li>
-                                <li onClick={() => setOpenPopup(false)}>
-                                    <Link className="text-defaultText font-bold hover:text-highlightText transition-all duration-300" href="#services">Serviços</Link>
+                                <li>
+                                    <Link onClick={() => setOpenPopup(false)} className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#experience">Experience</Link>
                                 </li>
-                                <li onClick={() => setOpenPopup(false)}>
-                                    <Link className="text-defaultText font-bold hover:text-highlightText transition-all duration-300" href="#about">Sobre</Link>{/* e reviews */}
+                                <li>
+                                    <Link onClick={() => setOpenPopup(false)} className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#about">About</Link>
                                 </li>
-                                <li onClick={() => setOpenPopup(false)}>
-                                    <Link className="text-defaultText font-bold hover:text-highlightText transition-all duration-300" href="#contact">Contato</Link>
+                                <li>
+                                    <Link onClick={() => setOpenPopup(false)} className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#contact">Contact</Link>
                                 </li>
                             </ul>
                         </nav>
@@ -75,6 +75,6 @@ export default function Header() {
                 }
             </div>
 
-        </header>
+        </header >
     )
 }

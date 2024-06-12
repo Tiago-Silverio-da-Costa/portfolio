@@ -29,54 +29,50 @@ export default function Update({ id, setOpenPopupUpdate }: UpdateProps) {
         reValidateMode: "onSubmit",
     })
 
-
-
-
-    const getProject = async () => {
-        const responseData = await fetch(`http://localhost:4000/getproject/${id}`, {
-            credentials: "include",
-            cache: "no-cache",
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-
-        if (responseData.status === 200) {
-            const response = await responseData.json();
-            reset(
-                {
-                    name: response.name,
-                    description: response.description,
-                    gif_url: response.gif_url,
-                    image_url: response.image_url,
-                    programming_language: response.programming_language,
-                    project_url: response.project_url,
-                    repo_url: response.repo_url,
-                    video_url: response.video_url
-                },
-                {
-                    keepIsSubmitted: true
-                }
-            )
-        } else if (responseData.status === 404) {
-            setError("root", {
-                type: "custom",
-                message: "Not found!"
-            })
-            window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-        } else if (responseData.status === 403) {
-            setError("root", {
-                type: "custom",
-                message: "Forbidden!"
-            })
-            window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-        }
-    }
-
     useEffect(() => {
+        const getProject = async () => {
+            const responseData = await fetch(`http://localhost:4000/getproject/${id}`, {
+                credentials: "include",
+                cache: "no-cache",
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+
+            if (responseData.status === 200) {
+                const response = await responseData.json();
+                reset(
+                    {
+                        name: response.name,
+                        description: response.description,
+                        gif_url: response.gif_url,
+                        image_url: response.image_url,
+                        programming_language: response.programming_language,
+                        project_url: response.project_url,
+                        repo_url: response.repo_url,
+                        video_url: response.video_url
+                    },
+                    {
+                        keepIsSubmitted: true
+                    }
+                )
+            } else if (responseData.status === 404) {
+                setError("root", {
+                    type: "custom",
+                    message: "Not found!"
+                })
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+            } else if (responseData.status === 403) {
+                setError("root", {
+                    type: "custom",
+                    message: "Forbidden!"
+                })
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+            }
+        }
         getProject()
-    }, [])
+    }, [id, reset, setError])
 
     const onSubmit = async (data: TCreateProject) => {
         clearErrors()

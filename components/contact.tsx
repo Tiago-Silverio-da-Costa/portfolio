@@ -7,7 +7,7 @@ export default function Contact() {
             <div className="flex items-center">
                 <div className="flex flex-col">
                     <p className="text-lg tracking-wide leading-6 font-medium max-w-sm mt-1">
-                        Reach out via email to start the conversation. Located in Camboriú, Brazil, I'm flexible for on-site or remote roles. While I'm primarily based in Camboriú, I do spend time in São Paulo as well.                    </p>
+                        Reach out via email to start the conversation. Located in Camboriú, Brazil, I&apos;m flexible for on-site or remote roles. While I&apos;m primarily based in Camboriú, I do spend time in São Paulo as well.                    </p>
                     <div className="flex items-center gap-2 mt-2">
                         <TiLocation className="text-xl" />
                         <span className="text-sm">

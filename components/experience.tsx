@@ -5,8 +5,8 @@ import { TiArrowSortedDown } from "react-icons/ti";
 
 
 export default function Experience() {
-    const [showMore, setShowMore] = useState(false);
-    const [selectedJob, setSelectedJob] = useState(null);
+    const [showMore, setShowMore] = useState<boolean>(false);
+    const [selectedJob, setSelectedJob] = useState<number | null>(null);
 
     const jobs = [
         {
@@ -80,48 +80,47 @@ export default function Experience() {
 
     return (
         <section id="experience" className="mx-auto w-5/6 max-w-5xl py-8">
-            <h1 className="text-3xl font-bold">
-                Where I've worked and what I've done
-            </h1>
-            <div className="flex flex-col md:flex-row gap-4 items-start mt-4">
+                <h1 className="text-3xl font-bold ">
+                    Where I&apos;ve worked and what I&apos;ve done
+                </h1>
+                <div className="flex flex-col md:flex-row gap-4 items-start mt-12">
 
-                <div className={`${selectedJob === null ? "w-full" : "w-fit"} flex gap-4 flex-row md:flex-col`}>
-                    {jobs.map((job, index) => (
-                        <div
-                            key={index}
-                            onClick={() => setSelectedJob(selectedJob === index ? null : index)}
-                            className="border border-borderColor rounded-md p-4 flex flex-col hover:bg-secondarybBg cursor-pointer transition-all duration-200">
-                            <div className="flex flex-col">
-                                <h2 className="text-xl font-bold">{job.title}</h2>
-                                <p className="hidden md:block text-lg tracking-wide leading-6 font-medium max-w-xl">
-                                    {job.period}
-                                </p>
+                    <div className={`${selectedJob === null ? "w-full" : "w-fit"} flex gap-4 flex-row md:flex-col`}>
+                        {jobs.map((job, index) => (
+                            <div
+                                key={index}
+                                onClick={() => setSelectedJob(selectedJob === index ? null : index)}
+                                className="bg-highlightBlue border border-borderColor rounded-md p-4 flex flex-col hover:bg-highlightBlue/80 cursor-pointer transition-all duration-200">
+                                <div className="flex flex-col">
+                                    <h2 className="text-xl font-bold">{job.title}</h2>
+                                    <p className="hidden md:block text-lg tracking-wide leading-6 font-medium max-w-xl">
+                                        {job.period}
+                                    </p>
+                                </div>
                             </div>
+                        ))}
+                    </div>
+
+                    <div className={`${selectedJob === null ? "hidden" : "block"} p-4 border border-borderColor rounded-md`}>
+                        {jobs.map((job, index) => (
+                            <div
+                                key={index}
+                                className={`text-lg tracking-wide leading-6 font-medium max-w-xl ${selectedJob === index ? 'block' : 'hidden'} `}>
+
+                                <div dangerouslySetInnerHTML={{ __html: job.details }} className={!showMore ? 'line-clamp-3' : 'line-clamp-none'} />
+                            </div>
+                        ))}
+
+                        <div onClick={() => setShowMore(!showMore)} className="select-none cursor-pointer text-highlightText flex gap-1 items-center mt-2 w-fit">
+                            <TiArrowSortedDown className="text-xl" />
+                            <span className="text-sm tracking-wide leading-6 font-medium max-w-xl">
+                                {
+                                    showMore ? `Show less` : `Show more`
+                                }
+                            </span>
                         </div>
-                    ))}
-                </div>
-
-                <div className={`${selectedJob === null ? "hidden" : "block"} p-4 border border-borderColor rounded-md`}>
-                    {jobs.map((job, index) => (
-                        <div
-                            key={index}
-                            className={`text-lg tracking-wide leading-6 font-medium max-w-xl ${selectedJob === index ? 'block' : 'hidden'} `}>
-
-                            <div dangerouslySetInnerHTML={{ __html: job.details }} className={!showMore ? 'line-clamp-3' : 'line-clamp-none'} />
-                        </div>
-                    ))}
-
-                    <div onClick={() => setShowMore(!showMore)} className="select-none cursor-pointer text-highlightText flex gap-1 items-center mt-2 w-fit">
-                        <TiArrowSortedDown className="text-xl" />
-                        <span className="text-sm tracking-wide leading-6 font-medium max-w-xl">
-                            {
-                                showMore ? `Show less` : `Show more`
-                            }
-                        </span>
                     </div>
                 </div>
-
-            </div>
         </section>
     )
 }

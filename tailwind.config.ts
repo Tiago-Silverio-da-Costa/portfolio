@@ -21,6 +21,8 @@ const config: Config = {
         defaultText: "#e6edf3",
         textOpacity: "#8d96a0",
         borderColor: "#30363d",
+        highlightBlue: "#1f6feb",
+        bgFooter: "#161b22",
         
         bgGo: "#00ADD8",
         bgPython: "rgb(53, 114, 165)",

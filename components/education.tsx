@@ -8,7 +8,7 @@ export default function Education() {
                 Where I Studied?
             </h1>
             <div className="flex items-center gap-4">
-                <Image src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Instituto_Federal_Catarinense_-_Marca_Vertical_2015.svg" alt="Dexter from Dexter's Laboratory" className="rounded-md bg-white py-2" width={100} height={100} />
+                <Image src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Instituto_Federal_Catarinense_-_Marca_Vertical_2015.svg" alt="Instituto Federal Catarinense" className="rounded-md bg-white py-2" width={100} height={100} />
                 <div className="flex flex-col items-stretch">
                     <h2 className="text-xl font-semibold max-w-96">Instituto Federal Catarinense - Campus Camboriú</h2>
                     <p className="text-sm tracking-wide font-medium max-w-xl">

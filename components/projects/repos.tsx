@@ -221,7 +221,14 @@ export default function Repos() {
                                 setSelectedVideoUrl(project.video_url);
                                 setSelectedRepoUrl(project.repo_url);
                                 setSelectedProjectUrl(project.project_url);
-                            }} className="block group-hover:hidden cursor-pointer border-x border-x-borderColor" src={project.image_url as string} alt="" width={410} height={400} />
+                            }}
+                                className="block group-hover:hidden cursor-pointer border-x border-x-borderColor"
+                                src={project.image_url as string}
+                                alt="Project image"
+                                width={410}
+                                height={400}
+                                unoptimized={true}
+                            />
                             <Image onClick={async () => {
                                 setOpenPopupProject(!openPopupProject);
                                 setSelectedProjectId(project.id);
@@ -230,7 +237,14 @@ export default function Repos() {
                                 setSelectedVideoUrl(project.video_url);
                                 setSelectedRepoUrl(project.repo_url);
                                 setSelectedProjectUrl(project.project_url);
-                            }} className="hidden group-hover:block cursor-pointer border-x border-x-borderColor" src={project.gif_url as string} alt="" width={410} height={400} />
+                            }}
+                                className="hidden group-hover:block cursor-pointer border-x border-x-borderColor"
+                                src={project.gif_url as string}
+                                alt="Project gif"
+                                width={410}
+                                height={400}
+                                unoptimized={true}
+                            />
                         </div>
                         <div className="border-b border-b-borderColor border-x border-x-borderColor rounded-bl-md rounded-br-md bg-secondarybBg flex items-center h-6 px-2">
                             <div className="flex items-center gap-2 justify-start">
@@ -315,7 +329,7 @@ export default function Repos() {
                 }
 
 
-                <div className="cursor-pointer flex p-2 justify-center items-center bg-highlightElement text-defaultText">
+                <div className="cursor-pointer flex p-2 justify-center items-center bg-highlightElement hover:bg-highlightElement/85 transition-all duration-300 text-defaultText">
                     <FaPlus onClick={() => setOpenPopupCreation(!openPopupCreation)} />
                 </div>
 
