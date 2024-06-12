@@ -20,7 +20,8 @@ export const Spin = styled.div`
 export const FormBtn = styled.button<{
   $isSubmitting?: boolean;
 }>`
-	background-color: var(--secondary);
+	background-color: var(--btn-bg-color);
+  color: var(--default-text-color);
 	padding: 0.41rem 1.5rem;
 	cursor: pointer;
 	transition: all 0.2s;
@@ -31,8 +32,12 @@ export const FormBtn = styled.button<{
 
 	position: relative;
 
+  &:hover {
+    background-color: var(--default-text-color);
+  }
+
 	& span {
-	  color: var(--primary);
+	  color: var(--default-text-color);
 	  font-size: 0.875rem;
 		transition: all 0.1s;
     font-weight: 700;
@@ -83,7 +88,7 @@ export const FormFieldWrapper = styled.div<{
   }
 
  option {
-  color: var(--primary);
+  color: var(--default-text-color);
  }
 
   & input,
@@ -127,44 +132,4 @@ export const FormFieldWrapper = styled.div<{
       }
     }
   `}
-`;
-
-export const LoginBtn = styled.button<{
-  $isSubmitting?: boolean;
-}>`
-  background-color: var(--secondary);
-  font-size: 0.9375rem;
-  color: var(--primary);
-  line-height: 1;
-  padding: 0.875rem 1rem;
-  position: relative;
-  transition: all 0.2s;
-  width: 100%;
-
-  & span {
-    transition: all 0.1s;
-  }
-
-  &:disabled {
-    background-color: rgba(45, 164, 74, 0.8);
-  }
-
-  ${({ $isSubmitting }) =>
-    $isSubmitting
-      ? `
-			cursor: default;
-			& span {
-				opacity: 0;
-			}`
-      : `
-		&:hover {
-			opacity: 0.75;
-		}`}
-
-  &>div {
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
 `;

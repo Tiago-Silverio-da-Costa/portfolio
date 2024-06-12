@@ -80,7 +80,7 @@ export default function Experience() {
 
     return (
         <section id="experience" className="mx-auto w-5/6 max-w-5xl py-8">
-                <h1 className="text-3xl font-bold ">
+                <h1 className="text-3xl font-bold text-textTitle">
                     Where I&apos;ve worked and what I&apos;ve done
                 </h1>
                 <div className="flex flex-col md:flex-row gap-4 items-start mt-12">
@@ -90,7 +90,7 @@ export default function Experience() {
                             <div
                                 key={index}
                                 onClick={() => setSelectedJob(selectedJob === index ? null : index)}
-                                className="bg-highlightBlue border border-borderColor rounded-md p-4 flex flex-col hover:bg-highlightBlue/80 cursor-pointer transition-all duration-200">
+                                className="bg-highlightElement border border-borderColor rounded-md p-4 flex flex-col hover:bg-highlightElement/80 cursor-pointer transition-all duration-200">
                                 <div className="flex flex-col">
                                     <h2 className="text-xl font-bold">{job.title}</h2>
                                     <p className="hidden md:block text-lg tracking-wide leading-6 font-medium max-w-xl">

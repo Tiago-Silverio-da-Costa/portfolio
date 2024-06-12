@@ -9,7 +9,7 @@ export default function Header() {
     const [openPopup, setOpenPopup] = useState(false);
 
     return (
-        <header>
+        <header className="bg-bgFooter">
             <div className="mx-auto w-5/6 max-w-5xl flex justify-end md:justify-center py-8">
                 <nav className="items-center  gap-4 justify-center hidden md:flex">
                     <ul>

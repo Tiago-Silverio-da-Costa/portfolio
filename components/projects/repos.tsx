@@ -102,11 +102,14 @@ export default function Repos() {
     }
 
     useEffect(() => {
-        getProjects()
-        // if (!openPopup) {
-        //     document.documentElement.style.overflow = "hidden";
-        // }
-    }, [])
+        getProjects();
+
+        if (openPopupCreation || openPopupUpdate || openPopupProject) {
+            document.documentElement.style.overflow = "hidden";
+        } else {
+            document.documentElement.style.overflow = "";
+        }
+    }, [openPopupCreation, openPopupUpdate, openPopupProject])
 
     const onSubmit = async (data: TCreateProject) => {
         clearErrors()
@@ -194,21 +197,21 @@ export default function Repos() {
             <div className="relative flex flex-wrap  gap-4 flex-col md:flex-row items-center justify-center py-8">
                 {projects?.map((project) =>
                     <div className="hover:scale-125 transition-all duration-500 flex flex-col justify-center" key={project.id}>
-                        <div className="flex items-center justify-center gap-2 rounded-tl-md rounded-tr-md border-t border-t-borderColor border-x border-x-borderColor bg-secondarybBg py-2 px-2 text-sm">
-                            <a href={project.repo_url} target="_blank" className="group-hover:flex border-2 p-1 rounded-md hover:text-highlightText hover:border-highlightText transition-all duration-300">
+                        <div className="flex items-center justify-center gap-2 rounded-tl-md rounded-tr-md border border-borderColor bg-[#161b22] py-2 px-2 text-sm">
+                            <a href={project.repo_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
                                 <FaGithub />
                             </a>
-                            <a href={project.project_url} target="_blank" className="group-hover:flex border-2 p-1 rounded-md hover:text-highlightText hover:border-highlightText transition-all duration-300">
+                            <a href={project.project_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
                                 <FaRocket />
                             </a>
-                            <div onClick={() => deleteProject(project.id)} className="cursor-pointer group-hover:flex border-2 p-1 rounded-md hover:text-highlightText hover:border-highlightText transition-all duration-300">
+                            <div onClick={() => deleteProject(project.id)} className="cursor-pointer group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
                                 <FaTrashAlt />
                             </div>
                             <div onClick={async () => {
                                 setOpenPopupUpdate(!openPopupUpdate);
                                 setSelectedProjectId(project.id);
                             }}
-                                className="cursor-pointer group-hover:flex border-2 p-1 rounded-md hover:text-highlightText hover:border-highlightText transition-all duration-300">
+                                className="cursor-pointer group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
                                 <MdEdit />
                             </div>
                         </div>
@@ -246,7 +249,7 @@ export default function Repos() {
                                 unoptimized={true}
                             />
                         </div>
-                        <div className="border-b border-b-borderColor border-x border-x-borderColor rounded-bl-md rounded-br-md bg-secondarybBg flex items-center h-6 px-2">
+                        <div className="border border-borderColor  rounded-bl-md rounded-br-md bg-[#161b22] flex items-center h-6 px-2">
                             <div className="flex items-center gap-2 justify-start">
                                 <div className={`flex rounded-full w-2 h-2 
                                 ${project.programming_language === "Go" ? "bg-bgGo" : ""}
@@ -283,7 +286,7 @@ export default function Repos() {
                 {
                     openPopupProject && selectedProjectId !== null && (
                         <div className="flex flex-col items-center justify-center fixed bottom-0 left-0 top-0 select-none w-screen z-50 bg-secondarybBg">
-                            <div className="md:overflow-hidden overflow-y-scroll relative bg-primary grid items-start justify-items-center w-full h-full md:mx-auto md:h-[unset] md:w-5/6 max-w-[40rem] px-12" >
+                            <div className="md:overflow-hidden overflow-y-scroll relative bg-primary grid justify-items-center w-full md:mx-auto h-[75vh] md:w-5/6 max-w-[40rem] px-6 md:px-12" >
                                 <div
                                     onClick={() => setOpenPopupProject(!openPopupProject)}
                                     className={`absolute top-0 right-0 flex items-center justify-center text-primary bg-secondary px-4 py-2 font-bold text-lg hover:opacity-75 cursor-pointer`}><IoMdClose /></div>
@@ -294,7 +297,7 @@ export default function Repos() {
                                     <div className="w-full pt-4">
                                         <div className="pb-4 relative">
                                             <iframe
-                                                className="mx-auto"
+                                                className="mx-auto w-5/6"
                                                 width="560"
                                                 height="315"
                                                 src={selectedVideoUrl}
@@ -305,10 +308,10 @@ export default function Repos() {
                                     </div>
                                 </div>
                                 <div className="flex gap-2 items-center justify-center">
-                                    <a href={selectedRepoUrl} target="_blank" className="group-hover:flex border-2 p-1 rounded-md hover:text-highlightText hover:border-highlightText transition-all duration-300">
+                                    <a href={selectedRepoUrl} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
                                         <FaGithub />
                                     </a>
-                                    <a href={selectedProjectUrl} target="_blank" className="group-hover:flex border-2 p-1 rounded-md hover:text-highlightText hover:border-highlightText transition-all duration-300">
+                                    <a href={selectedProjectUrl} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
                                         <FaRocket />
                                     </a>
                                 </div>
@@ -328,15 +331,14 @@ export default function Repos() {
                     )
                 }
 
-
-                <div className="cursor-pointer flex p-2 justify-center items-center bg-highlightElement hover:bg-highlightElement/85 transition-all duration-300 text-defaultText">
-                    <FaPlus onClick={() => setOpenPopupCreation(!openPopupCreation)} />
+                <div className="rounded-md cursor-pointer flex gap-2 p-2 justify-center items-center bg-highlightElement hover:bg-highlightElement/85 transition-all duration-300 text-defaultText" onClick={() => setOpenPopupCreation(!openPopupCreation)}>
+                    <FaPlus /> <p className="text-sm">Create project</p>
                 </div>
 
                 {openPopupCreation && (
                     <>
                         <div className="flex flex-col items-center justify-center fixed bottom-0 left-0 top-0 select-none w-screen z-50 bg-secondarybBg">
-                            <form className="md:overflow-hidden overflow-y-scroll relative bg-primary grid justify-items-center w-full h-full md:mx-auto md:h-[unset] md:w-5/6 max-w-[40rem] px-12" onSubmit={handleSubmit(onSubmit)} autoComplete="on">
+                            <form className="md:overflow-hidden overflow-y-scroll relative bg-primary grid justify-items-center w-full md:mx-auto h-[70vh] md:w-5/6 max-w-[40rem] px-6 md:px-12" onSubmit={handleSubmit(onSubmit)} autoComplete="on">
                                 <div
                                     onClick={() => setOpenPopupCreation(!openPopupCreation)}
                                     className={` absolute top-0 right-0 flex items-center justify-center text-primary bg-secondary px-4 py-2 font-bold text-lg hover:opacity-75 cursor-pointer`}><IoMdClose /></div>
@@ -485,7 +487,7 @@ export default function Repos() {
                                     <button
                                         onClick={() => setOpenPopupCreation(!openPopupCreation)}
                                         type="submit"
-                                        className="flex items-center justify-center text-secondary bg-transparent border-secondaryText border px-6 py-2 font-bold text-sm w-fit">Cancelar</button>
+                                        className="flex items-center justify-center text-defaultText bg-transparent border-defaultText border px-6 py-2 font-bold text-sm w-fit">Cancelar</button>
                                     <FormBtn
                                         type="submit"
                                         $isSubmitting={isSubmitting}

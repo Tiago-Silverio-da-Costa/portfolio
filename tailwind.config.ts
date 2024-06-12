@@ -17,11 +17,12 @@ const config: Config = {
         bgColor: "#0d1117",
         secondarybBg: "#010409",
         highlightText: "#39d353",
-        highlightElement: "#216e39",
+        highlightElement: "#238636",
         defaultText: "#e6edf3",
         textOpacity: "#8d96a0",
         borderColor: "#30363d",
         highlightBlue: "#1f6feb",
+        textTitle: "#4493f8",
         bgFooter: "#161b22",
         
         bgGo: "#00ADD8",

@@ -13,37 +13,37 @@ export default function Footer() {
                         href="https://github.com/Tiago-Silverio-da-Costa"
                         target="_blank"
                         rel="noreferrer"
-                        className="text-defaultText hover:text-highlightText transition-all duration-300"
+                        className="text-defaultText/50 hover:text-defaultText transition-all duration-300"
                         aria-label="Github de Tiago S. C."
                     >
                         <FaGithub />
                     </Link>
-                    <p className="text-goldColor">•</p>
+                    <p className="text-defaultText/50">•</p>
                     <Link
                         href="https://www.linkedin.com/in/tiagosc/"
                         target="_blank"
                         rel="noreferrer"
-                        className="text-defaultText hover:text-highlightText transition-all duration-300"
+                        className="text-defaultText/50 hover:text-defaultText transition-all duration-300"
                         aria-label="Linkedin de Tiago S. C."
                     >
                         <FaLinkedin />
                     </Link>
-                    <p className="text-goldColor">•</p>
+                    <p className="text-defaultText/50">•</p>
                     <Link
                         href="mailto:tiagosilveriodacosta@gmail.com"
                         target="_blank"
                         rel="noreferrer"
-                        className="text-defaultText hover:text-highlightText transition-all duration-300"
+                        className="text-defaultText/50 hover:text-defaultText transition-all duration-300"
                         aria-label="E-mail de Tiago S. C."
                     >
                         <BiLogoGmail />
                     </Link>
-                    <p className="text-goldColor">•</p>
+                    <p className="text-defaultText/50">•</p>
                     <Link
                         href={`https://api.whatsapp.com/send?phone=${process.env.PUBLIC_NUMBER}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-defaultText hover:text-highlightText transition-all duration-300"
+                        className="text-defaultText/50 hover:text-defaultText transition-all duration-300"
                         aria-label="E-mail de Tiago S. C."
                     >
                         <FaWhatsapp />
