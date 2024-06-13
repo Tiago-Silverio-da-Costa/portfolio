@@ -32,10 +32,6 @@ export const FormBtn = styled.button<{
 
 	position: relative;
 
-  &:hover {
-    background-color: var(--default-text-color);
-  }
-
 	& span {
 	  color: var(--default-text-color);
 	  font-size: 0.875rem;

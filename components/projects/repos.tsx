@@ -16,11 +16,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import Update from "./update";
 
-function refreshPage() {
-    window.location.reload();
-}
-
-interface Project {
+export interface Project {
     id: number;
     name: string;
     description: string;
@@ -31,6 +27,7 @@ interface Project {
     repo_url: string;
     project_url: string;
 }
+
 
 export default function Repos() {
     const [openPopupCreation, setOpenPopupCreation] = useState<boolean>(false)
@@ -56,35 +53,11 @@ export default function Repos() {
         reValidateMode: "onSubmit",
     })
 
-    const getProjects = async () => {
-        try {
 
-            const response = await fetch("http://localhost:4000/getprojects", {
-                credentials: "include",
-                cache: "no-cache",
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-
-            if (!response.ok) {
-                throw new Error("Failed to fetch projects");
-            }
-
-            const responseData = await response.json();
-
-            const projectsData: Project[] = responseData;
-
-            setProjects(projectsData);
-        } catch (error) {
-            console.error("Error fetching projects:", error);
-        }
-    }
 
     const deleteProject = async (id: number) => {
         try {
-            const response = await fetch(`http://localhost:4000/deleteproject/${id}`, {
+            await fetch(`http://localhost:4000/deleteproject/${id}`, {
                 credentials: "include",
                 cache: "no-cache",
                 method: "DELETE",
@@ -92,16 +65,41 @@ export default function Repos() {
                     "Content-Type": "application/json"
                 }
             })
-            if (!response.ok) {
-                throw new Error("Failed to delete project");
-            }
-            refreshPage()
+
+            setProjects((prevProjects) => prevProjects?.filter((project) => project.id !== id) || null)
         } catch (error) {
-            console.error("Error deleting project:", error);
+            setError("root", {
+                type: "custom",
+                message: `Error deleting projects: ${error}`,
+            })
         }
     }
 
     useEffect(() => {
+        const getProjects = async () => {
+            try {
+    
+                const response = await fetch("http://localhost:4000/getprojects", {
+                    credentials: "include",
+                    cache: "no-cache",
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+    
+                const responseData = await response.json();
+    
+                const projectsData: Project[] = responseData;
+    
+                setProjects(projectsData);
+            } catch (error) {
+                setError("root", {
+                    type: "custom",
+                    message: `Error fetching projects: ${error}`,
+                })
+            }
+        }
         getProjects();
 
         if (openPopupCreation || openPopupUpdate || openPopupProject) {
@@ -109,7 +107,8 @@ export default function Repos() {
         } else {
             document.documentElement.style.overflow = "";
         }
-    }, [openPopupCreation, openPopupUpdate, openPopupProject])
+
+    }, [openPopupCreation, openPopupUpdate, openPopupProject, setError, setProjects])
 
     const onSubmit = async (data: TCreateProject) => {
         clearErrors()
@@ -127,7 +126,8 @@ export default function Repos() {
         })
 
         if (responseData.status === 201) {
-            refreshPage()
+            const newProject: Project = await responseData.json();
+            setProjects((prevProjects) => (prevProjects ? [newProject, ...prevProjects] : [newProject]))
             reset(
                 {
                     name: "",
@@ -143,7 +143,8 @@ export default function Repos() {
                     keepIsSubmitted: true
                 }
             )
-            return;
+            return setOpenPopupCreation(!openPopupCreation)
+            
         } else if (responseData.status === 400) {
             const response: {
                 fields?: (keyof TCreateProject)[]
@@ -186,7 +187,7 @@ export default function Repos() {
         } else if (responseData.status === 403) {
             setError("root", {
                 type: "custom",
-                message: "Forbidden!"
+                message: "Access to this domain is not permitted!"
             })
             window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
         }
@@ -326,7 +327,7 @@ export default function Repos() {
                 {
                     openPopupUpdate && selectedProjectId !== null && (
                         <>
-                            <Update id={selectedProjectId as number} setOpenPopupUpdate={setOpenPopupUpdate} />
+                            <Update id={selectedProjectId as number} setOpenPopupUpdate={setOpenPopupUpdate} setProjects={setProjects} />
                         </>
                     )
                 }
@@ -377,7 +378,7 @@ export default function Repos() {
                                                 {...register("programming_language")}
                                                 inputMode="text"
                                                 placeholder="Language"
-                                                maxLength={100}
+                                                maxLength={200}
                                                 readOnly={isSubmitting}
                                             />
                                         </FormFieldGrp>
