@@ -20,6 +20,7 @@ export const Spin = styled.div`
 export const FormBtn = styled.button<{
   $isSubmitting?: boolean;
 }>`
+  border-radius: 0.375rem;
 	background-color: var(--btn-bg-color);
   color: var(--default-text-color);
 	padding: 0.41rem 1.5rem;
@@ -96,6 +97,7 @@ export const FormFieldWrapper = styled.div<{
   & select,
   & select:focus,
   & select:focus-visible {
+    border-radius: 0.375rem;
     appearance: none;
     background-color: transparent;
     border: 1px solid var(--border-color);

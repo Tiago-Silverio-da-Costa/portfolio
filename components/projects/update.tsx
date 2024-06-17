@@ -157,8 +157,8 @@ export default function Update({ id, setOpenPopupUpdate, setProjects }: UpdatePr
 
 
     return (
-        <div className="flex flex-col items-center justify-center fixed bottom-0 left-0 top-0 select-none w-screen z-50 bg-secondarybBg">
-            <form className="md:overflow-hidden overflow-y-scroll relative bg-primary grid justify-items-center w-full h-full md:mx-auto md:h-[unset] md:w-5/6 max-w-[40rem] px-12" onSubmit={handleSubmit(onSubmit)} autoComplete="on">
+        <div className="flex flex-col items-center justify-center fixed bottom-0 left-0 top-0 select-none w-screen z-50">
+            <form className="bg-bgFooter rounded-md md:overflow-hidden overflow-y-scroll relative bg-primary grid justify-items-center w-full h-full md:mx-auto md:h-[unset] md:w-5/6 max-w-[40rem] px-12" onSubmit={handleSubmit(onSubmit)} autoComplete="on">
                 <div
                     onClick={() => setOpenPopupUpdate(false)}
                     className={` absolute top-0 right-0 flex items-center justify-center text-primary bg-secondary px-4 py-2 font-bold text-lg hover:opacity-75 cursor-pointer`}><IoMdClose /></div>
@@ -307,7 +307,7 @@ export default function Update({ id, setOpenPopupUpdate, setProjects }: UpdatePr
                     <button
                         onClick={() => setOpenPopupUpdate(false)}
                         type="submit"
-                        className="flex items-center justify-center text-secondary bg-transparent border-secondaryText border px-6 py-2 font-bold text-sm w-fit">Cancel</button>
+                        className="rounded-md flex items-center justify-center text-secondary bg-transparent border-secondaryText border px-6 py-2 font-bold text-sm w-fit">Cancel</button>
                     <FormBtn
                         type="submit"
                         $isSubmitting={isSubmitting}

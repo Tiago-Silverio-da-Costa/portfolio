@@ -10,29 +10,33 @@ export default function Header() {
 
     return (
         <header className="bg-bgFooter">
-            <div className="mx-auto w-5/6 max-w-5xl flex justify-end md:justify-center py-8">
-                <nav className="items-center  gap-4 justify-center hidden md:flex">
-                    <ul>
-                        <li>
-                            <Link className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#projects">Projects</Link>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <Link className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#experience">Experience</Link>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <Link className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#about">About</Link>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <Link className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#contact">Contact</Link>
-                        </li>
-                    </ul>
-                </nav>
+
+            <div className="mx-auto w-5/6 max-w-5xl flex justify-end items-center md:justify-between py-8">
+
+                    <h1 className="text-defaultText text-2xl font-bold">Tiago S. C.</h1>
+
+                    <nav className="items-center  gap-4 justify-center hidden md:flex">
+                        <ul>
+                            <li>
+                                <Link className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#projects">Projects</Link>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <Link className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#experience">Experience</Link>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <Link className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#about">About</Link>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <Link className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#contact">Contact</Link>
+                            </li>
+                        </ul>
+                    </nav>
 
                 {/* mobile */}
 
