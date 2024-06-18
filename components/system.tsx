@@ -1,4 +1,4 @@
-import { ReactChild, HeroContainer, NextChild, JSChild, JavaChild, TypeChild, HTMLChild, CSSChild, NodeChild, ExpressChild, PostgresChild, SqliteChild, RedisChild, PrismaChild, PythonChild, TailwindChild, StyledChild } from "@/styles/hero";
+import { ReactChild, HeroContainer, NextChild, JSChild, JavaChild, TypeChild, HTMLChild, CSSChild, NodeChild, ExpressChild, PostgresChild, SqliteChild, RedisChild, PrismaChild, PythonChild, TailwindChild, StyledChild, GoChild } from "@/styles/hero";
 
 export default function System() {
 
@@ -22,6 +22,7 @@ export default function System() {
             <RedisChild $icon={`/hero/redis.svg`} />
             <PrismaChild $icon={`/hero/prisma.svg`} />
             <PythonChild $icon={`/hero/py.svg`} />
+            <GoChild $icon={`/hero/go.svg`} />
         </HeroContainer>
         </section>
     )

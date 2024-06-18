@@ -14,7 +14,7 @@ export default function Footer() {
                         target="_blank"
                         rel="noreferrer"
                         className="text-defaultText/50 hover:text-defaultText transition-all duration-300"
-                        aria-label="Github de Tiago S. C."
+                        aria-label="Github of Tiago S. C."
                     >
                         <FaGithub />
                     </Link>
@@ -24,7 +24,7 @@ export default function Footer() {
                         target="_blank"
                         rel="noreferrer"
                         className="text-defaultText/50 hover:text-defaultText transition-all duration-300"
-                        aria-label="Linkedin de Tiago S. C."
+                        aria-label="Linkedin of Tiago S. C."
                     >
                         <FaLinkedin />
                     </Link>
@@ -34,7 +34,7 @@ export default function Footer() {
                         target="_blank"
                         rel="noreferrer"
                         className="text-defaultText/50 hover:text-defaultText transition-all duration-300"
-                        aria-label="E-mail de Tiago S. C."
+                        aria-label="E-mail of Tiago S. C."
                     >
                         <BiLogoGmail />
                     </Link>
@@ -44,7 +44,7 @@ export default function Footer() {
                         target="_blank"
                         rel="noreferrer"
                         className="text-defaultText/50 hover:text-defaultText transition-all duration-300"
-                        aria-label="E-mail de Tiago S. C."
+                        aria-label="Whatsapp of Tiago S. C."
                     >
                         <FaWhatsapp />
                     </Link>

@@ -1,64 +1,148 @@
 import Image from "next/image";
 import Contact from "./contact";
 import Education from "./education";
+import Link from "next/link";
+import { FaWhatsapp } from "react-icons/fa6";
+import { Fragment } from "react";
+
+interface AboutProps {
+    image: string;
+}
 
 export default function About() {
 
+    const frontList: AboutProps[] = [
+        {
+            image: "/hero/next.svg",
+        },
+        {
+            image: "/hero/react.svg",
+        },
+        {
+            image: "/hero/html.svg",
+        },
+        {
+            image: "/hero/css.svg",
+        },
+        {
+            image: "/hero/styled.svg",
+        },
+        {
+            image: "/hero/tailwind.svg",
+        },
+        {
+            image: "/hero/types.svg",
+        },
+        {
+            image: "/hero/js.svg",
+        },
+    ];
+
+    const backList: AboutProps[] = [
+        {
+            image: "/hero/node.svg",
+        },
+        {
+            image: "/hero/ex.svg",
+        },
+        {
+            image: "/hero/next.svg",
+        },
+    ];
+
+    const dbList: AboutProps[] = [
+        {
+            image: "/hero/postgres.svg",
+        },
+        {
+            image: "/hero/sqlite.svg",
+        },
+        {
+            image: "/hero/prisma.svg",
+        },
+        {
+            image: "/hero/redis.svg",
+        },
+    ];
+
+    const studyList: AboutProps[] = [
+        {
+            image: "/hero/java.svg",
+        },
+        {
+            image: "/hero/py.svg",
+        }, 
+        {
+            image: "/hero/go.svg",
+        },
+    ];
+
+
     return (
-        <section id="about" className="mx-auto w-5/6 max-w-5xl flex flex-col py-8">
-            <h1 className="text-3xl font-bold text-textTitle">
-                Know me better
-            </h1>
-            <div className="border-b border-b-borderColor flex flex-col-reverse md:flex-row gap-4 items-start justify-between py-4">
-                <p className="text-lg tracking-wide leading-6 font-medium max-w-xl">
-                    Hello, my name&apos;s Tiago. I&apos;m a software engineer, and I&apos;d like to share a bit about myself and why I chose to work with technology.
-                    <br />
-                    <br />
-                    Ever since I can remember, I have loved building things. One of my favorite activities was pretending to be a mad scientist, like Princess mononoke poster. This passion for creating and experimenting led me to pursue a career in programming.
-                    <br />
-                    <br />
+        <section id="about" className="mx-auto w-5/6 max-w-5xl flex flex-col md:flex-row items-center justify-between gap-4 py-8">
+            <div className="flex flex-col justify-start">
+
+                <h2 className="text-2xl md:text-3xl font-bold text-textTitle">Who am I</h2>
+
+                <p className="text-start text-sm py-4 max-w-md leading-6 tracking-tighter">
+                    Hi! I'm Tiago Silverio da Costa, a web designer and developer with a strong focus on creating exceptional web experiences. Since I began working with computers in 2022, I have discovered a deep passion for both designing and coding. My goal is to craft beautifully designed, intuitive, and functional websites that provide seamless user experiences.
                 </p>
-                <Image className="border-4 border-borderColor rounded-md" src="https://gifdb.com/images/high/dexter-s-laboratory-dexter-shower-dance-7j4owciogaizx5a0.gif" alt="Dexter from Dexter's Laboratory" width={280} height={280} />
-
+                <Link className="flex items-center gap-2 text-sm font-bold bg-highlightElement text-defaultText py-2 px-4 rounded-md w-fit"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Whatsapp of Tiago S. C."
+                    href={`https://api.whatsapp.com/send?phone=${process.env.PUBLIC_NUMBER}`}
+                >
+                    Get in touch <FaWhatsapp />
+                </Link>
             </div>
 
-            <div className="flex flex-col lg:flex-row gap-6 py-6 border-b border-b-borderColor">
-                <div className="flex flex-col-reverse md:flex-col gap-4 justify-between items-start">
-                    <div className="flex flex-col gap-2">
-                        <h1 className="text-2xl font-bold text-textTitle/75">Music</h1>
-                        <p className="text-lg tracking-wide font-medium max-w-xl leading-6">
-                            I&apos;d like to share a bit about my tastes in music. I enjoy a variety of music genres, especially rock, which I started getting into last year. Some of my favorite bands are Alice in Chains, Megadeth, Metallica, Black Sabbath, System of a Down, Iron Maiden, and Led Zeppelin.  I also enjoy 90s hip hop, Jazz, classical music and Blues too.
-                        </p>
-                    </div>
-                    <div className="flex flex-wrap justify-start gap-2">
-                        <Image className="border-4 border-borderColor rounded-md" src="https://imgs.search.brave.com/b0fATC4lU3SwMmJSPK3fEHLYmUOO_9CIxHS7ZEp4WiQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jNC53/YWxscGFwZXJmbGFy/ZS5jb20vd2FsbHBh/cGVyLzg5LzIwOS8x/NjcvYXJ0d29yay1k/YXJrLWVkZGllLWV2/aWwtd2FsbHBhcGVy/LXByZXZpZXcuanBn" alt="Iron maiden poster" width={100} height={100} />
-                        <Image className="border-4 border-borderColor rounded-md" src="https://m.media-amazon.com/images/I/71MT2hjHBvL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="System of a down poster" width={100} height={100} />
-                        <Image className="border-4 border-borderColor rounded-md" src="https://consequence.net/wp-content/uploads/2022/09/Alice-in-Chains-Dirt.jpg?quality=80" alt="Alice in chains poster" width={100} height={100} />
-                        <Image className="border-4 border-borderColor rounded-md" src="https://lastfm.freetls.fastly.net/i/u/500x500/ee96a244a9bd33a3978ca1ff34d80483.jpg" alt="Megadeth poster" width={100} height={100} />
-                    </div>
+            <div className="hidden md:flex flex-col gap-4">
+                <div className="flex items-center gap-4">
+                    <p>Frontend: </p>
+                    <ul className="flex items-center gap-2">
+
+                        {frontList.map((about, index) => (
+                            <Fragment key={index}>
+                                <Image className="bg-borderColor p-2 w-10 h-10 rounded-md" src={about.image} alt="techs" width={65} height={65} />
+                            </Fragment>
+                        ))}
+                    </ul>
                 </div>
+                <div className="flex items-center gap-4">
+                    <p>Backend: </p>
+                    <ul className="flex items-center gap-2">
 
-                <div className="flex flex-col-reverse md:flex-col gap-4 justify-between items-start">
-                    <div className="flex flex-col gap-2">
-                        <h1 className="text-2xl font-bold text-textTitle/75">Movies</h1>
-                        <p className="text-lg tracking-wide font-medium max-w-xl leading-6">
-                            When it comes to movies, I have diverse tastes as well. Some of my favorites are Pulp Fiction, Princess Mononoke, Spirited Away, Fight Club, Dances with Wolves, The Thing, and Monster.
-                        </p>
-                    </div>
-                    <div className="flex flex-wrap justify-start gap-2">
-                        <Image className="border-4 border-borderColor rounded-md" src="https://imgs.search.brave.com/rdcut5ziykPHzPsohDb87ErU2dnh-xb6b9nx5ZakOCs/rs:fit:860:0:0/g:ce/aHR0cDovL3d3dy5p/bXBhd2FyZHMuY29t/LzE5OTQvcG9zdGVy/cy9wdWxwX2ZpY3Rp/b24uanBn" alt="Pulp fiction poster" width={100} height={100} />
-                        <Image className="border-4 border-borderColor rounded-md" src="https://m.media-amazon.com/images/I/51Xl0K7PlUL.jpg" alt="Princess mononoke poster" width={100} height={100} />
-                        <Image className="border-4 border-borderColor rounded-md" src="https://m.media-amazon.com/images/I/51OKMqB5ykL.jpg" alt="Fight club poster" width={100} height={100} />
-                        <Image className="border-4 border-borderColor rounded-md" src="https://m.media-amazon.com/images/I/51pFfe542DL.jpg" alt="Dances with wolves poster" width={100} height={100} />
-                    </div>
+                        {backList.map((about, index) => (
+                            <Fragment key={index}>
+                                <Image className="bg-borderColor p-2 w-10 h-10 rounded-md" src={about.image} alt="techs" width={65} height={65} />
+                            </Fragment>
+                        ))}
+                    </ul>
+                </div>
+                <div className="flex items-center gap-4">
+                    <p>Databases: </p>
+                    <ul className="flex items-center gap-2">
+
+                        {dbList.map((about, index) => (
+                            <Fragment key={index}>
+                                <Image className="bg-borderColor p-2 w-10 h-10 rounded-md" src={about.image} alt="techs" width={65} height={65} />
+                            </Fragment>
+                        ))}
+                    </ul>
+                </div>
+                <div className="flex items-center gap-4">
+                    <p>Studying now: </p>
+                    <ul className="flex items-center gap-2">
+
+                        {studyList.map((about, index) => (
+                            <Fragment key={index}>
+                                <Image className="bg-borderColor p-2 w-10 h-10 rounded-md" src={about.image} alt="techs" width={65} height={65} />
+                            </Fragment>
+                        ))}
+                    </ul>
                 </div>
             </div>
-
-            <div className="flex flex-col lg:flex-row gap-6 py-6 ">
-                <Education />
-                <Contact />
-            </div>
-
 
         </section>
     )

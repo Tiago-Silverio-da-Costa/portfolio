@@ -25,40 +25,25 @@ export const FormBtn = styled.button<{
   color: var(--default-text-color);
 	padding: 0.41rem 1.5rem;
 	cursor: pointer;
-	transition: all 0.2s;
 	width: 100%;
+
 	@media (min-width: 768px) {
 		width: fit-content;
 	}
 
-	position: relative;
-
 	& span {
 	  color: var(--default-text-color);
 	  font-size: 0.875rem;
-		transition: all 0.1s;
     font-weight: 700;
     line-height: 1.25rem;
 	}
 
 	${({ $isSubmitting }) =>
     $isSubmitting
-      ? `
+    && `
     cursor: default;
-    & span {
-      opacity: 0;
-    }`
-      : `
-  &:hover {
-    opacity: 0.75;
-  }`}
+   `}
 
-	&>div {
-		left: 50%;
-		position: absolute;
-		top: 50%;
-		transform: translate(-50%, -50%);
-	}
 `;
 
 export const FormFieldError = styled.div`

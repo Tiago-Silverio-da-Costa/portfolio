@@ -179,12 +179,12 @@ export default function Experience() {
 
     return (
         <section id="experience" className="mx-auto w-5/6 max-w-5xl py-8">
-            <h1 className="text-3xl font-bold text-textTitle">
+            <h1 className="text-2xl md:text-3xl font-bold text-textTitle">
                 Where I&apos;ve worked and what I&apos;ve done
             </h1>
-            <div className="flex flex-col md:flex-row gap-4 items-start mt-12">
+            <div className="flex flex-col md:flex-row gap-4 items-start mt-8">
 
-                <div className={`${selectedJob === null ? "w-full" : "w-fit"} flex gap-4 flex-row md:flex-col`}>
+                <div className={`${selectedJob === null ? "w-full" : "w-fit"} flex gap-4 flex-col`}>
                     {experience?.map((job) => (
                         <div
                             key={job.id}

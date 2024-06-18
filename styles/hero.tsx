@@ -9,7 +9,7 @@ export const HeroContainer = styled.div<{
   position: relative;
   width: 10rem;
   height: 10rem;
-  border-radius: 50%;
+  border-radius: 4rem;
   position: relative;
 `;
 
@@ -37,7 +37,6 @@ export const ReactChild = styled.div<{
     position: absolute;
     bottom: -3rem;
     left: 4rem;
-    border-radius: 50%;
     margin: 45px;
   }
 
@@ -72,7 +71,6 @@ export const NextChild = styled.div<{
     position: absolute;
     left: -1rem;
     bottom: 8rem;
-    border-radius: 50%;
     margin: 5px;
   }
 
@@ -106,8 +104,6 @@ export const JSChild = styled.div<{
     position: absolute;
     bottom: -20px;
     top: -20px;
-    border-radius: 50%;
-
     margin: 1px;
   }
 
@@ -141,8 +137,6 @@ export const HTMLChild = styled.div<{
     position: absolute;
     right: -1rem;
     top: 7rem;
-    border-radius: 50%;
-
     margin: 1px;
   }
 
@@ -176,8 +170,6 @@ export const CSSChild = styled.div<{
     position: absolute;
     right: 1rem;
     top: 2rem;
-    border-radius: 50%;
-
     margin: 1px;
   }
 
@@ -211,8 +203,6 @@ export const TailwindChild = styled.div<{
     position: absolute;
     bottom: 14.5rem;
     left: 3.5rem;
-    border-radius: 50%;
-
     margin: -10px;
   }
 
@@ -246,8 +236,6 @@ export const StyledChild = styled.div<{
     position: absolute;
     bottom: 4.5rem;
     left: 0rem;
-    border-radius: 50%;
-
     margin: -10px;
   }
 
@@ -281,8 +269,6 @@ export const NodeChild = styled.div<{
     position: absolute;
     right: 1rem;
     top: 12rem;
-    border-radius: 50%;
-
     margin: 1px;
   }
 
@@ -318,8 +304,6 @@ export const JavaChild = styled.div<{
     position: absolute;
     bottom: -20px;
     top: -20px;
-    border-radius: 50%;
-
     margin: -10px;
   }
 
@@ -353,8 +337,6 @@ export const TypeChild = styled.div<{
     position: absolute;
     bottom: 0rem;
     left: 15rem;
-    border-radius: 50%;
-
     margin: -10px;
   }
 
@@ -388,8 +370,6 @@ export const ExpressChild = styled.div<{
     position: absolute;
     bottom: 8rem;
     left: 0rem;
-    border-radius: 50%;
-
     margin: -10px;
   }
 
@@ -423,8 +403,6 @@ export const PostgresChild = styled.div<{
     position: absolute;
     bottom: 11rem;
     left: 23.5rem;
-    border-radius: 50%;
-
     margin: -10px;
   }
 
@@ -456,10 +434,8 @@ export const SqliteChild = styled.div<{
     width: 2rem;
     height: 2rem;
     position: absolute;
-    bottom: 11rem;
-    left: 23.5rem;
-    border-radius: 50%;
-
+    bottom: 13rem;
+    left: -0.5rem;
     margin: -10px;
   }
 
@@ -493,8 +469,6 @@ export const RedisChild = styled.div<{
     position: absolute;
     bottom: 18rem;
     left: 21.5rem;
-    border-radius: 50%;
-
     margin: -10px;
   }
 
@@ -528,8 +502,6 @@ export const PrismaChild = styled.div<{
     position: absolute;
     bottom: 1rem;
     left: 5.5rem;
-    border-radius: 50%;
-
     margin: -10px;
   }
 
@@ -563,8 +535,39 @@ export const PythonChild = styled.div<{
     position: absolute;
     bottom: 20.5rem;
     left: 3.5rem;
-    border-radius: 50%;
+    margin: -10px;
+  }
 
+  @keyframes rotation {
+    0% {
+      transform: translate(-50%, -50%) rotate(-360deg);
+    }
+  }
+`;
+
+export const GoChild = styled.div<{
+  $icon: string;
+}>`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  animation: rotation 45s infinite linear;
+  border-radius: 50%;
+  padding: 12rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  &:before {
+    content: "";
+    display: block;
+    background-image: url(${({ $icon }) => $icon});
+    background-size: cover;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    bottom: 4rem;
+    left: 21rem;
     margin: -10px;
   }
 

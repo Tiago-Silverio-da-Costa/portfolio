@@ -3,7 +3,7 @@
 import { ProjectSchema, TCreateProject } from "@/components/commom/schemaproject";
 import { zodResolver } from "@hookform/resolvers/zod"
 import Image from "next/image"
-import { Fragment, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FaRocket } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
@@ -53,8 +53,6 @@ export default function Repos() {
         reValidateMode: "onSubmit",
     })
 
-
-
     const deleteProject = async (id: number) => {
         try {
             await fetch(`http://localhost:4000/deleteproject/${id}`, {
@@ -75,7 +73,6 @@ export default function Repos() {
         }
     }
 
-    const popupRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         const getProjects = async () => {
             try {
@@ -108,29 +105,7 @@ export default function Repos() {
         } else {
             document.documentElement.style.overflow = "";
         }
-
-        const handleClick = (event: Event) => {
-            if (
-                openPopupCreation &&
-                openPopupUpdate &&
-                popupRef.current &&
-                event.target instanceof Node &&
-                !popupRef.current.contains(event.target)
-            ) {
-                setOpenPopupCreation(!openPopupCreation);
-                setOpenPopupUpdate(false);
-            }
-        };
-
-        document.addEventListener("click", handleClick);
-        document.addEventListener("touchend", handleClick);
-
-        return () => {
-            document.removeEventListener("click", handleClick);
-            document.removeEventListener("touchend", handleClick);
-        };
-
-    }, [openPopupCreation, openPopupUpdate, openPopupProject, setError, setProjects, popupRef])
+    }, [openPopupCreation, openPopupUpdate, openPopupProject, setError, setProjects])
 
     const onSubmit = async (data: TCreateProject) => {
         clearErrors()
@@ -217,7 +192,7 @@ export default function Repos() {
 
     return (
         <>
-            <div className="relative flex flex-wrap  gap-6 flex-col md:flex-row items-center justify-center py-8">
+            <div className="relative flex flex-wrap  gap-6 flex-col md:flex-row items-center justify-center mt-6">
                 {projects?.map((project) =>
                     <div className="hover:scale-110 transition-all duration-500 flex flex-col justify-center" key={project.id}>
                         <div className="flex items-center justify-center gap-2 rounded-tl-md rounded-tr-md border border-borderColor bg-[#161b22] py-2 px-2 text-sm">
@@ -305,17 +280,21 @@ export default function Repos() {
                         </div>
                     </div>
                 )}
-                {/* https://beatriz-vidal-portfolio.vercel.app/#projects */}
-                {/* https://gmesquita.com/projects */}
 
-                <div ref={popupRef}>
-                    {
-                        openPopupProject && selectedProjectId !== null && (
-                            <div className="fixed flex items-center justify-center bottom-0 left-0 top-0 select-none h-screen w-screen">
-                                <div className="bg-bgFooter rounded-md overflow-y-scroll relative bg-primary grid justify-items-center w-full md:mx-auto h-[75vh] md:w-5/6 max-w-[40rem] py-3 px-6 md:px-12" >
-                                    <div
+                {
+                    openPopupProject && selectedProjectId !== null && (
+                        <>
+                            <div
+                                className="fixed inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm"
+                            ></div>
+                            <div className="flex flex-col justify-center items-center fixed top-0 left-0 bottom-0 z-50 select-none w-full md:w-screen">
+                                <div className="flex flex-col justify-center bg-bgFooter rounded-md overflow-y-scroll scrollbar relative md:mx-auto  h-full w-full z-50 md:h-fit md:w-5/6 max-w-[40rem] py-3 px-6 md:px-12">
+                                    <button
+                                        aria-label="close popup"
                                         onClick={() => setOpenPopupProject(!openPopupProject)}
-                                        className={`absolute top-[1.25rem] right-0 flex items-center justify-center text-textOpacity bg-secondary px-4 py-2 font-bold text-lg hover:text-defaultText cursor-pointer`}><IoMdClose /></div>
+                                        className={`absolute top-[1.25rem] right-0 flex items-center justify-center text-textOpacity bg-secondary px-4 py-2 font-bold text-lg hover:text-defaultText cursor-pointer`}>
+                                        <IoMdClose />
+                                    </button>
                                     <div className="mx-auto w-full max-w-[40rem] relative flex justify-start gap-4 py-2">
                                         <div className="flex items-center justify-center gap-4">
                                             <a href={selectedProjectUrl} target="_blank" className="uppercase font-semibold text-2xl text-textTitle text-center w-full">{selectedName}</a>
@@ -343,29 +322,13 @@ export default function Repos() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="max-w-[40rem] w-full mt-4">
+                                    <div className="max-w-md w-full mt-4">
                                         <h2 className="text-start text-lg font-semibold uppercase text-highlightText">About the project</h2>
-                                        <p className="text-start mt-2 max-w-md">{selectedDescription}</p>
+                                        <p className="text-start mt-2 ">{selectedDescription}</p>
                                     </div>
-                                    <div className="max-w-[40rem] w-full mt-4">
+                                    <div className="flex flex-col items-start justify-center max-w-md w-full mt-4">
                                         <h2 className="text-start text-lg font-semibold uppercase text-highlightText">Tech stack</h2>
                                         <div className="flex flex-wrap justify-start gap-4 mt-2">
-                                            <div className="text-defaultText flex flex-col items-center justify-center border border-borderColor rounded-md py-2 px-6">
-                                                <svg width="50px" height="50px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><title>file_type_reactjs</title><circle cx="16" cy="15.974" r="2.5" className="fill-defaultText" /><path d="M16,21.706a28.385,28.385,0,0,1-8.88-1.2,11.3,11.3,0,0,1-3.657-1.958A3.543,3.543,0,0,1,2,15.974c0-1.653,1.816-3.273,4.858-4.333A28.755,28.755,0,0,1,16,10.293a28.674,28.674,0,0,1,9.022,1.324,11.376,11.376,0,0,1,3.538,1.866A3.391,3.391,0,0,1,30,15.974c0,1.718-2.03,3.459-5.3,4.541A28.8,28.8,0,0,1,16,21.706Zm0-10.217a27.948,27.948,0,0,0-8.749,1.282c-2.8.977-4.055,2.313-4.055,3.2,0,.928,1.349,2.387,4.311,3.4A27.21,27.21,0,0,0,16,20.51a27.6,27.6,0,0,0,8.325-1.13C27.4,18.361,28.8,16.9,28.8,15.974a2.327,2.327,0,0,0-1.01-1.573,10.194,10.194,0,0,0-3.161-1.654A27.462,27.462,0,0,0,16,11.489Z" className="fill-defaultText" /><path d="M10.32,28.443a2.639,2.639,0,0,1-1.336-.328c-1.432-.826-1.928-3.208-1.327-6.373a28.755,28.755,0,0,1,3.4-8.593h0A28.676,28.676,0,0,1,16.71,5.995a11.376,11.376,0,0,1,3.384-2.133,3.391,3.391,0,0,1,2.878,0c1.489.858,1.982,3.486,1.287,6.859a28.806,28.806,0,0,1-3.316,8.133,28.385,28.385,0,0,1-5.476,7.093,11.3,11.3,0,0,1-3.523,2.189A4.926,4.926,0,0,1,10.32,28.443Zm1.773-14.7a27.948,27.948,0,0,0-3.26,8.219c-.553,2.915-.022,4.668.75,5.114.8.463,2.742.024,5.1-2.036a27.209,27.209,0,0,0,5.227-6.79,27.6,27.6,0,0,0,3.181-7.776c.654-3.175.089-5.119-.713-5.581a2.327,2.327,0,0,0-1.868.089A10.194,10.194,0,0,0,17.5,6.9a27.464,27.464,0,0,0-5.4,6.849Z" className="fill-defaultText" /><path d="M21.677,28.456c-1.355,0-3.076-.82-4.868-2.361a28.756,28.756,0,0,1-5.747-7.237h0a28.676,28.676,0,0,1-3.374-8.471,11.376,11.376,0,0,1-.158-4A3.391,3.391,0,0,1,8.964,3.9c1.487-.861,4.01.024,6.585,2.31a28.8,28.8,0,0,1,5.39,6.934,28.384,28.384,0,0,1,3.41,8.287,11.3,11.3,0,0,1,.137,4.146,3.543,3.543,0,0,1-1.494,2.555A2.59,2.59,0,0,1,21.677,28.456Zm-9.58-10.2a27.949,27.949,0,0,0,5.492,6.929c2.249,1.935,4.033,2.351,4.8,1.9.8-.465,1.39-2.363.782-5.434A27.212,27.212,0,0,0,19.9,13.74,27.6,27.6,0,0,0,14.755,7.1c-2.424-2.152-4.39-2.633-5.191-2.169a2.327,2.327,0,0,0-.855,1.662,10.194,10.194,0,0,0,.153,3.565,27.465,27.465,0,0,0,3.236,8.1Z" className="fill-defaultText" /></svg>
-                                                {"React"}
-                                            </div>
-                                            <div className="text-defaultText flex flex-col items-center justify-center border border-borderColor rounded-md py-2 px-6">
-                                                <svg width="50px" height="50px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><title>file_type_reactjs</title><circle cx="16" cy="15.974" r="2.5" className="fill-defaultText" /><path d="M16,21.706a28.385,28.385,0,0,1-8.88-1.2,11.3,11.3,0,0,1-3.657-1.958A3.543,3.543,0,0,1,2,15.974c0-1.653,1.816-3.273,4.858-4.333A28.755,28.755,0,0,1,16,10.293a28.674,28.674,0,0,1,9.022,1.324,11.376,11.376,0,0,1,3.538,1.866A3.391,3.391,0,0,1,30,15.974c0,1.718-2.03,3.459-5.3,4.541A28.8,28.8,0,0,1,16,21.706Zm0-10.217a27.948,27.948,0,0,0-8.749,1.282c-2.8.977-4.055,2.313-4.055,3.2,0,.928,1.349,2.387,4.311,3.4A27.21,27.21,0,0,0,16,20.51a27.6,27.6,0,0,0,8.325-1.13C27.4,18.361,28.8,16.9,28.8,15.974a2.327,2.327,0,0,0-1.01-1.573,10.194,10.194,0,0,0-3.161-1.654A27.462,27.462,0,0,0,16,11.489Z" className="fill-defaultText" /><path d="M10.32,28.443a2.639,2.639,0,0,1-1.336-.328c-1.432-.826-1.928-3.208-1.327-6.373a28.755,28.755,0,0,1,3.4-8.593h0A28.676,28.676,0,0,1,16.71,5.995a11.376,11.376,0,0,1,3.384-2.133,3.391,3.391,0,0,1,2.878,0c1.489.858,1.982,3.486,1.287,6.859a28.806,28.806,0,0,1-3.316,8.133,28.385,28.385,0,0,1-5.476,7.093,11.3,11.3,0,0,1-3.523,2.189A4.926,4.926,0,0,1,10.32,28.443Zm1.773-14.7a27.948,27.948,0,0,0-3.26,8.219c-.553,2.915-.022,4.668.75,5.114.8.463,2.742.024,5.1-2.036a27.209,27.209,0,0,0,5.227-6.79,27.6,27.6,0,0,0,3.181-7.776c.654-3.175.089-5.119-.713-5.581a2.327,2.327,0,0,0-1.868.089A10.194,10.194,0,0,0,17.5,6.9a27.464,27.464,0,0,0-5.4,6.849Z" className="fill-defaultText" /><path d="M21.677,28.456c-1.355,0-3.076-.82-4.868-2.361a28.756,28.756,0,0,1-5.747-7.237h0a28.676,28.676,0,0,1-3.374-8.471,11.376,11.376,0,0,1-.158-4A3.391,3.391,0,0,1,8.964,3.9c1.487-.861,4.01.024,6.585,2.31a28.8,28.8,0,0,1,5.39,6.934,28.384,28.384,0,0,1,3.41,8.287,11.3,11.3,0,0,1,.137,4.146,3.543,3.543,0,0,1-1.494,2.555A2.59,2.59,0,0,1,21.677,28.456Zm-9.58-10.2a27.949,27.949,0,0,0,5.492,6.929c2.249,1.935,4.033,2.351,4.8,1.9.8-.465,1.39-2.363.782-5.434A27.212,27.212,0,0,0,19.9,13.74,27.6,27.6,0,0,0,14.755,7.1c-2.424-2.152-4.39-2.633-5.191-2.169a2.327,2.327,0,0,0-.855,1.662,10.194,10.194,0,0,0,.153,3.565,27.465,27.465,0,0,0,3.236,8.1Z" className="fill-defaultText" /></svg>
-                                                {"React"}
-                                            </div>
-                                            <div className="text-defaultText flex flex-col items-center justify-center border border-borderColor rounded-md py-2 px-6">
-                                                <svg width="50px" height="50px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><title>file_type_reactjs</title><circle cx="16" cy="15.974" r="2.5" className="fill-defaultText" /><path d="M16,21.706a28.385,28.385,0,0,1-8.88-1.2,11.3,11.3,0,0,1-3.657-1.958A3.543,3.543,0,0,1,2,15.974c0-1.653,1.816-3.273,4.858-4.333A28.755,28.755,0,0,1,16,10.293a28.674,28.674,0,0,1,9.022,1.324,11.376,11.376,0,0,1,3.538,1.866A3.391,3.391,0,0,1,30,15.974c0,1.718-2.03,3.459-5.3,4.541A28.8,28.8,0,0,1,16,21.706Zm0-10.217a27.948,27.948,0,0,0-8.749,1.282c-2.8.977-4.055,2.313-4.055,3.2,0,.928,1.349,2.387,4.311,3.4A27.21,27.21,0,0,0,16,20.51a27.6,27.6,0,0,0,8.325-1.13C27.4,18.361,28.8,16.9,28.8,15.974a2.327,2.327,0,0,0-1.01-1.573,10.194,10.194,0,0,0-3.161-1.654A27.462,27.462,0,0,0,16,11.489Z" className="fill-defaultText" /><path d="M10.32,28.443a2.639,2.639,0,0,1-1.336-.328c-1.432-.826-1.928-3.208-1.327-6.373a28.755,28.755,0,0,1,3.4-8.593h0A28.676,28.676,0,0,1,16.71,5.995a11.376,11.376,0,0,1,3.384-2.133,3.391,3.391,0,0,1,2.878,0c1.489.858,1.982,3.486,1.287,6.859a28.806,28.806,0,0,1-3.316,8.133,28.385,28.385,0,0,1-5.476,7.093,11.3,11.3,0,0,1-3.523,2.189A4.926,4.926,0,0,1,10.32,28.443Zm1.773-14.7a27.948,27.948,0,0,0-3.26,8.219c-.553,2.915-.022,4.668.75,5.114.8.463,2.742.024,5.1-2.036a27.209,27.209,0,0,0,5.227-6.79,27.6,27.6,0,0,0,3.181-7.776c.654-3.175.089-5.119-.713-5.581a2.327,2.327,0,0,0-1.868.089A10.194,10.194,0,0,0,17.5,6.9a27.464,27.464,0,0,0-5.4,6.849Z" className="fill-defaultText" /><path d="M21.677,28.456c-1.355,0-3.076-.82-4.868-2.361a28.756,28.756,0,0,1-5.747-7.237h0a28.676,28.676,0,0,1-3.374-8.471,11.376,11.376,0,0,1-.158-4A3.391,3.391,0,0,1,8.964,3.9c1.487-.861,4.01.024,6.585,2.31a28.8,28.8,0,0,1,5.39,6.934,28.384,28.384,0,0,1,3.41,8.287,11.3,11.3,0,0,1,.137,4.146,3.543,3.543,0,0,1-1.494,2.555A2.59,2.59,0,0,1,21.677,28.456Zm-9.58-10.2a27.949,27.949,0,0,0,5.492,6.929c2.249,1.935,4.033,2.351,4.8,1.9.8-.465,1.39-2.363.782-5.434A27.212,27.212,0,0,0,19.9,13.74,27.6,27.6,0,0,0,14.755,7.1c-2.424-2.152-4.39-2.633-5.191-2.169a2.327,2.327,0,0,0-.855,1.662,10.194,10.194,0,0,0,.153,3.565,27.465,27.465,0,0,0,3.236,8.1Z" className="fill-defaultText" /></svg>
-                                                {"React"}
-                                            </div>
-                                            <div className="text-defaultText flex flex-col items-center justify-center border border-borderColor rounded-md py-2 px-6">
-                                                <svg width="50px" height="50px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><title>file_type_reactjs</title><circle cx="16" cy="15.974" r="2.5" className="fill-defaultText" /><path d="M16,21.706a28.385,28.385,0,0,1-8.88-1.2,11.3,11.3,0,0,1-3.657-1.958A3.543,3.543,0,0,1,2,15.974c0-1.653,1.816-3.273,4.858-4.333A28.755,28.755,0,0,1,16,10.293a28.674,28.674,0,0,1,9.022,1.324,11.376,11.376,0,0,1,3.538,1.866A3.391,3.391,0,0,1,30,15.974c0,1.718-2.03,3.459-5.3,4.541A28.8,28.8,0,0,1,16,21.706Zm0-10.217a27.948,27.948,0,0,0-8.749,1.282c-2.8.977-4.055,2.313-4.055,3.2,0,.928,1.349,2.387,4.311,3.4A27.21,27.21,0,0,0,16,20.51a27.6,27.6,0,0,0,8.325-1.13C27.4,18.361,28.8,16.9,28.8,15.974a2.327,2.327,0,0,0-1.01-1.573,10.194,10.194,0,0,0-3.161-1.654A27.462,27.462,0,0,0,16,11.489Z" className="fill-defaultText" /><path d="M10.32,28.443a2.639,2.639,0,0,1-1.336-.328c-1.432-.826-1.928-3.208-1.327-6.373a28.755,28.755,0,0,1,3.4-8.593h0A28.676,28.676,0,0,1,16.71,5.995a11.376,11.376,0,0,1,3.384-2.133,3.391,3.391,0,0,1,2.878,0c1.489.858,1.982,3.486,1.287,6.859a28.806,28.806,0,0,1-3.316,8.133,28.385,28.385,0,0,1-5.476,7.093,11.3,11.3,0,0,1-3.523,2.189A4.926,4.926,0,0,1,10.32,28.443Zm1.773-14.7a27.948,27.948,0,0,0-3.26,8.219c-.553,2.915-.022,4.668.75,5.114.8.463,2.742.024,5.1-2.036a27.209,27.209,0,0,0,5.227-6.79,27.6,27.6,0,0,0,3.181-7.776c.654-3.175.089-5.119-.713-5.581a2.327,2.327,0,0,0-1.868.089A10.194,10.194,0,0,0,17.5,6.9a27.464,27.464,0,0,0-5.4,6.849Z" className="fill-defaultText" /><path d="M21.677,28.456c-1.355,0-3.076-.82-4.868-2.361a28.756,28.756,0,0,1-5.747-7.237h0a28.676,28.676,0,0,1-3.374-8.471,11.376,11.376,0,0,1-.158-4A3.391,3.391,0,0,1,8.964,3.9c1.487-.861,4.01.024,6.585,2.31a28.8,28.8,0,0,1,5.39,6.934,28.384,28.384,0,0,1,3.41,8.287,11.3,11.3,0,0,1,.137,4.146,3.543,3.543,0,0,1-1.494,2.555A2.59,2.59,0,0,1,21.677,28.456Zm-9.58-10.2a27.949,27.949,0,0,0,5.492,6.929c2.249,1.935,4.033,2.351,4.8,1.9.8-.465,1.39-2.363.782-5.434A27.212,27.212,0,0,0,19.9,13.74,27.6,27.6,0,0,0,14.755,7.1c-2.424-2.152-4.39-2.633-5.191-2.169a2.327,2.327,0,0,0-.855,1.662,10.194,10.194,0,0,0,.153,3.565,27.465,27.465,0,0,0,3.236,8.1Z" className="fill-defaultText" /></svg>
-                                                {"React"}
-                                            </div>
                                             <div className="text-defaultText flex flex-col items-center justify-center border border-borderColor rounded-md py-2 px-6">
                                                 <svg width="50px" height="50px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><title>file_type_reactjs</title><circle cx="16" cy="15.974" r="2.5" className="fill-defaultText" /><path d="M16,21.706a28.385,28.385,0,0,1-8.88-1.2,11.3,11.3,0,0,1-3.657-1.958A3.543,3.543,0,0,1,2,15.974c0-1.653,1.816-3.273,4.858-4.333A28.755,28.755,0,0,1,16,10.293a28.674,28.674,0,0,1,9.022,1.324,11.376,11.376,0,0,1,3.538,1.866A3.391,3.391,0,0,1,30,15.974c0,1.718-2.03,3.459-5.3,4.541A28.8,28.8,0,0,1,16,21.706Zm0-10.217a27.948,27.948,0,0,0-8.749,1.282c-2.8.977-4.055,2.313-4.055,3.2,0,.928,1.349,2.387,4.311,3.4A27.21,27.21,0,0,0,16,20.51a27.6,27.6,0,0,0,8.325-1.13C27.4,18.361,28.8,16.9,28.8,15.974a2.327,2.327,0,0,0-1.01-1.573,10.194,10.194,0,0,0-3.161-1.654A27.462,27.462,0,0,0,16,11.489Z" className="fill-defaultText" /><path d="M10.32,28.443a2.639,2.639,0,0,1-1.336-.328c-1.432-.826-1.928-3.208-1.327-6.373a28.755,28.755,0,0,1,3.4-8.593h0A28.676,28.676,0,0,1,16.71,5.995a11.376,11.376,0,0,1,3.384-2.133,3.391,3.391,0,0,1,2.878,0c1.489.858,1.982,3.486,1.287,6.859a28.806,28.806,0,0,1-3.316,8.133,28.385,28.385,0,0,1-5.476,7.093,11.3,11.3,0,0,1-3.523,2.189A4.926,4.926,0,0,1,10.32,28.443Zm1.773-14.7a27.948,27.948,0,0,0-3.26,8.219c-.553,2.915-.022,4.668.75,5.114.8.463,2.742.024,5.1-2.036a27.209,27.209,0,0,0,5.227-6.79,27.6,27.6,0,0,0,3.181-7.776c.654-3.175.089-5.119-.713-5.581a2.327,2.327,0,0,0-1.868.089A10.194,10.194,0,0,0,17.5,6.9a27.464,27.464,0,0,0-5.4,6.849Z" className="fill-defaultText" /><path d="M21.677,28.456c-1.355,0-3.076-.82-4.868-2.361a28.756,28.756,0,0,1-5.747-7.237h0a28.676,28.676,0,0,1-3.374-8.471,11.376,11.376,0,0,1-.158-4A3.391,3.391,0,0,1,8.964,3.9c1.487-.861,4.01.024,6.585,2.31a28.8,28.8,0,0,1,5.39,6.934,28.384,28.384,0,0,1,3.41,8.287,11.3,11.3,0,0,1,.137,4.146,3.543,3.543,0,0,1-1.494,2.555A2.59,2.59,0,0,1,21.677,28.456Zm-9.58-10.2a27.949,27.949,0,0,0,5.492,6.929c2.249,1.935,4.033,2.351,4.8,1.9.8-.465,1.39-2.363.782-5.434A27.212,27.212,0,0,0,19.9,13.74,27.6,27.6,0,0,0,14.755,7.1c-2.424-2.152-4.39-2.633-5.191-2.169a2.327,2.327,0,0,0-.855,1.662,10.194,10.194,0,0,0,.153,3.565,27.465,27.465,0,0,0,3.236,8.1Z" className="fill-defaultText" /></svg>
                                                 {"React"}
@@ -398,9 +361,9 @@ export default function Repos() {
                                     </div>
                                 </div>
                             </div>
-                        )
-                    }
-                </div>
+                        </>
+                    )
+                }
                 {
                     openPopupUpdate && selectedProjectId !== null && (
                         <>
@@ -415,13 +378,18 @@ export default function Repos() {
 
                 {openPopupCreation && (
                     <>
-                        <div className="flex flex-col items-center justify-center fixed bottom-0 left-0 top-0 select-none w-screen z-50 ">
-                            <form className="bg-bgFooter rounded-md md:overflow-hidden overflow-y-scroll relative bg-primary grid justify-items-center w-full md:mx-auto h-[70vh] md:w-5/6 max-w-[40rem] px-6 md:px-12" onSubmit={handleSubmit(onSubmit)} autoComplete="on">
-                                <div
+                        <div
+                            className="fixed inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm"
+                        ></div>
+                        <div className="flex justify-center items-center fixed top-0 left-0 bottom-0 z-50 select-none w-full md:w-screen">
+                            <form className="flex flex-col justify-center bg-bgFooter rounded-md overflow-y-scroll md:scrollbar relative md:mx-auto h-full w-full z-50 md:h-fit md:w-5/6 max-w-[40rem] py-3 px-6 md:px-12" onSubmit={handleSubmit(onSubmit)} autoComplete="on">
+                                <button
+                                    aria-label="close popup"
                                     onClick={() => setOpenPopupCreation(!openPopupCreation)}
-                                    className={` absolute top-0 right-0 flex items-center justify-center text-primary bg-secondary px-4 py-2 font-bold text-lg hover:opacity-75 cursor-pointer`}><IoMdClose /></div>
-                                <div className="bg-bg-primary mx-auto w-full max-w-[40rem] relative flex justify-start gap-4 border-b border-b-secondaryText py-2">
-                                    <h1 className="uppercase font-light text-sm text-center w-full">Creation area</h1>
+                                    className={`absolute top-0 right-0 flex items-center justify-center text-textOpacity px-4 py-2 font-bold text-lg hover:text-defaultText cursor-pointer`}><IoMdClose />
+                                </button>
+                                <div className="mx-auto w-full max-w-[40rem] relative flex justify-start gap-4 py-2">
+                                    <h1 className="uppercase font-semibold text-2xl text-textTitle text-center w-full">Creation area</h1>
                                 </div>
                                 {Object.keys(errors).length > 0 && (
                                     <Alert type="error">
@@ -574,7 +542,7 @@ export default function Repos() {
                                         {isSubmitting && (
                                             <div className="text-xl">
                                                 <Spin>
-                                                    <PiSpinnerBold className="text-primary" />
+                                                    <PiSpinnerBold className="text-defaultText" />
                                                 </Spin>
                                             </div>
                                         )}
@@ -585,7 +553,7 @@ export default function Repos() {
                         </div>
                     </>
                 )}
-            </div>
+            </div >
 
         </>
     )
