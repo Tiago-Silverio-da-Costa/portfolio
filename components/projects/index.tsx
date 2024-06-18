@@ -1,4 +1,3 @@
-import FiltersNSearch from "./filtersNSearch";
 import Repos from "./repos";
 
 

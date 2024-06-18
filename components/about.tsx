@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Contact from "./contact";
-import Education from "./education";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa6";
 import { Fragment } from "react";
@@ -85,7 +83,7 @@ export default function About() {
                 <h2 className="text-2xl md:text-3xl font-bold text-textTitle">Who am I</h2>
 
                 <p className="text-start text-sm py-4 max-w-md leading-6 tracking-tighter">
-                    Hi! I'm Tiago Silverio da Costa, a web designer and developer with a strong focus on creating exceptional web experiences. Since I began working with computers in 2022, I have discovered a deep passion for both designing and coding. My goal is to craft beautifully designed, intuitive, and functional websites that provide seamless user experiences.
+                    Hi! I&apos;m Tiago Silverio da Costa, a web designer and developer with a strong focus on creating exceptional web experiences. Since I began working with computers in 2022, I have discovered a deep passion for both designing and coding. My goal is to craft beautifully designed, intuitive, and functional websites that provide seamless user experiences.
                 </p>
                 <Link className="flex items-center gap-2 text-sm font-bold bg-highlightElement text-defaultText py-2 px-4 rounded-md w-fit"
                     target="_blank"
