@@ -326,7 +326,7 @@ export default function Repos() {
                                         <h2 className="text-start text-lg font-semibold uppercase text-highlightText">About the project</h2>
                                         <p className="text-start mt-2 ">{selectedDescription}</p>
                                     </div>
-                                    <div className="flex flex-col items-start justify-center max-w-md w-full mt-4">
+                                    {/* <div className="flex flex-col items-start justify-center max-w-md w-full mt-4">
                                         <h2 className="text-start text-lg font-semibold uppercase text-highlightText">Tech stack</h2>
                                         <div className="flex flex-wrap justify-start gap-4 mt-2">
                                             <div className="text-defaultText flex flex-col items-center justify-center border border-borderColor rounded-md py-2 px-6">
@@ -358,7 +358,7 @@ export default function Repos() {
                                                 {"React"}
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </>
