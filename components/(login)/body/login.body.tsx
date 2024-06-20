@@ -105,65 +105,71 @@ const Login: React.FC = () => {
     }
 
     return (
-        <section className="mx-auto w-5/6 max-w-5xl py-8">
-            <form className="" onSubmit={handleSubmit(onSubmit)} autoComplete="on">
-                {Object.keys(errors).length > 0 && (
-                    <Alert type="error">
-                        {errors.root?.message ??
-                            "Check the fields and try again!"}
-                    </Alert>
-                )}
-                {isSubmitSuccessful && (
-                    <Alert type="success">
-                        Successfully logged in!
-                    </Alert>
-                )}
-                <div className="flex flex-col items-center justify-between gap-8 mt-6 w-full">
-                    <FormFieldWrapper $error={!!errors.username}>
-                        <FormFieldGrp>
-                            <input
-                                {...register("username")}
-                                inputMode="text"
-                                placeholder="username"
-                                maxLength={100}
-                                readOnly={isSubmitting}
-                            />
-                        </FormFieldGrp>
-                        {errors.username && (
-                            <FormFieldError>{errors.username.message}</FormFieldError>
-                        )}
-                    </FormFieldWrapper>
-                    <FormFieldWrapper $error={!!errors.password}>
-                        <FormFieldGrp>
-                            <input
-                                {...register("password")}
-                                type="password"
-                                inputMode="text"
-                                placeholder="password"
-                                maxLength={100}
-                                readOnly={isSubmitting}
-                            />
-                        </FormFieldGrp>
-                        {errors.password && (
-                            <FormFieldError>{errors.password.message}</FormFieldError>
-                        )}
-                    </FormFieldWrapper>
-                    <FormBtn
-                        type="submit"
-                        $isSubmitting={isSubmitting}
-                        disabled={isSubmitting}
-                    >
-                        {isSubmitting && (
-                            <div className="text-xl">
-                                <Spin>
-                                    <PiSpinnerBold className="text-primary" />
-                                </Spin>
-                            </div>
-                        )}
-                        <span>Register</span>
-                    </FormBtn>
-                </div>
-            </form>
+        <section className="flex items-center justify-center mx-auto w-5/6 max-w-72 py-8 h-[80vh]">
+            <div className="flex flex-col gap-4 w-full">
+
+                <h1 className="text-2xl font-medium tracking-tighter leading-6 text-center text-primary">
+                    Sign in to Portfolio
+                </h1>
+                <form className="bg-bgFooter px-4 py-4 rounded-md" onSubmit={handleSubmit(onSubmit)} autoComplete="on">
+                    {Object.keys(errors).length > 0 && (
+                        <Alert type="error">
+                            {errors.root?.message ??
+                                "Check the fields and try again!"}
+                        </Alert>
+                    )}
+                    {isSubmitSuccessful && (
+                        <Alert type="success">
+                            Successfully logged in!
+                        </Alert>
+                    )}
+                    <div className="flex flex-col items-center justify-between gap-8 mt-6 w-full">
+                        <FormFieldWrapper $error={!!errors.username}>
+                            <FormFieldGrp>
+                                <input
+                                    {...register("username")}
+                                    inputMode="text"
+                                    placeholder="username"
+                                    maxLength={100}
+                                    readOnly={isSubmitting}
+                                />
+                            </FormFieldGrp>
+                            {errors.username && (
+                                <FormFieldError>{errors.username.message}</FormFieldError>
+                            )}
+                        </FormFieldWrapper>
+                        <FormFieldWrapper $error={!!errors.password}>
+                            <FormFieldGrp>
+                                <input
+                                    {...register("password")}
+                                    type="password"
+                                    inputMode="text"
+                                    placeholder="password"
+                                    maxLength={100}
+                                    readOnly={isSubmitting}
+                                />
+                            </FormFieldGrp>
+                            {errors.password && (
+                                <FormFieldError>{errors.password.message}</FormFieldError>
+                            )}
+                        </FormFieldWrapper>
+                        <FormBtn
+                            type="submit"
+                            $isSubmitting={isSubmitting}
+                            disabled={isSubmitting}
+                        >
+                            {isSubmitting && (
+                                <div className="text-xl">
+                                    <Spin>
+                                        <PiSpinnerBold className="text-primary" />
+                                    </Spin>
+                                </div>
+                            )}
+                            <span>Register</span>
+                        </FormBtn>
+                    </div>
+                </form>
+            </div>
         </section>
     )
 }

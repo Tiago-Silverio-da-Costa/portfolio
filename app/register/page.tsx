@@ -1,8 +1,12 @@
 import Register from "@/components/(login)/body/register.body";
+import Header from "@/components/header";
 
 export default function RegisterPage() {
 
     return (
-        <Register />
+        <>
+            <Header />
+            <Register />
+        </>
     )
 }
