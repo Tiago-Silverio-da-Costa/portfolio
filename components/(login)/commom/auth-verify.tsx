@@ -16,10 +16,10 @@ const AuthVerify: React.FC = () => {
       }
 
       if (decodedJwt.exp * 1000 < Date.now()) {
-        router.push("/logout"); // Example: Redirect to logout page
+        router.push("/logout");
       }
     }
-  }, []);
+  }, [router]);
 
   return <div></div>;
 };

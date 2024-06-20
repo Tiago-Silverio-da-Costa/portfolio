@@ -42,6 +42,9 @@ export const FormBtn = styled.button<{
     $isSubmitting
     && `
     cursor: default;
+    & span {
+      display: none;
+    }
    `}
 
 `;

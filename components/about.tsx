@@ -1,8 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa6";
-import { Fragment } from "react";
-
+import { Fragment, useEffect } from "react";
+import Experience from "./experience";
+import { motion } from "framer-motion";
 interface AboutProps {
     image: string;
 }
@@ -69,79 +72,88 @@ export default function About() {
         },
         {
             image: "/hero/py.svg",
-        }, 
+        },
         {
             image: "/hero/go.svg",
         },
     ];
 
 
+
     return (
-        <section id="about" className="mx-auto w-5/6 max-w-5xl flex flex-col md:flex-row items-center justify-between gap-8 py-8">
-            <div className="flex flex-col justify-start">
+        <motion.section
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            id="about"
+            className="mx-auto w-5/6 max-w-5xl flex flex-col items-start justify-center gap-4 py-10">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8 ">
+                <div className="flex flex-col justify-start">
 
-                <h2 className="text-2xl md:text-3xl font-bold text-textTitle">Who am I</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-textTitle">Who am I</h2>
 
-                <p className="text-start text-sm py-4 max-w-md leading-6 tracking-tighter">
-                    Hi! I&apos;m Tiago Silverio da Costa, a web designer and developer with a strong focus on creating exceptional web experiences. Since I began working with computers in 2022, I have discovered a deep passion for both designing and coding. My goal is to craft beautifully designed, intuitive, and functional websites that provide seamless user experiences.
-                </p>
-                <Link className="flex items-center gap-2 text-sm font-bold bg-highlightElement text-defaultText py-2 px-4 rounded-md w-fit"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Whatsapp of Tiago S. C."
-                    href={`https://api.whatsapp.com/send?phone=${process.env.PUBLIC_NUMBER}`}
-                >
-                    Get in touch <FaWhatsapp />
-                </Link>
+                    <p className="text-start text-sm py-4 max-w-md leading-6 tracking-tighter">
+                        Hi! I&apos;m Tiago Silverio da Costa, a web designer and developer with a strong focus on creating exceptional web experiences. Since I began working with computers in 2022, I have discovered a deep passion for both designing and coding. My goal is to craft beautifully designed, intuitive, and functional websites that provide seamless user experiences.
+                    </p>
+                    <Link className="flex items-center gap-2 text-sm font-bold bg-highlightElement text-defaultText py-2 px-4 rounded-md w-fit"
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="Whatsapp of Tiago S. C."
+                        href={`https://api.whatsapp.com/send?phone=${process.env.PUBLIC_NUMBER}`}
+                    >
+                        Get in touch <FaWhatsapp />
+                    </Link>
+                </div>
+
+                <div className="hidden md:flex flex-col gap-4">
+                    <div className="flex items-center gap-4">
+                        <p>Frontend: </p>
+                        <ul className="flex flex-wrap items-center gap-2">
+
+                            {frontList.map((about, index) => (
+                                <Fragment key={index}>
+                                    <Image className="bg-borderColor p-2 w-10 h-10 rounded-md" src={about.image} alt="techs" width={65} height={65} />
+                                </Fragment>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="flex items-center gap-4">
+                        <p>Backend: </p>
+                        <ul className="flex flex-wrap items-center gap-2">
+
+                            {backList.map((about, index) => (
+                                <Fragment key={index}>
+                                    <Image className="bg-borderColor p-2 w-10 h-10 rounded-md" src={about.image} alt="techs" width={65} height={65} />
+                                </Fragment>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="flex items-center gap-4">
+                        <p>Databases: </p>
+                        <ul className="flex flex-wrap items-center gap-2">
+
+                            {dbList.map((about, index) => (
+                                <Fragment key={index}>
+                                    <Image className="bg-borderColor p-2 w-10 h-10 rounded-md" src={about.image} alt="techs" width={65} height={65} />
+                                </Fragment>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="flex items-center gap-4">
+                        <p>Studying now: </p>
+                        <ul className="flex flex-wrap items-center gap-2">
+
+                            {studyList.map((about, index) => (
+                                <Fragment key={index}>
+                                    <Image className="bg-borderColor p-2 w-10 h-10 rounded-md" src={about.image} alt="techs" width={65} height={65} />
+                                </Fragment>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
             </div>
 
-            <div className="hidden md:flex flex-col gap-4">
-                <div className="flex items-center gap-4">
-                    <p>Frontend: </p>
-                    <ul className="flex flex-wrap items-center gap-2">
-
-                        {frontList.map((about, index) => (
-                            <Fragment key={index}>
-                                <Image className="bg-borderColor p-2 w-10 h-10 rounded-md" src={about.image} alt="techs" width={65} height={65} />
-                            </Fragment>
-                        ))}
-                    </ul>
-                </div>
-                <div className="flex items-center gap-4">
-                    <p>Backend: </p>
-                    <ul className="flex flex-wrap items-center gap-2">
-
-                        {backList.map((about, index) => (
-                            <Fragment key={index}>
-                                <Image className="bg-borderColor p-2 w-10 h-10 rounded-md" src={about.image} alt="techs" width={65} height={65} />
-                            </Fragment>
-                        ))}
-                    </ul>
-                </div>
-                <div className="flex items-center gap-4">
-                    <p>Databases: </p>
-                    <ul className="flex flex-wrap items-center gap-2">
-
-                        {dbList.map((about, index) => (
-                            <Fragment key={index}>
-                                <Image className="bg-borderColor p-2 w-10 h-10 rounded-md" src={about.image} alt="techs" width={65} height={65} />
-                            </Fragment>
-                        ))}
-                    </ul>
-                </div>
-                <div className="flex items-center gap-4">
-                    <p>Studying now: </p>
-                    <ul className="flex flex-wrap items-center gap-2">
-
-                        {studyList.map((about, index) => (
-                            <Fragment key={index}>
-                                <Image className="bg-borderColor p-2 w-10 h-10 rounded-md" src={about.image} alt="techs" width={65} height={65} />
-                            </Fragment>
-                        ))}
-                    </ul>
-                </div>
-            </div>
-
-        </section>
+            <Experience />
+        </motion.section>
     )
 }

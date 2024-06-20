@@ -12,6 +12,7 @@ import { usePathname } from "next/navigation";
 
 export function logout() {
     localStorage.removeItem("user");
+    window.location.reload();
 }
 
 export default function Header() {
@@ -42,14 +43,15 @@ export default function Header() {
 
         getAdminBoard()
 
-        if (pathname !== "/") {
+        if (pathname === "/login" || pathname === "/register") {
             setHideContent(true)
         }
-    }, [])
+
+    }, [pathname])
 
     return (
         <header className="bg-bgFooter">
-            <div className="mx-auto w-5/6 max-w-5xl flex items-center justify-end md:justify-between py-8">
+            <div className={`${isAdmin ? "justify-between" : "justify-end md:justify-center"} mx-auto w-5/6 max-w-5xl flex items-center py-8`}>
                 {
                     isAdmin && (
                         <FormBtn
@@ -61,71 +63,41 @@ export default function Header() {
                     )
                 }
 
-                <div className="hidden md:flex items-center justify-center gap-2 text-2xl">
-                    <Link
-                        href="https://github.com/Tiago-Silverio-da-Costa"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-defaultText/50 hover:text-defaultText transition-all duration-300"
-                        aria-label="Github of Tiago S. C."
-                    >
-                        <FaGithub />
-                    </Link>
-                    <p className="text-defaultText/50">•</p>
-                    <Link
-                        href="https://www.linkedin.com/in/tiagosc/"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-defaultText/50 hover:text-defaultText transition-all duration-300"
-                        aria-label="Linkedin of Tiago S. C."
-                    >
-                        <FaLinkedin />
-                    </Link>
-                    <p className="text-defaultText/50">•</p>
-                    <Link
-                        href="mailto:tiagosilveriodacosta@gmail.com"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-defaultText/50 hover:text-defaultText transition-all duration-300"
-                        aria-label="E-mail of Tiago S. C."
-                    >
-                        <BiLogoGmail />
-                    </Link>
-                    <p className="text-defaultText/50">•</p>
-                    <Link
-                        href={`https://api.whatsapp.com/send?phone=${process.env.PUBLIC_NUMBER}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-defaultText/50 hover:text-defaultText transition-all duration-300"
-                        aria-label="Whatsapp of Tiago S. C."
-                    >
-                        <FaWhatsapp />
-                    </Link>
-                </div>
-
                 {
                     !hideContent && (
                         <>
 
-                            <nav className="items-center gap-4 justify-center hidden md:flex">
+                            <nav className="items-end gap-4 justify-center hidden md:flex">
                                 <ul>
-                                    <li>
-                                        <Link className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#projects">Projects</Link>
+                                    <li className="flex flex-col items-center">
+                                        {pathname === "/" && (
+                                            <span className="text-defaultText leading-3">•</span>
+                                        )}
+                                        <Link className={`${pathname === "/" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/">Home</Link>
                                     </li>
                                 </ul>
                                 <ul>
-                                    <li>
-                                        <Link className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#experience">Experience</Link>
+                                    <li className="flex flex-col items-center">
+                                        {pathname === "/projects" && (
+                                            <span className="text-defaultText leading-3">•</span>
+                                        )}
+                                        <Link className={`${pathname === "/projects" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/projects">Projects</Link>
                                     </li>
                                 </ul>
                                 <ul>
-                                    <li>
-                                        <Link className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#about">About</Link>
+                                    <li className="flex flex-col items-center">
+                                        {pathname === "/about" && (
+                                            <span className="text-defaultText leading-3">•</span>
+                                        )}
+                                        <Link className={`${pathname === "/about" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/about">About</Link>
                                     </li>
                                 </ul>
                                 <ul>
-                                    <li>
-                                        <Link className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#contact">Contact</Link>
+                                    <li className="flex flex-col items-center">
+                                        {pathname === "/contact" && (
+                                            <span className="text-defaultText leading-3">•</span>
+                                        )}
+                                        <Link className={`${pathname === "/contact" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/contact">Contact</Link>
                                     </li>
                                 </ul>
                             </nav>
@@ -152,17 +124,29 @@ export default function Header() {
                                             <IoMdClose />
                                         </button>
                                         <ul className="flex flex-col gap-4 mt-8">
-                                            <li>
-                                                <Link onClick={() => setOpenPopup(false)} className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#projects">Projects</Link>
+                                            <li className="flex gap-2 items-center justify-end">
+                                                {pathname === "/" && (
+                                                    <span className="text-defaultText leading-3">•</span>
+                                                )}
+                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/">Home</Link>
                                             </li>
-                                            <li>
-                                                <Link onClick={() => setOpenPopup(false)} className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#experience">Experience</Link>
+                                            <li className="flex gap-2 items-center justify-end">
+                                                {pathname === "/projects" && (
+                                                    <span className="text-defaultText leading-3">•</span>
+                                                )}
+                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/projects" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/projects">Projects</Link>
                                             </li>
-                                            <li>
-                                                <Link onClick={() => setOpenPopup(false)} className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#about">About</Link>
+                                            <li className="flex gap-2 items-center justify-end">
+                                                {pathname === "/about" && (
+                                                    <span className="text-defaultText leading-3">•</span>
+                                                )}
+                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/about" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/about">About</Link>
                                             </li>
-                                            <li>
-                                                <Link onClick={() => setOpenPopup(false)} className="text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300" href="/#contact">Contact</Link>
+                                            <li className="flex gap-2 items-center justify-end">
+                                                {pathname === "/contact" && (
+                                                    <span className="text-defaultText leading-3">•</span>
+                                                )}
+                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/contact" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/contact">Contact</Link>
                                             </li>
                                         </ul>
                                     </nav>

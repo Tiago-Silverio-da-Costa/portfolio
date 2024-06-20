@@ -199,7 +199,7 @@ export default function Experience() {
 
 
     return (
-        <section id="experience" className="mx-auto w-5/6 max-w-5xl py-8">
+        <section id="experience" className="py-8 w-full">
             <h1 className="text-2xl md:text-3xl font-bold text-textTitle">
                 Where I&apos;ve worked and what I&apos;ve done
             </h1>
@@ -255,115 +255,125 @@ export default function Experience() {
                 }
 
                 {openPopupCreation && (
-                    <div className="flex flex-col items-center justify-center fixed bottom-0 left-0 top-0 select-none w-screen z-50 bg-secondarybBg">
-                        <form className="md:overflow-hidden overflow-y-scroll relative bg-primary grid justify-items-center w-full md:mx-auto h-[70vh] md:w-5/6 max-w-[40rem] px-6 md:px-12" onSubmit={handleSubmit(onSubmit)} autoComplete="on">
-                            <div
-                                onClick={() => setOpenPopupCreation(!openPopupCreation)}
-                                className={` absolute top-0 right-0 flex items-center justify-center text-primary bg-secondary px-4 py-2 font-bold text-lg hover:opacity-75 cursor-pointer`}><IoMdClose /></div>
-                            <div className="bg-bg-primary mx-auto w-full max-w-[40rem] relative flex justify-start gap-4 border-b border-b-secondaryText py-2">
-                                <h1 className="uppercase font-light text-sm text-center w-full">Creation area</h1>
-                            </div>
-                            {Object.keys(errors).length > 0 && (
-                                <Alert type="error">
-                                    {errors.root?.message ??
-                                        "Check the fields and try again!"}
-                                </Alert>
-                            )}
-                            {isSubmitSuccessful && (
-                                <Alert type="success">
-                                    Project created successfully!
-                                </Alert>
-                            )}
-                            <div className="flex flex-col md:flex-row items-start justify-between gap-8 mt-6 w-full">
-                                <FormFieldWrapper $error={!!errors.company}>
-                                    <FormFieldGrp>
-                                        <input
-                                            {...register("company")}
-                                            inputMode="text"
-                                            placeholder="company"
-                                            maxLength={100}
-                                            readOnly={isSubmitting}
-                                        />
-                                    </FormFieldGrp>
-                                    {errors.company && (
-                                        <FormFieldError>{errors.company.message}</FormFieldError>
-                                    )}
-                                </FormFieldWrapper>
-                            </div>
-
-                            <div className="flex flex-col gap-2 mt-8 w-full">
-                                <FormFieldWrapper $error={!!errors.description}>
-                                    <FormFieldGrp>
-                                        <textarea
-                                            {...register("description")}
-                                            inputMode="text"
-                                            placeholder="description"
-                                            maxLength={5000}
-                                            readOnly={isSubmitting}
-                                            cols={10}
-                                            rows={8}
-                                        />
-                                    </FormFieldGrp>
-                                    {errors.description && (
-                                        <FormFieldError>{errors.description.message}</FormFieldError>
-                                    )}
-                                </FormFieldWrapper>
-                            </div>
-
-                            <div className="flex flex-col md:flex-row items-start justify-between gap-8 mt-6 w-full">
-                                <FormFieldWrapper $error={!!errors.init_time}>
-                                    <FormFieldGrp>
-                                        <input
-                                            {...register("init_time")}
-                                            inputMode="text"
-                                            placeholder="init_time"
-                                            maxLength={25}
-                                            readOnly={isSubmitting}
-                                        />
-                                    </FormFieldGrp>
-                                    {errors.init_time && (
-                                        <FormFieldError>{errors.init_time.message}</FormFieldError>
-                                    )}
-                                </FormFieldWrapper>
-                                <FormFieldWrapper $error={!!errors.final_time}>
-                                    <FormFieldGrp>
-                                        <input
-                                            {...register("final_time")}
-                                            inputMode="text"
-                                            placeholder="final_time"
-                                            maxLength={25}
-                                            readOnly={isSubmitting}
-                                        />
-                                    </FormFieldGrp>
-                                    {errors.final_time && (
-                                        <FormFieldError>{errors.final_time.message}</FormFieldError>
-                                    )}
-                                </FormFieldWrapper>
-                            </div>
-
-
-                            <div className="flex items-start justify-end w-full gap-4 mt-8 pb-4">
+                    <>
+                        <div
+                            className="fixed inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm"
+                        ></div>
+                        <div className="flex justify-center items-center fixed top-0 left-0 bottom-0 z-50 select-none w-full md:w-screen">
+                            <form className="flex flex-col justify-center bg-bgFooter rounded-md overflow-y-scroll md:scrollbar relative md:mx-auto h-full w-full z-50 md:h-fit md:w-5/6 max-w-[40rem] py-3 px-6 md:px-12" onSubmit={handleSubmit(onSubmit)} autoComplete="on">
                                 <button
+                                    aria-label="close popup"
                                     onClick={() => setOpenPopupCreation(!openPopupCreation)}
-                                    type="submit"
-                                    className="flex items-center justify-center text-defaultText bg-transparent border-defaultText border px-6 py-2 font-bold text-sm w-fit">Cancel</button>
-                                <FormBtn
-                                    type="submit"
-                                    $isSubmitting={isSubmitting}
-                                    disabled={isSubmitting}
-                                >
-                                    {isSubmitting && (
-                                        <div className="text-xl">
-                                            <Spin>
-                                                <PiSpinnerBold className="text-primary" />
-                                            </Spin>
-                                        </div>
-                                    )}
-                                    <span>Create</span>
-                                </FormBtn>
-                            </div>
-                        </form>
-                    </div>
+                                    className={`absolute top-0 right-0 flex items-center justify-center text-textOpacity px-4 py-2 font-bold text-lg hover:text-defaultText cursor-pointer`}>
+                                    <IoMdClose />
+                                </button>
+                                <div className="mx-auto w-full max-w-[40rem] relative flex justify-start gap-4 py-2">
+                                    <h1 className="uppercase font-semibold text-2xl text-textTitle text-center w-full">Creation area</h1>
+                                </div>
+                                {Object.keys(errors).length > 0 && (
+                                    <Alert type="error">
+                                        {errors.root?.message ??
+                                            "Check the fields and try again!"}
+                                    </Alert>
+                                )}
+                                {isSubmitSuccessful && (
+                                    <Alert type="success">
+                                        Project created successfully!
+                                    </Alert>
+                                )}
+                                <div className="flex flex-col md:flex-row items-start justify-between gap-8 mt-6 w-full">
+                                    <FormFieldWrapper $error={!!errors.company}>
+                                        <FormFieldGrp>
+                                            <input
+                                                {...register("company")}
+                                                inputMode="text"
+                                                placeholder="company"
+                                                maxLength={100}
+                                                readOnly={isSubmitting}
+                                            />
+                                        </FormFieldGrp>
+                                        {errors.company && (
+                                            <FormFieldError>{errors.company.message}</FormFieldError>
+                                        )}
+                                    </FormFieldWrapper>
+                                </div>
+
+                                <div className="flex flex-col gap-2 mt-8 w-full">
+                                    <FormFieldWrapper $error={!!errors.description}>
+                                        <FormFieldGrp>
+                                            <textarea
+                                                {...register("description")}
+                                                inputMode="text"
+                                                placeholder="description"
+                                                maxLength={5000}
+                                                readOnly={isSubmitting}
+                                                cols={10}
+                                                rows={8}
+                                            />
+                                        </FormFieldGrp>
+                                        {errors.description && (
+                                            <FormFieldError>{errors.description.message}</FormFieldError>
+                                        )}
+                                    </FormFieldWrapper>
+                                </div>
+
+                                <div className="flex flex-col md:flex-row items-start justify-between gap-8 mt-6 w-full">
+                                    <FormFieldWrapper $error={!!errors.init_time}>
+                                        <FormFieldGrp>
+                                            <input
+                                                {...register("init_time")}
+                                                inputMode="text"
+                                                placeholder="init_time"
+                                                maxLength={25}
+                                                readOnly={isSubmitting}
+                                            />
+                                        </FormFieldGrp>
+                                        {errors.init_time && (
+                                            <FormFieldError>{errors.init_time.message}</FormFieldError>
+                                        )}
+                                    </FormFieldWrapper>
+                                    <FormFieldWrapper $error={!!errors.final_time}>
+                                        <FormFieldGrp>
+                                            <input
+                                                {...register("final_time")}
+                                                inputMode="text"
+                                                placeholder="final_time"
+                                                maxLength={25}
+                                                readOnly={isSubmitting}
+                                            />
+                                        </FormFieldGrp>
+                                        {errors.final_time && (
+                                            <FormFieldError>{errors.final_time.message}</FormFieldError>
+                                        )}
+                                    </FormFieldWrapper>
+                                </div>
+
+
+                                <div className="flex items-start justify-end w-full gap-4 mt-8 pb-4">
+                                    <button
+                                        onClick={() => setOpenPopupCreation(!openPopupCreation)}
+                                        type="submit"
+                                        className="rounded-md flex items-center justify-center text-defaultText bg-transparent border-defaultText border px-6 py-2 font-bold text-sm w-fit">Cancel</button>
+                                    <FormBtn
+                                        type="submit"
+                                        $isSubmitting={isSubmitting}
+                                        disabled={isSubmitting}
+                                    >
+                                        {isSubmitting && (
+                                            <div className="text-xl">
+                                                <Spin>
+                                                    <PiSpinnerBold className="text-defaultText" />
+                                                </Spin>
+                                            </div>
+                                        )}
+
+                                        
+                                        <span>Create</span>
+                                    </FormBtn>
+                                </div>
+                            </form>
+                        </div>
+                    </>
                 )}
 
                 <div className={`${selectedJob === null ? "hidden" : "block"} p-4 border border-borderColor rounded-md`}>
