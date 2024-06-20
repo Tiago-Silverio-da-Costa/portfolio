@@ -7,9 +7,9 @@ export const HeroContainer = styled.div<{
   background-image: url(${({ $bg }) => $bg});
   background-size: cover;
   position: relative;
-  width: 10rem;
+  width: 12rem;
   height: 10rem;
-  border-radius: 4rem;
+  border-radius: 50%;
   position: relative;
 `;
 

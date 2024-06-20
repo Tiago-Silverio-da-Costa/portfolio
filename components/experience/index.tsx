@@ -12,8 +12,6 @@ import { PiSpinnerBold } from "react-icons/pi";
 import { IoMdClose } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
 import UpdateXP from "./update";
-import { getCurrentUser } from "../(login)/services/auth.service";
-import { TLogin } from "../commom/schemalogin";
 
 export interface Experience {
     id: number;
@@ -30,8 +28,7 @@ export default function Experience() {
     const [openPopupCreation, setOpenPopupCreation] = useState<boolean>(false)
     const [openPopupUpdate, setOpenPopupUpdate] = useState<boolean>(false)
     const [selectedExperienceId, setSelectedExperienceId] = useState<number | null>(null);
-    const [user, setUser] = useState<string | null>(null);
-    const [userinfo, setUserinfo] = useState<TLogin | null>(null)
+    const [isAdmin, setIsAdmin] = useState(false);
 
     const {
         handleSubmit,
@@ -90,6 +87,29 @@ export default function Experience() {
                 })
             }
         }
+
+        const getAdminBoard = async () => {
+            try {
+                const user = JSON.parse(localStorage.getItem('user') as string)
+                const response = await fetch("http://localhost:4000/api/test/admin", {
+                    method: 'GET',
+                    headers: {
+                        'x-access-token': user.accessToken
+                    }
+                });
+                if (response.status === 200) {
+                    setIsAdmin(true);
+                }
+
+            } catch (error) {
+                setError("root", {
+                    type: "custom",
+                    message: `Error fetching admin board: ${error}`,
+                })
+            }
+        }
+
+        getAdminBoard()
         getExperience();
 
         if (openPopupCreation || openPopupUpdate) {
@@ -98,6 +118,7 @@ export default function Experience() {
             document.documentElement.style.overflow = "";
         }
     }, [openPopupCreation, openPopupUpdate, setError, setExperience])
+
 
     const onSubmit = async (data: TCreateExperience) => {
         clearErrors()
@@ -176,45 +197,11 @@ export default function Experience() {
         }
     }
 
-    useEffect(() => {
-        const getAdminBoard = async () => {
-            try {
-                const response = await fetch("http://localhost:4000/api/test/admin", {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('user') || '{}').accessToken
-                    }
-                });
-
-                const responseData = await response.json()
-
-                setUser(responseData.data)
-
-            } catch (error) {
-                setError("root", {
-                    type: "custom",
-                    message: `Error fetching admin board: ${error}`,
-                })
-            }
-        }
-
-        const getCurrentUser = () => {
-            const user = localStorage.getItem('user');
-            if (user) {
-                setUserinfo(JSON.parse(user) as TLogin);
-            }
-            return null;
-        }
-        getCurrentUser()
-        getAdminBoard()
-    }, [setError])
-
-
 
     return (
         <section id="experience" className="mx-auto w-5/6 max-w-5xl py-8">
             <h1 className="text-2xl md:text-3xl font-bold text-textTitle">
-                Where I&apos;ve worked and what I&apos;ve done {userinfo?.username + " asda"}
+                Where I&apos;ve worked and what I&apos;ve done
             </h1>
             <div className="flex flex-col md:flex-row gap-4 items-start mt-8">
 
@@ -227,8 +214,8 @@ export default function Experience() {
                             <div className="flex flex-col">
                                 <div className="flex gap-4 items-center">
                                     <h2 className="text-xl font-bold">{job.company}</h2>
-                                    {/* {
-                                        user?.includes("ROLE_ADMIN") && ( */}
+                                    {
+                                        isAdmin && (
                                             <div className="flex items-center gap-2">
                                                 <div onClick={() => deleteExperience(job.id)} className="cursor-pointer group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
                                                     <FaTrashAlt />
@@ -241,8 +228,8 @@ export default function Experience() {
                                                     <MdEdit />
                                                 </div>
                                             </div>
-                                        {/* )
-                                    } */}
+                                        )
+                                    }
                                 </div>
                                 <p className="hidden md:block text-lg tracking-wide leading-6 font-medium max-w-xl">
                                     {job.init_time} - {job.final_time}
@@ -250,13 +237,13 @@ export default function Experience() {
                             </div>
                         </div>
                     ))}
-                    {/* {
-                        user && ( */}
+                    {
+                        isAdmin && (
                             <div className="rounded-md cursor-pointer flex gap-2 p-2 justify-center items-center bg-highlightElement hover:bg-highlightElement/85 transition-all duration-300 text-defaultText" onClick={() => setOpenPopupCreation(!openPopupCreation)}>
                                 <FaPlus /> <p className="text-sm">Create Experience</p>
                             </div>
-                        {/* )
-                    } */}
+                        )
+                    }
                 </div>
 
                 {

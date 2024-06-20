@@ -16,7 +16,7 @@ export default function Hero() {
                         <div className="flex flex-col">
                             <span className="font-medium text-defaultText text-lg md:text-2xl uppercase tracking-wider"
                             >Hi, my name is</span>
-                            <h1 className="text-4xl md:text-6xl text-textTitle font-bold uppercase tracking-wide max-w-64">Tiago Costa</h1>
+                            <h1 className="text-4xl md:text-6xl text-textTitle font-bold uppercase tracking-wide max-w-48">Tiago Costa</h1>
                         </div>
                         <span className="text-defaultText text-start text-sm md:text-lg max-w-md leading-6 tracking-wide">
                             Web Developer

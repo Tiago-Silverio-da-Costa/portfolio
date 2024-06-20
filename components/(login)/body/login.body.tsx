@@ -8,9 +8,9 @@ import { useRouter } from "next/navigation";
 import Alert from "@/components/commom/alert";
 import { FormBtn, FormFieldError, FormFieldGrp, FormFieldWrapper, Spin } from "@/styles/projects/index";
 import { PiSpinnerBold } from "react-icons/pi";
+import { withRouter } from '../commom/with-router';
 
-
-export default function Login() {
+const Login: React.FC = () => {
 
     const {
         handleSubmit,
@@ -38,18 +38,23 @@ export default function Login() {
             body: JSON.stringify(data),
         })
 
-        if (responseData.status == 201 || responseData.status == 200 || data.accessToken) {
-            reset(
-                {
-                    username: "",
-                    password: "",
-                },
-                {
-                    keepIsSubmitted: true,
-                }
-            );
-            localStorage.setItem("user", JSON.stringify(data));
-            router.push("/")
+        const responseDt = await responseData.json();
+
+        if (responseData.status == 201 || responseData.status == 200) {
+            if (responseDt.accessToken) {
+                localStorage.setItem("user", JSON.stringify(responseDt));
+                reset(
+                    {
+                        username: "",
+                        password: "",
+                    },
+                    {
+                        keepIsSubmitted: true,
+                    }
+                );
+                router.push("/")
+                return;
+            }
         } else if (responseData.status == 400) {
             const response: {
                 fields?: (keyof TLogin)[];
@@ -162,3 +167,5 @@ export default function Login() {
         </section>
     )
 }
+export default withRouter(Login);
+

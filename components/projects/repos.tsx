@@ -40,6 +40,7 @@ export default function Repos() {
     const [selectedRepoUrl, setSelectedRepoUrl] = useState<string>("")
     const [selectedProjectUrl, setSelectedProjectUrl] = useState<string>("")
     const [selectedDescription, setSelectedDescription] = useState<string>("")
+    const [isAdmin, setIsAdmin] = useState(false);
 
     const {
         handleSubmit,
@@ -98,6 +99,29 @@ export default function Repos() {
                 })
             }
         }
+
+        const getAdminBoard = async () => {
+            try {
+                const user = JSON.parse(localStorage.getItem('user') as string)
+                const response = await fetch("http://localhost:4000/api/test/admin", {
+                    method: 'GET',
+                    headers: {
+                        'x-access-token': user.accessToken
+                    }
+                });
+                if (response.status === 200) {
+                    setIsAdmin(true);
+                }
+
+            } catch (error) {
+                setError("root", {
+                    type: "custom",
+                    message: `Error fetching admin board: ${error}`,
+                })
+            }
+        }
+
+        getAdminBoard()
         getProjects();
 
         if (openPopupCreation || openPopupUpdate || openPopupProject) {
@@ -202,16 +226,22 @@ export default function Repos() {
                             <a href={project.project_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
                                 <FaRocket />
                             </a>
-                            <div onClick={() => deleteProject(project.id)} className="cursor-pointer group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
-                                <FaTrashAlt />
-                            </div>
-                            <div onClick={async () => {
-                                setOpenPopupUpdate(!openPopupUpdate);
-                                setSelectedProjectId(project.id);
-                            }}
-                                className="cursor-pointer group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
-                                <MdEdit />
-                            </div>
+                            {
+                                isAdmin && (
+                                    <>
+                                        <div onClick={() => deleteProject(project.id)} className="cursor-pointer group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
+                                            <FaTrashAlt />
+                                        </div>
+                                        <div onClick={async () => {
+                                            setOpenPopupUpdate(!openPopupUpdate);
+                                            setSelectedProjectId(project.id);
+                                        }}
+                                            className="cursor-pointer group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
+                                            <MdEdit />
+                                        </div>
+                                    </>
+                                )
+                            }
                         </div>
                         <div className="group w-fit transition-all duration-500">
                             <Image onClick={async () => {
@@ -372,9 +402,13 @@ export default function Repos() {
                     )
                 }
 
-                <div className="rounded-md cursor-pointer flex gap-2 p-2 justify-center items-center bg-highlightElement hover:bg-highlightElement/85 transition-all duration-300 text-defaultText" onClick={() => setOpenPopupCreation(!openPopupCreation)}>
-                    <FaPlus /> <p className="text-sm">Create project</p>
-                </div>
+                {
+                    isAdmin && (
+                        <div className="rounded-md cursor-pointer flex gap-2 p-2 justify-center items-center bg-highlightElement hover:bg-highlightElement/85 transition-all duration-300 text-defaultText" onClick={() => setOpenPopupCreation(!openPopupCreation)}>
+                            <FaPlus /> <p className="text-sm">Create project</p>
+                        </div>
+                    )
+                }
 
                 {openPopupCreation && (
                     <>

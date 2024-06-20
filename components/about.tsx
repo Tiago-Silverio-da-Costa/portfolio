@@ -77,7 +77,7 @@ export default function About() {
 
 
     return (
-        <section id="about" className="mx-auto w-5/6 max-w-5xl flex flex-col md:flex-row items-center justify-between gap-4 py-8">
+        <section id="about" className="mx-auto w-5/6 max-w-5xl flex flex-col md:flex-row items-center justify-between gap-8 py-8">
             <div className="flex flex-col justify-start">
 
                 <h2 className="text-2xl md:text-3xl font-bold text-textTitle">Who am I</h2>
@@ -98,7 +98,7 @@ export default function About() {
             <div className="hidden md:flex flex-col gap-4">
                 <div className="flex items-center gap-4">
                     <p>Frontend: </p>
-                    <ul className="flex items-center gap-2">
+                    <ul className="flex flex-wrap items-center gap-2">
 
                         {frontList.map((about, index) => (
                             <Fragment key={index}>
@@ -109,7 +109,7 @@ export default function About() {
                 </div>
                 <div className="flex items-center gap-4">
                     <p>Backend: </p>
-                    <ul className="flex items-center gap-2">
+                    <ul className="flex flex-wrap items-center gap-2">
 
                         {backList.map((about, index) => (
                             <Fragment key={index}>
@@ -120,7 +120,7 @@ export default function About() {
                 </div>
                 <div className="flex items-center gap-4">
                     <p>Databases: </p>
-                    <ul className="flex items-center gap-2">
+                    <ul className="flex flex-wrap items-center gap-2">
 
                         {dbList.map((about, index) => (
                             <Fragment key={index}>
@@ -131,7 +131,7 @@ export default function About() {
                 </div>
                 <div className="flex items-center gap-4">
                     <p>Studying now: </p>
-                    <ul className="flex items-center gap-2">
+                    <ul className="flex flex-wrap items-center gap-2">
 
                         {studyList.map((about, index) => (
                             <Fragment key={index}>
