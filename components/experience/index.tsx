@@ -44,7 +44,7 @@ export default function Experience() {
 
     const deleteExperience = async (id: number) => {
         try {
-            await fetch(`http://localhost:4000/deletexp/${id}`, {
+            await fetch(`https://portfolio-backend-lks5.onrender.com/deletexp/${id}`, {
                 credentials: "include",
                 cache: "no-cache",
                 method: "DELETE",
@@ -65,7 +65,7 @@ export default function Experience() {
     useEffect(() => {
         const getExperience = async () => {
             try {
-                const response = await fetch("http://localhost:4000/getxps", {
+                const response = await fetch("https://portfolio-backend-lks5.onrender.com/getxps", {
                     credentials: "include",
                     cache: "no-cache",
                     method: "GET",
@@ -91,7 +91,7 @@ export default function Experience() {
         const getAdminBoard = async () => {
             try {
                 const user = JSON.parse(localStorage.getItem('user') as string)
-                const response = await fetch("http://localhost:4000/api/test/admin", {
+                const response = await fetch("https://portfolio-backend-lks5.onrender.com/api/test/admin", {
                     method: 'GET',
                     headers: {
                         'x-access-token': user.accessToken
@@ -123,7 +123,7 @@ export default function Experience() {
     const onSubmit = async (data: TCreateExperience) => {
         clearErrors()
 
-        const responseData = await fetch("http://localhost:4000/createxp", {
+        const responseData = await fetch("https://portfolio-backend-lks5.onrender.com/createxp", {
             credentials: "include",
             method: "POST",
             headers: {

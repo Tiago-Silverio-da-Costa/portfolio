@@ -31,7 +31,7 @@ export default function Update({ id, setOpenPopupUpdate, setProjects }: UpdatePr
 
     useEffect(() => {
         const getProject = async () => {
-            const responseData = await fetch(`http://localhost:4000/getproject/${id}`, {
+            const responseData = await fetch(`https://portfolio-backend-lks5.onrender.com/getproject/${id}`, {
                 credentials: "include",
                 cache: "no-cache",
                 method: "GET",
@@ -77,7 +77,7 @@ export default function Update({ id, setOpenPopupUpdate, setProjects }: UpdatePr
     const onSubmit = async (data: TCreateProject) => {
         clearErrors()
 
-        const responseData = await fetch(`http://localhost:4000/updateproject/${id}`, {
+        const responseData = await fetch(`https://portfolio-backend-lks5.onrender.com/updateproject/${id}`, {
             credentials: "include",
             method: "PUT",
             headers: {

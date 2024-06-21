@@ -56,7 +56,7 @@ export default function Repos() {
 
     const deleteProject = async (id: number) => {
         try {
-            await fetch(`http://localhost:4000/deleteproject/${id}`, {
+            await fetch(`https://portfolio-backend-lks5.onrender.com/deleteproject/${id}`, {
                 credentials: "include",
                 cache: "no-cache",
                 method: "DELETE",
@@ -78,7 +78,7 @@ export default function Repos() {
         const getProjects = async () => {
             try {
 
-                const response = await fetch("http://localhost:4000/getprojects", {
+                const response = await fetch("https://portfolio-backend-lks5.onrender.com/getprojects", {
                     credentials: "include",
                     cache: "no-cache",
                     method: "GET",
@@ -103,7 +103,7 @@ export default function Repos() {
         const getAdminBoard = async () => {
             try {
                 const user = JSON.parse(localStorage.getItem('user') as string)
-                const response = await fetch("http://localhost:4000/api/test/admin", {
+                const response = await fetch("https://portfolio-backend-lks5.onrender.com/api/test/admin", {
                     method: 'GET',
                     headers: {
                         'x-access-token': user.accessToken
@@ -134,7 +134,7 @@ export default function Repos() {
     const onSubmit = async (data: TCreateProject) => {
         clearErrors()
 
-        const responseData = await fetch("http://localhost:4000/createproject", {
+        const responseData = await fetch("https://portfolio-backend-lks5.onrender.com/createproject", {
             credentials: "include",
             method: "POST",
             headers: {
