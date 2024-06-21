@@ -71,7 +71,7 @@ export default function Header() {
                                 <ul>
                                     <li className="flex flex-col items-center">
                                         {pathname === "/" && (
-                                            <span className="text-defaultText leading-3 text-2xl">•</span>
+                                            <span className="text-defaultText leading-3 text-4xl">•</span>
                                         )}
                                         <Link className={`${pathname === "/" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/">Home</Link>
                                     </li>
@@ -79,7 +79,7 @@ export default function Header() {
                                 <ul>
                                     <li className="flex flex-col items-center">
                                         {pathname === "/projects" && (
-                                            <span className="text-defaultText leading-3 text-2xl">•</span>
+                                            <span className="text-defaultText leading-3 text-4xl">•</span>
                                         )}
                                         <Link className={`${pathname === "/projects" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/projects">Projects</Link>
                                     </li>
@@ -87,7 +87,7 @@ export default function Header() {
                                 <ul>
                                     <li className="flex flex-col items-center">
                                         {pathname === "/about" && (
-                                            <span className="text-defaultText leading-3 text-2xl">•</span>
+                                            <span className="text-defaultText leading-3 text-4xl">•</span>
                                         )}
                                         <Link className={`${pathname === "/about" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/about">About</Link>
                                     </li>
@@ -95,7 +95,7 @@ export default function Header() {
                                 <ul>
                                     <li className="flex flex-col items-center">
                                         {pathname === "/contact" && (
-                                            <span className="text-defaultText leading-3 text-2xl">•</span>
+                                            <span className="text-defaultText leading-3 text-4xl">•</span>
                                         )}
                                         <Link className={`${pathname === "/contact" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/contact">Contact</Link>
                                     </li>

@@ -8,10 +8,10 @@ import Footer from "@/components/footer";
 export default function Home() {
   return (
     <>
-      {/* <Header />
-      <Hero /> */}
-      <HeroOld />
-      {/* <Footer /> */}
+      <Header />
+      <Hero />
+      {/* <HeroOld /> */}
+      <Footer />
     </>
 
   );
