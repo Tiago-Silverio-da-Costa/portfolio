@@ -11,7 +11,7 @@ export default function Alert({
 
   return (
     <div
-      className={`select-none text-sm font-normal mt-4 text-white ${type == "success"
+      className={` rounded-md select-none text-sm font-normal mt-4 text-white ${type == "success"
         ? "bg-[#2DA44A]"
         : type == "error"
           ? "bg-[#E32C2C]"

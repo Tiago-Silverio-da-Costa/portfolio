@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
 	title:
 		"Portfolio | Tiago S. C. | Full Stack Developer",
-	metadataBase: new URL("https://something.com"),
+	metadataBase: new URL("https://portfolio-tiagosc.vercel.app/"),
 	description:
 		"Bem-vindo ao portfólio do Tiago S. C., um desenvolvedor Full Stack especializado em Next.js. Explore meus projetos, habilidades e experiências em desenvolvimento web, utilizando tecnologias modernas como React, Node.js e muito mais.",
     keywords: ["Desenvolvedor Full Stack", "Next.js", "React", "Node.js", "Portfolio", "Desenvolvimento Web", "Programação", "JavaScript"],
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 		siteName: "Portfolio | Tiago S. C. | Full Stack Developer",
 		images: [
 			{
-				url: "https://something.com/tiagosc-port.png",
+				url: "https://portfolio-tiagosc.vercel.app/tiagosc-port.png",
 				width: 1280,
 				height: 720,
 			},
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
 			"Portfolio | Tiago S. C. | Full Stack Developer",
 		description:
 			"Bem-vindo ao portfólio do Tiago S. C., um desenvolvedor Full Stack especializado em Next.js. Explore meus projetos, habilidades e experiências em desenvolvimento web, utilizando tecnologias modernas como React, Node.js e muito mais.",
-		images: ["https://something.com/tiagosc-port.png"],
+		images: ["https://portfolio-tiagosc.vercel.app/tiagosc-port.png"],
 	},
 };
 

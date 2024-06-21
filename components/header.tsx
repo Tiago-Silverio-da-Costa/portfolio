@@ -71,7 +71,7 @@ export default function Header() {
                                 <ul>
                                     <li className="flex flex-col items-center">
                                         {pathname === "/" && (
-                                            <span className="text-defaultText leading-3">•</span>
+                                            <span className="text-defaultText leading-3 text-2xl">•</span>
                                         )}
                                         <Link className={`${pathname === "/" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/">Home</Link>
                                     </li>
@@ -79,7 +79,7 @@ export default function Header() {
                                 <ul>
                                     <li className="flex flex-col items-center">
                                         {pathname === "/projects" && (
-                                            <span className="text-defaultText leading-3">•</span>
+                                            <span className="text-defaultText leading-3 text-2xl">•</span>
                                         )}
                                         <Link className={`${pathname === "/projects" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/projects">Projects</Link>
                                     </li>
@@ -87,7 +87,7 @@ export default function Header() {
                                 <ul>
                                     <li className="flex flex-col items-center">
                                         {pathname === "/about" && (
-                                            <span className="text-defaultText leading-3">•</span>
+                                            <span className="text-defaultText leading-3 text-2xl">•</span>
                                         )}
                                         <Link className={`${pathname === "/about" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/about">About</Link>
                                     </li>
@@ -95,7 +95,7 @@ export default function Header() {
                                 <ul>
                                     <li className="flex flex-col items-center">
                                         {pathname === "/contact" && (
-                                            <span className="text-defaultText leading-3">•</span>
+                                            <span className="text-defaultText leading-3 text-2xl">•</span>
                                         )}
                                         <Link className={`${pathname === "/contact" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/contact">Contact</Link>
                                     </li>
@@ -126,25 +126,25 @@ export default function Header() {
                                         <ul className="flex flex-col gap-4 mt-8">
                                             <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/" && (
-                                                    <span className="text-defaultText leading-3">•</span>
+                                                    <span className="text-defaultText leading-3 text-2xl">•</span>
                                                 )}
                                                 <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/">Home</Link>
                                             </li>
                                             <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/projects" && (
-                                                    <span className="text-defaultText leading-3">•</span>
+                                                    <span className="text-defaultText leading-3 text-2xl">•</span>
                                                 )}
                                                 <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/projects" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/projects">Projects</Link>
                                             </li>
                                             <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/about" && (
-                                                    <span className="text-defaultText leading-3">•</span>
+                                                    <span className="text-defaultText leading-3 text-2xl">•</span>
                                                 )}
                                                 <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/about" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/about">About</Link>
                                             </li>
                                             <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/contact" && (
-                                                    <span className="text-defaultText leading-3">•</span>
+                                                    <span className="text-defaultText leading-3 text-2xl">•</span>
                                                 )}
                                                 <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/contact" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/contact">Contact</Link>
                                             </li>

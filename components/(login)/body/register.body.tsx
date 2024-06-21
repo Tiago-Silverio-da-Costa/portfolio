@@ -100,7 +100,7 @@ export default function Register() {
                 <h1 className="text-2xl font-medium tracking-tighter leading-6 text-center text-primary">
                     Sign up to Portfolio
                 </h1>
-                <form className="bg-bgFooter px-4 py-4 rounded-md" onSubmit={handleSubmit(onSubmit)} autoComplete="on">
+                <form className="flex flex-col gap-4 bg-bgFooter px-4 py-4 rounded-md" onSubmit={handleSubmit(onSubmit)} autoComplete="on">
                     {Object.keys(errors).length > 0 && (
                         <Alert type="error">
                             {errors.root?.message ??

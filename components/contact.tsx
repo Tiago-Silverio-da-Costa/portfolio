@@ -1,12 +1,20 @@
+"use client";
+
 import { TiLocation } from "react-icons/ti";
 import TechsSliderTopDown from "./techsSliderTopDown";
 import TechsSliderDownTop from "./techsSliderDownTop";
 import { FaWhatsapp } from "react-icons/fa6";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Contact() {
     return (
-        <section id="contact" className="flex flex-col justify-center gap-4 mx-auto w-5/6 max-w-5xl py-8 h-screen">
+        <motion.section
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            id="contact"
+            className="flex flex-col justify-center gap-4 mx-auto w-5/6 max-w-5xl py-8 h-screen">
             <h1 className="text-2xl md:text-3xl font-bold text-textTitle">Ready to discuss opportunities?</h1>
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
                 <div className="flex flex-col">
@@ -34,6 +42,6 @@ export default function Contact() {
                     <TechsSliderDownTop />
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }
