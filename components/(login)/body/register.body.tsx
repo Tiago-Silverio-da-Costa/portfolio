@@ -27,7 +27,7 @@ export default function Register() {
     const onSubmit = async (data: TRegister) => {
         clearErrors();
 
-        const responseData = await fetch("http://localhost:4000/api/auth/signup", {
+        const responseData = await fetch("https://portfolio-backend-lks5.onrender.com/api/auth/signup", {
             credentials: "include",
             method: "POST",
             headers: {
