@@ -2,10 +2,6 @@
 
 Olá! Este é o repositório do meu portfólio, onde estou mostrando meus projetos, experiências de trabalho, freelas e muito mais. Estou empolgado para compartilhar um pouco sobre a jornada de desenvolvimento deste projeto.
 
-## Sobre o Projeto
-
-Este projeto começou como uma forma de reunir e apresentar minhas experiências, conhecimentos e projetos de uma maneira organizada e atrativa.
-
 ![portfolio](public/portfolio.gif)
 
 ## Tecnologias Utilizadas
@@ -28,3 +24,21 @@ No site, implementei um sistema de login que permite gerenciar as informações 
 ## Sobre Mim
 
 Estou sempre buscando aprender e me aperfeiçoar, e este portfólio é uma maneira de compartilhar essa jornada. Acredito na importância de combinar design atraente com funcionalidade eficiente, e este projeto reflete essa filosofia.
+
+## Instruções de Instalação e Execução
+
+Siga os passos abaixo para instalar e executar o projeto:
+
+1. Instale as dependências:
+    ```sh
+    npm install
+    ```
+
+2. Execute o projeto em modo de desenvolvimento:
+    ```sh
+    npm run dev
+    ```
+
+## Backend do Projeto
+
+Para conferir o código do backend deste projeto, acesse o repositório no GitHub: [portfolio-backend](https://github.com/Tiago-Silverio-da-Costa/portfolio-backend).
