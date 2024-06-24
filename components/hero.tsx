@@ -11,7 +11,7 @@ export default function     Hero() {
     return (
         <section>
             <div className="mx-auto w-5/6 max-w-5xl flex flex-col md:flex-row item-center py-16 h-screen">
-                <div className="w-full md:py-8 md:pb-40 flex gap-4 justify-between items-center">
+                <div className="w-full md:py-8 md:pb-40 flex gap-1 md:gap-4 justify-between items-center">
 
                     <motion.div
                         initial={{ x: -1000 }}
@@ -59,9 +59,10 @@ export default function     Hero() {
                     </motion.div>
                 </div>
                 <div className="md:hidden relaive z-10 flex  flex-col items-center justify-center gap-4 mt-2">
-                    <Image src="/hero/me.jpeg" alt="Tiago" width={200} height={200} className="rounded-full" />
+                    <Image src="/hero/olhandonote.jpeg" alt="Tiago" width={200} height={200} className="rounded-full" />
                     <TechsSliderTopDown />
-                    <TechsSliderDownTop />
+                    <TechsSliderDownTop />  width: 12rem;
+                    height: 10rem;
                 </div>
             </div>
 
