@@ -47,7 +47,7 @@ export default function     Hero() {
                             <p className="text-2xl md:text-4xl text-defaultText font-bold uppercase tracking-wide">
                                 50+
                             </p>
-                            <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide">Prjetos completos</span>
+                            <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide">Projetos completos</span>
                         </div>
                         <div className="flex flex-col items-center">
                             <p className="text-2xl md:text-4xl text-defaultText font-bold uppercase tracking-wide">
@@ -61,8 +61,7 @@ export default function     Hero() {
                 <div className="md:hidden relaive z-10 flex  flex-col items-center justify-center gap-4 mt-2">
                     <Image src="/hero/olhandonote.jpeg" alt="Tiago" width={200} height={200} className="rounded-full" />
                     <TechsSliderTopDown />
-                    <TechsSliderDownTop />  width: 12rem;
-                    height: 10rem;
+                    <TechsSliderDownTop />  
                 </div>
             </div>
 
