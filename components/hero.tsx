@@ -20,11 +20,11 @@ export default function     Hero() {
                         className="flex flex-col gap-2 justify-start">
                         <div className="flex flex-col">
                             <span className="font-medium text-defaultText text-lg md:text-2xl uppercase tracking-wider"
-                            >Hi, my name is</span>
+                            >Olá, meu nome é</span>
                             <h1 className="text-4xl md:text-6xl text-textTitle font-bold uppercase tracking-wide max-w-48">Tiago Costa</h1>
                         </div>
                         <span className="text-defaultText text-start text-sm md:text-lg max-w-md leading-6 tracking-wide">
-                            Web Developer
+                            Desenvolvedor Web
                         </span>
                     </motion.div>
 
@@ -41,19 +41,19 @@ export default function     Hero() {
                             <p className="text-2xl md:text-4xl text-defaultText font-bold uppercase tracking-wide">
                                 2+
                             </p>
-                            <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide">Years of experience</span>
+                            <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide">Anos de experiência</span>
                         </div>
                         <div className="flex flex-col items-center">
                             <p className="text-2xl md:text-4xl text-defaultText font-bold uppercase tracking-wide">
                                 50+
                             </p>
-                            <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide">Projects completed</span>
+                            <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide">Prjetos completos</span>
                         </div>
                         <div className="flex flex-col items-center">
                             <p className="text-2xl md:text-4xl text-defaultText font-bold uppercase tracking-wide">
                                 5,000+
                             </p>
-                            <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide">Hours of work</span>
+                            <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide">Horas de trabalho</span>
                         </div>
 
                     </motion.div>

@@ -90,10 +90,10 @@ export default function About() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-8 ">
                 <div className="flex flex-col justify-start">
 
-                    <h2 className="text-2xl md:text-3xl font-bold text-textTitle">Who am I</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-textTitle">Quem sou eu</h2>
 
                     <p className="text-start text-sm py-4 max-w-md leading-6 tracking-tighter">
-                        Hi! I&apos;m Tiago Silverio da Costa, a web designer and developer with a strong focus on creating exceptional web experiences. Since I began working with computers in 2022, I have discovered a deep passion for both designing and coding. My goal is to craft beautifully designed, intuitive, and functional websites that provide seamless user experiences.
+                        Olá! Sou Tiago Silverio da Costa, um designer e desenvolvedor web com um forte foco em criar experiências excepcionais na web. Desde que comecei a trabalhar com computadores em 2022, descobri uma paixão profunda tanto pelo design quanto pela programação. Meu objetivo é criar sites lindamente projetados, intuitivos e funcionais que proporcionem experiências de usuário impecáveis.
                     </p>
                     <Link className="flex items-center gap-2 text-sm font-bold bg-highlightElement text-defaultText py-2 px-4 rounded-md w-fit"
                         target="_blank"
@@ -101,7 +101,8 @@ export default function About() {
                         aria-label="Whatsapp of Tiago S. C."
                         href={`https://api.whatsapp.com/send?phone=${process.env.PUBLIC_NUMBER}`}
                     >
-                        Get in touch <FaWhatsapp />
+
+                        Entre em contato <FaWhatsapp />
                     </Link>
                 </div>
 
@@ -140,7 +141,7 @@ export default function About() {
                         </ul>
                     </div>
                     <div className="flex items-center gap-4">
-                        <p>Studying now: </p>
+                        <p>Estudando agora: </p>
                         <ul className="flex flex-wrap items-center gap-2">
 
                             {studyList.map((about, index) => (

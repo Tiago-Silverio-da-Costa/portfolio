@@ -201,7 +201,7 @@ export default function Experience() {
     return (
         <section id="experience" className="py-8 w-full">
             <h1 className="text-2xl md:text-3xl font-bold text-textTitle">
-                Where I&apos;ve worked and what I&apos;ve done
+                Onde trabalhei e o que fiz
             </h1>
             <div className="flex flex-col md:flex-row gap-4 items-start mt-8">
 
@@ -367,7 +367,7 @@ export default function Experience() {
                                             </div>
                                         )}
 
-                                        
+
                                         <span>Create</span>
                                     </FormBtn>
                                 </div>

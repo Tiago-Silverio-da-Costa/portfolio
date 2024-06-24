@@ -73,7 +73,7 @@ export default function Header() {
                                         {pathname === "/" && (
                                             <span className="text-defaultText leading-3 text-4xl">•</span>
                                         )}
-                                        <Link className={`${pathname === "/" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/">Home</Link>
+                                        <Link className={`${pathname === "/" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/">Ínicio</Link>
                                     </li>
                                 </ul>
                                 <ul>
@@ -81,7 +81,7 @@ export default function Header() {
                                         {pathname === "/projects" && (
                                             <span className="text-defaultText leading-3 text-4xl">•</span>
                                         )}
-                                        <Link className={`${pathname === "/projects" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/projects">Projects</Link>
+                                        <Link className={`${pathname === "/projects" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/projects">Projetos</Link>
                                     </li>
                                 </ul>
                                 <ul>
@@ -89,7 +89,7 @@ export default function Header() {
                                         {pathname === "/about" && (
                                             <span className="text-defaultText leading-3 text-4xl">•</span>
                                         )}
-                                        <Link className={`${pathname === "/about" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/about">About</Link>
+                                        <Link className={`${pathname === "/about" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/about">Sobre</Link>
                                     </li>
                                 </ul>
                                 <ul>
@@ -97,7 +97,7 @@ export default function Header() {
                                         {pathname === "/contact" && (
                                             <span className="text-defaultText leading-3 text-4xl">•</span>
                                         )}
-                                        <Link className={`${pathname === "/contact" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/contact">Contact</Link>
+                                        <Link className={`${pathname === "/contact" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/contact">Contatos</Link>
                                     </li>
                                 </ul>
                             </nav>
@@ -128,25 +128,25 @@ export default function Header() {
                                                 {pathname === "/" && (
                                                     <span className="text-defaultText leading-3 text-2xl">•</span>
                                                 )}
-                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/">Home</Link>
+                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/">Ínicio</Link>
                                             </li>
                                             <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/projects" && (
                                                     <span className="text-defaultText leading-3 text-2xl">•</span>
                                                 )}
-                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/projects" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/projects">Projects</Link>
+                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/projects" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/projects">Projetos</Link>
                                             </li>
                                             <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/about" && (
                                                     <span className="text-defaultText leading-3 text-2xl">•</span>
                                                 )}
-                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/about" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/about">About</Link>
+                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/about" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/about">Sobre</Link>
                                             </li>
                                             <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/contact" && (
                                                     <span className="text-defaultText leading-3 text-2xl">•</span>
                                                 )}
-                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/contact" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/contact">Contact</Link>
+                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/contact" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/contact">Contatos</Link>
                                             </li>
                                         </ul>
                                     </nav>
