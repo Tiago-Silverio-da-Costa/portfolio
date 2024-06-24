@@ -86,7 +86,7 @@ export default function About() {
             animate={{ scale: 1 }}
             transition={{ delay: 0.5, duration: 0.5 }}
             id="about"
-            className="mx-auto w-5/6 max-w-5xl flex flex-col items-start justify-center gap-4 py-10 h-svh">
+            className="mx-auto w-5/6 max-w-5xl flex flex-col items-start justify-center gap-4 py-10 h-full">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8 ">
                 <div className="flex flex-col justify-start">
 
