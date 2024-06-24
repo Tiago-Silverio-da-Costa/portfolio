@@ -99,7 +99,7 @@ export default function About() {
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Whatsapp of Tiago S. C."
-                        href={`https://api.whatsapp.com/send?phone=${process.env.PUBLIC_NUMBER}`}
+                        href="https://api.whatsapp.com/send?phone=11982391118"
                     >
 
                         Entre em contato <FaWhatsapp />

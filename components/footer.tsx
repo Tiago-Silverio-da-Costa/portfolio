@@ -40,7 +40,7 @@ export default function Footer() {
                     </Link>
                     <p className="text-defaultText/50">•</p>
                     <Link
-                        href={`https://api.whatsapp.com/send?phone=${process.env.PUBLIC_NUMBER}`}
+                        href="https://api.whatsapp.com/send?phone=11982391118"
                         target="_blank"
                         rel="noreferrer"
                         className="text-defaultText/50 hover:text-defaultText transition-all duration-300"

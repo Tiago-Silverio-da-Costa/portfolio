@@ -43,7 +43,7 @@ export default function HeroOld() {
                         </div>
 
                         <div className="flex flex-wrap gap-2 items-center justify-start">
-                            <a href={`https://api.whatsapp.com/send?phone=${process.env.PUBLIC_NUMBER}&text=Oi,%20Tudo%20bem!`} className="flex items-center justify-center gap-2 px-4 py-2 border border-borderColor rounded-2xl">
+                            <a href="https://api.whatsapp.com/send?phone=11982391118" className="flex items-center justify-center gap-2 px-4 py-2 border border-borderColor rounded-2xl">
                                 <FaWhatsapp />
                                 <span>Whatsapp</span>
                             </a>
