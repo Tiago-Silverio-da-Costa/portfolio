@@ -390,7 +390,7 @@ export default function Experience() {
                         <TiArrowSortedDown className="text-xl" />
                         <span className="text-sm tracking-wide leading-6 font-medium max-w-xl">
                             {
-                                showMore ? `Show less` : `Show more`
+                                showMore ? `Mostrar menos` : `Mostrar mais`
                             }
                         </span>
                     </div>

@@ -318,29 +318,27 @@ export default function Repos() {
                                 className="fixed inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm"
                             ></div>
                             <div className="flex flex-col justify-center items-center fixed top-0 left-0 bottom-0 z-50 select-none w-full md:w-screen">
-                                <div className="flex flex-col justify-center bg-bgFooter rounded-md overflow-y-scroll scrollbar relative md:mx-auto  h-full w-full z-50 md:h-fit md:w-5/6 max-w-[40rem] py-3 px-6 md:px-12">
+                                <div className="flex flex-col justify-center bg-bgFooter md:rounded-md  relative md:mx-auto  h-full w-full z-50 md:h-fit md:w-5/6 max-w-[40rem]">
                                     <button
                                         aria-label="close popup"
                                         onClick={() => setOpenPopupProject(!openPopupProject)}
-                                        className={`absolute top-[1.25rem] right-0 flex items-center justify-center text-textOpacity bg-secondary px-4 py-2 font-bold text-lg hover:text-defaultText cursor-pointer`}>
+                                        className={`absolute top-[1rem] right-[1.25rem] flex items-center justify-center text-textOpacity bg-secondary font-bold text-lg hover:text-defaultText cursor-pointer`}>
                                         <IoMdClose />
                                     </button>
-                                    <div className="mx-auto w-full max-w-[40rem] relative flex justify-start gap-4 py-2">
-                                        <div className="flex items-center justify-center gap-4">
-                                            <a href={selectedProjectUrl} target="_blank" className="uppercase font-semibold text-2xl text-textTitle text-center w-full">{selectedName}</a>
+                                    <div className="overflow-y-scroll overflow-x-hidden scrollbar px-4 md:px-12 py-2">
+                                        <div className="flex flex-col md:flex-row items-start md:items-center justify-center gap-4">
+                                            <p className="w-fit text-start md:text-center uppercase font-semibold text-2xl text-textTitle">{selectedName}</p>
                                             <div className="flex gap-2 items-center justify-center">
-                                                <a href={selectedRepoUrl} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
+                                                <a href={selectedRepoUrl} target="_blank" className="flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
                                                     <FaGithub />
                                                 </a>
-                                                <a href={selectedProjectUrl} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
+                                                <a href={selectedProjectUrl} target="_blank" className="flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
                                                     <FaRocket />
                                                 </a>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="flex items-center justify-start w-full mt-4">
-                                        <div className="w-full">
-                                            <div className="relative">
+                                        <div className="flex items-center justify-start w-full mt-4">
+                                            <div className="w-full">
                                                 <iframe
                                                     className="w-5/6 rounded-md"
                                                     width="560"
@@ -351,10 +349,10 @@ export default function Repos() {
                                                 ></iframe>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="max-w-md w-full mt-4">
-                                        <h2 className="text-start text-lg font-semibold uppercase text-highlightText">About the project</h2>
-                                        <p className="text-start mt-2 ">{selectedDescription}</p>
+                                        <div className="max-w-md w-full mt-4">
+                                            <h2 className="text-start text-lg font-semibold uppercase text-highlightText">About the project</h2>
+                                            <p className="text-start mt-2 ">{selectedDescription}</p>
+                                        </div>
                                     </div>
                                     {/* <div className="flex flex-col items-start justify-center max-w-md w-full mt-4">
                                         <h2 className="text-start text-lg font-semibold uppercase text-highlightText">Tech stack</h2>
