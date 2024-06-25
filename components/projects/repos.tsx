@@ -40,7 +40,9 @@ export default function Repos() {
     const [selectedRepoUrl, setSelectedRepoUrl] = useState<string>("")
     const [selectedProjectUrl, setSelectedProjectUrl] = useState<string>("")
     const [selectedDescription, setSelectedDescription] = useState<string>("")
+    const [selectedGifUrl, setSelectedGifUrl] = useState<string>("")
     const [isAdmin, setIsAdmin] = useState(false);
+    const [gifLoaded, setGifLoaded] = useState(false);
 
     const {
         handleSubmit,
@@ -78,7 +80,7 @@ export default function Repos() {
         const getProjects = async () => {
             try {
 
-                const response = await fetch("https://portfolio-backend-lks5.onrender.com/getprojects", {
+                const response = await fetch("http://localhost:4000/getprojects", {
                     credentials: "include",
                     cache: "no-cache",
                     method: "GET",
@@ -124,12 +126,13 @@ export default function Repos() {
         getAdminBoard()
         getProjects();
 
+
         if (openPopupCreation || openPopupUpdate || openPopupProject) {
             document.documentElement.style.overflow = "hidden";
         } else {
             document.documentElement.style.overflow = "";
         }
-    }, [openPopupCreation, openPopupUpdate, openPopupProject, setError, setProjects])
+    }, [openPopupCreation, openPopupUpdate, openPopupProject, setError, setProjects, selectedGifUrl])
 
     const onSubmit = async (data: TCreateProject) => {
         clearErrors()
@@ -252,30 +255,35 @@ export default function Repos() {
                                 setSelectedVideoUrl(project.video_url);
                                 setSelectedRepoUrl(project.repo_url);
                                 setSelectedProjectUrl(project.project_url);
+                                setSelectedGifUrl(project.gif_url);
                             }}
+                            onLoad={() => setGifLoaded(true)}
                                 className="block group-hover:hidden cursor-pointer border-x border-x-borderColor"
                                 src={project.image_url as string}
                                 alt="Project image"
                                 width={410}
                                 height={400}
-                                unoptimized={true}
+                                loading="lazy"
                             />
-                            <Image onClick={async () => {
-                                setOpenPopupProject(!openPopupProject);
-                                setSelectedProjectId(project.id);
-                                setSelectedName(project.name);
-                                setSelectedDescription(project.description);
-                                setSelectedVideoUrl(project.video_url);
-                                setSelectedRepoUrl(project.repo_url);
-                                setSelectedProjectUrl(project.project_url);
-                            }}
-                                className="hidden group-hover:block cursor-pointer border-x border-x-borderColor"
-                                src={project.gif_url as string}
-                                alt="Project gif"
-                                width={410}
-                                height={400}
-                                unoptimized={true}
-                            />
+                            {gifLoaded && (
+                                <Image onClick={async () => {
+                                    setOpenPopupProject(!openPopupProject);
+                                    setSelectedProjectId(project.id);
+                                    setSelectedName(project.name);
+                                    setSelectedDescription(project.description);
+                                    setSelectedVideoUrl(project.video_url);
+                                    setSelectedRepoUrl(project.repo_url);
+                                    setSelectedProjectUrl(project.project_url);
+                                }}
+                                    className="hidden group-hover:block cursor-pointer border-x border-x-borderColor"
+                                    src={project.gif_url as string}
+                                    alt="Project gif"
+                                    width={410}
+                                    height={400}
+                                    loading="lazy"
+                                />
+                            )
+                            }
                         </div>
                         <div className="border border-borderColor  rounded-bl-md rounded-br-md bg-[#161b22] flex items-center h-6 px-2">
                             <div className="flex items-center gap-2 justify-start">
