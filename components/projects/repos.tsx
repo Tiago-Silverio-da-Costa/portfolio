@@ -80,7 +80,7 @@ export default function Repos() {
         const getProjects = async () => {
             try {
 
-                const response = await fetch("http://localhost:4000/getprojects", {
+                const response = await fetch("https://portfolio-backend-lks5.onrender.com/getprojects", {
                     credentials: "include",
                     cache: "no-cache",
                     method: "GET",
