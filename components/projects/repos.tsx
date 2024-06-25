@@ -40,9 +40,7 @@ export default function Repos() {
     const [selectedRepoUrl, setSelectedRepoUrl] = useState<string>("")
     const [selectedProjectUrl, setSelectedProjectUrl] = useState<string>("")
     const [selectedDescription, setSelectedDescription] = useState<string>("")
-    const [selectedGifUrl, setSelectedGifUrl] = useState<string>("")
     const [isAdmin, setIsAdmin] = useState(false);
-    const [gifLoaded, setGifLoaded] = useState(false);
 
     const {
         handleSubmit,
@@ -132,7 +130,7 @@ export default function Repos() {
         } else {
             document.documentElement.style.overflow = "";
         }
-    }, [openPopupCreation, openPopupUpdate, openPopupProject, setError, setProjects, selectedGifUrl])
+    }, [openPopupCreation, openPopupUpdate, openPopupProject, setError, setProjects])
 
     const onSubmit = async (data: TCreateProject) => {
         clearErrors()
@@ -247,25 +245,7 @@ export default function Repos() {
                             }
                         </div>
                         <div className="group w-fit transition-all duration-500">
-                            <Image onClick={async () => {
-                                setOpenPopupProject(!openPopupProject);
-                                setSelectedProjectId(project.id);
-                                setSelectedName(project.name);
-                                setSelectedDescription(project.description);
-                                setSelectedVideoUrl(project.video_url);
-                                setSelectedRepoUrl(project.repo_url);
-                                setSelectedProjectUrl(project.project_url);
-                                setSelectedGifUrl(project.gif_url);
-                            }}
-                            onLoad={() => setGifLoaded(true)}
-                                className="block group-hover:hidden cursor-pointer border-x border-x-borderColor"
-                                src={project.image_url as string}
-                                alt="Project image"
-                                width={410}
-                                height={400}
-                                loading="lazy"
-                            />
-                            {gifLoaded && (
+
                                 <Image onClick={async () => {
                                     setOpenPopupProject(!openPopupProject);
                                     setSelectedProjectId(project.id);
@@ -275,15 +255,13 @@ export default function Repos() {
                                     setSelectedRepoUrl(project.repo_url);
                                     setSelectedProjectUrl(project.project_url);
                                 }}
-                                    className="hidden group-hover:block cursor-pointer border-x border-x-borderColor"
+                                    className=" cursor-pointer border-x border-x-borderColor"
                                     src={project.gif_url as string}
                                     alt="Project gif"
                                     width={410}
                                     height={400}
                                     loading="lazy"
                                 />
-                            )
-                            }
                         </div>
                         <div className="border border-borderColor  rounded-bl-md rounded-br-md bg-[#161b22] flex items-center h-6 px-2">
                             <div className="flex items-center gap-2 justify-start">
