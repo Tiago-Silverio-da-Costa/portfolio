@@ -26,7 +26,7 @@ export default function Header() {
         const getAdminBoard = async () => {
             try {
                 const user = JSON.parse(localStorage.getItem('user') as string)
-                const response = await fetch("https://portfolio-backend-lks5.onrender.com/api/test/admin", {
+                const response = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/api/test/admin", {
                     method: 'GET',
                     headers: {
                         'x-access-token': user.accessToken

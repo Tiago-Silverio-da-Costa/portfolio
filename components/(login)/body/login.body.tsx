@@ -28,7 +28,7 @@ const Login: React.FC = () => {
     const onSubmit = async (data: TLogin) => {
         clearErrors();
 
-        const responseData = await fetch("https://portfolio-backend-lks5.onrender.com/api/auth/signin", {
+        const responseData = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/api/auth/signin", {
             credentials: "include",
             method: "POST",
             headers: {

@@ -29,7 +29,7 @@ export default function UpdateXP({ id, setOpenPopupUpdate, setExperience }: Upda
 
     useEffect(() => {
         const getProject = async () => {
-            const responseData = await fetch(`https://portfolio-backend-lks5.onrender.com/getxp/${id}`, {
+            const responseData = await fetch(`https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/getxp/${id}`, {
                 credentials: "include",
                 cache: "no-cache",
                 method: "GET",
@@ -71,7 +71,7 @@ export default function UpdateXP({ id, setOpenPopupUpdate, setExperience }: Upda
     const onSubmit = async (data: TCreateExperience) => {
         clearErrors()
 
-        const responseData = await fetch(`https://portfolio-backend-lks5.onrender.com/updatexp/${id}`, {
+        const responseData = await fetch(`https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/updatexp/${id}`, {
             credentials: "include",
             method: "PUT",
             headers: {
