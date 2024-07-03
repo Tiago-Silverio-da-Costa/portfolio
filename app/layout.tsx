@@ -66,7 +66,18 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="pt-BR">
+			<Script async src="https://www.googletagmanager.com/gtag/js?id=G-CV42LX3E3X"></Script>
 			<Script
+				id="gtm"
+				strategy="afterInteractive"
+				dangerouslySetInnerHTML={{
+					__html: `window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+
+				gtag('config', 'G-CV42LX3E3X');`
+				}} />
+			{/* <Script
 				id="gtm"
 				strategy="afterInteractive"
 				dangerouslySetInnerHTML={{
@@ -75,7 +86,7 @@ export default function RootLayout({
 						j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 						'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 						})(window,document,'script','dataLayer','GTM-K6NTFHG7');`
-				}} />
+				}} /> */}
 			<body className={segoe.className}>
 				<noscript
 					dangerouslySetInnerHTML={{
