@@ -86,15 +86,21 @@ export default function About() {
             animate={{ scale: 1 }}
             transition={{ delay: 0.5, duration: 0.5 }}
             id="about"
-            className="mx-auto w-5/6 max-w-5xl flex flex-col items-start justify-center gap-4 py-28 h-full">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8 ">
+            className="mx-auto w-5/6 max-w-5xl flex flex-col items-start justify-center gap-4 py-16 h-full">
+            <div className="flex flex-col-reverse md:flex-row  items-center md:items-start justify-between gap-8 ">
                 <div className="flex flex-col justify-start">
 
-                    <h2 className="text-2xl md:text-3xl font-bold text-textTitle">Quem sou eu</h2>
+                    <h2 className="hidden md:block text-2xl md:text-3xl font-bold text-textTitle">Quem sou eu</h2>
 
-                    <p className="text-start text-sm py-4 max-w-md leading-6 tracking-tighter">
-                        Olá! Sou Tiago Silverio da Costa, um designer e desenvolvedor web com um forte foco em criar experiências excepcionais na web. Desde que comecei a trabalhar com computadores em 2022, descobri uma paixão profunda tanto pelo design quanto pela programação. Meu objetivo é criar sites lindamente projetados, intuitivos e funcionais que proporcionem experiências de usuário impecáveis.
-                    </p>
+                    <p className="text-start text-lg py-4 max-w-md leading-6 tracking-tighter">
+                    Com mais de 2 anos de experiência no desenvolvimento de sites, ofereço soluções web personalizadas e de alta qualidade para empresas de todos os portes. Meus projetos se destacam por:
+                    <br/>
+                    <br/>
+                        <strong>Funcionalidades sob medida:</strong> Desenvolvo sites que atendem às suas necessidades específicas, desde lojas virtuais e portais de e-commerce até plataformas de ensino online e sistemas de gestão de conteúdo (CMS). <br/> <br/>
+                        <strong>Tecnologia de ponta:</strong> Utilizo as últimas ferramentas e linguagens de programação para garantir que seu site seja moderno, seguro e com alto desempenho. <br/> <br/>
+                        <strong>Foco em resultados:</strong> Meu objetivo é criar um site que não apenas seja bonito, mas que também gere resultados concretos para o seu negócio, como aumento de leads, conversões e vendas. <br/> <br/>
+                   </p>
+                    
                     <Link className="flex items-center gap-2 text-sm font-bold bg-highlightElement text-defaultText py-2 px-4 rounded-md w-fit"
                         target="_blank"
                         rel="noreferrer"
@@ -106,6 +112,9 @@ export default function About() {
                     </Link>
                 </div>
 
+                <div className="flex flex-col gap-6">
+                <h2 className="md:hidden block text-2xl md:text-3xl font-bold text-textTitle">Quem eu sou</h2>
+                <Image className="rounded-xl" src="/about/olhandonote.jpeg" alt="" width={390} height={300} />
                 <div className="hidden md:flex flex-col gap-4">
                     <div className="flex items-center gap-4">
                         <p>Frontend: </p>
@@ -151,6 +160,7 @@ export default function About() {
                             ))}
                         </ul>
                     </div>
+                </div>
                 </div>
             </div>
 

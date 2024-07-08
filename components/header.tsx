@@ -9,6 +9,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
 import { FormBtn } from "@/styles/projects";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export function logout() {
     localStorage.removeItem("user");
@@ -51,7 +52,7 @@ export default function Header() {
 
     return (
         <header className="bg-bgFooter">
-            <div className={`${isAdmin ? "justify-between" : "justify-end md:justify-center"} mx-auto w-5/6 max-w-5xl flex items-center py-8`}>
+            <div className={`justify-between mx-auto w-5/6 max-w-5xl flex items-center py-8`}>
                 {
                     isAdmin && (
                         <FormBtn
@@ -62,6 +63,11 @@ export default function Header() {
                         </FormBtn>
                     )
                 }
+
+            <div className="flex gap-4 items-center">
+                <Image className="rounded-full" src="/header/logo.png" alt="" width={80} height={80} />
+                <h1 className="hidden md:block text-2xl md:text-3xl font-bold text-textTitle uppercase">Tiago S. Costa</h1>
+            </div>
 
                 {
                     !hideContent && (
@@ -97,7 +103,7 @@ export default function Header() {
                                         {pathname === "/contact" && (
                                             <span className="text-defaultText leading-3 text-4xl">•</span>
                                         )}
-                                        <Link className={`${pathname === "/contact" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/contact">Contatos</Link>
+                                        <Link className={`${pathname === "/contact" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/contact">Contato</Link>
                                     </li>
                                 </ul>
                             </nav>
@@ -146,7 +152,7 @@ export default function Header() {
                                                 {pathname === "/contact" && (
                                                     <span className="text-defaultText leading-3 text-2xl">•</span>
                                                 )}
-                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/contact" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/contact">Contatos</Link>
+                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/contact" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/contact">Contato</Link>
                                             </li>
                                         </ul>
                                     </nav>

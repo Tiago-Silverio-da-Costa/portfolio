@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
 	title:
-		"Portfolio | Tiago Costa",
+		"Tiago Costa",
 	metadataBase: new URL("https://portfolio-tiagosc.vercel.app/"),
 	description:
 		"Bem-vindo ao portfólio do Tiago Costa! Sou um desenvolvedor web especializado em criar sites completos. Aqui, você pode explorar meus projetos, ver minhas habilidades e conhecer minhas experiências em desenvolvimento web.",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 			"Portfolio | Tiago Costa",
 		description:
 			"Bem-vindo ao portfólio do Tiago Costa! Sou um desenvolvedor web especializado em criar sites completos. Aqui, você pode explorar meus projetos, ver minhas habilidades e conhecer minhas experiências em desenvolvimento web.",
-		siteName: "Portfolio | Tiago Costa",
+		siteName: "Tiago Costa",
 		images: [
 			{
 				url: "https://portfolio-tiagosc.vercel.app/tiagosc-port.png",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
 	twitter: {
 		card: "summary_large_image",
 		title:
-			"Portfolio | Tiago Costa",
+			"Tiago Costa",
 		description:
 			"Bem-vindo ao portfólio do Tiago Costa! Sou um desenvolvedor web especializado em criar sites completos. Aqui, você pode explorar meus projetos, ver minhas habilidades e conhecer minhas experiências em desenvolvimento web.",
 		images: ["https://portfolio-tiagosc.vercel.app/tiagosc-port.png"],

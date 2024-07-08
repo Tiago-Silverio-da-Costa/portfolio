@@ -59,7 +59,7 @@ export default function     Hero() {
                     </motion.div>
                 </div>
                 <div className="md:hidden relaive z-10 flex  flex-col items-center justify-center gap-4 mt-2">
-                    <Image src="/hero/olhandonote.jpeg" alt="Tiago" width={200} height={200} className="rounded-full" />
+                    <Image src="/hero/profile.png" alt="Tiago" width={300} height={300} className="rounded-full" />
                     <TechsSliderTopDown />
                     <TechsSliderDownTop />  
                 </div>

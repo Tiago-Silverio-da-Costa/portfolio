@@ -7,7 +7,10 @@ export default function Footer() {
 
     return (
         <footer className="bg-bgFooter border-b border-b-borderColor">
-            <div className="flex justify-center py-8 mx-auto max-w-5xl w-5/6">
+            <div className="flex justify-between items-center py-8 mx-auto max-w-5xl w-5/6">
+                <p className="text-sm text-center">
+                     © {new Date().getFullYear()} Tiago S. C.
+                </p>
                 <div className="flex items-center justify-center gap-2 text-2xl">
                     <Link
                         href="https://github.com/Tiago-Silverio-da-Costa"
