@@ -4,13 +4,21 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ImMenu } from "react-icons/im";
 import { IoMdClose } from "react-icons/io";
-import { FaGithub, FaWhatsapp } from "react-icons/fa6";
-import { FaLinkedin } from "react-icons/fa";
-import { BiLogoGmail } from "react-icons/bi";
 import { FormBtn } from "@/styles/projects";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import localFont from "next/font/local";
 
+const helvetica = localFont({
+	src: [
+
+		{
+			path: "../public/fonts/helvetica-light.woff",
+			weight: "700",
+			style: "normal",
+		},
+	],
+})
 export function logout() {
     localStorage.removeItem("user");
     window.location.reload();
@@ -64,9 +72,9 @@ export default function Header() {
                     )
                 }
 
-            <div className="flex gap-4 items-center">
-                <Image className="rounded-full" src="/header/logo.png" alt="" width={80} height={80} />
-                <h1 className="hidden md:block text-2xl md:text-3xl font-bold text-textTitle uppercase">Tiago S. Costa</h1>
+            <div className="flex items-center gap-2">
+                <Image className="rounded-full" src="/header/logo.png" alt="" width={50} height={80} />
+                <h1 className="hidden md:block text-lg font-bold text-textTitle uppercase">Tiago s. Costa</h1>
             </div>
 
                 {

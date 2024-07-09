@@ -25,20 +25,20 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
 	title:
-		"Tiago Costa",
-	metadataBase: new URL("https://portfolio-tiagosc.vercel.app/"),
+		"Desenvolvedor Web Freelancer | Tiago Costa | Criação de Sites e Apps sob Medida",
+	metadataBase: new URL("https://www.tiagosc.com.br/"),
 	description:
-		"Bem-vindo ao portfólio do Tiago Costa! Sou um desenvolvedor web especializado em criar sites completos. Aqui, você pode explorar meus projetos, ver minhas habilidades e conhecer minhas experiências em desenvolvimento web.",
-	keywords: ["Portfolio", "my portfolio", "Tiago Costa", "full stack developer", "front-end developer", "back-end developer", "web developer", "web development", "web design", "web designer", "web development projects", "web development skills", "web development experiences"],
+		"Alcance seus objetivos online com soluções digitais sob medida. Portfólio de Tiago Costa, desenvolvedor web freelancer experiente em sites responsivos, apps mobile e muito mais.",
+	keywords: ["desenvolvedor web freelancer", "criação de sites", "desenvolvimento de apps", "sites responsivos", "aplicativos mobile", "soluções digitais sob medida", "portfólio de desenvolvimento web", "Tiago Costa", "desenvolvedor web", "freelancer"],
 	openGraph: {
 		title:
-			"Portfolio | Tiago Costa",
+			"Desenvolvedor Web Freelancer | Tiago Costa | Criação de Sites e Apps sob Medida",
 		description:
-			"Bem-vindo ao portfólio do Tiago Costa! Sou um desenvolvedor web especializado em criar sites completos. Aqui, você pode explorar meus projetos, ver minhas habilidades e conhecer minhas experiências em desenvolvimento web.",
-		siteName: "Tiago Costa",
+			"Alcance seus objetivos online com soluções digitais sob medida. Portfólio de Tiago Costa, desenvolvedor web freelancer experiente em sites responsivos, apps mobile e muito mais.",
+		siteName: "Desenvolvedor Web Freelancer | Tiago Costa | Criação de Sites e Apps sob Medida",
 		images: [
 			{
-				url: "https://portfolio-tiagosc.vercel.app/tiagosc-port.png",
+				url: "https://www.tiagosc.com.br/tiagosc-port.png",
 				width: 1280,
 				height: 720,
 			},
@@ -52,10 +52,10 @@ export const metadata: Metadata = {
 	twitter: {
 		card: "summary_large_image",
 		title:
-			"Tiago Costa",
+			"Desenvolvedor Web Freelancer | Tiago Costa | Criação de Sites e Apps sob Medida",
 		description:
-			"Bem-vindo ao portfólio do Tiago Costa! Sou um desenvolvedor web especializado em criar sites completos. Aqui, você pode explorar meus projetos, ver minhas habilidades e conhecer minhas experiências em desenvolvimento web.",
-		images: ["https://portfolio-tiagosc.vercel.app/tiagosc-port.png"],
+			"Alcance seus objetivos online com soluções digitais sob medida. Portfólio de Tiago Costa, desenvolvedor web freelancer experiente em sites responsivos, apps mobile e muito mais.",
+		images: ["https://www.tiagosc.com.br/tiagosc-port.png"],
 	},
 };
 

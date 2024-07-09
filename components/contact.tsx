@@ -7,6 +7,18 @@ import { FaWhatsapp } from "react-icons/fa6";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import localFont from "next/font/local";
+
+const helvetica = localFont({
+	src: [
+
+		{
+			path: "../public/fonts/helvetica-light.woff",
+			weight: "700",
+			style: "normal",
+		},
+	],
+})
 
 export default function Contact() {
     return (
@@ -25,6 +37,7 @@ export default function Contact() {
                     <br/>
                         Além das minhas habilidades técnicas, também sou um profissional proativo, organizado e com excelente comunicação. Acredito na importância de construir uma relação de confiança com meus clientes, por isso me dedico a entender suas necessidades e expectativas de forma clara e objetiva.
                     </p>
+                    <h1 className={`hidden md:block text-xl font-bold text-textTitle mt-4  max-w-xl ${helvetica.className}`}> Juntos, podemos construir um site que seja a cara do seu negócio e te ajude a conquistar novos clientes e alcançar o sucesso online. </h1>
                     <div className="flex items-center gap-2 mt-2">
                         <TiLocation className="text-xl" />
                         <span className="text-sm">
