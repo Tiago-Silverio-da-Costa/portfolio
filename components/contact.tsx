@@ -15,7 +15,7 @@ export default function Contact() {
             animate={{ scale: 1 }}
             transition={{ delay: 0.5, duration: 0.5 }}
             id="contact"
-            className="flex flex-col justify-center gap-4 mx-auto w-5/6 max-w-5xl py-8">
+            className="flex flex-col justify-center gap-4 mx-auto w-5/6 max-w-5xl py-16">
             <div className="flex flex-col-reverse md:flex-row items-start md:items-center  gap-4 justify-between text-defaultText">
                 <div className="flex flex-col">
                     <h1 className="hidden md:block text-2xl md:text-3xl font-bold text-textTitle">Trabalhe Comigo e Alcance Seus Objetivos</h1>
