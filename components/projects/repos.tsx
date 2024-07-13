@@ -259,7 +259,7 @@ export default function Repos() {
                             }}
                                 className=" cursor-pointer border-x border-x-borderColor"
                                 src={project.image_url as string}
-                                alt="Project gif"
+                                alt="Project image"
                                 width={410}
                                 height={400}
                                 loading="lazy"
@@ -313,13 +313,18 @@ export default function Repos() {
                                         className={`absolute top-[1rem] right-[1.25rem] flex items-center justify-center text-textOpacity bg-secondary font-bold text-lg hover:text-defaultText cursor-pointer`}>
                                         <IoMdClose />
                                     </button>
-                                    <div className="overflow-y-scroll overflow-x-hidden scrollbar px-4 md:px-12 py-2">
+                                    <div className="overflow-y-scroll overflow-x-hidden scrollbar px-4 md:px-12 py-8">
                                         <div className="flex flex-col md:flex-row items-start md:items-center justify-center gap-4">
                                             <p className="w-fit text-start md:text-center uppercase font-semibold text-2xl text-textTitle">{selectedName}</p>
                                             <div className="flex gap-2 items-center justify-center">
-                                                <a href={selectedRepoUrl} target="_blank" className="flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
-                                                    <FaGithub />
-                                                </a>
+                                                {
+                                                    selectedRepoUrl !== null && (
+
+                                                        <a href={selectedRepoUrl} target="_blank" className="flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
+                                                            <FaGithub />
+                                                        </a>
+                                                    )
+                                                }
                                                 <a href={selectedProjectUrl} target="_blank" className="flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
                                                     <FaRocket />
                                                 </a>

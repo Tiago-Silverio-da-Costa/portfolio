@@ -10,14 +10,14 @@ import Image from "next/image";
 import localFont from "next/font/local";
 
 const helvetica = localFont({
-	src: [
+    src: [
 
-		{
-			path: "../public/fonts/helvetica-light.woff",
-			weight: "700",
-			style: "normal",
-		},
-	],
+        {
+            path: "../public/fonts/helvetica-light.woff",
+            weight: "700",
+            style: "normal",
+        },
+    ],
 })
 export function logout() {
     localStorage.removeItem("user");
@@ -72,10 +72,10 @@ export default function Header() {
                     )
                 }
 
-            <div className="flex items-center gap-2">
-                <Image className="rounded-full" src="/header/logo.png" alt="" width={50} height={80} />
-                <h1 className="hidden md:block text-lg font-bold text-textTitle uppercase">Tiago s. Costa</h1>
-            </div>
+                <Link href="/" aria-label="Logo do Tiago Costa" className="flex items-center gap-2">
+                    <Image className="rounded-full" src="/header/logo.png" alt="" width={50} height={80} />
+                    <h1 className="hidden md:block text-lg font-bold text-textTitle uppercase">Tiago s. Costa</h1>
+                </Link>
 
                 {
                     !hideContent && (
