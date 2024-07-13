@@ -6,7 +6,7 @@ import TechsSliderTopDown from './techsSliderTopDown';
 import TechsSliderDownTop from './techsSliderDownTop';
 import { motion } from 'framer-motion';
 
-export default function     Hero() {
+export default function Hero() {
 
     return (
         <section>
@@ -23,9 +23,9 @@ export default function     Hero() {
                             >Olá, meu nome é</span>
                             <h1 className="text-4xl md:text-6xl text-textTitle font-bold uppercase tracking-wide max-w-48">Tiago Costa</h1>
                         </div>
-                        <span className="text-defaultText text-start text-sm md:text-lg max-w-md leading-6 tracking-wide">
+                        <h2 className="text-defaultText text-start text-sm md:text-lg max-w-md leading-6 tracking-wide">
                             Desenvolvedor Web
-                        </span>
+                        </h2>
                     </motion.div>
 
                     <div className="relaive z-10 flex  flex-col items-center justify-center gap-4 mt-36">
@@ -41,27 +41,27 @@ export default function     Hero() {
                             <p className="text-2xl md:text-4xl text-defaultText font-bold uppercase tracking-wide">
                                 2+
                             </p>
-                            <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide">Anos de experiência</span>
+                            <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide" aria-label="Mais de 2 anos de experiência">Anos de experiência</span>
                         </div>
                         <div className="flex flex-col items-center">
                             <p className="text-2xl md:text-4xl text-defaultText font-bold uppercase tracking-wide">
                                 50+
                             </p>
-                            <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide">Projetos completos</span>
+                            <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide" aria-label="Mais de 50 projeto realizados">Projetos completos</span>
                         </div>
                         <div className="flex flex-col items-center">
                             <p className="text-2xl md:text-4xl text-defaultText font-bold uppercase tracking-wide">
                                 5,000+
                             </p>
-                            <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide">Horas de trabalho</span>
+                            <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide" aria-label="Mais de 5000 horas de experiência">Horas de trabalho</span>
                         </div>
 
                     </motion.div>
                 </div>
                 <div className="md:hidden relaive z-10 flex  flex-col items-center justify-center gap-4 mt-2">
-                    <Image src="/hero/profile.png" alt="Tiago" width={300} height={300} className="rounded-full" />
+                    <Image src="/hero/profile.png" alt="Tiago Costa, Desenvolvedor Web Full-Stack, Florianópolis, Camboriú, Balneário Camboriú, Brasil" width={300} height={300} className="rounded-full" />
                     <TechsSliderTopDown />
-                    <TechsSliderDownTop />  
+                    <TechsSliderDownTop />
                 </div>
             </div>
 

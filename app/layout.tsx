@@ -25,17 +25,17 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
 	title:
-		"Desenvolvedor Web Freelancer | Tiago Costa | Criação de Sites e Apps sob Medida",
+		"Tiago Costa | Sites Rentáveis para Empresas de Serviços | Desenvolvedor Full-Stack Freelancer",
 	metadataBase: new URL("https://www.tiagosc.com.br/"),
 	description:
-		"Alcance seus objetivos online com soluções digitais sob medida. Portfólio de Tiago Costa, desenvolvedor web freelancer experiente em sites responsivos, apps mobile e muito mais.",
-	keywords: ["desenvolvedor web freelancer", "criação de sites", "desenvolvimento de apps", "sites responsivos", "aplicativos mobile", "soluções digitais sob medida", "portfólio de desenvolvimento web", "Tiago Costa", "desenvolvedor web", "freelancer"],
+		"Aumente as vendas e a lucratividade da sua empresa com um site sob medida! Desenvolvo sites responsivos que geram resultados para empresas de serviços como a sua. Entre em contato e solicite um orçamento gratuito!",
+	keywords: ["sites rentáveis para empresas de serviços", "desenvolvedor web freelancer para empresas de serviços", "criação de sites para empresas de serviços", "marketing digital para empresas de serviços", "aumentar vendas com site", "lucratividade com site", "desenvolvedor full-stack freelancer", "Tiago Costa freelancer", "desenvolvedor web Florianópolis", "desenvolvedor web Camboriú", "desenvolvedor web Balneário Camboriú", "SC"],
 	openGraph: {
 		title:
-			"Desenvolvedor Web Freelancer | Tiago Costa | Criação de Sites e Apps sob Medida",
+			"Tiago Costa | Sites Rentáveis para Empresas de Serviços | Desenvolvedor Full-Stack Freelancer",
 		description:
-			"Alcance seus objetivos online com soluções digitais sob medida. Portfólio de Tiago Costa, desenvolvedor web freelancer experiente em sites responsivos, apps mobile e muito mais.",
-		siteName: "Desenvolvedor Web Freelancer | Tiago Costa | Criação de Sites e Apps sob Medida",
+			"Aumente as vendas e a lucratividade da sua empresa com um site sob medida! Desenvolvo sites responsivos que geram resultados para empresas de serviços como a sua. Entre em contato e solicite um orçamento gratuito!",
+		siteName: "Tiago Costa | Sites Rentáveis para Empresas de Serviços | Desenvolvedor Full-Stack Freelancer",
 		images: [
 			{
 				url: "https://www.tiagosc.com.br/tiagosc-port.png",
@@ -47,14 +47,14 @@ export const metadata: Metadata = {
 		type: "website",
 	},
 	robots: {
-		index: process.env.VERCEL_ENV === "production",
+		index: true,
 	},
 	twitter: {
 		card: "summary_large_image",
 		title:
-			"Desenvolvedor Web Freelancer | Tiago Costa | Criação de Sites e Apps sob Medida",
+			"Tiago Costa | Sites Rentáveis para Empresas de Serviços | Desenvolvedor Full-Stack Freelancer",
 		description:
-			"Alcance seus objetivos online com soluções digitais sob medida. Portfólio de Tiago Costa, desenvolvedor web freelancer experiente em sites responsivos, apps mobile e muito mais.",
+			"Aumente as vendas e a lucratividade da sua empresa com um site sob medida! Desenvolvo sites responsivos que geram resultados para empresas de serviços como a sua. Entre em contato e solicite um orçamento gratuito!",
 		images: ["https://www.tiagosc.com.br/tiagosc-port.png"],
 	},
 };

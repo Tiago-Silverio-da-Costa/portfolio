@@ -15,6 +15,7 @@ import { IoMdClose } from "react-icons/io";
 import { FaTrashAlt } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import Update from "./update";
+import Link from "next/link";
 
 export interface Project {
     id: number;
@@ -219,16 +220,16 @@ export default function Repos() {
         <>
             <div className="relative flex flex-wrap  gap-6 flex-col md:flex-row items-center justify-center mt-6">
                 {projects?.map((project) =>
-                    <div className="hover:scale-110 transition-all duration-500 flex flex-col justify-center" key={project.id}>
+                    <article className="hover:scale-110 transition-all duration-500 flex flex-col justify-center" key={project.id}>
                         <div className="flex items-center justify-center gap-2 rounded-tl-md rounded-tr-md border border-borderColor bg-[#161b22] py-2 px-2 text-sm">
                             {project.repo_url !== null && (
-                                <a href={project.repo_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
-                                    <FaGithub />
-                                </a>
+                                <Link aria-label={`Acessar o repositório ${project.name} no GitHub`} href={project.repo_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
+                                    <FaGithub aria-label="ícone do GitHub" />
+                                </Link>
                             )}
-                            <a href={project.project_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
-                                <FaRocket />
-                            </a>
+                            <Link aria-label={`Visitar o site do projeto ${project.name}`} href={project.project_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
+                                <FaRocket aria-label="ícone do Produção" />
+                            </Link>
                             {
                                 isAdmin && (
                                     <>
@@ -259,7 +260,7 @@ export default function Repos() {
                             }}
                                 className=" cursor-pointer border-x border-x-borderColor"
                                 src={project.image_url as string}
-                                alt="Project image"
+                                alt={`${project.name} - ${project.description.substring(0, 30)}...`}
                                 width={410}
                                 height={400}
                                 loading="lazy"
@@ -296,7 +297,7 @@ export default function Repos() {
                                 <p className="text-xs text-textOpacity tracking-tighter">{project.programming_language}</p>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 )}
 
                 {
@@ -320,14 +321,14 @@ export default function Repos() {
                                                 {
                                                     selectedRepoUrl !== null && (
 
-                                                        <a href={selectedRepoUrl} target="_blank" className="flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
-                                                            <FaGithub />
-                                                        </a>
+                                                        <Link aria-label={`Acessar o repositório ${selectedRepoUrl} no GitHub`} href={selectedRepoUrl} target="_blank" className="flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
+                                                            <FaGithub aria-label="ícone do GitHub" />
+                                                        </Link>
                                                     )
                                                 }
-                                                <a href={selectedProjectUrl} target="_blank" className="flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
-                                                    <FaRocket />
-                                                </a>
+                                                <Link aria-label={`Visitar o site do projeto ${selectedProjectUrl}`} href={selectedProjectUrl} target="_blank" className="flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
+                                                    <FaRocket aria-label="ícone do Produção" />
+                                                </Link>
                                             </div>
                                         </div>
                                         <div className="flex items-center justify-start w-full mt-4">
