@@ -10,14 +10,14 @@ import Image from "next/image";
 import localFont from "next/font/local";
 
 const helvetica = localFont({
-	src: [
+    src: [
 
-		{
-			path: "../public/fonts/helvetica-light.woff",
-			weight: "700",
-			style: "normal",
-		},
-	],
+        {
+            path: "../public/fonts/helvetica-light.woff",
+            weight: "700",
+            style: "normal",
+        },
+    ],
 })
 
 export default function Contact() {
@@ -32,12 +32,12 @@ export default function Contact() {
                 <div className="flex flex-col">
                     <h1 className="hidden md:block text-2xl md:text-3xl font-bold text-textTitle">Trabalhe Comigo e Alcance Seus Objetivos</h1>
                     <p className="mt-4 text-start text-lg max-w-md leading-6 tracking-tighter">
-                    Se você está buscando um desenvolvedor web freelancer confiável e experiente, entre em contato comigo hoje mesmo. Vamos discutir suas necessidades e como posso te ajudar a alcançar seus objetivos online.
-                    <br/>
-                    <br/>
+                        Se você está buscando um desenvolvedor web freelancer confiável e experiente, entre em contato comigo hoje mesmo. Vamos discutir suas necessidades e como posso te ajudar a alcançar seus objetivos online.
+                        <br />
+                        <br />
                         Além das minhas habilidades técnicas, também sou um profissional proativo, organizado e com excelente comunicação. Acredito na importância de construir uma relação de confiança com meus clientes, por isso me dedico a entender suas necessidades e expectativas de forma clara e objetiva.
                     </p>
-                    <h1 className={`hidden md:block text-xl font-bold text-textTitle mt-4  max-w-xl ${helvetica.className}`}> Juntos, podemos construir um site que seja a cara do seu negócio e te ajude a conquistar novos clientes e alcançar o sucesso online. </h1>
+                    <h1 className={`text-xl font-bold text-textTitle mt-4  max-w-xl ${helvetica.className}`}> Juntos, podemos construir um site que seja a cara do seu negócio e te ajude a conquistar novos clientes e alcançar o sucesso online. </h1>
                     <div className="flex items-center gap-2 mt-2">
                         <TiLocation className="text-xl" />
                         <span className="text-sm">
@@ -56,12 +56,12 @@ export default function Contact() {
                 </div>
 
                 <div className="flex flex-col justify-start items-center gap-6">
-                <h1 className="block md:hidden text-2xl md:text-3xl font-bold text-textTitle">Trabalhe Comigo e Alcance Seus Objetivos</h1>
+                    <h1 className="block md:hidden text-2xl md:text-3xl font-bold text-textTitle">Trabalhe Comigo e Alcance Seus Objetivos</h1>
                     <Image className="rounded-full" src="/contact/look.jpg" alt="" width={386} height={386} />
-                <div className="hidden relaive z-10 md:flex flex-col gap-4 mt-4 md:mt-0">
-                    <TechsSliderTopDown />
-                    <TechsSliderDownTop />
-                </div>
+                    <div className="hidden relaive z-10 md:flex flex-col gap-4 mt-4 md:mt-0">
+                        <TechsSliderTopDown />
+                        <TechsSliderDownTop />
+                    </div>
                 </div>
             </div>
         </motion.section>

@@ -221,9 +221,11 @@ export default function Repos() {
                 {projects?.map((project) =>
                     <div className="hover:scale-110 transition-all duration-500 flex flex-col justify-center" key={project.id}>
                         <div className="flex items-center justify-center gap-2 rounded-tl-md rounded-tr-md border border-borderColor bg-[#161b22] py-2 px-2 text-sm">
-                            <a href={project.repo_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
-                                <FaGithub />
-                            </a>
+                            {project.repo_url !== null && (
+                                <a href={project.repo_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
+                                    <FaGithub />
+                                </a>
+                            )}
                             <a href={project.project_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
                                 <FaRocket />
                             </a>
@@ -246,22 +248,22 @@ export default function Repos() {
                         </div>
                         <div className="group w-fit transition-all duration-500">
 
-                                <Image onClick={async () => {
-                                    setOpenPopupProject(!openPopupProject);
-                                    setSelectedProjectId(project.id);
-                                    setSelectedName(project.name);
-                                    setSelectedDescription(project.description);
-                                    setSelectedVideoUrl(project.video_url);
-                                    setSelectedRepoUrl(project.repo_url);
-                                    setSelectedProjectUrl(project.project_url);
-                                }}
-                                    className=" cursor-pointer border-x border-x-borderColor"
-                                    src={project.gif_url as string}
-                                    alt="Project gif"
-                                    width={410}
-                                    height={400}
-                                    loading="lazy"
-                                />
+                            <Image onClick={async () => {
+                                setOpenPopupProject(!openPopupProject);
+                                setSelectedProjectId(project.id);
+                                setSelectedName(project.name);
+                                setSelectedDescription(project.description);
+                                setSelectedVideoUrl(project.video_url);
+                                setSelectedRepoUrl(project.repo_url);
+                                setSelectedProjectUrl(project.project_url);
+                            }}
+                                className=" cursor-pointer border-x border-x-borderColor"
+                                src={project.image_url as string}
+                                alt="Project gif"
+                                width={410}
+                                height={400}
+                                loading="lazy"
+                            />
                         </div>
                         <div className="border border-borderColor  rounded-bl-md rounded-br-md bg-[#161b22] flex items-center h-6 px-2">
                             <div className="flex items-center gap-2 justify-start">
