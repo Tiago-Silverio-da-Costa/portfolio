@@ -42,6 +42,7 @@ export default function Repos() {
     const [selectedProjectUrl, setSelectedProjectUrl] = useState<string>("")
     const [selectedDescription, setSelectedDescription] = useState<string>("")
     const [isAdmin, setIsAdmin] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const {
         handleSubmit,
@@ -93,11 +94,14 @@ export default function Repos() {
                 const projectsData: Project[] = responseData;
 
                 setProjects(projectsData);
+                setLoading(false);
+
             } catch (error) {
                 setError("root", {
                     type: "custom",
                     message: `Error fetching projects: ${error}`,
                 })
+                setLoading(false);
             }
         }
 
@@ -219,6 +223,12 @@ export default function Repos() {
     return (
         <>
             <div className="relative flex flex-wrap  gap-6 flex-col md:flex-row items-center justify-center mt-6">
+
+                {loading} ? (
+                <div className="flex justify-center items-center h-screen">
+                    <p className="text-xl font-semibold">Loading...</p>
+                </div>
+                ) : (
                 {projects?.map((project) =>
                     <article className="hover:scale-110 transition-all duration-500 flex flex-col justify-center" key={project.id}>
                         <div className="flex items-center justify-center gap-2 rounded-tl-md rounded-tr-md border border-borderColor bg-[#161b22] py-2 px-2 text-sm">
@@ -269,36 +279,36 @@ export default function Repos() {
                         <div className="border border-borderColor  rounded-bl-md rounded-br-md bg-[#161b22] flex items-center h-6 px-2">
                             <div className="flex items-center gap-2 justify-start">
                                 <div className={`flex rounded-full w-2 h-2 
-                                ${project.programming_language === "Go" ? "bg-bgGo" : ""}
-                                ${project.programming_language === "Python" ? "bg-bgPython" : ""}
-                                ${project.programming_language === "Ruby" ? "bg-bgRuby" : ""}
-                                ${project.programming_language === "Rust" ? "bg-bgRust" : ""}
-                                ${project.programming_language === "Typescript" ? "bg-bgTypescript" : ""}
-                                ${project.programming_language === "Javascript" ? "bg-bgJavascript" : ""}
-                                ${project.programming_language === "Java" ? "bg-bgJava" : ""}
-                                ${project.programming_language === "C" ? "bg-bgC" : ""}
-                                ${project.programming_language === "C++" ? "bg-bgCpp" : ""}
-                                ${project.programming_language === "Crystal" ? "bg-bgCrystal" : ""}
-                                ${project.programming_language === "Dart" ? "bg-bgDart" : ""}
-                                ${project.programming_language === "Elixir" ? "bg-bgElixir" : ""}
-                                ${project.programming_language === "Erlang" ? "bg-bgErlang" : ""}
-                                ${project.programming_language === "Haskell" ? "bg-bgHaskell" : ""}
-                                ${project.programming_language === "HTML" ? "bg-bgHtml" : ""}
-                                ${project.programming_language === "CSS" ? "bg-bgCss" : ""}
-                                ${project.programming_language === "PHP" ? "bg-bgPhp" : ""}
-                                ${project.programming_language === "Shell" ? "bg-bgShell" : ""}
-                                ${project.programming_language === "Swift" ? "bg-bgSwift" : ""}
-                                ${project.programming_language === "Kotlin" ? "bg-bgKotlin" : ""}
-                                ${project.programming_language === "Lua" ? "bg-bgLua" : ""}
-                                ${project.programming_language === "Perl" ? "bg-bgPerl" : ""}
-                                ${project.programming_language === "R" ? "bg-bgR" : ""}
-                                ${project.programming_language === "Scala" ? "bg-bgScala" : ""}
-                                    `}></div>
+                                    ${project.programming_language === "Go" ? "bg-bgGo" : ""}
+                                    ${project.programming_language === "Python" ? "bg-bgPython" : ""}
+                                    ${project.programming_language === "Ruby" ? "bg-bgRuby" : ""}
+                                    ${project.programming_language === "Rust" ? "bg-bgRust" : ""}
+                                    ${project.programming_language === "Typescript" ? "bg-bgTypescript" : ""}
+                                    ${project.programming_language === "Javascript" ? "bg-bgJavascript" : ""}
+                                    ${project.programming_language === "Java" ? "bg-bgJava" : ""}
+                                    ${project.programming_language === "C" ? "bg-bgC" : ""}
+                                    ${project.programming_language === "C++" ? "bg-bgCpp" : ""}
+                                    ${project.programming_language === "Crystal" ? "bg-bgCrystal" : ""}
+                                    ${project.programming_language === "Dart" ? "bg-bgDart" : ""}
+                                    ${project.programming_language === "Elixir" ? "bg-bgElixir" : ""}
+                                    ${project.programming_language === "Erlang" ? "bg-bgErlang" : ""}
+                                    ${project.programming_language === "Haskell" ? "bg-bgHaskell" : ""}
+                                    ${project.programming_language === "HTML" ? "bg-bgHtml" : ""}
+                                    ${project.programming_language === "CSS" ? "bg-bgCss" : ""}
+                                    ${project.programming_language === "PHP" ? "bg-bgPhp" : ""}
+                                    ${project.programming_language === "Shell" ? "bg-bgShell" : ""}
+                                    ${project.programming_language === "Swift" ? "bg-bgSwift" : ""}
+                                    ${project.programming_language === "Kotlin" ? "bg-bgKotlin" : ""}
+                                    ${project.programming_language === "Lua" ? "bg-bgLua" : ""}
+                                    ${project.programming_language === "Perl" ? "bg-bgPerl" : ""}
+                                    ${project.programming_language === "R" ? "bg-bgR" : ""}
+                                    ${project.programming_language === "Scala" ? "bg-bgScala" : ""}
+                                        `}></div>
                                 <p className="text-xs text-textOpacity tracking-tighter">{project.programming_language}</p>
                             </div>
                         </div>
                     </article>
-                )}
+                )})
 
                 {
                     openPopupProject && selectedProjectId !== null && (
