@@ -226,7 +226,9 @@ export default function Repos() {
 
                 {loading ? (
                     <div className="flex justify-center items-center h-screen">
-                        <p className="text-xl font-semibold">Loading...</p>
+                        <Spin>
+                            <PiSpinnerBold className="text-defaultText text-3xl" />
+                        </Spin>
                     </div>
                 ) : (
                     projects?.map((project) =>
