@@ -225,9 +225,9 @@ export default function Repos() {
             <div className="relative flex flex-wrap  gap-6 flex-col md:flex-row items-center justify-center mt-6">
 
                 {loading ? (
-                    <div className="flex justify-center items-center h-screen">
+                    <div className="flex justify-center items-center h-screen w-full">
                         <Spin>
-                            <PiSpinnerBold className="text-defaultText text-3xl" />
+                            <PiSpinnerBold className="text-defaultText text-4xl" />
                         </Spin>
                     </div>
                 ) : (
