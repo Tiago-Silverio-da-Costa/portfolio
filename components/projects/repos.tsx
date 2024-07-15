@@ -224,61 +224,61 @@ export default function Repos() {
         <>
             <div className="relative flex flex-wrap  gap-6 flex-col md:flex-row items-center justify-center mt-6">
 
-                {loading} ? (
-                <div className="flex justify-center items-center h-screen">
-                    <p className="text-xl font-semibold">Loading...</p>
-                </div>
+                {loading ? (
+                    <div className="flex justify-center items-center h-screen">
+                        <p className="text-xl font-semibold">Loading...</p>
+                    </div>
                 ) : (
-                {projects?.map((project) =>
-                    <article className="hover:scale-110 transition-all duration-500 flex flex-col justify-center" key={project.id}>
-                        <div className="flex items-center justify-center gap-2 rounded-tl-md rounded-tr-md border border-borderColor bg-[#161b22] py-2 px-2 text-sm">
-                            {project.repo_url !== null && (
-                                <Link aria-label={`Acessar o repositório ${project.name} no GitHub`} href={project.repo_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
-                                    <FaGithub aria-label="ícone do GitHub" />
+                    projects?.map((project) =>
+                        <article className="hover:scale-110 transition-all duration-500 flex flex-col justify-center" key={project.id}>
+                            <div className="flex items-center justify-center gap-2 rounded-tl-md rounded-tr-md border border-borderColor bg-[#161b22] py-2 px-2 text-sm">
+                                {project.repo_url !== null && (
+                                    <Link aria-label={`Acessar o repositório ${project.name} no GitHub`} href={project.repo_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
+                                        <FaGithub aria-label="ícone do GitHub" />
+                                    </Link>
+                                )}
+                                <Link aria-label={`Visitar o site do projeto ${project.name}`} href={project.project_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
+                                    <FaRocket aria-label="ícone do Produção" />
                                 </Link>
-                            )}
-                            <Link aria-label={`Visitar o site do projeto ${project.name}`} href={project.project_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
-                                <FaRocket aria-label="ícone do Produção" />
-                            </Link>
-                            {
-                                isAdmin && (
-                                    <>
-                                        <div onClick={() => deleteProject(project.id)} className="cursor-pointer group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
-                                            <FaTrashAlt />
-                                        </div>
-                                        <div onClick={async () => {
-                                            setOpenPopupUpdate(!openPopupUpdate);
-                                            setSelectedProjectId(project.id);
-                                        }}
-                                            className="cursor-pointer group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
-                                            <MdEdit />
-                                        </div>
-                                    </>
-                                )
-                            }
-                        </div>
-                        <div className="group w-fit transition-all duration-500">
+                                {
+                                    isAdmin && (
+                                        <>
+                                            <div onClick={() => deleteProject(project.id)} className="cursor-pointer group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
+                                                <FaTrashAlt />
+                                            </div>
+                                            <div onClick={async () => {
+                                                setOpenPopupUpdate(!openPopupUpdate);
+                                                setSelectedProjectId(project.id);
+                                            }}
+                                                className="cursor-pointer group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
+                                                <MdEdit />
+                                            </div>
+                                        </>
+                                    )
+                                }
+                            </div>
+                            <div className="group w-fit transition-all duration-500">
 
-                            <Image onClick={async () => {
-                                setOpenPopupProject(!openPopupProject);
-                                setSelectedProjectId(project.id);
-                                setSelectedName(project.name);
-                                setSelectedDescription(project.description);
-                                setSelectedVideoUrl(project.video_url);
-                                setSelectedRepoUrl(project.repo_url);
-                                setSelectedProjectUrl(project.project_url);
-                            }}
-                                className=" cursor-pointer border-x border-x-borderColor"
-                                src={project.image_url as string}
-                                alt={`${project.name} - ${project.description.substring(0, 30)}...`}
-                                width={410}
-                                height={400}
-                                loading="lazy"
-                            />
-                        </div>
-                        <div className="border border-borderColor  rounded-bl-md rounded-br-md bg-[#161b22] flex items-center h-6 px-2">
-                            <div className="flex items-center gap-2 justify-start">
-                                <div className={`flex rounded-full w-2 h-2 
+                                <Image onClick={async () => {
+                                    setOpenPopupProject(!openPopupProject);
+                                    setSelectedProjectId(project.id);
+                                    setSelectedName(project.name);
+                                    setSelectedDescription(project.description);
+                                    setSelectedVideoUrl(project.video_url);
+                                    setSelectedRepoUrl(project.repo_url);
+                                    setSelectedProjectUrl(project.project_url);
+                                }}
+                                    className=" cursor-pointer border-x border-x-borderColor"
+                                    src={project.image_url as string}
+                                    alt={`${project.name} - ${project.description.substring(0, 30)}...`}
+                                    width={410}
+                                    height={400}
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div className="border border-borderColor  rounded-bl-md rounded-br-md bg-[#161b22] flex items-center h-6 px-2">
+                                <div className="flex items-center gap-2 justify-start">
+                                    <div className={`flex rounded-full w-2 h-2 
                                     ${project.programming_language === "Go" ? "bg-bgGo" : ""}
                                     ${project.programming_language === "Python" ? "bg-bgPython" : ""}
                                     ${project.programming_language === "Ruby" ? "bg-bgRuby" : ""}
@@ -304,11 +304,11 @@ export default function Repos() {
                                     ${project.programming_language === "R" ? "bg-bgR" : ""}
                                     ${project.programming_language === "Scala" ? "bg-bgScala" : ""}
                                         `}></div>
-                                <p className="text-xs text-textOpacity tracking-tighter">{project.programming_language}</p>
+                                    <p className="text-xs text-textOpacity tracking-tighter">{project.programming_language}</p>
+                                </div>
                             </div>
-                        </div>
-                    </article>
-                )})
+                        </article>
+                    ))}
 
                 {
                     openPopupProject && selectedProjectId !== null && (
