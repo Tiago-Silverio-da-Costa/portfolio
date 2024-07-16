@@ -31,7 +31,7 @@ export default function Step() {
                         <p className="font-bold text-bgFooter text-lg md:text-2xl tracking-wider">Design</p>
                     </div>
                     <div>
-                        <p className="text-start text-lg mt-2 leading-6 tracking-tighter text-bgFooter">Nós materializamos sua ideia em um protótipo, onde você poderá navegar e avaliar</p>
+                        <p className="text-start text-lg mt-2 leading-6 tracking-tighter text-bgFooter">Aqui sua ideia se torna realidade. Aqui você navega e avalia o design.</p>
                     </div>
                 </div>
 
@@ -41,7 +41,7 @@ export default function Step() {
                         <p className="font-bold text-defaultText text-lg md:text-2xl tracking-wider">Desenvolvimento</p>
                     </div>
                     <div>
-                        <p className="text-start text-lg mt-2 leading-6 tracking-tighter ">é hora de passar o seu projeto para a programação.</p>
+                        <p className="text-start text-lg mt-2 leading-6 tracking-tighter ">Agora é hora de avançar para a fase de desenvolvimento do seu projeto, onde daremos vida ao seu site através da programação.</p>
                     </div>
                 </div>
 
@@ -51,7 +51,7 @@ export default function Step() {
                         <p className="font-bold text-bgFooter text-lg md:text-2xl tracking-wider">Finalização</p>
                     </div>
                     <div>
-                        <p className="text-start text-lg mt-2 leading-6 tracking-tighter text-bgFooter">Seu projeto de alta performance será entregue funcionando perfeitamente.</p>
+                        <p className="text-start text-lg mt-2 leading-6 tracking-tighter text-bgFooter">Chegamos à fase final, onde seu projeto será entregue, funcionando perfeitamente e pronto para uso.</p>
                     </div>
                 </div>
 
