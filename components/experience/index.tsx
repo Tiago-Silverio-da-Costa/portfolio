@@ -210,7 +210,7 @@ export default function Experience() {
                         <div
                             key={job.id}
                             onClick={() => setSelectedJob(selectedJob === job.id ? null : job.id)}
-                            className="bg-textTitle border border-borderColor rounded-md p-4 flex flex-col hover:bg-textTitle/80 cursor-pointer transition-all duration-200">
+                            className="bg-textTitle text-bgFooter border border-borderColor rounded-md p-4 flex flex-col hover:bg-textTitle/80 cursor-pointer transition-all duration-200">
                             <div className="flex flex-col">
                                 <div className="flex gap-4 items-center">
                                     <h2 className="text-xl font-bold">{job.company}</h2>

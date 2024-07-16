@@ -233,13 +233,13 @@ export default function Repos() {
                 ) : (
                     projects?.map((project) =>
                         <article className="hover:scale-110 transition-all duration-500 flex flex-col justify-center" key={project.id}>
-                            <div className="flex items-center justify-center gap-2 rounded-tl-md rounded-tr-md border border-borderColor bg-[#161b22] py-2 px-2 text-sm">
+                            <div className="flex items-center justify-center gap-2 rounded-tl-md rounded-tr-md border border-bgFooter shadow-md bg-bgFooter py-2 px-2 text-sm">
                                 {project.repo_url !== null && (
-                                    <Link aria-label={`Acessar o repositório ${project.name} no GitHub`} href={project.repo_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
+                                    <Link aria-label={`Acessar o repositório ${project.name} no GitHub`} href={project.repo_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-bgFooter">
                                         <FaGithub aria-label="ícone do GitHub" />
                                     </Link>
                                 )}
-                                <Link aria-label={`Visitar o site do projeto ${project.name}`} href={project.project_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
+                                <Link aria-label={`Visitar o site do projeto ${project.name}`} href={project.project_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-bgFooter">
                                     <FaRocket aria-label="ícone do Produção" />
                                 </Link>
                                 {
@@ -278,7 +278,7 @@ export default function Repos() {
                                     loading="lazy"
                                 />
                             </div>
-                            <div className="border border-borderColor  rounded-bl-md rounded-br-md bg-[#161b22] flex items-center h-6 px-2">
+                            <div className="border border-bgFooter  rounded-bl-md rounded-br-md bg-bgFooter flex items-center h-6 px-2">
                                 <div className="flex items-center gap-2 justify-start">
                                     <div className={`flex rounded-full w-2 h-2 
                                     ${project.programming_language === "Go" ? "bg-bgGo" : ""}
