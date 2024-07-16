@@ -9,16 +9,6 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import localFont from "next/font/local";
 
-const helvetica = localFont({
-    src: [
-
-        {
-            path: "../public/fonts/helvetica-light.woff",
-            weight: "700",
-            style: "normal",
-        },
-    ],
-})
 export function logout() {
     localStorage.removeItem("user");
     window.location.reload();
@@ -59,7 +49,7 @@ export default function Header() {
     }, [pathname])
 
     return (
-        <header className="bg-bgFooter">
+        <header className="bg-[hsla(0,0%,100%,.25)] border border-[hsla(0,0%,100%,.25)] w-full">
             <div className={`justify-between mx-auto w-5/6 max-w-5xl flex items-center py-8`}>
                 {
                     isAdmin && (
@@ -82,36 +72,36 @@ export default function Header() {
                         <>
 
                             <nav className="items-end gap-4 justify-center hidden md:flex">
-                                <ul>
+                                <ul className="group">
                                     <li className="flex flex-col items-center">
                                         {pathname === "/" && (
-                                            <span className="text-defaultText leading-3 text-4xl">•</span>
+                                            <span className="text-textTitle leading-3 text-xl">•</span>
                                         )}
-                                        <Link className={`${pathname === "/" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/">Ínicio</Link>
+                                        <Link className={`${pathname === "/" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/">Ínicio</Link>
                                     </li>
                                 </ul>
                                 <ul>
                                     <li className="flex flex-col items-center">
                                         {pathname === "/projects" && (
-                                            <span className="text-defaultText leading-3 text-4xl">•</span>
+                                            <span className="text-textTitle leading-3 text-xl">•</span>
                                         )}
-                                        <Link className={`${pathname === "/projects" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/projects">Projetos</Link>
+                                        <Link className={`${pathname === "/projects" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/projects">Projetos</Link>
                                     </li>
                                 </ul>
                                 <ul>
                                     <li className="flex flex-col items-center">
                                         {pathname === "/about" && (
-                                            <span className="text-defaultText leading-3 text-4xl">•</span>
+                                            <span className="text-textTitle leading-3 text-xl">•</span>
                                         )}
-                                        <Link className={`${pathname === "/about" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/about">Sobre</Link>
+                                        <Link className={`${pathname === "/about" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/about">Sobre</Link>
                                     </li>
                                 </ul>
                                 <ul>
                                     <li className="flex flex-col items-center">
                                         {pathname === "/contact" && (
-                                            <span className="text-defaultText leading-3 text-4xl">•</span>
+                                            <span className="text-textTitle leading-3 text-xl">•</span>
                                         )}
-                                        <Link className={`${pathname === "/contact" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/contact">Contato</Link>
+                                        <Link className={`${pathname === "/contact" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/contact">Contato</Link>
                                     </li>
                                 </ul>
                             </nav>
@@ -128,7 +118,7 @@ export default function Header() {
 
                             {
                                 openPopup && (
-                                    <nav className="md:hidden fixed top-0 left-0 w-full h-full bg-bgColor z-50 flex flex-col items-center justify-center">
+                                    <nav className="md:hidden fixed top-0 left-0 w-full h-full bg-bgFooter z-50 flex flex-col items-center justify-center">
                                         <button
                                             aria-label="close menu"
                                             type="button"
@@ -140,27 +130,27 @@ export default function Header() {
                                         <ul className="flex flex-col gap-4 mt-8">
                                             <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/" && (
-                                                    <span className="text-defaultText leading-3 text-2xl">•</span>
+                                                    <span className="text-textTitle leading-3 text-xl">•</span>
                                                 )}
-                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/">Ínicio</Link>
+                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/">Ínicio</Link>
                                             </li>
                                             <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/projects" && (
-                                                    <span className="text-defaultText leading-3 text-2xl">•</span>
+                                                    <span className="text-textTitle leading-3 text-xl">•</span>
                                                 )}
-                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/projects" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/projects">Projetos</Link>
+                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/projects" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/projects">Projetos</Link>
                                             </li>
                                             <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/about" && (
-                                                    <span className="text-defaultText leading-3 text-2xl">•</span>
+                                                    <span className="text-textTitle leading-3 text-xl">•</span>
                                                 )}
-                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/about" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/about">Sobre</Link>
+                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/about" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/about">Sobre</Link>
                                             </li>
                                             <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/contact" && (
-                                                    <span className="text-defaultText leading-3 text-2xl">•</span>
+                                                    <span className="text-textTitle leading-3 text-xl">•</span>
                                                 )}
-                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/contact" ? "font-bold" : "font-normal"} text-defaultText text-xl hover:text-defaultText/65 transition-all duration-300`} href="/contact">Contato</Link>
+                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/contact" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/contact">Contato</Link>
                                             </li>
                                         </ul>
                                     </nav>

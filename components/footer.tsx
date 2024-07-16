@@ -6,10 +6,10 @@ import { BiLogoGmail } from "react-icons/bi";
 export default function Footer() {
 
     return (
-        <footer className="bg-bgFooter border-b border-b-borderColor">
+        <footer className="shadow-md bg-white border-t border-t-transparent">
             <div className="flex justify-between items-center py-8 mx-auto max-w-5xl w-5/6">
                 <p className="text-sm text-center">
-                     © {new Date().getFullYear()} Tiago S. C.
+                    © {new Date().getFullYear()} Tiago S. C.
                 </p>
                 <div className="flex items-center justify-center gap-2 text-2xl">
                     <Link

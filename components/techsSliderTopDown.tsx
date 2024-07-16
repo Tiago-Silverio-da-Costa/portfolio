@@ -70,7 +70,7 @@ export default function TechsSliderTopDown() {
             {aboutList.map((about) => (
                 <Fragment key={about.id}>
                     <SwiperSlide className="select-none">
-                        <Image className="bg-borderColor p-2 md:p-4 rounded-md" src={about.image} alt="techs" width={65} height={65} />
+                        <Image className="bg-bgGray shadow-sm p-2 md:p-4 my-1 rounded-full" src={about.image} alt="techs" width={65} height={65} />
                     </SwiperSlide>
                 </Fragment>
             ))}

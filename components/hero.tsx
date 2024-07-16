@@ -10,7 +10,7 @@ export default function Hero() {
 
     return (
         <section>
-            <div className="mx-auto w-5/6 max-w-5xl flex flex-col md:flex-row item-center py-16 md:h-screen">
+            <div className="mx-auto w-5/6 max-w-5xl flex flex-col md:flex-row item-center py-16">
                 <div className="w-full md:py-8 md:pb-40 flex gap-1 md:gap-4 justify-between items-center">
 
                     <motion.div
@@ -24,7 +24,7 @@ export default function Hero() {
                             <h1 className="text-4xl md:text-6xl text-textTitle font-bold uppercase tracking-wide max-w-48">Tiago Costa</h1>
                         </div>
                         <h2 className="text-defaultText text-start text-sm md:text-lg max-w-md leading-6 tracking-wide">
-                            Desenvolvedor Web
+                            Criação de sites e apps
                         </h2>
                     </motion.div>
 

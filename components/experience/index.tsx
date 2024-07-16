@@ -210,7 +210,7 @@ export default function Experience() {
                         <div
                             key={job.id}
                             onClick={() => setSelectedJob(selectedJob === job.id ? null : job.id)}
-                            className="bg-highlightElement border border-borderColor rounded-md p-4 flex flex-col hover:bg-highlightElement/80 cursor-pointer transition-all duration-200">
+                            className="bg-textTitle border border-borderColor rounded-md p-4 flex flex-col hover:bg-textTitle/80 cursor-pointer transition-all duration-200">
                             <div className="flex flex-col">
                                 <div className="flex gap-4 items-center">
                                     <h2 className="text-xl font-bold">{job.company}</h2>
@@ -224,7 +224,7 @@ export default function Experience() {
                                                     setOpenPopupUpdate(!openPopupUpdate);
                                                     setSelectedExperienceId(job.id);
                                                 }}
-                                                    className="cursor-pointer group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-[#c9d1d9]">
+                                                    className="cursor-pointer group-hover:flex border border-borderColor p-1 rounded-md bg-transparent text-[#c9d1d9]">
                                                     <MdEdit />
                                                 </div>
                                             </div>
@@ -386,7 +386,7 @@ export default function Experience() {
                         </div>
                     ))}
 
-                    <div onClick={() => setShowMore(!showMore)} className="select-none cursor-pointer text-highlightText flex gap-1 items-center mt-2 w-fit">
+                    <div onClick={() => setShowMore(!showMore)} className="select-none cursor-pointer text-textTitle flex gap-1 items-center mt-2 w-fit">
                         <TiArrowSortedDown className="text-xl" />
                         <span className="text-sm tracking-wide leading-6 font-medium max-w-xl">
                             {

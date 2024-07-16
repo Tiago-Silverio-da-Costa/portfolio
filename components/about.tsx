@@ -86,7 +86,7 @@ export default function About() {
             animate={{ scale: 1 }}
             transition={{ delay: 0.5, duration: 0.5 }}
             id="about"
-            className="mx-auto w-5/6 max-w-5xl flex flex-col items-start justify-center gap-4 py-16 h-full">
+            className="mx-auto w-5/6 max-w-5xl flex flex-col items-start justify-center gap-4 py-16  h-full">
             <header>
                 <h1 className="hidden md:block text-2xl md:text-3xl font-bold text-textTitle">Quem sou eu</h1>
             </header>
@@ -103,7 +103,7 @@ export default function About() {
                         <strong>Foco em resultados:</strong> Meu objetivo é criar um site que não apenas seja bonito, mas que também gere resultados concretos para o seu negócio, como aumento de leads, conversões e vendas. <br /> <br />
                     </p>
 
-                    <Link className="flex items-center gap-2 text-sm font-bold bg-highlightElement text-defaultText py-2 px-4 rounded-md w-fit"
+                    <Link className="flex items-center gap-2 text-sm font-bold bg-highlightElement text-bgFooter py-2 px-4 rounded-md w-fit"
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Entre em contato com Tiago S. C. pelo Whatsapp"
@@ -124,7 +124,7 @@ export default function About() {
 
                                 {frontList.map((about, index) => (
                                     <Fragment key={index}>
-                                        <Image className="bg-borderColor p-2 w-10 h-10 rounded-md" src={about.image} alt="techs" width={65} height={65} />
+                                        <Image className="bg-bgGray shadow-sm p-2 md:p-4 my-1 rounded-full" src={about.image} alt="techs" width={65} height={65} />
                                     </Fragment>
                                 ))}
                             </ul>
@@ -135,7 +135,7 @@ export default function About() {
 
                                 {backList.map((about, index) => (
                                     <Fragment key={index}>
-                                        <Image className="bg-borderColor p-2 w-10 h-10 rounded-md" src={about.image} alt="techs" width={65} height={65} />
+                                        <Image className="bg-bgGray shadow-sm p-2 md:p-4 my-1 rounded-full" src={about.image} alt="techs" width={65} height={65} />
                                     </Fragment>
                                 ))}
                             </ul>
@@ -146,7 +146,7 @@ export default function About() {
 
                                 {dbList.map((about, index) => (
                                     <Fragment key={index}>
-                                        <Image className="bg-borderColor p-2 w-10 h-10 rounded-md" src={about.image} alt="techs" width={65} height={65} />
+                                        <Image className="bg-bgGray shadow-sm p-2 md:p-4 my-1 rounded-full" src={about.image} alt="techs" width={65} height={65} />
                                     </Fragment>
                                 ))}
                             </ul>
@@ -157,7 +157,7 @@ export default function About() {
 
                                 {studyList.map((about, index) => (
                                     <Fragment key={index}>
-                                        <Image className="bg-borderColor p-2 w-10 h-10 rounded-md" src={about.image} alt="techs" width={65} height={65} />
+                                        <Image className="bg-bgGray shadow-sm p-2 md:p-4 my-1 rounded-full" src={about.image} alt="techs" width={65} height={65} />
                                     </Fragment>
                                 ))}
                             </ul>

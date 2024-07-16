@@ -356,7 +356,7 @@ export default function Repos() {
                                             </div>
                                         </div>
                                         <div className="max-w-md w-full mt-4">
-                                            <h2 className="text-start text-lg font-semibold uppercase text-highlightText">About the project</h2>
+                                            <h2 className="text-start text-lg font-semibold uppercase text-textTitle">About the project</h2>
                                             <p className="text-start mt-2 ">{selectedDescription}</p>
                                         </div>
                                     </div>
