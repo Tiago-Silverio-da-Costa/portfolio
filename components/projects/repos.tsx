@@ -270,7 +270,7 @@ export default function Repos() {
                                     setSelectedRepoUrl(project.repo_url);
                                     setSelectedProjectUrl(project.project_url);
                                 }}
-                                    className=" cursor-pointer border-x border-x-borderColor"
+                                    className=" cursor-pointer border-x border-x-bgFooter"
                                     src={project.image_url as string}
                                     alt={`${project.name} - ${project.description.substring(0, 30)}...`}
                                     width={410}
