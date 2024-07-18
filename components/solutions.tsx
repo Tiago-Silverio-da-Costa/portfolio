@@ -12,7 +12,7 @@ export default function Solutions() {
 
                     <div className="flex flex-col shadow-md rounded-md px-6 py-4">
                         <Image src="/hero/landing.svg" alt="" width={100} height={100} />
-                        <h2 className="font-light text-defaultText text-lg md:text-2xl tracking-wider">
+                        <h2 className="font-semibold text-defaultText text-lg md:text-2xl tracking-wider">
                             Landing Pages
                         </h2>
                         <p className="text-start text-lg mt-2 leading-6 tracking-tighter max-w-60">
@@ -23,7 +23,7 @@ export default function Solutions() {
 
                     <div className="flex flex-col shadow-md rounded-md px-6 py-4">
                         <Image src="/hero/ecommerce.svg" alt="" width={100} height={100} />
-                        <h2 className="font-light text-defaultText text-lg md:text-2xl tracking-wider">
+                        <h2 className="font-semibold text-defaultText text-lg md:text-2xl tracking-wider">
                             Lojas Virtuais
                         </h2>
                         <p className="text-start text-lg mt-2 max-w-60 leading-6 tracking-tighter">
@@ -33,7 +33,7 @@ export default function Solutions() {
 
                     <div className="flex flex-col shadow-md rounded-md px-6 py-4">
                         <Image src="/hero/institutions.svg" alt="" width={100} height={100} />
-                        <h2 className="font-light text-defaultText text-lg md:text-2xl tracking-wider">
+                        <h2 className="font-semibold text-defaultText text-lg md:text-2xl tracking-wider">
                             Sites Institucionais
                         </h2>
                         <p className="text-start text-lg mt-2 max-w-60 leading-6 tracking-tighter">
@@ -43,7 +43,7 @@ export default function Solutions() {
 
                     <div className="flex flex-col shadow-md rounded-md px-6 py-4">
                         <Image src="/hero/websystem.svg" alt="" width={100} height={100} />
-                        <h2 className="font-light text-defaultText text-lg md:text-2xl tracking-wider">
+                        <h2 className="font-semibold text-defaultText text-lg md:text-2xl tracking-wider">
                             Sites Institucionais
                         </h2>
                         <p className="text-start text-lg mt-2 leading-6 tracking-tighter max-w-60">
@@ -53,7 +53,7 @@ export default function Solutions() {
 
                     <div className="flex flex-col shadow-md rounded-md px-6 py-4">
                         <Image src="/hero/app.svg" alt="" width={80} height={100} />
-                        <h2 className="font-light text-defaultText text-lg md:text-2xl tracking-wider">
+                        <h2 className="font-semibold text-defaultText text-lg md:text-2xl tracking-wider">
                             App
                         </h2>
                         <p className="text-start text-lg mt-2 leading-6 tracking-tighter max-w-60">
@@ -63,7 +63,7 @@ export default function Solutions() {
 
                     <div className="flex flex-col shadow-md rounded-md px-6 py-4">
                         <Image src="/hero/fix.svg" alt="" width={80} height={100} />
-                        <h2 className="font-light text-defaultText text-lg md:text-2xl tracking-wider">
+                        <h2 className="font-semibold text-defaultText text-lg md:text-2xl tracking-wider">
                             Manutenção
                         </h2>
                         <p className="text-start text-lg mt-2 leading-6 tracking-tighter max-w-60">
