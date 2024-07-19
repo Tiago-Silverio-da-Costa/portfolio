@@ -25,17 +25,17 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
 	title:
-		"Criação de Sites e aplicativos – Tiago Costa | Sites Rentáveis para Empresas de Serviços | Desenvolvedor Full-Stack Freelancer",
+		"Criação de Sites e aplicativos – Tiago Silverio da Costa",
 	metadataBase: new URL("https://www.tiagosc.com.br/"),
 	description:
 		"Aumente as vendas e a lucratividade da sua empresa com um site sob medida! Desenvolvo sites responsivos que geram resultados para empresas de serviços como a sua. Entre em contato e solicite um orçamento gratuito!",
-	keywords: ["sites rentáveis para empresas de serviços", "desenvolvedor web freelancer para empresas de serviços", "criação de sites para empresas de serviços", "marketing digital para empresas de serviços", "aumentar vendas com site", "lucratividade com site", "desenvolvedor full-stack freelancer", "Tiago Costa freelancer", "desenvolvedor web Florianópolis", "desenvolvedor web Camboriú", "desenvolvedor web Balneário Camboriú", "SC"],
+	keywords: ["sites rentáveis para empresas de serviços", "desenvolvedor web freelancer para empresas de serviços", "criação de sites para empresas de serviços", "marketing digital para empresas de serviços", "aumentar vendas com site", "lucratividade com site", "desenvolvedor full-stack freelancer", "Tiago Silverio da Costa freelancer", "desenvolvedor web Florianópolis", "desenvolvedor web Camboriú", "desenvolvedor web Balneário Camboriú", "SC"],
 	openGraph: {
 		title:
-			"Criação de Sites e aplicativos – Tiago Costa | Sites Rentáveis para Empresas de Serviços | Desenvolvedor Full-Stack Freelancer",
+			"Criação de Sites e aplicativos – Tiago Silverio da Costa",
 		description:
 			"Aumente as vendas e a lucratividade da sua empresa com um site sob medida! Desenvolvo sites responsivos que geram resultados para empresas de serviços como a sua. Entre em contato e solicite um orçamento gratuito!",
-		siteName: "Criação de Sites e aplicativos – Tiago Costa | Sites Rentáveis para Empresas de Serviços | Desenvolvedor Full-Stack Freelancer",
+		siteName: "Criação de Sites e aplicativos – Tiago Silverio da Costa",
 		images: [
 			{
 				url: "https://www.tiagosc.com.br/tiagosc-port.png",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
 	twitter: {
 		card: "summary_large_image",
 		title:
-			"Criação de Sites e aplicativos – Tiago Costa | Sites Rentáveis para Empresas de Serviços | Desenvolvedor Full-Stack Freelancer",
+			"Criação de Sites e aplicativos – Tiago Silverio da Costa",
 		description:
 			"Aumente as vendas e a lucratividade da sua empresa com um site sob medida! Desenvolvo sites responsivos que geram resultados para empresas de serviços como a sua. Entre em contato e solicite um orçamento gratuito!",
 		images: ["https://www.tiagosc.com.br/tiagosc-port.png"],

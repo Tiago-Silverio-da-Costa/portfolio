@@ -21,7 +21,7 @@ export default function Hero() {
                         <div className="flex flex-col">
                             <span className="font-medium text-defaultText text-lg md:text-2xl uppercase tracking-wider"
                             >Olá, meu nome é</span>
-                            <h1 className="text-4xl md:text-6xl text-textTitle font-bold uppercase tracking-wide max-w-48">Tiago Costa</h1>
+                            <h1 className="text-4xl md:text-6xl text-textTitle font-bold uppercase tracking-wide max-w-48">Tiago Silverio da Costa</h1>
                         </div>
                         <h2 className="text-defaultText text-start text-sm md:text-lg max-w-md leading-6 tracking-wide">
                             Criação de sites e apps
@@ -59,7 +59,7 @@ export default function Hero() {
                     </motion.div>
                 </div>
                 <div className="md:hidden relaive z-10 flex  flex-col items-center justify-center gap-4 mt-2">
-                    <Image src="/hero/profile.png" alt="Tiago Costa, Desenvolvedor Web Full-Stack, Florianópolis, Camboriú, Balneário Camboriú, Brasil" width={300} height={300} className="rounded-full" />
+                    <Image src="/hero/profile.jpg" alt="Tiago Silverio da Costa, Desenvolvedor Web Full-Stack, Florianópolis, Camboriú, Balneário Camboriú, Brasil" width={300} height={300} className="rounded-full" />
                     <TechsSliderTopDown />
                     <TechsSliderDownTop />
                 </div>
