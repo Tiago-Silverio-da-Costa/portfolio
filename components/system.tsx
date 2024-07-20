@@ -9,7 +9,7 @@ export default function System() {
             animate={{ scale: 1 }}
             transition={{ delay: 0.5, duration: 0.5 }}
             className="hidden max-w-5xl w-5/6 mx-auto lg:flex items-center justify-center">
-            <HeroContainer $bg={`/hero/profile.png`}>
+            <HeroContainer $bg={`/contact/look.jpg`}>
                 <ReactChild $icon={`/hero/react.svg`} />
                 <NextChild $icon={`/hero/next.svg`} />
                 <JSChild $icon={`/hero/js.svg`} />
