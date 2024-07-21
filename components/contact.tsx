@@ -51,7 +51,7 @@ export default function Contact() {
                         <Link className="flex items-center gap-2 text-sm font-bold bg-textTitle text-bgFooter py-2 px-4 rounded-md w-fit mt-6"
                             target="_blank"
                             rel="noreferrer"
-                            aria-label="Entre em contato com Tiago Silverio da Costa pelo Whatsapp"
+                            aria-label="Entre em contato com Tiago Silverio Programador pelo Whatsapp"
                             href="https://api.whatsapp.com/send?phone=11982391118"
                         >
 
@@ -61,7 +61,7 @@ export default function Contact() {
 
                     <section className="flex flex-col justify-start items-center gap-6">
                         <h1 className="block md:hidden text-2xl md:text-3xl font-bold text-textTitle">Trabalhe Comigo e Alcance Seus Objetivos</h1>
-                        <Image className="rounded-full" src="/contact/look.jpg" alt="Foto do Desenvolvedor Tiago Silverio da Costa" width={386} height={386} />
+                        <Image className="rounded-full" src="/contact/look.jpg" alt="Foto do Desenvolvedor Tiago Silverio Programador" width={386} height={386} />
                         <div className="hidden relaive z-10 md:flex flex-col gap-4 mt-4 md:mt-0">
                             <TechsSliderTopDown />
                             <TechsSliderDownTop />

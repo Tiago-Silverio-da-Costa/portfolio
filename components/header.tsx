@@ -63,6 +63,7 @@ export default function Header() {
 
                 <Link href="/" aria-label="Logo do Tiago Costa" className="flex items-center gap-2">
                     <Image className="rounded-full" src="/header/logo.svg" alt="" width={50} height={80} />
+                    <h1 className="hidden md:block text-lg font-bold text-textTitle uppercase">Programador</h1>
                 </Link>
 
                 {

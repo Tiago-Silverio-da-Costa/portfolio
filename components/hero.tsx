@@ -38,19 +38,19 @@ export default function Hero() {
                         transition={{ delay: 0.5, duration: 0.5 }}
                         className="flex flex-col items-center gap-4">
                         <div className="flex flex-col items-center justify-end">
-                            <p className="text-2xl md:text-4xl text-defaultText font-bold uppercase tracking-wide">
+                            <p className="text-2xl md:text-4xl text-textTitle font-bold uppercase tracking-wide">
                                 2+
                             </p>
                             <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide" aria-label="Mais de 2 anos de experiência">Anos de experiência</span>
                         </div>
                         <div className="flex flex-col items-center">
-                            <p className="text-2xl md:text-4xl text-defaultText font-bold uppercase tracking-wide">
+                            <p className="text-2xl md:text-4xl text-textTitle font-bold uppercase tracking-wide">
                                 50+
                             </p>
                             <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide" aria-label="Mais de 50 projeto realizados">Projetos completos</span>
                         </div>
                         <div className="flex flex-col items-center">
-                            <p className="text-2xl md:text-4xl text-defaultText font-bold uppercase tracking-wide">
+                            <p className="text-2xl md:text-4xl text-textTitle font-bold uppercase tracking-wide">
                                 5,000+
                             </p>
                             <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide" aria-label="Mais de 5000 horas de experiência">Horas de trabalho</span>
@@ -59,7 +59,7 @@ export default function Hero() {
                     </motion.div>
                 </div>
                 <div className="md:hidden relaive z-10 flex  flex-col items-center justify-center gap-4 mt-2">
-                    <Image src="/contact/look.jpg" alt="Tiago Silverio da Costa, Desenvolvedor Web Full-Stack, Florianópolis, Camboriú, Balneário Camboriú, Brasil" width={300} height={300} className="rounded-full" />
+                    <Image src="/contact/look.jpg" alt="Tiago Silverio Programador, Desenvolvedor Web Full-Stack, Florianópolis, Camboriú, Balneário Camboriú, Brasil" width={300} height={300} className="rounded-full" />
                     <TechsSliderTopDown />
                     <TechsSliderDownTop />
                 </div>

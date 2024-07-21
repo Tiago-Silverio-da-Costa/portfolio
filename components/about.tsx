@@ -107,7 +107,7 @@ export default function About() {
                         <Link className="flex items-center gap-2 text-sm font-bold bg-textTitle text-bgFooter py-2 px-4 rounded-md w-fit"
                             target="_blank"
                             rel="noreferrer"
-                            aria-label="Entre em contato com Tiago Silverio da Costapelo Whatsapp"
+                            aria-label="Entre em contato com Tiago Silverio Programadorpelo Whatsapp"
                             href="https://api.whatsapp.com/send?phone=11982391118"
                         >
 
@@ -117,7 +117,7 @@ export default function About() {
 
                     <section className="flex flex-col gap-6 w-full md:w-fit">
                         <h2 className="md:hidden block text-2xl md:text-3xl font-bold text-textTitle">Quem sou eu</h2>
-                        <Image className="rounded-xl" src="/about/olhandonote.jpeg" alt="Foto de Tiago Silverio da Costa olhando para uma notebook" width={390} height={300} />
+                        <Image className="rounded-xl" src="/about/olhandonote.jpeg" alt="Foto de Tiago Silverio Programador olhando para uma notebook" width={390} height={300} />
                         <div className="hidden md:flex flex-col gap-4">
                             <div className="flex items-center gap-4">
                                 <p>Frontend: </p>

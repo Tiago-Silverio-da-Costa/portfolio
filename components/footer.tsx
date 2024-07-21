@@ -8,7 +8,7 @@ export default function Footer() {
         <footer className="bg-[hsla(0,0%,100%,.25)] border border-[hsla(0,0%,100%,.25)] border-t border-t-transparent">
             <div className="flex justify-between items-center py-8 mx-auto max-w-5xl w-5/6">
                 <p className="text-sm text-center">
-                    © {new Date().getFullYear()} Tiago Silverio da Costa
+                    © {new Date().getFullYear()} Tiago Silverio Programador
                 </p>
                 <div className="flex items-center justify-center gap-2 text-2xl">
                     <Link
@@ -16,7 +16,7 @@ export default function Footer() {
                         target="_blank"
                         rel="noreferrer"
                         className="text-defaultText/50 hover:text-textTitle transition-all duration-300"
-                        aria-label="Whatsapp do Tiago Silverio da Costa"
+                        aria-label="Whatsapp do Tiago Silverio Programador"
                     >
                         <FaWhatsapp />
                     </Link>
@@ -26,7 +26,7 @@ export default function Footer() {
                         target="_blank"
                         rel="noreferrer"
                         className="text-defaultText/50 hover:text-textTitle transition-all duration-300"
-                        aria-label="Linkedin do Tiago Silverio da Costa"
+                        aria-label="Linkedin do Tiago Silverio Programador"
                     >
                         <FaLinkedin />
                     </Link>
@@ -36,7 +36,7 @@ export default function Footer() {
                         target="_blank"
                         rel="noreferrer"
                         className="text-defaultText/50 hover:text-textTitle transition-all duration-300"
-                        aria-label="Instagram do Tiago Silverio da Costa"
+                        aria-label="Instagram do Tiago Silverio Programador"
                     >
                         <FaInstagram />
                     </Link>
@@ -46,7 +46,7 @@ export default function Footer() {
                         target="_blank"
                         rel="noreferrer"
                         className="text-defaultText/50 hover:text-textTitle transition-all duration-300"
-                        aria-label="E-mail do Tiago Silverio da Costa"
+                        aria-label="E-mail do Tiago Silverio Programador"
                     >
                         <BiLogoGmail />
                     </Link>
@@ -56,7 +56,7 @@ export default function Footer() {
                         target="_blank"
                         rel="noreferrer"
                         className="text-defaultText/50 hover:text-textTitle transition-all duration-300"
-                        aria-label="Github do Tiago Silverio da Costa"
+                        aria-label="Github do Tiago Silverio Programador"
                     >
                         <FaGithub />
                     </Link>
