@@ -346,7 +346,7 @@ export default function Repos() {
                                         <div className="flex items-center justify-start w-full mt-4">
                                             <div className="w-full">
                                                 <iframe
-                                                    className="w-5/6 rounded-md"
+                                                    className="w-[95%] rounded-md"
                                                     width="560"
                                                     height="315"
                                                     src={selectedVideoUrl}

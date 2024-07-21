@@ -7,7 +7,6 @@ import { IoMdClose } from "react-icons/io";
 import { FormBtn } from "@/styles/projects";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import localFont from "next/font/local";
 
 export function logout() {
     localStorage.removeItem("user");
@@ -63,8 +62,7 @@ export default function Header() {
                 }
 
                 <Link href="/" aria-label="Logo do Tiago Costa" className="flex items-center gap-2">
-                    <Image className="rounded-full" src="/header/logo.png" alt="" width={50} height={80} />
-                    <h1 className="hidden md:block text-lg font-bold text-textTitle uppercase">Tiago s. Costa</h1>
+                    <Image className="rounded-full" src="/header/logo.svg" alt="" width={50} height={80} />
                 </Link>
 
                 {
