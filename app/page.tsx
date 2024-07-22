@@ -6,6 +6,7 @@ import Step from "@/components/step";
 import Contact from "@/components/contact";
 import Projects from "@/components/projects";
 import About from "@/components/about";
+import Necessity from "@/components/createNecessity";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Solutions />
       <Projects />
       <Step />
+      <Necessity />
       <Contact />
       <Footer />
     </>

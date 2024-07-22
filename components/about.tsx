@@ -107,7 +107,7 @@ export default function About() {
                         <Link className="flex items-center gap-2 text-sm font-bold bg-textTitle text-bgFooter py-2 px-4 rounded-md w-fit"
                             target="_blank"
                             rel="noreferrer"
-                            aria-label="Entre em contato com Tiago Silverio Programadorpelo Whatsapp"
+                            aria-label="Entre em contato com Tiago Silverio Programador pelo Whatsapp"
                             href="https://api.whatsapp.com/send?phone=11982391118"
                         >
 

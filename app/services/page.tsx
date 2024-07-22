@@ -1,3 +1,4 @@
+import Necessity from "@/components/createNecessity";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import Solutions from "@/components/solutions";
@@ -8,6 +9,7 @@ export default function Services() {
         <>
             <Header />
             <Solutions />
+            <Necessity />
             <Footer />
         </>
     )
