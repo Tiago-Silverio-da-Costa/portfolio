@@ -6,7 +6,7 @@ export default function Footer() {
 
     return (
         <footer className="bg-[hsla(0,0%,100%,.25)] border border-[hsla(0,0%,100%,.25)] border-t border-t-transparent">
-            <div className="flex justify-between items-center py-8 mx-auto max-w-5xl w-5/6">
+            <div className="flex flex-col md:flex-row gap-4 justify-between items-center py-8 mx-auto max-w-5xl w-5/6">
                 <p className="text-sm text-center">
                     © {new Date().getFullYear()} Tiago Silverio Programador
                 </p>
