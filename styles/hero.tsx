@@ -35,7 +35,7 @@ export const ReactChild = styled.div<{
     width: 2rem;
     height: 2rem;
     position: absolute;
-    bottom: -3rem;
+    bottom: -3.85rem;
     left: 4rem;
     margin: 45px;
   }
@@ -69,7 +69,7 @@ export const NextChild = styled.div<{
     width: 2rem;
     height: 2rem;
     position: absolute;
-    left: -1rem;
+    left: -1.25rem;
     bottom: 8rem;
     margin: 5px;
   }
@@ -235,7 +235,7 @@ export const StyledChild = styled.div<{
     height: 2rem;
     position: absolute;
     bottom: 4.5rem;
-    left: 0rem;
+    left: 0.75rem;
     margin: -10px;
   }
 

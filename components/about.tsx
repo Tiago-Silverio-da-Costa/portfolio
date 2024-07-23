@@ -142,7 +142,7 @@ export default function About() {
                                 </ul>
                             </div>
                             <div className="flex items-center gap-4">
-                                <p>Databases: </p>
+                                <p>Banco de dados: </p>
                                 <ul className="flex flex-wrap items-center gap-2">
 
                                     {dbList.map((about, index) => (

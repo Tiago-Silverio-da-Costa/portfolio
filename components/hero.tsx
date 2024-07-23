@@ -10,8 +10,8 @@ export default function Hero() {
 
     return (
         <section>
-            <div className="mx-auto w-5/6 max-w-5xl flex flex-col md:flex-row item-center py-16">
-                <div className="w-full md:py-8 md:pb-40 flex gap-1 md:gap-4 justify-between items-center">
+            <div className="mx-auto w-5/6 max-w-5xl flex flex-col gap-4 lg:flex-row item-center py-16">
+                <div className="w-full flex gap-1 md:gap-4 justify-between items-center">
 
                     <motion.div
                         initial={{ x: -1000 }}
@@ -28,8 +28,10 @@ export default function Hero() {
                         </h2>
                     </motion.div>
 
-                    <div className="relaive z-10 flex  flex-col items-center justify-center gap-4 mt-36">
-                        <System />
+                    <div className="hidden relaive z-10 lg:flex  flex-col items-center justify-center gap-4 mt-2">
+                        <Image src="/contact/look.jpg" alt="Tiago Silverio Programador, Desenvolvedor Web Full-Stack, Florianópolis, Camboriú, Balneário Camboriú, Brasil" width={300} height={300} className="rounded-full" />
+                        <TechsSliderTopDown />
+                        <TechsSliderDownTop />
                     </div>
 
                     <motion.div
@@ -58,7 +60,7 @@ export default function Hero() {
 
                     </motion.div>
                 </div>
-                <div className="md:hidden relaive z-10 flex  flex-col items-center justify-center gap-4 mt-2">
+                <div className="lg:hidden relaive z-10 flex  flex-col items-center justify-center gap-4 mt-2">
                     <Image src="/contact/look.jpg" alt="Tiago Silverio Programador, Desenvolvedor Web Full-Stack, Florianópolis, Camboriú, Balneário Camboriú, Brasil" width={300} height={300} className="rounded-full" />
                     <TechsSliderTopDown />
                     <TechsSliderDownTop />

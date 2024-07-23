@@ -26,7 +26,7 @@ const config: Config = {
         bgFooter: "#e6edf3",
         bgHeaderFotter: "#fff",
         textGray: "#6b7688",
-        bgGray: "#edf2f8",
+        bgGray: "#EDF2F8",
         
         bgGo: "#00ADD8",
         bgPython: "rgb(53, 114, 165)",
