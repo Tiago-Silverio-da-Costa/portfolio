@@ -13,7 +13,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
 	title:
 		"Tiago Silverio Programador – Blog",
-	metadataBase: new URL("https://www.tiagosc.com.br/blog"),
+	metadataBase: new URL("https://www.tiagosc.com.br/article"),
 	description:
 		"Blog pessoal com artigos sobre tecnologia, programação e desenvolvimento web.",
 		keywords: ["Tecnologia", "Programação", "Desenvolvimento Web", "Blog de Tecnologia", "Artigos de Programação", "Next.js", "JavaScript", "React", "Node.js"],

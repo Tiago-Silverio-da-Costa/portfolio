@@ -18,6 +18,7 @@ export default function Paragraph({ content }: { content: string }) {
       const isTitle = line.startsWith("<title>");
       const isLink = line.includes("<link>") && line.includes("</link>");
       const isImage = line.includes("<image>") && line.includes("</image>");
+      const isVideo = line.includes("<video>") && line.includes("</video>");
       const isCodeStart = line.startsWith("<code>");
       const isCodeEnd = line.endsWith("</code>");
 
@@ -34,7 +35,7 @@ export default function Paragraph({ content }: { content: string }) {
           const finalContent = codeBlockContent.join("\n");
           newContent.push(
             <Fragment key={index}>
-              <div className="border border-secondaryText p-4 rounded-lg">
+              <div className="border border-primary p-4 rounded-lg">
                 <code className="break-all whitespace-pre-wrap">{finalContent}</code>
               </div>
             </Fragment>
@@ -55,10 +56,25 @@ export default function Paragraph({ content }: { content: string }) {
         return;
       }
 
+      if (isVideo) {
+        newContent.push(
+          <Fragment key={index}>
+            <iframe
+              className="w-[95%] rounded-md"
+              width="560"
+              height="315"
+              src={line.replace(/<video>/, "").replace(/<\/video>/, "")}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </Fragment>
+        )
+      }
+
       if (isLink) {
         newContent.push(
           <Fragment key={index}>
-            <a target="_blank" href={line.replace(/<link>/, "").replace(/<\/link>/, "").includes("https://") ? line.replace(/<link>/, "").replace(/<\/link>/, "") : `https://${line.replace(/<link>/, "").replace(/<\/link>/, "")}`} className="text-secondary underline">{line.replace(/<link>/, "").replace(/<\/link>/, "")}</a>
+            <a target="_blank" href={line.replace(/<link>/, "").replace(/<\/link>/, "").includes("https://") ? line.replace(/<link>/, "").replace(/<\/link>/, "") : `https://${line.replace(/<link>/, "").replace(/<\/link>/, "")}`} className="text-primary underline">{line.replace(/<link>/, "").replace(/<\/link>/, "")}</a>
           </Fragment>
         );
         return;
@@ -67,7 +83,7 @@ export default function Paragraph({ content }: { content: string }) {
       if (isTitle) {
         newContent.push(
           <Fragment key={index}>
-            <h2 className="text-3xl font-medium text-secondary tracking-tighter leading-10 md:leading-6">{line.replace(/<title>/, "")}</h2>
+            <h2 className="text-3xl font-medium text-primary tracking-tighter leading-10 md:leading-6">{line.replace(/<title>/, "")}</h2>
           </Fragment>
         );
         return;
@@ -76,7 +92,7 @@ export default function Paragraph({ content }: { content: string }) {
       if (isQuote) {
         newContent.push(
           <Fragment key={index}>
-            <blockquote className="border-l-4 border-secondary/50 p-4 italic">
+            <blockquote className="border-l-4 border-primary p-4 italic">
               {line.replace(/<blockquote>/, "")}
             </blockquote>
           </Fragment>

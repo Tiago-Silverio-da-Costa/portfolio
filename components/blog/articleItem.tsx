@@ -38,11 +38,11 @@ export default async function ArticleItem({
   return (
     <section className="flex flex-col gap-6 py-8  mx-auto w-5/6 max-w-5xl">
       {articles.map((data, idx) =>
-        <Link key={idx} href={`/article/${data.id}`} className="flex flex-col md:flex-row border-third border cursor-pointer transition-all duration-200 hover:border-secondaryText">
+        <Link key={idx} href={`/article/${data.id}`} className="group hover:scale-110 flex flex-col md:flex-row border-third border cursor-pointer transition-all duration-500 hover:border-secondaryText">
           <Image className="w-full md:w-fit" src="/blog/test.jpg" alt="" width={300} height={100} />
           <div className="flex flex-col justify-between gap-2 w-full px-6 py-4">
             <div className="flex flex-col gap-2">
-              <h1 className={`${satoshi.className} text-2xl font-bold text-black`}>{data.title}</h1>
+              <h1 className={`${satoshi.className} text-2xl font-bold group-hover:text-highlightBlue text-black`}>{data.title}</h1>
               <p className="text-secondaryText line-clamp-2">{data.subtitle}</p>
             </div>
             <div className="flex justify-between">
