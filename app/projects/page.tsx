@@ -1,6 +1,6 @@
-import Footer from "@/components/footer";
-import Header from "@/components/header";
-import Projects from "@/components/projects";
+import Footer from "@/components/home/footer";
+import Header from "@/components/home/header";
+import Projects from "@/components/home/projects";
 
 export default function RegisterPage() {
 

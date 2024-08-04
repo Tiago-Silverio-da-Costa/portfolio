@@ -7,12 +7,12 @@ import Script from "next/script";
 const segoe = localFont({
 	src: [
 		{
-			path: "../public/fonts/Segoe.ttf",
+			path: "../public/home/fonts/Segoe.ttf",
 			weight: "500",
 			style: "normal",
 		},
 		{
-			path: "../public/fonts/SegoeBold.ttf",
+			path: "../public/home/fonts/SegoeBold.ttf",
 			weight: "700",
 			style: "normal",
 		},

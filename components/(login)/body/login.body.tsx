@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { TLogin, LoginSchema } from "@/components/commom/schemalogin";
 import { useRouter } from "next/navigation";
 import Alert from "@/components/commom/alert";
-import { FormBtn, FormFieldError, FormFieldGrp, FormFieldWrapper, Spin } from "@/styles/projects/index";
+import { FormBtn, FormFieldError, FormFieldGrp, FormFieldWrapper, Spin } from "@/styles/home/projects/index";
 import { PiSpinnerBold } from "react-icons/pi";
 import { withRouter } from '../commom/with-router';
 

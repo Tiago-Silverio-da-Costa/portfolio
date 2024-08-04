@@ -7,6 +7,12 @@
   --border-color: #30363d;
   --btn-bg-color: #238636;
   --default-text-color: #e6edf3;
+
+  --primary: #10100e;
+  --secondary: #ffffe3;
+  --border-color: #30302b;
+  --border-hover: #606055;
+  --err: #9d2424;
 }
 
 @media (prefers-color-scheme: dark) {

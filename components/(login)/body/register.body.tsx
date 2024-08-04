@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { TRegister, RegisterSchema } from "@/components/commom/schemaregister";
 import { useRouter } from "next/navigation";
 import Alert from "@/components/commom/alert";
-import { FormBtn, FormFieldError, FormFieldGrp, FormFieldWrapper, Spin } from "@/styles/projects/index";
+import { FormBtn, FormFieldError, FormFieldGrp, FormFieldWrapper, Spin } from "@/styles/home/projects/index";
 import { PiSpinnerBold } from "react-icons/pi";
 
 export default function Register() {

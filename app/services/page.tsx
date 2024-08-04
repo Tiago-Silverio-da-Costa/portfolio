@@ -1,7 +1,7 @@
-import Necessity from "@/components/createNecessity";
-import Footer from "@/components/footer";
-import Header from "@/components/header";
-import Solutions from "@/components/solutions";
+import Necessity from "@/components/home/createNecessity";
+import Footer from "@/components/home/footer";
+import Header from "@/components/home/header";
+import Solutions from "@/components/home/solutions";
 
 export default function Services() {
 

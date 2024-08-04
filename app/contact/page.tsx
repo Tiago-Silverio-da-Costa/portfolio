@@ -1,6 +1,6 @@
-import Contact from "@/components/contact";
-import Footer from "@/components/footer";
-import Header from "@/components/header";
+import Contact from "@/components/home/contact";
+import Footer from "@/components/home/footer";
+import Header from "@/components/home/header";
 
 export default function RegisterPage() {
 

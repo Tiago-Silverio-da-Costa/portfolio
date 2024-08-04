@@ -1,12 +1,12 @@
-import Header from "@/components/header";
-import Hero from "@/components/hero";
-import Footer from "@/components/footer";
-import Solutions from "@/components/solutions";
-import Step from "@/components/step";
-import Contact from "@/components/contact";
-import Projects from "@/components/projects";
-import About from "@/components/about";
-import Necessity from "@/components/createNecessity";
+import Header from "@/components/home/header";
+import Hero from "@/components/home/hero";
+import Footer from "@/components/home/footer";
+import Solutions from "@/components/home/solutions";
+import Step from "@/components/home/step";
+import Contact from "@/components/home/contact";
+import Projects from "@/components/home/projects";
+import About from "@/components/home/about";
+import Necessity from "@/components/home/createNecessity";
 
 export default function Home() {
   return (
