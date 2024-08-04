@@ -2,7 +2,7 @@ import prisma from "@/adapter/prisma";
 import {
   TCustomFilterParams,
   TPaginationParams,
-} from "@/components/admin/utils";
+} from "@/components/blog/admin/utils";
 import { Prisma } from "@prisma/client";
 
 

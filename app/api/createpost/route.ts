@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { TCreateBlog } from "./utils";
 import { prisma } from "@/adapter/db";
-import { toTitle } from "@/components/commom/utils";
+import { toTitle } from "@/components/blog/commom/utils";
 
 export async function POST(req: NextRequest) {
   if (req.headers.get("content-type") !== "application/json")
