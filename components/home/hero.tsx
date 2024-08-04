@@ -29,7 +29,7 @@ export default function Hero() {
                     </motion.div>
 
                     <div className="hidden relaive z-10 lg:flex  flex-col items-center justify-center gap-4 mt-2">
-                        <Image src="/contact/look.jpg" alt="Tiago Silverio Programador, Desenvolvedor Web Full-Stack, Florianópolis, Camboriú, Balneário Camboriú, Brasil" width={300} height={300} className="rounded-full" />
+                        <Image src="/home/contact/look.jpg" alt="Tiago Silverio Programador, Desenvolvedor Web Full-Stack, Florianópolis, Camboriú, Balneário Camboriú, Brasil" width={300} height={300} className="rounded-full" />
                         <TechsSliderTopDown />
                         <TechsSliderDownTop />
                     </div>
