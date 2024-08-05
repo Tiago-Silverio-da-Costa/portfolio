@@ -111,13 +111,13 @@ export default function About() {
                             href="https://api.whatsapp.com/send?phone=11982391118"
                         >
 
-                            Entre em contato <FaWhatsapp />
+                           Faça um orçamento <FaWhatsapp />
                         </Link>
                     </section>
 
                     <section className="flex flex-col gap-6 w-full md:w-fit">
                         <h2 className="md:hidden block text-2xl md:text-3xl font-bold text-textTitle">Quem sou eu</h2>
-                        <Image className="rounded-xl" src="/about/olhandonote.jpeg" alt="Foto de Tiago Silverio Programador olhando para uma notebook" width={390} height={300} />
+                        <Image className="rounded-xl" src="/home/about/olhandonote.jpeg" alt="Foto de Tiago Silverio Programador olhando para uma notebook" width={390} height={300} />
                         <div className="hidden md:flex flex-col gap-4">
                             <div className="flex items-center gap-4">
                                 <p>Frontend: </p>

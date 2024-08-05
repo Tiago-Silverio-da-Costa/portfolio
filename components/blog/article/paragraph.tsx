@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Fragment, useState, useEffect } from "react";
 
 export default function Paragraph({ content }: { content: string }) {
@@ -74,7 +75,7 @@ export default function Paragraph({ content }: { content: string }) {
       if (isLink) {
         newContent.push(
           <Fragment key={index}>
-            <a target="_blank" href={line.replace(/<link>/, "").replace(/<\/link>/, "").includes("https://") ? line.replace(/<link>/, "").replace(/<\/link>/, "") : `https://${line.replace(/<link>/, "").replace(/<\/link>/, "")}`} className="text-primary underline">{line.replace(/<link>/, "").replace(/<\/link>/, "")}</a>
+            <Link target="_blank" href={line.replace(/<link>/, "").replace(/<\/link>/, "").includes("https://") ? line.replace(/<link>/, "").replace(/<\/link>/, "") : `https://${line.replace(/<link>/, "").replace(/<\/link>/, "")}`} className="text-primary underline">{line.replace(/<link>/, "").replace(/<\/link>/, "")}</Link>
           </Fragment>
         );
         return;

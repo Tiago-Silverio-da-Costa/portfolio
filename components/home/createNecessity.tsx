@@ -27,7 +27,7 @@ export default function Necessity() {
                             href="https://api.whatsapp.com/send?phone=11982391118"
                         >
 
-                            Entre em contato <FaWhatsapp />
+                           Faça um orçamento <FaWhatsapp />
                         </Link>
                     </div>
                 </div>

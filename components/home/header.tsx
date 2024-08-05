@@ -63,14 +63,14 @@ export default function Header() {
 
                 <Link href="/" aria-label="Logo do Tiago Costa" className="flex items-center gap-2">
                     <Image className="rounded-full" src="/home/header/logo.svg" alt="" width={50} height={80} />
-                    <h1 className="hidden md:block text-lg font-bold text-textTitle uppercase">Programador</h1>
+                    <h1 className="hidden lg:block text-lg font-bold text-textTitle uppercase">Programador</h1>
                 </Link>
 
                 {
                     !hideContent && (
                         <>
 
-                            <nav className="items-end gap-4 justify-center hidden md:flex">
+                            <nav className="items-end gap-4 justify-center hidden lg:flex">
                                 <ul className="group">
                                     <li className="flex flex-col items-center">
                                         {pathname === "/" && (
@@ -111,21 +111,21 @@ export default function Header() {
                                         <Link className={`${pathname === "/contact" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/contact">Contato</Link>
                                     </li>
                                 </ul>
-                                {/* <ul>
+                                <ul>
                                     <li className="flex flex-col items-center">
                                         {pathname === "/blog" && (
                                             <span className="text-textTitle leading-3 text-xl">•</span>
                                         )}
                                         <Link className={`${pathname === "/blog" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/blog">Blog</Link>
                                     </li>
-                                </ul> */}
+                                </ul>
                             </nav>
                             {/* mobile */}
 
                             <button
                                 aria-label="Menu"
                                 type="button"
-                                className="md:hidden text-defaultText text-2xl"
+                                className="lg:hidden text-defaultText text-2xl"
                                 onClick={() => setOpenPopup(!openPopup)}
                             >
                                 <ImMenu />
@@ -133,7 +133,7 @@ export default function Header() {
 
                             {
                                 openPopup && (
-                                    <nav className="md:hidden fixed top-0 left-0 w-full h-full bg-bgFooter z-50 flex flex-col items-center justify-center">
+                                    <nav className="lg:hidden fixed top-0 left-0 w-full h-full bg-bgFooter z-50 flex flex-col items-center justify-center">
                                         <button
                                             aria-label="close menu"
                                             type="button"
@@ -173,12 +173,12 @@ export default function Header() {
                                                 )}
                                                 <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/contact" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/contact">Contato</Link>
                                             </li>
-                                            {/* <li className="flex gap-2 items-center justify-end">
+                                            <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/blog" && (
                                                     <span className="text-textTitle leading-3 text-xl">•</span>
                                                 )}
                                                 <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/contact" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/blog">Blog</Link>
-                                            </li> */}
+                                            </li>
                                         </ul>
                                     </nav>
                                 )

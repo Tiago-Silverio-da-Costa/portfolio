@@ -57,7 +57,7 @@ export default function Solutions() {
                             App
                         </h2>
                         <p className="text-center text-lg mt-2 leading-6 tracking-tighter max-w-60">
-                            Garanta que seu permaneça atualizado, seguro e funcional
+                            Desenvolvemos aplicativos personalizados que conectam, engajam e transformam.
                         </p>
                     </div>
 
