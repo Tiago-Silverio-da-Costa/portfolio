@@ -30,6 +30,21 @@ const albra = localFont({
   ],
 })
 
+const georgia = localFont({
+  src: [
+    {
+      path: "../../../public/blog/fonts/georgia.ttf",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "../../../public/blog/fonts/georgiab.ttf",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+})
+
 export default function Paragraph({ content }: { content: string }) {
   const [processedContent, setProcessedContent] = useState<(JSX.Element | null)[]>([]);
   const [summary, setSummary] = useState<JSX.Element>()
@@ -66,7 +81,7 @@ export default function Paragraph({ content }: { content: string }) {
 
         newContent.push(
           <Fragment key={index}>
-            <h2 id={formattedTitle} className="text-3xl font-bold text-primary tracking-tighter leading-10 md:leading-6">
+            <h2 id={formattedTitle} className="text-3xl font-bold text-primary tracking-tighter leading-[1]">
               {title}
             </h2>
           </Fragment>
@@ -248,9 +263,9 @@ export default function Paragraph({ content }: { content: string }) {
     setProcessedContent(newContent);
 
     const summaryContent = (
-      <ul className="mb-4 list-disc list-insise">
+      <ul className="flex flex-col gap-4 mb-4 list-disc list-insise">
         {titles.map((item, index) => (
-          <li key={index} className={albra.className}>
+          <li key={index} className={georgia.className}>
             <Link className="text-xl text-highlightBlue hover:text-textTitle tracking-wide my-8 list-disc" href={`/article/1/#${item.formattedTitle}`}>{item.title}</Link>
           </li>
         ))}

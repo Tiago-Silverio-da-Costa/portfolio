@@ -7,6 +7,7 @@ import Link from "next/link";
 import momentTz from "moment-timezone";
 import { getArticles } from "../../../app/api/utils";
 import ArticleImage from "./articleImage";
+import CollapseSummary from "./collapseSummary";
 
 const albra = localFont({
   src: [
@@ -102,24 +103,24 @@ async function ArticleHead({ id }: { id: string }) {
   return (
     <div className="flex flex-col bg-primary">
       <div className="flex items-center gap-4">
-        <p className={`${satoshi.className} rounded-lg uppercase border border-secondary px-4 py-2 font-medium text-secondary text-xs tracking-tighter`}>{postData.Theme?.name}</p>
+        <p className={`${satoshi.className} rounded-lg uppercase border border-white px-4 py-2 font-medium text-white text-xs tracking-tighter`}>{postData.Theme?.name}</p>
         <ReadingText content={postData.content} />
       </div>
 
 
 
       <div className="flex flex-col">
-        <h1 className={`${albra.className} mt-8 italic pl-1 text-5xl font-medium text-secondary tracking-tighter leading-[1]`}>
+        <h1 className={`${albra.className} mt-8 italic pl-1 text-5xl font-medium text-white tracking-tighter leading-[1]`}>
           {postData.title}
         </h1>
-        <span className={`${satoshi.className} max-w-[40rem] mt-2 text-5xl not-italic font-medium text-secondary tracking-tighter leading-10 md:leading-[3rem]`}>{postData.subtitle.charAt(0).toUpperCase() + postData.subtitle.slice(1)}</span>
+        <span className={`${satoshi.className} max-w-[40rem] mt-2 text-5xl not-italic font-medium text-white tracking-tighter leading-10 md:leading-[3rem]`}>{postData.subtitle.charAt(0).toUpperCase() + postData.subtitle.slice(1)}</span>
       </div>
 
       <div className="flex items-center gap-4 mt-8">
-        <Image className="rounded-full border-2 border-secondary scale-90" src={postData.author.image as string} alt="Autor" width={50} height={50} />
+        <Image className="rounded-full border-2 border-white scale-90" src={postData.author.image as string} alt="Autor" width={50} height={50} />
         <div className="flex flex-col gap-1">
-          <p className={`${satoshi.className} text-sm text-secondary font-normal tracking-tighter leading-4`}>{postData.author.name}</p>
-          <p className="text-xs text-secondary font-light tracking-tighter uppercase leading-3">{postData.profession.name}</p>
+          <p className={`${satoshi.className} text-sm text-white font-normal tracking-tighter leading-4`}>{postData.author.name}</p>
+          <p className="text-xs text-white font-light tracking-tighter uppercase leading-3">{postData.profession.name}</p>
         </div>
       </div>
     </div>
@@ -163,16 +164,16 @@ async function ArticlesRecommend({ id }: { id: string }) {
   return (
     <section className="flex flex-wrap text-center md:text-start">
       {articleData.map((dt, idx) =>
-        <Link className="group hover:scale-105 flex flex-col w-fit border-third border cursor-pointer transition-all duration-500 hover:border-secondaryText" key={idx} href={`/article/${id}`}>
+        <Link className="overflow-hidden rounded-xl group hover:scale-105 flex flex-col w-fit cursor-pointer transition-all duration-500 hover:border-secondaryText" key={idx} href={`/article/${id}`}>
           <Image className="w-full md:w-fit" src={dt.image} alt="" width={300} height={100} />
-          <div className="flex flex-col justify-between gap-2 w-full px-6 py-4">
+          <div className="flex flex-col justify-between gap-2 w-full px-6 py-4 bg-textTitle">
             <div className="flex flex-col gap-2">
-              <h1 className={`${satoshi.className} text-2xl max-w-80 font-bold group-hover:text-highlightBlue text-black`}>{dt.title}</h1>
-              <p className="text-secondaryText line-clamp-2 max-w-80">{dt.subtitle}</p>
+              <h1 className={`${satoshi.className} text-2xl max-w-80 font-bold text-white`}>{dt.title}</h1>
+              <p className="text-white line-clamp-2 max-w-80">{dt.subtitle}</p>
             </div>
             <div className="flex justify-between">
-              <p className="text-xs text-secondaryText">#{dt.Theme?.name}</p>
-              <p className="text-xs text-secondaryText">
+              <p className="text-xs text-white">#{dt.Theme?.name}</p>
+              <p className="text-xs text-white">
                 {momentTz(dt.createdAt)
                   .tz("America/Sao_Paulo")
                   .format("DD/MM/YYYY HH:mm:ss")}
@@ -212,12 +213,12 @@ export default async function Article({ id }: { id: string }) {
   return (
     <>
       <ArticleImage image={postData.image} />
-      <div className="flex flex-col border-b-2 border-b-secondary py-6 bg-primary">
+      <div className="shadow-lg py-6 bg-primary">
         <div className="mx-auto w-5/6 max-w-5xl py-6">
           <ArticleHead id={id} />
         </div>
       </div>
-      <div className=" flex gap-16 mx-auto w-5/6 max-w-5xl md:max-w-7xl mt-16">
+      <div className="relative flex gap-16 mx-auto w-5/6 max-w-5xl mt-16">
 
         <div className="hidden lg:flex flex-col gap-1 text-gray-500 bg-white rounded-lg border overflow-y-scroll scrollbar h-96 sticky top-4 p-4 min-w-60">
           <ul>
@@ -230,12 +231,14 @@ export default async function Article({ id }: { id: string }) {
             ))}
           </ul>
         </div>
+
+        <CollapseSummary data={titles} id={id} />
+
         <ArticleBody id={id} />
       </div>
       <div className="flex flex-col gap-4 mx-auto w-5/6 max-w-5xl md:max-w-7xl pt-16 md:pt-32 pb-6">
         <p className=" uppercase text-3xl tracking-tighter leading-6 font-bold">Recomendados:</p>
         <ArticlesRecommend id={id} />
-
       </div>
     </>
   )

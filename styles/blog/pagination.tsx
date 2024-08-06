@@ -14,6 +14,7 @@ export const TPaginationWrapper = styled.div`
 export const TPaginationItem = styled(Link)`
   align-items: center;
   border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
   color: var(--primary);
   display: flex;
   justify-content: center;

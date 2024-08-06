@@ -1,4 +1,6 @@
 
+"use client";
+
 import Link from "next/link";
 import { DeletePost } from "./deletePost";
 import { CreatePost } from "./createPost";
@@ -6,9 +8,11 @@ import EditPost from "./editPost";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/adapter/nextAuth";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
-export default async function Header({ id }: { id?: string }) {
-  const session = await getServerSession(authOptions)
+export default function Header({ id }: { id?: string }) {
+  // const session = await getServerSession(authOptions)
+  const pathname = usePathname();
 
   return (
     <section className="bg-[hsla(0,0%,100%,.5)] border border-[hsla(0,0%,100%,.5)] w-full">
@@ -17,11 +21,26 @@ export default async function Header({ id }: { id?: string }) {
           <Image className="rounded-full" src="/home/header/logo.svg" alt="" width={50} height={80} />
           <h1 className="hidden md:block text-lg font-bold text-textTitle uppercase">Programador</h1>
         </Link>
-        <div className="flex items-center gap-4">
-          {!id && session && (
+        <li className="flex flex-col items-center">
+          {pathname === "/blog" && (
+            <span className="leading-3 text-xl">•</span>
+          )}
+          <Link className="text-lg hover:opacity-80 transition-all duration-500" href="/blog">Mais artigos</Link>
+        </li>
+        <Link className="hidden md:flex items-center gap-2 text-sm bg-textTitle font-semibold text-white hover:opacity-90 py-3 px-6 rounded-md w-fit transition-all duration-300"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Entre em contato com a Barbearia Carioca pelo Whatsapp"
+          href="https://api.whatsapp.com/send?phone=5547999055144"
+        >
+
+          Fazer orçamento
+        </Link>
+        <div className="hidden items-center gap-4">
+          {!id && (
             <CreatePost />
           )}
-          {id && session && (
+          {id && (
             <>
               <DeletePost id={id} />
               <EditPost id={id} />
