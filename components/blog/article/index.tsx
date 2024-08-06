@@ -164,7 +164,7 @@ async function ArticlesRecommend({ id }: { id: string }) {
     <section className="flex flex-wrap text-center md:text-start">
       {articleData.map((dt, idx) =>
         <Link className="group hover:scale-105 flex flex-col w-fit border-third border cursor-pointer transition-all duration-500 hover:border-secondaryText" key={idx} href={`/article/${id}`}>
-          <Image className="w-full md:w-fit" src={dt.image} alt="" width={300} height={100} />
+          <Image className="w-full" src={dt.image} alt="" width={300} height={100} />
           <div className="flex flex-col justify-between gap-2 w-full px-6 py-4">
             <div className="flex flex-col gap-2">
               <h1 className={`${satoshi.className} text-2xl font-bold group-hover:text-highlightBlue text-black`}>{dt.title}</h1>
