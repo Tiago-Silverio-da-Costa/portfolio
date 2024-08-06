@@ -33,7 +33,7 @@ export default function Header({ id }: { id?: string }) {
           target="_blank"
           rel="noreferrer"
           aria-label="Entre em contato com a Barbearia Carioca pelo Whatsapp"
-          href="https://api.whatsapp.com/send?phone=5547999055144"
+          href="https://api.whatsapp.com/send?phone=5511982391118"
         >
 
           Fazer orçamento
