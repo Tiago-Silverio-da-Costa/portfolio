@@ -62,7 +62,7 @@ export default function Paragraph({ content }: { content: string }) {
         const title = line.replace(/<title>/, "");
         const formattedTitle = title.trim().replace(/\s+/g, '-');
 
-        titles.push({ title, formattedTitle }); 
+        titles.push({ title, formattedTitle });
 
         newContent.push(
           <Fragment key={index}>
@@ -138,7 +138,9 @@ export default function Paragraph({ content }: { content: string }) {
       if (isImage) {
         newContent.push(
           <Fragment key={index}>
-            <Image className="w-full rounded-md" src={line.replace(/<image>/, "").replace(/<\/image>/, "")} alt="Imagem" width={500} height={300} />
+            <div className="flex justify-center">
+              <Image className="rounded-md" src={line.replace(/<image>/, "").replace(/<\/image>/, "")} alt="Imagem" width={500} height={300} />
+            </div>
           </Fragment>
         );
         return;
