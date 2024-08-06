@@ -157,6 +157,7 @@ export async function POST(req: NextRequest) {
       data: {
         title,
         subtitle,
+        image: "https://th.bing.com/th/id/R.130498500a99a992c20bba2879e20c78?rik=x4cTSjUqNnbvBw&riu=http%3a%2f%2fwallup.net%2fwp-content%2fuploads%2f2017%2f03%2f28%2f436341-ultra-wide-photography-beach.jpg&ehk=f7tykM1xwqaQJRrDz983VUVzHjJApVdPbP7nf1IgAsQ%3d&risl=&pid=ImgRaw&r=0",
         content,
         themeId: themeData?.id,
         authorId: authorData?.id,
