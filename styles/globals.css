@@ -2,6 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  /* Estilos para navegadores baseados em WebKit (Chrome, Safari, etc.) */
+  .scrollbar::-webkit-scrollbar {
+    width: 20px;
+    height: 20px;
+    background: #fff;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #f7f4ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #75777b;
+    border-radius: 100vh;
+    border: 3px solid #f6f7ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #75777b;
+  }
+
+  /* Estilos para Firefox */
+  .scrollbar {
+    scrollbar-width: thin; /* Opções: auto | thin */
+    scrollbar-color: #75777b #f7f4ed; /* thumb color and track color */
+  }
+
+  /* Para navegadores que não suportam customizações de scrollbar */
+  .scrollbar {
+    /* Estilos padrão */
+    overflow: auto; /* Para garantir que a barra de rolagem apareça se o conteúdo exceder */
+  }
+}
+
 :root {
   --err: #9d2424;
   --border-color: #30363d;

@@ -3,15 +3,47 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment, useState, useEffect } from "react";
+import localFont from "next/font/local";
+
+const albra = localFont({
+  src: [
+    {
+      path: "../../../public/blog/fonts/AlbraSansLightItalic.otf",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "../../../public/blog/fonts/AlbraSansTRIAL-Regular-Italic.otf",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "../../../public/blog/fonts/AlbraSansTRIAL-Bold-Italic.otf",
+      weight: "700",
+      style: "italic",
+    },
+    {
+      path: "../../../public/blog/fonts/AlbraTextTRIAL-Black-Italic.otf",
+      weight: "900",
+      style: "italic",
+    },
+  ],
+})
 
 export default function Paragraph({ content }: { content: string }) {
   const [processedContent, setProcessedContent] = useState<(JSX.Element | null)[]>([]);
+  const [summary, setSummary] = useState<JSX.Element>()
+  const [introduction, setIntroduction] = useState<(JSX.Element | null)[]>([]);
 
   useEffect(() => {
     const lines = content.split("\n");
     const newContent: (JSX.Element | null)[] = [];
+    const introductionContent: (JSX.Element | null)[] = [];
+    const titles: { title: string; formattedTitle: string }[] = [];
+
     let codeBlockContent: string[] = [];
     let isInCodeBlock = false;
+    let isFirstTitleFound = false;
 
     lines.forEach((line, index) => {
       const isQuote = line.startsWith("<blockquote>");
@@ -22,6 +54,61 @@ export default function Paragraph({ content }: { content: string }) {
       const isVideo = line.includes("<video>") && line.includes("</video>");
       const isCodeStart = line.startsWith("<code>");
       const isCodeEnd = line.endsWith("</code>");
+      const isBold = line.includes("<bold>") && line.includes("</bold>")
+
+      if (isTitle) {
+        isFirstTitleFound = true;
+
+        const title = line.replace(/<title>/, "");
+        const formattedTitle = title.trim().replace(/\s+/g, '-');
+
+        titles.push({ title, formattedTitle }); 
+
+        newContent.push(
+          <Fragment key={index}>
+            <h2 id={formattedTitle} className="text-3xl font-bold text-primary tracking-tighter leading-10 md:leading-6">
+              {title}
+            </h2>
+          </Fragment>
+        );
+        return;
+      }
+
+      if (!isFirstTitleFound) {
+        if (isImage) {
+          introductionContent.push(
+            <Fragment key={index}>
+              <Image className="w-full" src={line.replace(/<image>/, "").replace(/<\/image>/, "")} alt="Imagem" width={500} height={300} />
+            </Fragment>
+          );
+          return;
+        }
+
+        if (isVideo) {
+          introductionContent.push(
+            <Fragment key={index}>
+              <iframe
+                className="w-[95%] rounded-md"
+                width="560"
+                height="315"
+                src={line.replace(/<video>/, "").replace(/<\/video>/, "")}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </Fragment>
+          );
+          return;
+        }
+
+        introductionContent.push(
+          <Fragment key={index}>
+            <p className="">{line}</p>
+            <br />
+          </Fragment>
+        );
+        return;
+      }
+
 
       if (isCodeStart) {
         isInCodeBlock = true;
@@ -51,7 +138,7 @@ export default function Paragraph({ content }: { content: string }) {
       if (isImage) {
         newContent.push(
           <Fragment key={index}>
-            <Image src={line.replace(/<image>/, "").replace(/<\/image>/, "")} alt="Imagem" width={500} height={300} />
+            <Image className="w-full rounded-md" src={line.replace(/<image>/, "").replace(/<\/image>/, "")} alt="Imagem" width={500} height={300} />
           </Fragment>
         );
         return;
@@ -73,22 +160,30 @@ export default function Paragraph({ content }: { content: string }) {
       }
 
       if (isLink) {
-        newContent.push(
-          <Fragment key={index}>
-            <Link target="_blank" href={line.replace(/<link>/, "").replace(/<\/link>/, "").includes("https://") ? line.replace(/<link>/, "").replace(/<\/link>/, "") : `https://${line.replace(/<link>/, "").replace(/<\/link>/, "")}`} className="text-primary underline">{line.replace(/<link>/, "").replace(/<\/link>/, "")}</Link>
-          </Fragment>
-        );
+        const linkContent = line.match(/<link>(.*?)<\/link>/);
+        if (linkContent) {
+          const parts = line.split(/<link>|<\/link>/);
+
+          newContent.push(
+            <Fragment key={index}>
+              {parts.map((part, partIndex) => {
+                if (partIndex % 2 !== 0) {
+                  const [linkText, url] = part.split(",").map(p => p.trim());
+                  return (
+                    <Link key={partIndex} href={url} target="_blank" className="text-highlightBlue hover:text-textTitle cursor-pointer">
+                      <strong>{linkText}</strong>
+                    </Link>
+                  );
+                }
+                return <span key={partIndex}>{part}</span>;
+              })}
+              <br />
+            </Fragment>
+          );
+        }
         return;
       }
 
-      if (isTitle) {
-        newContent.push(
-          <Fragment key={index}>
-            <h2 className="text-3xl font-medium text-primary tracking-tighter leading-10 md:leading-6">{line.replace(/<title>/, "")}</h2>
-          </Fragment>
-        );
-        return;
-      }
 
       if (isQuote) {
         newContent.push(
@@ -102,11 +197,37 @@ export default function Paragraph({ content }: { content: string }) {
       }
 
       if (isList) {
+        const listItem = line.slice(1).trim();
+        const parts = listItem.split(/<bold>|<\/bold>/);
+
+        const formattedListItem = parts.map((part, partIndex) => {
+          if (partIndex % 2 !== 0) {
+            return <strong key={partIndex}>{part}</strong>;
+          }
+          return <span key={partIndex}>{part}</span>;
+        });
+
         newContent.push(
           <Fragment key={index}>
-            <ul className="list-disc list-inside">
-              <li>{line.slice(1)}</li>
-            </ul>
+            <li className="ml-6">{formattedListItem}</li>
+          </Fragment>
+        );
+        return;
+      }
+
+      if (isBold) {
+        const parts = line.split(/<bold>|<\/bold>/);
+        const formattedLine = parts.map((part, partIndex) => {
+          if (partIndex % 2 !== 0) {
+            return <strong key={partIndex}>{part}</strong>;
+          }
+          return <span key={partIndex}>{part}</span>;
+        });
+
+        newContent.push(
+          <Fragment key={index}>
+            {formattedLine}
+            <br />
           </Fragment>
         );
         return;
@@ -114,17 +235,33 @@ export default function Paragraph({ content }: { content: string }) {
 
       newContent.push(
         <Fragment key={index}>
-          <p className="my-4">{line}</p>
+          <p className="">{line}</p>
           <br />
         </Fragment>
       );
+
     });
 
+    setIntroduction(introductionContent);
     setProcessedContent(newContent);
+
+    const summaryContent = (
+      <ul className="mb-4 list-disc list-insise">
+        {titles.map((item, index) => (
+          <li key={index} className={albra.className}>
+            <Link className="text-xl text-highlightBlue hover:text-textTitle tracking-wide my-8 list-disc" href={`/article/1/#${item.formattedTitle}`}>{item.title}</Link>
+          </li>
+        ))}
+      </ul>
+    );
+
+    setSummary(summaryContent);
   }, [content]);
 
   return (
     <div className="text-lg tracking-tighter leading-6">
+      {introduction}
+      {summary}
       {processedContent}
     </div>
   );

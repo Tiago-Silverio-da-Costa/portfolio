@@ -53,6 +53,6 @@ export default function ReadingText({ content }: { content: string }) {
 }, []) 
 
   return (
-    <p className={`${satoshi.className} uppercase font-light text-xs text-primary tracking-tighter`}>{readingTime} minutos de leitura</p>
+    <p className={`${satoshi.className} uppercase font-light text-xs text-secondary tracking-tighter`}>{readingTime} minutos de leitura</p>
   )
 }
