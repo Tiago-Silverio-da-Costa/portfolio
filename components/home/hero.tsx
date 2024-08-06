@@ -1,6 +1,5 @@
 "use client";
 
-import System from './system';
 import Image from 'next/image';
 import TechsSliderTopDown from './techsSliderTopDown';
 import TechsSliderDownTop from './techsSliderDownTop';
@@ -10,7 +9,7 @@ export default function Hero() {
 
     return (
         <section>
-            <div className="mx-auto w-5/6 max-w-5xl flex flex-col gap-4 lg:flex-row item-center py-16">
+            <div className="mx-auto w-5/6 max-w-5xl flex flex-cjol gap-4 lg:flex-row item-center py-16">
                 <div className="w-full flex gap-1 md:gap-4 justify-between items-center">
 
                     <motion.div
@@ -61,7 +60,7 @@ export default function Hero() {
                     </motion.div>
                 </div>
                 <div className="lg:hidden relaive z-10 flex  flex-col items-center justify-center gap-4 mt-2">
-                    <Image src="/contact/look.jpg" alt="Tiago Silverio Programador, Desenvolvedor Web Full-Stack, Florianópolis, Camboriú, Balneário Camboriú, Brasil" width={300} height={300} className="rounded-full" />
+                    <Image src="/home/contact/look.jpg" alt="Tiago Silverio Programador, Desenvolvedor Web Full-Stack, Florianópolis, Camboriú, Balneário Camboriú, Brasil" width={300} height={300} className="rounded-full" />
                     <TechsSliderTopDown />
                     <TechsSliderDownTop />
                 </div>
