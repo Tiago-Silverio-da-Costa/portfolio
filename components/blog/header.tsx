@@ -21,12 +21,14 @@ export default function Header({ id }: { id?: string }) {
           <Image className="rounded-full" src="/home/header/logo.svg" alt="" width={50} height={80} />
           <h1 className="hidden md:block text-lg font-bold text-textTitle uppercase">Programador</h1>
         </Link>
-        <li className="flex flex-col items-center">
-          {pathname === "/blog" && (
-            <span className="leading-3 text-xl">•</span>
-          )}
-          <Link className="text-lg hover:opacity-80 transition-all duration-500" href="/blog">Mais artigos</Link>
-        </li>
+        <ul>
+          <li className="flex flex-col items-center">
+            {pathname === "/blog" && (
+              <span className="leading-3 text-xl">•</span>
+            )}
+            <Link className="text-lg hover:opacity-80 transition-all duration-500" href="/blog">Mais artigos</Link>
+          </li>
+        </ul>
         <Link className="hidden md:flex items-center gap-2 text-sm bg-textTitle font-semibold text-white hover:opacity-90 py-3 px-6 rounded-md w-fit transition-all duration-300"
           target="_blank"
           rel="noreferrer"

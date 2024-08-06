@@ -51,12 +51,12 @@ export default function Search() {
 
   return (
     <div className="group w-full md:w-fit">
-      <form onSubmit={handleSubmit(handleSearch)} className=" flex items-center rounded-xl pl-4 border border-third group-hover:text-highlightBlue group-hover:border-highlightBlue py-2">
+      <form onSubmit={handleSubmit(handleSearch)} className=" flex items-center rounded-xl pl-4 bg-white border border-third group-hover:border-highlightBlue py-2">
         <button type="submit">
-          <IoMdSearch className="group-hover:text-highlightBlue text-secondaryText" />
+          <IoMdSearch className="group-hover:text-highlightBlue text-black" />
         </button>
         <input
-          className="placeholder:group-hover:text-highlightBlue bg-transparent pl-2 placeholder:text-secondaryText outline-none"
+          className="placeholder:group-hover:text-highlightBlue bg-transparent pl-2 placeholder:text-black outline-none"
           placeholder="Pesquisa"
           {...register("search")}
         />

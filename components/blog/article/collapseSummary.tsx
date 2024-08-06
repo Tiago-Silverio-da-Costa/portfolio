@@ -16,7 +16,7 @@ export default function CollapseSummary({ data, id }: {
     const [openPopup, setOpenPopup] = useState(false);
 
     return (
-        <div className={`flex flex-col group ${openPopup && "gap-4 -translate-y-[10%]"} mx-auto w-5/6 shadow-lg bg-white rounded-lg border-1 border-gray-500 justify-center items-center fixed bottom-0 left-2/4 transform -translate-x-1/2 -translate-y-1/2 py-4 `}>
+        <div className={`lg:hidden flex flex-col group ${openPopup && "gap-4 -translate-y-[10%]"} mx-auto w-5/6 shadow-lg bg-white rounded-lg border-1 border-gray-500 justify-center items-center fixed bottom-0 left-2/4 transform -translate-x-1/2 -translate-y-1/2 py-4 `}>
             <button
                 aria-label="Menu"
                 type="button"
