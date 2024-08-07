@@ -18,7 +18,7 @@ export default function Header({ id }: { id?: string }) {
     <section className="bg-[hsla(0,0%,100%,.5)] border border-[hsla(0,0%,100%,.5)] w-full">
       <div className="flex justify-between items-center mx-auto w-5/6 max-w-5xl py-4">
         <Link href="/" aria-label="Logo do Tiago Costa" className="flex items-center gap-2">
-          <Image className="rounded-full" src="/home/header/logo.svg" alt="" width={50} height={80} />
+          <Image className="rounded-full" src="/home/header/logo.svg" alt="Logo do Tiago Silverio Programador" width={50} height={80} />
           <h1 className="hidden md:block text-lg font-bold text-textTitle uppercase">Programador</h1>
         </Link>
         <ul>

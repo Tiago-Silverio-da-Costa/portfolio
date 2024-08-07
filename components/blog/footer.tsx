@@ -36,7 +36,7 @@ export default function Footer() {
 
       <div className="flex flex-col gap-2 md:flex-row justify-between items-center  mx-auto w-5/6 max-w-5xl py-8">
         <Link href="/" aria-label="Logo do Tiago Costa" className="flex items-center gap-2">
-          <Image className="rounded-full" src="/home/header/logo.svg" alt="" width={50} height={80} />
+          <Image className="rounded-full" src="/home/header/logo.svg" alt="Logo do Tiago Silverio Programador" width={50} height={80} />
           <h1 className="hidden md:block text-lg font-bold text-textTitle uppercase">Programador</h1>
         </Link>
         <p className="text-sm text-center">

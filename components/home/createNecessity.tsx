@@ -10,7 +10,7 @@ export default function Necessity() {
 
 
                 <div className="flex flex-col lg:flex-row items-start justify-between gap-4 rounded-xl bg-textTitle">
-                    <Image className="rounded-t-xl rounded-l-none rounded-b-none lg:rounded-l-xl lg:rounded-r-none w-full" src="/home/services/businessman.jpg" alt="" width={400} height={500} />
+                    <Image className="rounded-t-xl rounded-l-none rounded-b-none lg:rounded-l-xl lg:rounded-r-none w-full" src="/home/services/businessman.jpg" alt="Imagem de um empresário pensando" width={400} height={500} />
                     <div className="flex flex-col p-4">
                         <h1 className="text-2xl md:text-3xl font-bold text-white">
                             Por que sua empresa precisa de um site

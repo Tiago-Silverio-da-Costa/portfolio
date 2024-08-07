@@ -11,7 +11,7 @@ export default function Solutions() {
                 <div className=" flex flex-wrap gap-6 mt-8 justify-center items-stretch">
 
                     <div className="flex flex-col items-center shadow-md rounded-md px-6 py-4 bg-white">
-                        <Image className="px-4 py-2 rounded-full bg-textTitle" src="/home/hero/landing.svg" alt="" width={100} height={100} />
+                        <Image className="px-4 py-2 rounded-full bg-textTitle" src="/home/hero/landing.svg" alt="Landing page por Tiago Silverio Programador" width={100} height={100} />
                         <h2 className="font-semibold text-defaultText text-lg md:text-2xl tracking-wider">
                             Landing Pages
                         </h2>
@@ -22,7 +22,7 @@ export default function Solutions() {
 
 
                     <div className="flex flex-col items-center shadow-md rounded-md px-6 py-4 bg-white">
-                        <Image className="px-4 py-2 rounded-full bg-textTitle" src="/home/hero/ecommerce.svg" alt="" width={100} height={100} />
+                        <Image className="px-4 py-2 rounded-full bg-textTitle" src="/home/hero/ecommerce.svg" alt="E-commerce por Tiago Silverio Programador" width={100} height={100} />
                         <h2 className="font-semibold text-defaultText text-lg md:text-2xl tracking-wider">
                             Lojas Virtuais
                         </h2>
@@ -32,7 +32,7 @@ export default function Solutions() {
                     </div>
 
                     <div className="flex flex-col items-center shadow-md rounded-md px-6 py-4 bg-white">
-                        <Image className="px-4 py-2 rounded-full bg-textTitle" src="/home/hero/institutions.svg" alt="" width={100} height={100} />
+                        <Image className="px-4 py-2 rounded-full bg-textTitle" src="/home/hero/institutions.svg" alt="Site Institucional por Tiago Silverio Programador" width={100} height={100} />
                         <h2 className="font-semibold text-defaultText text-lg md:text-2xl tracking-wider">
                             Sites Institucionais
                         </h2>
@@ -42,7 +42,7 @@ export default function Solutions() {
                     </div>
 
                     <div className="flex flex-col items-center shadow-md rounded-md px-6 py-4 bg-white">
-                        <Image className="px-4 py-2 rounded-full bg-textTitle" src="/home/hero/websystem.svg" alt="" width={100} height={100} />
+                        <Image className="px-4 py-2 rounded-full bg-textTitle" src="/home/hero/websystem.svg" alt="Sistema Web por Tiago Silverio Programador" width={100} height={100} />
                         <h2 className="font-semibold text-defaultText text-lg md:text-2xl tracking-wider">
                             Sistemas Web
                         </h2>
@@ -52,7 +52,7 @@ export default function Solutions() {
                     </div>
 
                     <div className="flex flex-col items-center shadow-md rounded-md px-6 py-4 bg-white">
-                        <Image className="px-4 py-3 rounded-full bg-textTitle" src="/home/hero/app.svg" alt="" width={80} height={100} />
+                        <Image className="px-4 py-3 rounded-full bg-textTitle" src="/home/hero/app.svg" alt="Aplicativo por Tiago Silverio Programador" width={80} height={100} />
                         <h2 className="font-semibold text-defaultText text-lg md:text-2xl tracking-wider">
                             App
                         </h2>
@@ -62,7 +62,7 @@ export default function Solutions() {
                     </div>
 
                     <div className="flex flex-col items-center shadow-md rounded-md px-6 py-4 bg-white">
-                        <Image className="px-4 py-3 rounded-full bg-textTitle" src="/home/hero/seo.svg" alt="" width={80} height={100} />
+                        <Image className="px-4 py-3 rounded-full bg-textTitle" src="/home/hero/seo.svg" alt="Estratégia SEO por Tiago Silverio Programador" width={80} height={100} />
                         <h2 className="font-semibold text-defaultText text-lg md:text-2xl tracking-wider">
                             Estratégias de SEO
                         </h2>
@@ -72,7 +72,7 @@ export default function Solutions() {
                     </div>
 
                     <div className="flex flex-col items-center  shadow-md rounded-md px-6 py-4 bg-white">
-                        <Image className="px-4 py-3 rounded-full bg-textTitle" src="/home/hero/fix.svg" alt="" width={80} height={100} />
+                        <Image className="px-4 py-3 rounded-full bg-textTitle" src="/home/hero/fix.svg" alt="Manutenção por Tiago Silverio Programador" width={80} height={100} />
                         <h2 className="font-semibold text-defaultText text-lg md:text-2xl tracking-wider">
                             Suporte
                         </h2>

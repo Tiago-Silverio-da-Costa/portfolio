@@ -125,7 +125,7 @@ export default function About() {
 
                                     {frontList.map((about, index) => (
                                         <Fragment key={index}>
-                                            <Image className="bg-bgGray shadow-sm p-2 md:p-4 my-1 rounded-full" src={about.image} alt="techs" width={65} height={65} />
+                                            <Image className="bg-bgGray shadow-sm p-2 md:p-4 my-1 rounded-full" src={about.image} alt="Tecnologia front-end usada por Tiago Silverio Programador" width={65} height={65} />
                                         </Fragment>
                                     ))}
                                 </ul>
@@ -136,7 +136,7 @@ export default function About() {
 
                                     {backList.map((about, index) => (
                                         <Fragment key={index}>
-                                            <Image className="bg-bgGray shadow-sm p-2 md:p-4 my-1 rounded-full" src={about.image} alt="techs" width={65} height={65} />
+                                            <Image className="bg-bgGray shadow-sm p-2 md:p-4 my-1 rounded-full" src={about.image} alt="Tecnologia back-end usada por Tiago Silverio Programador" width={65} height={65} />
                                         </Fragment>
                                     ))}
                                 </ul>
@@ -147,7 +147,7 @@ export default function About() {
 
                                     {dbList.map((about, index) => (
                                         <Fragment key={index}>
-                                            <Image className="bg-bgGray shadow-sm p-2 md:p-4 my-1 rounded-full" src={about.image} alt="techs" width={65} height={65} />
+                                            <Image className="bg-bgGray shadow-sm p-2 md:p-4 my-1 rounded-full" src={about.image} alt="Tecnologia de banco de dados usada por Tiago Silverio Programador" width={65} height={65} />
                                         </Fragment>
                                     ))}
                                 </ul>
@@ -158,7 +158,7 @@ export default function About() {
 
                                     {studyList.map((about, index) => (
                                         <Fragment key={index}>
-                                            <Image className="bg-bgGray shadow-sm p-2 md:p-4 my-1 rounded-full" src={about.image} alt="techs" width={65} height={65} />
+                                            <Image className="bg-bgGray shadow-sm p-2 md:p-4 my-1 rounded-full" src={about.image} alt="Tecnologia que o Tiago Silverio Programador está estudando" width={65} height={65} />
                                         </Fragment>
                                     ))}
                                 </ul>

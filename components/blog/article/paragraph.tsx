@@ -93,7 +93,7 @@ export default function Paragraph({ content }: { content: string }) {
         if (isImage) {
           introductionContent.push(
             <Fragment key={index}>
-              <Image className="w-full" src={line.replace(/<image>/, "").replace(/<\/image>/, "")} alt="Imagem" width={500} height={300} />
+              <Image className="w-full" src={line.replace(/<image>/, "").replace(/<\/image>/, "")} alt="Imagem do Artigo do Tiago Silverio Programador" width={500} height={300} />
             </Fragment>
           );
           return;
@@ -154,7 +154,7 @@ export default function Paragraph({ content }: { content: string }) {
         newContent.push(
           <Fragment key={index}>
             <div className="flex justify-center">
-              <Image className="rounded-md" src={line.replace(/<image>/, "").replace(/<\/image>/, "")} alt="Imagem" width={800} height={800} />
+              <Image className="rounded-md" src={line.replace(/<image>/, "").replace(/<\/image>/, "")} alt="Imagem do Artigo do Tiago Silverio Programador" width={800} height={800} />
             </div>
           </Fragment>
         );
