@@ -11,9 +11,9 @@ const ArticleImage = ({ image }: { image: string }) => {
       {pathname === "/blog" ? (
         <Image className="w-full" src={image} alt="" width={1200} height={300} />
       ) : (
-        <div className="relative w-full h-96 overflow-hidden">
+        <div className="md:relative w-full md:h-96 md:overflow-hidden">
           <Image
-            className="absolute top-[-50px] left-0 w-auto h-auto min-w-full min-h-full"
+            className="md:absolute md:top-[-50px] md:left-0 w-full md:w-auto md:h-auto md:min-w-full md:min-h-full"
             src={image}
             alt=""
             width={1200}
