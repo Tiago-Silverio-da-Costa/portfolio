@@ -2,6 +2,7 @@
 import styled from "styled-components"
 
 export const Spin = styled.div`
+  width: fit-content;
 	animation-name: spin;
 	animation-duration: 2500ms;
 	animation-iteration-count: infinite;
@@ -31,6 +32,35 @@ export const FormBtn = styled.button<{
 		width: fit-content;
 	}
 
+	& span {
+	  color: var(--default-text-color);
+	  font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+	}
+
+	${({ $isSubmitting }) =>
+    $isSubmitting
+    && `
+    cursor: default;
+    & span {
+      display: none;
+    }
+   `}
+
+`;
+
+export const FormBtnLead = styled.button<{
+  $isSubmitting?: boolean;
+}>`
+  border-radius: 0.375rem;
+	background-color: var(--btn-bg-color);
+  color: var(--default-text-color);
+	padding: 0.41rem 1.5rem;
+	cursor: pointer;
+	width: 100%;
+  text-transform: uppercase;
+  
 	& span {
 	  color: var(--default-text-color);
 	  font-size: 0.875rem;

@@ -1,16 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { FaWhatsapp } from "react-icons/fa6";
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import Experience from "./experience";
 import { motion } from "framer-motion";
+import { Country } from "react-phone-number-input";
+import LeadForm from "./leadForm";
+
 interface AboutProps {
     image: string;
 }
 
-export default function About() {
+export default function About({ countryCode }: { countryCode: Country }) {
 
     const frontList: AboutProps[] = [
         {
@@ -104,15 +105,8 @@ export default function About() {
                             <strong>Foco em resultados:</strong> Meu objetivo é criar um site que não apenas seja bonito, mas que também gere resultados concretos para o seu negócio, como aumento de leads, conversões e vendas. <br /> <br />
                         </p>
 
-                        <Link className="flex items-center gap-2 text-sm font-bold bg-textTitle text-bgFooter py-2 px-4 rounded-md w-fit"
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label="Entre em contato com Tiago Silverio Programador pelo Whatsapp"
-                            href="https://api.whatsapp.com/send?phone=11982391118"
-                        >
-
-                           Faça um orçamento <FaWhatsapp />
-                        </Link>
+                        <LeadForm countryCode={countryCode} />
+                        
                     </section>
 
                     <section className="flex flex-col gap-6 w-full md:w-fit">

@@ -77,6 +77,7 @@ export const FormFieldWrapper = styled.div<{
   $error?: boolean
 }>`
   width: 100%;
+  height: fit-content;
 
   &:first-child {
     margin-top: 0;
@@ -105,7 +106,10 @@ export const FormFieldWrapper = styled.div<{
     padding: 0.75rem;
     resize: none;
     outline: none;
-    width: 100%
+    width: 100%;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+
   }
 
   ${({ $error }) =>

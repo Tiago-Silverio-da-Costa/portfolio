@@ -40,13 +40,12 @@
 
 :root {
   --err: #9d2424;
-  --border-color: #30363d;
+  --border-color: #b1b1b1;
   --btn-bg-color: #238636;
   --default-text-color: #e6edf3;
 
   --primary: #10100e;
   --secondary: #ffffe3;
-  --border-color: #30302b;
   --border-hover: #606055;
   --err: #9d2424;
 }

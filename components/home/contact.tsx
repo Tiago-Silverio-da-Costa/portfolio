@@ -3,11 +3,11 @@
 import { TiLocation } from "react-icons/ti";
 import TechsSliderTopDown from "./techsSliderTopDown";
 import TechsSliderDownTop from "./techsSliderDownTop";
-import { FaWhatsapp } from "react-icons/fa6";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import localFont from "next/font/local";
+import LeadForm from "./leadForm";
+import { Country } from "react-phone-number-input";
 
 const helvetica = localFont({
     src: [
@@ -20,7 +20,7 @@ const helvetica = localFont({
     ],
 })
 
-export default function Contact() {
+export default function Contact({ countryCode }: { countryCode: Country }) {
     return (
         <motion.section
             initial={{ scale: 0 }}
@@ -48,20 +48,14 @@ export default function Contact() {
                                 Remoto - Brazil
                             </span>
                         </div>
-                        <Link className="flex items-center gap-2 text-sm font-bold bg-textTitle text-bgFooter py-2 px-4 rounded-md w-fit mt-6"
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label="Entre em contato com Tiago Silverio Programador pelo Whatsapp"
-                            href="https://api.whatsapp.com/send?phone=11982391118"
-                        >
-
-                            Faça um orçamento <FaWhatsapp />
-                        </Link>
+                        <div className="mt-6">
+                            <LeadForm countryCode={countryCode} />
+                        </div>
                     </section>
 
                     <section className="flex flex-col justify-start items-center gap-6">
                         <h1 className="block md:hidden text-2xl md:text-3xl font-bold text-textTitle">Trabalhe Comigo e Alcance Seus Objetivos</h1>
-                        <Image className="rounded-full" src="/home/contact/look.jpg" alt="Foto do Desenvolvedor Tiago Silverio Programador" width={386} height={386} />
+                        <Image className="rounded-full mt-8" src="/home/contact/look.jpg" alt="Foto do Desenvolvedor Tiago Silverio Programador" width={386} height={386} />
                         <div className="hidden relaive z-10 md:flex flex-col gap-4 mt-4 md:mt-0">
                             <TechsSliderTopDown />
                             <TechsSliderDownTop />

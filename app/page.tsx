@@ -7,18 +7,24 @@ import Contact from "@/components/home/contact";
 import Projects from "@/components/home/projects";
 import About from "@/components/home/about";
 import Necessity from "@/components/home/createNecessity";
+import { Country } from "react-phone-number-input";
+import { headers } from "next/headers";
+
+const headersList = headers();
+const countryCode: Country =
+(headersList.get("cf-ipcountry") as Country) ?? "BR";
 
 export default function Home() {
   return (
     <>
       <Header />
       <Hero />
-      <About />
+      <About countryCode={countryCode} />
       <Solutions />
       <Projects />
       <Step />
-      <Necessity />
-      <Contact />
+      <Necessity countryCode={countryCode} />
+      <Contact countryCode={countryCode} />
       <Footer />
     </>
 
