@@ -9,7 +9,7 @@ export default function Hero() {
 
     return (
         <section>
-            <div className="mx-auto w-5/6 max-w-5xl flex flex-cjol gap-4 lg:flex-row item-center py-16">
+            <div className="mx-auto w-5/6 max-w-5xl flex flex-col gap-4 lg:flex-row item-center py-16">
                 <div className="w-full flex gap-1 md:gap-4 justify-between items-center">
 
                     <motion.div
