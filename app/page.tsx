@@ -24,7 +24,7 @@ export default function Home() {
       <Projects />
       <Step />
       <Necessity countryCode={countryCode} />
-      <Contact countryCode={countryCode} />
+      <Contact />
       <Footer />
     </>
 

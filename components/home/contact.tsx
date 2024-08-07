@@ -3,11 +3,11 @@
 import { TiLocation } from "react-icons/ti";
 import TechsSliderTopDown from "./techsSliderTopDown";
 import TechsSliderDownTop from "./techsSliderDownTop";
+import { FaWhatsapp } from "react-icons/fa6";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import localFont from "next/font/local";
-import LeadForm from "./leadForm";
-import { Country } from "react-phone-number-input";
 
 const helvetica = localFont({
     src: [
@@ -20,7 +20,7 @@ const helvetica = localFont({
     ],
 })
 
-export default function Contact({ countryCode }: { countryCode: Country }) {
+export default function Contact() {
     return (
         <motion.section
             initial={{ scale: 0 }}
@@ -48,9 +48,15 @@ export default function Contact({ countryCode }: { countryCode: Country }) {
                                 Remoto - Brazil
                             </span>
                         </div>
-                        <div className="mt-6">
-                            <LeadForm countryCode={countryCode} />
-                        </div>
+                        <Link className="flex items-center gap-2 text-sm font-bold bg-textTitle text-bgFooter py-2 px-4 rounded-md w-fit mt-6"
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label="Entre em contato com Tiago Silverio Programador pelo Whatsapp"
+                            href="https://api.whatsapp.com/send?phone=11982391118"
+                        >
+
+                            <FaWhatsapp /> Entrar em contato
+                        </Link>
                     </section>
 
                     <section className="flex flex-col justify-start items-center gap-6">
