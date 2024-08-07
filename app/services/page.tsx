@@ -5,11 +5,11 @@ import Solutions from "@/components/home/solutions";
 import { Country } from "react-phone-number-input";
 import { headers } from "next/headers";
 
-const headersList = headers();
-const countryCode: Country =
-    (headersList.get("cf-ipcountry") as Country) ?? "BR";
 
 export default function Services() {
+    const headersList = headers();
+    const countryCode: Country =
+        (headersList.get("cf-ipcountry") as Country) ?? "BR";
 
     return (
         <>

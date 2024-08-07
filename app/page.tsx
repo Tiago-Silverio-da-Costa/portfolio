@@ -10,11 +10,12 @@ import Necessity from "@/components/home/createNecessity";
 import { Country } from "react-phone-number-input";
 import { headers } from "next/headers";
 
-const headersList = headers();
-const countryCode: Country =
-(headersList.get("cf-ipcountry") as Country) ?? "BR";
 
 export default function Home() {
+  const headersList = headers();
+  const countryCode: Country =
+  (headersList.get("cf-ipcountry") as Country) ?? "BR";
+  
   return (
     <>
       <Header />
