@@ -21,7 +21,7 @@ export default function Home() {
       <Hero />
       <About countryCode={countryCode} />
       <Solutions />
-      <Projects />
+      {/* <Projects /> */}
       <Step />
       <Necessity countryCode={countryCode} />
       <Contact />

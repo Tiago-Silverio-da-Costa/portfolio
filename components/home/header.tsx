@@ -95,14 +95,14 @@ export default function Header() {
                                         <Link className={`${pathname === "/services" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/services">Serviços</Link>
                                     </li>
                                 </ul>
-                                <ul>
+                                {/* <ul>
                                     <li className="flex flex-col items-center">
                                         {pathname === "/projects" && (
                                             <span className="text-textTitle leading-3 text-xl">•</span>
                                         )}
                                         <Link className={`${pathname === "/projects" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/projects">Projetos</Link>
                                     </li>
-                                </ul>
+                                </ul> */}
                                 <ul>
                                     <li className="flex flex-col items-center">
                                         {pathname === "/contact" && (
@@ -161,12 +161,12 @@ export default function Header() {
                                                 )}
                                                 <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/projects" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/services">Serviços</Link>
                                             </li>
-                                            <li className="flex gap-2 items-center justify-end">
+                                            {/* <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/projects" && (
                                                     <span className="text-textTitle leading-3 text-xl">•</span>
                                                 )}
                                                 <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/projects" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/projects">Projetos</Link>
-                                            </li>
+                                            </li> */}
                                             <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/contact" && (
                                                     <span className="text-textTitle leading-3 text-xl">•</span>
