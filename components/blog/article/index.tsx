@@ -4,7 +4,7 @@ import ReadingText from "./readingText";
 import Paragraph from "./paragraph";
 import Link from "next/link";
 import momentTz from "moment-timezone";
-import { getArticles } from "../commom/pagNFilter";
+import { getArticles, TArticleData } from "../commom/pagNFilter";
 import ArticleImage from "./articleImage";
 import CollapseSummary from "./collapseSummary";
 
@@ -170,6 +170,18 @@ async function ArticleBody({ id }: { id: string }) {
   )
 }
 
+type  articleData = {
+  id: string;
+  content: string | null;
+  createdAt: Date;
+  title: string;
+  subtitle: string;
+  image: string;
+  Theme: {
+      name: string;
+  } | null;
+}[]
+
 async function ArticlesRecommend({ id }: { id: string }) {
 
   const paginationParams = {
@@ -193,8 +205,8 @@ async function ArticlesRecommend({ id }: { id: string }) {
 
   return (
     <section className="flex flex-wrap text-center md:text-start">
-      {articleData.map((dt, idx) =>
-        <Link className="overflow-hidden rounded-xl group hover:scale-105 flex flex-col w-fit cursor-pointer transition-all duration-500 hover:border-secondaryText" key={idx} href={`/article/${id}`}>
+      {articleData.map((dt:TArticleData) =>
+        <Link className="overflow-hidden rounded-xl group hover:scale-105 flex flex-col w-fit cursor-pointer transition-all duration-500 hover:border-secondaryText" key={dt.id} href={`/article/${id}`}>
           <Image className="w-full md:w-fit" src={dt.image} alt="Artigo do Tiago Silverio Programador" width={300} height={100} />
           <div className="flex flex-col justify-between gap-2 w-full px-6 py-4 bg-textTitle">
             <div className="flex flex-col gap-2">

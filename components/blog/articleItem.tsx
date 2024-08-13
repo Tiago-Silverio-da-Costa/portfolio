@@ -29,6 +29,7 @@ const satoshi = localFont({
   ],
 })
 
+
 export default async function ArticleItem({
   articles
 }: {
