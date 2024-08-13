@@ -38,7 +38,7 @@ export function DeletePost({ id }: { id: string }) {
 
 
 
-    const response = await fetch("/api/deletepost", {
+    const response = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/deletepost", {
       credentials: "include",
       cache: "no-cache",
       method: "DELETE",

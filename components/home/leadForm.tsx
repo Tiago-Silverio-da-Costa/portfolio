@@ -5,7 +5,6 @@ import { useState } from "react"
 import { IoMdClose } from "react-icons/io";
 
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import ptBR from "react-phone-number-input/locale/pt-BR.json";
 import { Country } from "react-phone-number-input";
 import PhoneInputWithCountry from "react-phone-number-input/react-hook-form";
@@ -17,6 +16,7 @@ import "@/styles/home/lead.css"
 import Alert from "../commom/alert";
 import { FormBtnLead, Spin } from "@/styles/home/projects";
 import { PiSpinnerBold } from "react-icons/pi";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function LeadForm({ countryCode }: { countryCode: Country }) {
     const [openPopup, setOpenPopup] = useState<boolean>(false)
@@ -30,14 +30,14 @@ export default function LeadForm({ countryCode }: { countryCode: Country }) {
         control,
         formState: { errors, isSubmitting, isSubmitSuccessful }
     } = useForm<TCreateLead>({
-        resolver: yupResolver(createLeadSchema),
+        resolver: zodResolver(createLeadSchema),
         reValidateMode: "onSubmit"
     })
 
     const onSubmit = async (data: TCreateLead) => {
         clearErrors()
 
-        const responseData = await fetch("/api/lead", {
+        const responseData = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/createlead", {
             credentials: "include",
             cache: "no-cache",
             method: "POST",

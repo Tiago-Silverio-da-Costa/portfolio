@@ -1,7 +1,6 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { TCreateBlog, createBlogSchema } from "@/app/api/createpost/utils";
@@ -14,6 +13,7 @@ import { TUsersData } from "@/app/api/getusersdata/utils";
 import { TThemeData } from "@/app/api/getthemedata/utils";
 import localFont from "next/font/local";
 import { TProfessionData } from "@/app/api/getprofessiondata/utils";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const satoshi = localFont({
   src: [
@@ -59,7 +59,7 @@ export function CreatePost() {
     register,
     formState: { errors, isSubmitting, isSubmitSuccessful }
   } = useForm<TCreateBlog>({
-    resolver: yupResolver(createBlogSchema),
+    resolver: zodResolver(createBlogSchema),
     reValidateMode: "onSubmit",
     defaultValues: {
       existedTheme: "selecione",
@@ -69,7 +69,7 @@ export function CreatePost() {
   })
 
   const getUsers = async () => {
-    const response = await fetch("/api/getusersdata", {
+    const response = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/getusers", {
       credentials: "include",
       cache: "no-cache",
       method: "GET",
@@ -83,7 +83,7 @@ export function CreatePost() {
   }
 
   const getTheme = async () => {
-    const response = await fetch("/api/getthemedata", {
+    const response = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/getthemes", {
       credentials: "include",
       cache: "no-cache",
       method: "GET",
@@ -97,7 +97,7 @@ export function CreatePost() {
   }
 
   const getProfession = async () => {
-    const response = await fetch("/api/getprofessiondata", {
+    const response = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/getprofessions", {
       credentials: "include",
       cache: "no-cache",
       method: "GET",
@@ -120,7 +120,7 @@ export function CreatePost() {
   const onSubmit = async (data: TCreateBlog) => {
     clearErrors()
 
-    const responseData = await fetch("/api/createpost", {
+    const responseData = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/createpost", {
       credentials: "include",
       cache: "no-cache",
       method: "POST",

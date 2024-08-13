@@ -1,7 +1,6 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import { MdEdit } from "react-icons/md";
 import { TCreateBlog, createBlogSchema } from "@/app/api/createpost/utils";
@@ -13,6 +12,7 @@ import { TUsersData } from "@/app/api/getusersdata/utils";
 import { FaPlus } from "react-icons/fa6";
 import { IoCaretBackOutline } from "react-icons/io5";
 import localFont from "next/font/local";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const satoshi = localFont({
   src: [
@@ -58,7 +58,7 @@ export default function EditPost({ id }: { id: string }) {
     setValue,
     formState: { errors, isSubmitting, isSubmitSuccessful }
   } = useForm<TCreateBlog>({
-    resolver: yupResolver(createBlogSchema),
+    resolver: zodResolver(createBlogSchema),
     reValidateMode: "onSubmit",
     defaultValues: {
       existedTheme: "selecione",
@@ -69,7 +69,7 @@ export default function EditPost({ id }: { id: string }) {
 
 
   const getPost = async () => {
-    const response = await fetch("/api/getpostdata", {
+    const response = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/getposts", {
       credentials: "include",
       cache: "no-cache",
       method: "GET",
@@ -88,7 +88,7 @@ export default function EditPost({ id }: { id: string }) {
     })
   }
   const getUsers = async () => {
-    const response = await fetch("/api/getusersdata", {
+    const response = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/getusers", {
       credentials: "include",
       cache: "no-cache",
       method: "GET",
@@ -102,7 +102,7 @@ export default function EditPost({ id }: { id: string }) {
   }
 
   const getTheme = async () => {
-    const response = await fetch("/api/getthemedata", {
+    const response = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/getthemes", {
       credentials: "include",
       cache: "no-cache",
       method: "GET",
@@ -124,7 +124,7 @@ export default function EditPost({ id }: { id: string }) {
   const onSubmit = async (data: TCreateBlog) => {
     clearErrors()
 
-    const responseData = await fetch("/api/editpost", {
+    const responseData = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/updatepost", {
       credentials: "include",
       cache: "no-cache",
       method: "PUT",

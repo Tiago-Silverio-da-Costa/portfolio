@@ -1,5 +1,3 @@
-import { prisma } from "@/adapter/db";
-
 import { z } from 'zod';
 
 const notSelect = (value: string | undefined) => value !== "selecione";
@@ -81,19 +79,3 @@ export const createBlogSchema = z.object({
     }
 });
 export type TCreateBlog = z.infer<typeof createBlogSchema>;
-
-
-export async function getPostById(postId: string) {
-  if (!postId) {
-    throw new Error("ID do post não fornecido.");
-  }
-  const post = await prisma.post.findUnique({
-    where: {
-      id: postId,
-    },
-    select: {
-      id: true,
-    },
-  });
-  return post;
-}
