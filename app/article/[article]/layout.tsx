@@ -1,18 +1,17 @@
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import StyledComponentsRegistry from "@/lib/styledRegistry";
-import AuthSessionProvider from "@/lib/authSessionRegistry";
 import type { Metadata, Viewport } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const viewport: Viewport = {
-	themeColor: "#10100e",
+    themeColor: "#10100e",
 };
 
 export interface IPost {
     id: number;
-	title: string;
+    title: string;
     subtitle: string;
     profession: string;
     content: string;
@@ -20,9 +19,8 @@ export interface IPost {
     createTheme: string | undefined;
     existedAuthor: string | undefined;
     createAuthor: string | undefined;
-	image?: string;
+    image?: string;
 }
-
 
 export const generateMetadata = async ({ params }: { params: { article: string } }): Promise<Metadata> => {
     const id = params.article;
@@ -105,20 +103,18 @@ export const generateMetadata = async ({ params }: { params: { article: string }
 
 
 export default async function RootLayout({
-	children,
+    children,
 }: {
-	children: React.ReactNode;
+    children: React.ReactNode;
 }) {
 
-	return (
-		<html lang="en">
-			<body className={inter.className}>
-				<StyledComponentsRegistry>
-					<AuthSessionProvider>
-						{children}
-					</AuthSessionProvider>
-				</StyledComponentsRegistry>
-			</body>
-		</html >
-	);
+    return (
+        <html lang="en">
+            <body className={inter.className}>
+                <StyledComponentsRegistry>
+                    {children}
+                </StyledComponentsRegistry>
+            </body>
+        </html >
+    );
 }

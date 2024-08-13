@@ -3,12 +3,11 @@
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { MdEdit } from "react-icons/md";
-import { TCreateBlog, createBlogSchema } from "@/app/api/createpost/utils";
+import { TCreateBlog, createBlogSchema } from "@/components/commom/schemaPost";
 import { FormBtn, FormFieldError, FormFieldGrp, FormFieldWrapper, Spin } from "@/styles/blog/createBlogForms";
 import { IoMdClose } from "react-icons/io";
 import Alert from "./commom/alert";
 import { PiSpinnerBold } from "react-icons/pi";
-import { TUsersData } from "@/app/api/getusersdata/utils";
 import { FaPlus } from "react-icons/fa6";
 import { IoCaretBackOutline } from "react-icons/io5";
 import localFont from "next/font/local";
@@ -43,11 +42,25 @@ function refreshPage() {
   window.location.reload();
 }
 
+type TUsersData = {
+  profession: {
+      name: string;
+  } | null;
+  name: string;
+  id: string;
+}[]
+
+type TThemeData = {
+  id: string;
+  name: string;
+}[]
+
+
 export default function EditPost({ id }: { id: string }) {
   const [openPopup, SetOpenPopup] = useState<boolean>(false)
   const [createThemeBtn, SetcreateThemeBtn] = useState<boolean>(false)
   const [users, setUsers] = useState<TUsersData>();
-  const [theme, setTheme] = useState<TUsersData>();
+  const [theme, setTheme] = useState<TThemeData>();
 
   const {
     handleSubmit,

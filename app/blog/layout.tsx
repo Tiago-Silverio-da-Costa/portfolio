@@ -1,7 +1,6 @@
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import StyledComponentsRegistry from "@/lib/styledRegistry";
-import AuthSessionProvider from "@/lib/authSessionRegistry";
 import type { Metadata, Viewport } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
 	metadataBase: new URL("https://www.tiagosc.com.br/blog"),
 	description:
 		"Blog pessoal com artigos sobre tecnologia, programação e desenvolvimento web.",
-		keywords: ["Tecnologia", "Programação", "Desenvolvimento Web", "Blog de Tecnologia", "Artigos de Programação", "Next.js", "JavaScript", "React", "Node.js"],
+	keywords: ["Tecnologia", "Programação", "Desenvolvimento Web", "Blog de Tecnologia", "Artigos de Programação", "Next.js", "JavaScript", "React", "Node.js"],
 	openGraph: {
 		title:
 			"Tiago Silverio Programador – Blog",
@@ -56,9 +55,7 @@ export default async function RootLayout({
 		<html lang="en">
 			<body className={inter.className}>
 				<StyledComponentsRegistry>
-					<AuthSessionProvider>
-						{children}
-					</AuthSessionProvider>
+					{children}
 				</StyledComponentsRegistry>
 			</body>
 		</html >

@@ -10,7 +10,6 @@ import Necessity from "@/components/home/createNecessity";
 import { Country } from "react-phone-number-input";
 import { headers } from "next/headers";
 
-
 export default function Home() {
   const headersList = headers();
   const countryCode: Country =

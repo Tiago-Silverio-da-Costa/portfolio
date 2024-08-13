@@ -5,13 +5,10 @@ import Link from "next/link";
 import { DeletePost } from "./deletePost";
 import { CreatePost } from "./createPost";
 import EditPost from "./editPost";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/adapter/nextAuth";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 export default function Header({ id }: { id?: string }) {
-  // const session = await getServerSession(authOptions)
   const pathname = usePathname();
 
   return (

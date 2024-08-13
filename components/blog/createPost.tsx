@@ -3,16 +3,13 @@
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
-import { TCreateBlog, createBlogSchema } from "@/app/api/createpost/utils";
+import { TCreateBlog, createBlogSchema } from "@/components/commom/schemaPost";
 import { FormBtn, FormFieldError, FormFieldGrp, FormFieldWrapper, Spin } from "@/styles/blog/createBlogForms";
 import { IoMdClose } from "react-icons/io";
 import { IoCaretBackOutline } from "react-icons/io5";
 import Alert from "./commom/alert";
 import { PiSpinnerBold } from "react-icons/pi";
-import { TUsersData } from "@/app/api/getusersdata/utils";
-import { TThemeData } from "@/app/api/getthemedata/utils";
 import localFont from "next/font/local";
-import { TProfessionData } from "@/app/api/getprofessiondata/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const satoshi = localFont({
@@ -43,6 +40,24 @@ const satoshi = localFont({
 function refreshPage() {
   window.location.reload();
 }
+
+type TUsersData = {
+  profession: {
+      name: string;
+  } | null;
+  id: string;
+  name: string;
+}[]
+
+type TThemeData = {
+  id: string;
+  name: string;
+}[]
+
+type TProfessionData = {
+  id: string;
+  name: string;
+}[]
 
 export function CreatePost() {
   const [openPopup, SetOpenPopup] = useState<boolean>(false)
