@@ -122,7 +122,10 @@ async function ArticleHead({ id }: { id: string }) {
   const posts = await getData();
   const postData = posts.find(post => post.id.toString() === id);
 
-  if (!postData || !postData.existedAuthor || !postData.profession || !postData.content) return null;
+  if (!postData) return null;
+  if (!postData.existedAuthor) return null;
+  if (!postData.profession) return null;
+  if (!postData.content) return null;
 
   return (
     <div className="flex flex-col bg-primary">
