@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import ptBR from "react-phone-number-input/locale/pt-BR.json";
 import { Country } from "react-phone-number-input";
 import PhoneInputWithCountry from "react-phone-number-input/react-hook-form";
-import { createLeadSchema, TCreateLead } from "@/app/api/lead/utils";
+import { CreateLeadSchema, TCreateLead } from "@/components/commom/schemaLead";
 import "react-phone-number-input/style.css";
 import "@/styles/home/lead.css"
 
@@ -30,7 +30,7 @@ export default function LeadForm({ countryCode }: { countryCode: Country }) {
         control,
         formState: { errors, isSubmitting, isSubmitSuccessful }
     } = useForm<TCreateLead>({
-        resolver: zodResolver(createLeadSchema),
+        resolver: zodResolver(CreateLeadSchema),
         reValidateMode: "onSubmit"
     })
 

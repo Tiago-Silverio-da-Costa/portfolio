@@ -27,7 +27,7 @@ export default function Contact() {
             animate={{ scale: 1 }}
             transition={{ delay: 0.5, duration: 0.5 }}
             id="contact"
-            className="flex flex-col justify-center gap-4 py-20 lg:h-screen">
+            className="flex flex-col justify-center gap-4 py-32">
             <div className="mx-auto w-5/6 max-w-5xl">
 
                 <header className="text-start">

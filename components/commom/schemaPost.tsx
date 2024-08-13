@@ -44,38 +44,42 @@ export const createBlogSchema = z.object({
         .string()
         .trim()
         .optional(),
+    image: z
+        .string()
+        .trim()
+        .optional(),
 })
-.superRefine((data, ctx) => {
-    if (data.createTheme === "" && notSelect(data.existedTheme)) {
-        ctx.addIssue({
-            path: ['existedTheme'],
-            message: "Campo obrigatório",
-            code: z.ZodIssueCode.custom,
-        });
-    }
+    .superRefine((data, ctx) => {
+        if (data.createTheme === "" && notSelect(data.existedTheme)) {
+            ctx.addIssue({
+                path: ['existedTheme'],
+                message: "Campo obrigatório",
+                code: z.ZodIssueCode.custom,
+            });
+        }
 
-    if (data.existedTheme === "selecione" && !data.createTheme) {
-        ctx.addIssue({
-            path: ['createTheme'],
-            message: "Campo obrigatório",
-            code: z.ZodIssueCode.custom,
-        });
-    }
+        if (data.existedTheme === "selecione" && !data.createTheme) {
+            ctx.addIssue({
+                path: ['createTheme'],
+                message: "Campo obrigatório",
+                code: z.ZodIssueCode.custom,
+            });
+        }
 
-    if (data.createAuthor === "" && notSelect(data.existedAuthor)) {
-        ctx.addIssue({
-            path: ['existedAuthor'],
-            message: "Campo obrigatório",
-            code: z.ZodIssueCode.custom,
-        });
-    }
+        if (data.createAuthor === "" && notSelect(data.existedAuthor)) {
+            ctx.addIssue({
+                path: ['existedAuthor'],
+                message: "Campo obrigatório",
+                code: z.ZodIssueCode.custom,
+            });
+        }
 
-    if (data.existedAuthor === "selecione" && !data.createAuthor) {
-        ctx.addIssue({
-            path: ['createAuthor'],
-            message: "Campo obrigatório",
-            code: z.ZodIssueCode.custom,
-        });
-    }
-});
+        if (data.existedAuthor === "selecione" && !data.createAuthor) {
+            ctx.addIssue({
+                path: ['createAuthor'],
+                message: "Campo obrigatório",
+                code: z.ZodIssueCode.custom,
+            });
+        }
+    });
 export type TCreateBlog = z.infer<typeof createBlogSchema>;

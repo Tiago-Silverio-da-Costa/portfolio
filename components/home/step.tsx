@@ -1,7 +1,7 @@
 export default function Step() {
 
     return (
-        <section className="mx-auto w-5/6 max-w-5xl flex flex-col py-16">
+        <section className="mx-auto w-5/6 max-w-5xl flex flex-col py-32">
             <h1 className="text-2xl md:text-3xl font-bold text-textTitle">Etapas de desenvolvimento</h1>
             <div className="flex flex-col gap-2 mt-6">
 

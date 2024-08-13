@@ -6,16 +6,16 @@ import { FormFieldError, FormFieldGrp, FormFieldWrapper } from "@/styles/blog/cr
 import { useState } from "react"
 import { IoMdClose } from "react-icons/io";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import ptBR from "react-phone-number-input/locale/pt-BR.json";
 import { Country } from "react-phone-number-input";
 import PhoneInputWithCountry from "react-phone-number-input/react-hook-form";
-import { createLeadSchema, TCreateLead } from "@/app/api/lead/utils";
+import { CreateLeadSchema, TCreateLead } from "@/components/commom/schemaLead";
 import "react-phone-number-input/style.css";
 import "@/styles/home/lead.css"
 import Alert from "../commom/alert";
 import { FormBtnLead, Spin } from "@/styles/home/projects";
 import { PiSpinnerBold } from "react-icons/pi";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function Necessity({ countryCode }: { countryCode: Country }) {
     const [openPopup, setOpenPopup] = useState<boolean>(false)
@@ -29,7 +29,7 @@ export default function Necessity({ countryCode }: { countryCode: Country }) {
         control,
         formState: { errors, isSubmitting, isSubmitSuccessful }
     } = useForm<TCreateLead>({
-        resolver: yupResolver(createLeadSchema),
+        resolver: zodResolver(CreateLeadSchema),
         reValidateMode: "onSubmit"
     })
 
@@ -93,7 +93,7 @@ export default function Necessity({ countryCode }: { countryCode: Country }) {
     }
 
     return (
-        <section className="flex flex-col items-center justify-center py-16 bg-white">
+        <section className="flex flex-col items-center justify-center py-32 bg-white">
             <div className="mx-auto w-5/6 max-w-5xl">
                 <div className="flex flex-col lg:flex-row items-start justify-between gap-4 rounded-xl bg-textTitle">
                     <Image className="rounded-t-xl rounded-l-none rounded-b-none lg:rounded-l-xl lg:rounded-r-none w-full" src="/home/services/businessman.jpg" alt="Imagem de um empresário pensando" width={400} height={500} />

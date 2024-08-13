@@ -87,7 +87,7 @@ export default function About({ countryCode }: { countryCode: Country }) {
             animate={{ scale: 1 }}
             transition={{ delay: 0.5, duration: 0.5 }}
             id="about"
-            className="flex flex-col items-start justify-center gap-4 py-16 bg-white h-full">
+            className="flex flex-col items-start justify-center gap-4 py-32 bg-white h-full">
             <div className="mx-auto w-5/6 max-w-5xl">
                 <header>
                     <h1 className="hidden md:block text-2xl md:text-3xl font-bold text-textTitle">Quem sou eu</h1>

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Solutions() {
     return (
-        <section className="flex flex-col items-center justify-center py-16">
+        <section className="flex flex-col items-center justify-center py-32">
             <div className="mx-auto w-5/6 max-w-5xl">
 
                 <h1 className="text-2xl md:text-3xl font-bold text-textTitle">
