@@ -3,7 +3,6 @@ import { getPostData } from "./utils";
 
 export async function GET() {
 
-
   const users = await getPostData();
 
   return new NextResponse(

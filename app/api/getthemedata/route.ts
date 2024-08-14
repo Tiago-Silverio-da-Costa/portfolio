@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { getThemedata } from "./utils";
 
-
 export async function GET() {
   const themes = await getThemedata();
   
