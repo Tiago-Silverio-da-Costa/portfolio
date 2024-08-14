@@ -319,7 +319,7 @@ export default function Repos() {
                                 className="fixed inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm"
                             ></div>
                             <div className="flex flex-col justify-center items-center fixed top-0 left-0 bottom-0 z-50 select-none w-full md:w-screen">
-                                <div className="flex flex-col justify-center bg-bgFooter md:rounded-md  relative md:mx-auto  h-full w-full z-50 md:h-fit md:w-5/6 max-w-[40rem]">
+                                <div className="flex flex-col justify-center bg-bgFooter md:rounded-md relative md:mx-auto h-full w-full z-50 md:h-[40rem] md:w-5/6 max-w-[40rem]">
                                     <button
                                         aria-label="close popup"
                                         onClick={() => setOpenPopupProject(!openPopupProject)}
