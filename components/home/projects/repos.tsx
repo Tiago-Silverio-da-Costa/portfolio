@@ -356,7 +356,7 @@ export default function Repos() {
                                             </div>
                                         </div>
                                         <div className="max-w-md w-full mt-4">
-                                            <h2 className="text-start text-lg font-semibold uppercase text-textTitle">About the project</h2>
+                                            <h2 className="text-start text-lg font-semibold uppercase text-textTitle">Sobre o projeto</h2>
                                             <div  dangerouslySetInnerHTML={{ __html: selectedDescription }} className="text-start mt-2 " />
                                         </div>
                                     </div>
