@@ -323,7 +323,7 @@ export default function Repos() {
                                     <button
                                         aria-label="close popup"
                                         onClick={() => setOpenPopupProject(!openPopupProject)}
-                                        className={`absolute top-[1rem] right-[1.25rem] flex items-center justify-center text-textOpacity bg-secondary font-bold text-lg hover:text-defaultText cursor-pointer`}>
+                                        className={`absolute top-[1rem] right-[1.25rem] flex items-center justify-center text-textOpacity font-bold text-lg hover:text-defaultText cursor-pointer`}>
                                         <IoMdClose />
                                     </button>
                                     <div className="overflow-y-scroll overflow-x-hidden scrollbar px-4 md:px-12 py-8">
@@ -420,7 +420,7 @@ export default function Repos() {
                             className="fixed inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm"
                         ></div>
                         <div className="flex justify-center items-center fixed top-0 left-0 bottom-0 z-50 select-none w-full md:w-screen">
-                            <form className="flex flex-col justify-center bg-bgFooter rounded-md overflow-y-scroll md:scrollbar relative md:mx-auto h-full w-full z-50 md:h-fit md:w-5/6 max-w-[40rem] py-3 px-6 md:px-12" onSubmit={handleSubmit(onSubmit)} autoComplete="on">
+                            <form className="flex flex-col justify-center bg-bgFooter rounded-md overflow-y-scroll md:scrollbar relative md:mx-auto h-full md:h-[40rem] w-full z-50 md:w-5/6 max-w-[40rem] py-3 px-6 md:px-12" onSubmit={handleSubmit(onSubmit)} autoComplete="on">
                                 <button
                                     aria-label="close popup"
                                     onClick={() => setOpenPopupCreation(!openPopupCreation)}
