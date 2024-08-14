@@ -1,17 +1,18 @@
 "use client";
 
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import { MdEdit } from "react-icons/md";
-import { TCreateBlog, createBlogSchema } from "@/components/commom/schemaPost";
+import { TCreateBlog, createBlogSchema } from "@/app/api/createpost/utils";
 import { FormBtn, FormFieldError, FormFieldGrp, FormFieldWrapper, Spin } from "@/styles/blog/createBlogForms";
 import { IoMdClose } from "react-icons/io";
 import Alert from "./commom/alert";
 import { PiSpinnerBold } from "react-icons/pi";
+import { TUsersData } from "@/app/api/getusersdata/utils";
 import { FaPlus } from "react-icons/fa6";
 import { IoCaretBackOutline } from "react-icons/io5";
 import localFont from "next/font/local";
-import { zodResolver } from "@hookform/resolvers/zod";
 
 const satoshi = localFont({
   src: [
@@ -42,25 +43,11 @@ function refreshPage() {
   window.location.reload();
 }
 
-type TUsersData = {
-  profession: {
-      name: string;
-  } | null;
-  name: string;
-  id: string;
-}[]
-
-type TThemeData = {
-  id: string;
-  name: string;
-}[]
-
-
 export default function EditPost({ id }: { id: string }) {
   const [openPopup, SetOpenPopup] = useState<boolean>(false)
   const [createThemeBtn, SetcreateThemeBtn] = useState<boolean>(false)
   const [users, setUsers] = useState<TUsersData>();
-  const [theme, setTheme] = useState<TThemeData>();
+  const [theme, setTheme] = useState<TUsersData>();
 
   const {
     handleSubmit,
@@ -71,7 +58,7 @@ export default function EditPost({ id }: { id: string }) {
     setValue,
     formState: { errors, isSubmitting, isSubmitSuccessful }
   } = useForm<TCreateBlog>({
-    resolver: zodResolver(createBlogSchema),
+    resolver: yupResolver(createBlogSchema),
     reValidateMode: "onSubmit",
     defaultValues: {
       existedTheme: "selecione",
@@ -82,7 +69,7 @@ export default function EditPost({ id }: { id: string }) {
 
 
   const getPost = async () => {
-    const response = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/getposts", {
+    const response = await fetch("/api/getpostdata", {
       credentials: "include",
       cache: "no-cache",
       method: "GET",
@@ -101,7 +88,7 @@ export default function EditPost({ id }: { id: string }) {
     })
   }
   const getUsers = async () => {
-    const response = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/getusers", {
+    const response = await fetch("/api/getusersdata", {
       credentials: "include",
       cache: "no-cache",
       method: "GET",
@@ -115,7 +102,7 @@ export default function EditPost({ id }: { id: string }) {
   }
 
   const getTheme = async () => {
-    const response = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/getthemes", {
+    const response = await fetch("/api/getthemedata", {
       credentials: "include",
       cache: "no-cache",
       method: "GET",
@@ -137,7 +124,7 @@ export default function EditPost({ id }: { id: string }) {
   const onSubmit = async (data: TCreateBlog) => {
     clearErrors()
 
-    const responseData = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/updatepost", {
+    const responseData = await fetch("/api/editpost", {
       credentials: "include",
       cache: "no-cache",
       method: "PUT",

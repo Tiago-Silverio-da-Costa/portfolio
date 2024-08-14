@@ -1,10 +1,11 @@
 import Image from "next/image";
 import localFont from "next/font/local";
+import prisma from "@/adapter/prisma"
 import ReadingText from "./readingText";
 import Paragraph from "./paragraph";
 import Link from "next/link";
 import momentTz from "moment-timezone";
-import { getArticles, TArticleData } from "../commom/pagNFilter";
+import { getArticles } from "../commom/pagNFilter";
 import ArticleImage from "./articleImage";
 import CollapseSummary from "./collapseSummary";
 
@@ -68,64 +69,36 @@ const satoshi = localFont({
   ],
 })
 
-interface IPost {
-  id: number;
-  title: string;
-  subtitle: string;
-  content: string;
-  existedTheme: string | undefined;
-  createTheme: string | undefined;
-  existedAuthor: string | undefined;
-  createAuthor: string | undefined;
-  image?: string;
-  author: {
-    id: number;
-    username: string;
-    email: string;
-    password: string;
-    image: string;
-  }
-  profession: {
-    id: number;
-    name: string;
-  }
-  Theme: {
-    id: number;
-    name: string;
-  }
-}
+async function getData({ id }: { id: string }) {
 
-async function getData(): Promise<IPost[]> {
-  try {
-    const response = await fetch('https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/getposts', {
-      credentials: 'include',
-      cache: 'no-cache',
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
+  const data = await prisma.post.findFirst({
+    where: {
+      id: id
+    },
+    select: {
+      title: true,
+      subtitle: true,
+      image: true,
+      author: true,
+      profession: true,
+      content: true,
+      Theme: {
+        select: {
+          name: true
+        }
       }
-    });
-
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
     }
-
-    const data: IPost[] = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    return [];
-  }
+  })
+  return data
 }
 
 async function ArticleHead({ id }: { id: string }) {
-  const posts = await getData();
-  const postData = posts.find(post => post.id.toString() === id);
+  const postData = await getData({ id })
 
-  if (!postData) return null;
-  if (!postData.existedAuthor) return null;
-  if (!postData.profession) return null;
-  if (!postData.content) return null;
+  if (!postData) return
+  if (!postData.author) return
+  if (!postData.profession) return
+  if (!postData.content) return
 
   return (
     <div className="flex flex-col bg-primary">
@@ -146,7 +119,7 @@ async function ArticleHead({ id }: { id: string }) {
       <div className="flex items-center gap-4 mt-8">
         <Image className="rounded-full border-2 border-white scale-90" src={postData.author.image as string} alt="Foto do Tiago Silverio Programador" width={50} height={50} />
         <div className="flex flex-col gap-1">
-          <p className={`${satoshi.className} text-sm text-white font-normal tracking-tighter leading-4`}>{postData.author.username}</p>
+          <p className={`${satoshi.className} text-sm text-white font-normal tracking-tighter leading-4`}>{postData.author.name}</p>
           <p className="text-xs text-white font-light tracking-tighter uppercase leading-3">{postData.profession.name}</p>
         </div>
       </div>
@@ -155,10 +128,7 @@ async function ArticleHead({ id }: { id: string }) {
 }
 
 async function ArticleBody({ id }: { id: string }) {
-  const posts = await getData();
-  const data = posts.find(post => post.id.toString() === id);
-
-  if (!data || !data.content) return null;
+  const data = await getData({ id })
 
   if (!data) return
   if (!data.content) return
@@ -169,18 +139,6 @@ async function ArticleBody({ id }: { id: string }) {
     </div>
   )
 }
-
-type  articleData = {
-  id: string;
-  content: string | null;
-  createdAt: Date;
-  title: string;
-  subtitle: string;
-  image: string;
-  Theme: {
-      name: string;
-  } | null;
-}[]
 
 async function ArticlesRecommend({ id }: { id: string }) {
 
@@ -205,8 +163,8 @@ async function ArticlesRecommend({ id }: { id: string }) {
 
   return (
     <section className="flex flex-wrap text-center md:text-start">
-      {articleData.map((dt:TArticleData) =>
-        <Link className="overflow-hidden rounded-xl group hover:scale-105 flex flex-col w-fit cursor-pointer transition-all duration-500 hover:border-secondaryText" key={dt.id} href={`/article/${id}`}>
+      {articleData.map((dt, idx) =>
+        <Link className="overflow-hidden rounded-xl group hover:scale-105 flex flex-col w-fit cursor-pointer transition-all duration-500 hover:border-secondaryText" key={idx} href={`/article/${id}`}>
           <Image className="w-full md:w-fit" src={dt.image} alt="Artigo do Tiago Silverio Programador" width={300} height={100} />
           <div className="flex flex-col justify-between gap-2 w-full px-6 py-4 bg-textTitle">
             <div className="flex flex-col gap-2">
@@ -230,10 +188,9 @@ async function ArticlesRecommend({ id }: { id: string }) {
 
 export default async function Article({ id }: { id: string }) {
 
-  const posts = await getData();
-  const postData = posts.find(post => post.id.toString() === id);
+  const postData = await getData({ id })
 
-  if (!postData || !postData.image) return null;
+  if (!postData) return
 
   const lines = postData.content?.split("\n")
   const titles: { title: string; formattedTitle: string }[] = [];
