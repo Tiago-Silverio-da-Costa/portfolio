@@ -82,12 +82,12 @@ async function getArticleData(query: TQuery) {
     select: {
       id: true,
       title: true,
-      image: true,
       Theme: {
         select: {
           name: true,
         },
       },
+      image: true,
       content: true,
       subtitle: true,
       createdAt: true,

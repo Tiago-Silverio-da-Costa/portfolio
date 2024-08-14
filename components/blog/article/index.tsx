@@ -5,7 +5,7 @@ import ReadingText from "./readingText";
 import Paragraph from "./paragraph";
 import Link from "next/link";
 import momentTz from "moment-timezone";
-import { getArticles } from "../commom/pagNFilter";
+import { getArticles } from "../../../app/api/utils";
 import ArticleImage from "./articleImage";
 import CollapseSummary from "./collapseSummary";
 

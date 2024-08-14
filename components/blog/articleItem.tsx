@@ -1,7 +1,7 @@
 import Link from "next/link";
 import localFont from "next/font/local";
 import momentTz from "moment-timezone";
-import { TArticleData } from "@/components/blog/commom/pagNFilter";
+import { TArticleData } from "../../app/api/utils";
 import Image from "next/image";
 
 const satoshi = localFont({

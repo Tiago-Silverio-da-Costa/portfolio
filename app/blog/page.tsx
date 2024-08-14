@@ -3,7 +3,7 @@ import ArticleItem from "@/components/blog/articleItem";
 import Footer from "@/components/blog/footer";
 import Header from "@/components/blog/header";
 import Pagination from "@/components/blog/pagination";
-import { getArticles } from "../../components/blog/commom/pagNFilter";
+import { getArticles } from "../../app/api/utils";
 import FilterNSearchHead from "@/components/blog/filterNSearchHead";
 
 export default async function Blog({
