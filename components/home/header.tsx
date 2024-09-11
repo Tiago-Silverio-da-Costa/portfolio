@@ -111,14 +111,14 @@ export default function Header() {
                                         <Link className={`${pathname === "/contact" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/contact">Contato</Link>
                                     </li>
                                 </ul>
-                                <ul>
+                                {/* <ul>
                                     <li className="flex flex-col items-center">
                                         {pathname === "/blog" && (
                                             <span className="text-textTitle leading-3 text-xl">•</span>
                                         )}
                                         <Link className={`${pathname === "/blog" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/blog">Blog</Link>
                                     </li>
-                                </ul>
+                                </ul> */}
                             </nav>
                             {/* mobile */}
 
@@ -173,12 +173,12 @@ export default function Header() {
                                                 )}
                                                 <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/contact" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/contact">Contato</Link>
                                             </li>
-                                            <li className="flex gap-2 items-center justify-end">
+                                            {/* <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/blog" && (
                                                     <span className="text-textTitle leading-3 text-xl">•</span>
                                                 )}
                                                 <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/contact" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/blog">Blog</Link>
-                                            </li>
+                                            </li> */}
                                         </ul>
                                     </nav>
                                 )
