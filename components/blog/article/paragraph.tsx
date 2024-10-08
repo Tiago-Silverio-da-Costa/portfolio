@@ -266,7 +266,7 @@ export default function Paragraph({ content }: { content: string }) {
       <ul className="flex flex-col gap-4 mb-4 list-disc list-insise">
         {titles.map((item, index) => (
           <li key={index} className={georgia.className}>
-            <Link className="text-xl text-highlightBlue hover:text-textTitle tracking-wide my-8 list-disc" href={`/article/1/#${item.formattedTitle}`}>{item.title}</Link>
+            <Link className="text-xl text-highlightBlue hover:text-textTitle tracking-wide my-8 list-disc" href={`/article/${index + 1}/#${item.title}`}>{item.title}</Link>
           </li>
         ))}
       </ul>
