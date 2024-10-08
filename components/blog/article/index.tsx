@@ -76,6 +76,7 @@ async function getData({ id }: { id: string }) {
       id: id
     },
     select: {
+      id: true,
       title: true,
       subtitle: true,
       image: true,
@@ -132,10 +133,11 @@ async function ArticleBody({ id }: { id: string }) {
 
   if (!data) return
   if (!data.content) return
+  if (!data.id) return
 
   return (
     <div className="">
-      <Paragraph content={data.content} />
+      <Paragraph content={data.content} id={data.id} />
     </div>
   )
 }

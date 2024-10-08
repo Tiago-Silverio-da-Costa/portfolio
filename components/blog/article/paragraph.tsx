@@ -5,31 +5,6 @@ import Link from "next/link";
 import { Fragment, useState, useEffect } from "react";
 import localFont from "next/font/local";
 
-const albra = localFont({
-  src: [
-    {
-      path: "../../../public/blog/fonts/AlbraSansLightItalic.otf",
-      weight: "300",
-      style: "italic",
-    },
-    {
-      path: "../../../public/blog/fonts/AlbraSansTRIAL-Regular-Italic.otf",
-      weight: "500",
-      style: "italic",
-    },
-    {
-      path: "../../../public/blog/fonts/AlbraSansTRIAL-Bold-Italic.otf",
-      weight: "700",
-      style: "italic",
-    },
-    {
-      path: "../../../public/blog/fonts/AlbraTextTRIAL-Black-Italic.otf",
-      weight: "900",
-      style: "italic",
-    },
-  ],
-})
-
 const georgia = localFont({
   src: [
     {
@@ -45,7 +20,7 @@ const georgia = localFont({
   ],
 })
 
-export default function Paragraph({ content }: { content: string }) {
+export default function Paragraph({ content, id }: { content: string, id: string }) {
   const [processedContent, setProcessedContent] = useState<(JSX.Element | null)[]>([]);
   const [summary, setSummary] = useState<JSX.Element>()
   const [introduction, setIntroduction] = useState<(JSX.Element | null)[]>([]);
@@ -266,7 +241,7 @@ export default function Paragraph({ content }: { content: string }) {
       <ul className="flex flex-col gap-4 mb-4 list-disc list-insise">
         {titles.map((item, index) => (
           <li key={index} className={georgia.className}>
-            <Link className="text-xl text-highlightBlue hover:text-textTitle tracking-wide my-8 list-disc" href={`/article/${index + 1}/#${item.title}`}>{item.title}</Link>
+            <Link className="text-xl text-highlightBlue hover:text-textTitle tracking-wide my-8 list-disc" href={`/article/${id}/#${item.formattedTitle}`}>{item.title}</Link>
           </li>
         ))}
       </ul>
