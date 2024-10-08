@@ -162,7 +162,7 @@ async function ArticlesRecommend({ id }: { id: string }) {
   if (!articleData || articleData.length === 0) return null;
 
   return (
-    <section className="flex flex-wrap text-center md:text-start">
+    <section className="flex flex-wrap gap-4 items-center text-center md:text-start">
       {articleData.map((dt, idx) =>
         <Link className="overflow-hidden rounded-xl group hover:scale-105 flex flex-col w-fit cursor-pointer transition-all duration-500 hover:border-secondaryText" key={idx} href={`/article/${id}`}>
           <Image className="w-full md:w-fit" src={dt.image} alt="Artigo do Tiago Silverio Programador" width={300} height={100} />
