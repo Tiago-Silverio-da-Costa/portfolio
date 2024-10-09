@@ -39,7 +39,7 @@ export default async function ArticleItem({
   return (
     <section className="flex flex-col gap-6 py-8  mx-auto w-5/6 max-w-5xl">
       {articles.map((data, idx) =>
-        <Link key={idx} href={`/article/${data.id}`} className="overflow-hidden group hover:scale-105 flex flex-col md:flex-row cursor-pointer transition-all duration-500 rounded-xl">
+        <Link key={idx} href={`blog/article/${data.id}`} className="overflow-hidden group hover:scale-105 flex flex-col md:flex-row cursor-pointer transition-all duration-500 rounded-xl">
           <Image className="w-full md:w-fit" src={data.image} alt="Artigo do Tiago Silverio Programador" width={300} height={100} />
           <div className="flex flex-col justify-between gap-2 w-full px-6 py-4 bg-textTitle">
             <div className="flex flex-col gap-2">
