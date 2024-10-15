@@ -108,8 +108,6 @@ async function ArticleHead({ id }: { id: string }) {
         <ReadingText content={postData.content} />
       </div>
 
-
-
       <div className="flex flex-col">
         <h1 className={`${albra.className} mt-8 italic pl-1 text-4xl font-medium text-white tracking-tighter leading-[1]`}>
           {postData.title}
@@ -153,7 +151,8 @@ async function ArticlesRecommend({ id }: { id: string }) {
 
   const customFilterParams = {
     recommended: true,
-    user: ""
+    user: "",
+    excludeId: id,
   };
   const { data: articleData, count } = await getArticles({
     paginationParams,
@@ -165,14 +164,11 @@ async function ArticlesRecommend({ id }: { id: string }) {
 
   return (
     <section className="flex flex-wrap gap-4 items-center text-center md:text-start">
-      {articleData.map((dt, idx) =>
-        <Link className="overflow-hidden rounded-xl group hover:scale-105 flex flex-col w-fit cursor-pointer transition-all duration-500 hover:border-secondaryText" key={idx} href={`/blog/article/${id}`}>
-          <Image loading="lazy" className="w-full md:w-fit" src={dt.image} alt="Artigo do Tiago Silverio Programador" width={300} height={100} />
-          <div className="flex flex-col justify-between gap-2 w-full px-6 py-4 bg-textTitle">
-            <div className="flex flex-col gap-2">
-              <h1 className={`${satoshi.className} text-2xl max-w-80 font-bold text-white`}>{dt.title}</h1>
-              <p className="text-white line-clamp-2 max-w-80">{dt.subtitle}</p>
-            </div>
+      {articleData.map((dt, id) =>
+        <Link className={"overflow-hidden rounded-xl group hover:scale-105 flex-col w-fit cursor-pointer transition-all duration-500 hover:border-secondaryText"} key={id} href={`/blog/article/${dt.id}`}>
+          <Image loading="lazy" className="w-full md:w-fit" src={dt.image} alt="Artigo do Tiago Silverio Programador" width={200} height={100} />
+          <div className="flex flex-col justify-between gap-6 w-full px-6 py-4 bg-textTitle">
+            <h1 className={`${satoshi.className} text-lg max-w-80 font-bold text-white`}>{dt.title}</h1>
             <div className="flex justify-between">
               <p className="text-xs text-white">#{dt.Theme?.name}</p>
               <p className="text-xs text-white">
