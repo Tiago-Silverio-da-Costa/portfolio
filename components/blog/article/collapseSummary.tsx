@@ -32,7 +32,7 @@ export default function CollapseSummary({ data, id }: {
                         <ul className="p-4 flex flex-col gap-4">
                             {data.map((item, index) => (
                                 <li key={index}>
-                                    <Link href={`blog/article/${id}#${item.title}`} className="w-fit max-w-48 mt-2 hover:text-textTitle">
+                                    <Link href={`/blog/article/${id}#${item.title}`} className="w-fit max-w-48 mt-2 hover:text-textTitle">
                                         {item.title}
                                     </Link>
                                 </li>

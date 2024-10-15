@@ -166,7 +166,7 @@ async function ArticlesRecommend({ id }: { id: string }) {
   return (
     <section className="flex flex-wrap gap-4 items-center text-center md:text-start">
       {articleData.map((dt, idx) =>
-        <Link className="overflow-hidden rounded-xl group hover:scale-105 flex flex-col w-fit cursor-pointer transition-all duration-500 hover:border-secondaryText" key={idx} href={`blog/article/${id}`}>
+        <Link className="overflow-hidden rounded-xl group hover:scale-105 flex flex-col w-fit cursor-pointer transition-all duration-500 hover:border-secondaryText" key={idx} href={`/blog/article/${id}`}>
           <Image className="w-full md:w-fit" src={dt.image} alt="Artigo do Tiago Silverio Programador" width={300} height={100} />
           <div className="flex flex-col justify-between gap-2 w-full px-6 py-4 bg-textTitle">
             <div className="flex flex-col gap-2">
@@ -226,7 +226,7 @@ export default async function Article({ id }: { id: string }) {
           <ul>
             {titles.map((item, index) => (
               <li key={index}>
-                <Link href={`blog/article/${id}#${item.formattedTitle}`} className="w-fit max-w-48 mt-2 hover:text-textTitle">
+                <Link href={`/blog/article/${id}#${item.formattedTitle}`} className="w-fit max-w-48 mt-2 hover:text-textTitle">
                   {item.title}
                 </Link>
               </li>
