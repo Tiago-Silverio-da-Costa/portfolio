@@ -111,14 +111,14 @@ async function ArticleHead({ id }: { id: string }) {
 
 
       <div className="flex flex-col">
-        <h1 className={`${albra.className} mt-8 italic pl-1 text-5xl font-medium text-white tracking-tighter leading-[1]`}>
+        <h1 className={`${albra.className} mt-8 italic pl-1 text-4xl font-medium text-white tracking-tighter leading-[1]`}>
           {postData.title}
         </h1>
-        <span className={`${satoshi.className} max-w-[40rem] mt-2 text-5xl not-italic font-medium text-white tracking-tighter leading-10 md:leading-[3rem]`}>{postData.subtitle.charAt(0).toUpperCase() + postData.subtitle.slice(1)}</span>
+        <span className={`${satoshi.className} max-w-[40rem] mt-2 text-2xl not-italic font-medium text-white tracking-tighter leading-10 md:leading-[3rem]`}>{postData.subtitle.charAt(0).toUpperCase() + postData.subtitle.slice(1)}</span>
       </div>
 
       <div className="flex items-center gap-4 mt-8">
-        <Image className="rounded-full border-2 border-white scale-90" src={postData.author.image as string} alt="Foto do Tiago Silverio Programador" width={50} height={50} />
+        <Image loading="lazy" className="rounded-full border-2 border-white scale-90" src={postData.author.image as string} alt="Foto do Tiago Silverio Programador" width={50} height={50} />
         <div className="flex flex-col gap-1">
           <p className={`${satoshi.className} text-sm text-white font-normal tracking-tighter leading-4`}>{postData.author.name}</p>
           <p className="text-xs text-white font-light tracking-tighter uppercase leading-3">{postData.profession.name}</p>
@@ -167,7 +167,7 @@ async function ArticlesRecommend({ id }: { id: string }) {
     <section className="flex flex-wrap gap-4 items-center text-center md:text-start">
       {articleData.map((dt, idx) =>
         <Link className="overflow-hidden rounded-xl group hover:scale-105 flex flex-col w-fit cursor-pointer transition-all duration-500 hover:border-secondaryText" key={idx} href={`/blog/article/${id}`}>
-          <Image className="w-full md:w-fit" src={dt.image} alt="Artigo do Tiago Silverio Programador" width={300} height={100} />
+          <Image loading="lazy" className="w-full md:w-fit" src={dt.image} alt="Artigo do Tiago Silverio Programador" width={300} height={100} />
           <div className="flex flex-col justify-between gap-2 w-full px-6 py-4 bg-textTitle">
             <div className="flex flex-col gap-2">
               <h1 className={`${satoshi.className} text-2xl max-w-80 font-bold text-white`}>{dt.title}</h1>
@@ -215,7 +215,7 @@ export default async function Article({ id }: { id: string }) {
   return (
     <>
       <ArticleImage image={postData.image} />
-      <div className="shadow-lg py-6 bg-primary">
+      <div className="py-6 bg-primary">
         <div className="mx-auto w-5/6 max-w-5xl py-6">
           <ArticleHead id={id} />
         </div>

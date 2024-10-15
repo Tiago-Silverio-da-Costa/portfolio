@@ -68,7 +68,7 @@ export default function Paragraph({ content, id }: { content: string, id: string
         if (isImage) {
           introductionContent.push(
             <Fragment key={index}>
-              <Image className="w-full" src={line.replace(/<image>/, "").replace(/<\/image>/, "")} alt="Imagem do Artigo do Tiago Silverio Programador" width={500} height={300} />
+              <Image loading="lazy" className="w-full" src={line.replace(/<image>/, "").replace(/<\/image>/, "")} alt="Imagem do Artigo do Tiago Silverio Programador" width={500} height={300} />
             </Fragment>
           );
           return;
@@ -129,7 +129,7 @@ export default function Paragraph({ content, id }: { content: string, id: string
         newContent.push(
           <Fragment key={index}>
             <div className="flex justify-center">
-              <Image className="rounded-md" src={line.replace(/<image>/, "").replace(/<\/image>/, "")} alt="Imagem do Artigo do Tiago Silverio Programador" width={800} height={800} />
+              <Image loading="lazy" className="rounded-md" src={line.replace(/<image>/, "").replace(/<\/image>/, "")} alt="Imagem do Artigo do Tiago Silverio Programador" width={800} height={800} />
             </div>
           </Fragment>
         );
@@ -248,7 +248,7 @@ export default function Paragraph({ content, id }: { content: string, id: string
     );
 
     setSummary(summaryContent);
-  }, [content]);
+  }, [content, id]);
 
   return (
     <div className="text-lg tracking-tighter leading-6">

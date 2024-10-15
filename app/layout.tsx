@@ -4,6 +4,7 @@ import StyledComponentsRegistry from "@/lib/styledRegistry";
 import localFont from "next/font/local";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 
 const segoe = localFont({
 	src: [
@@ -90,6 +91,7 @@ export default function RootLayout({
 				<StyledComponentsRegistry>
 					{children}
 					<SpeedInsights />
+					<Analytics />
 				</StyledComponentsRegistry>
 			</body>
 		</html>
