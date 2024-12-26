@@ -33,6 +33,9 @@ export default function About({ countryCode }: { countryCode: Country }) {
             image: "/home/hero/tailwind.svg",
         },
         {
+            image: "/home/hero/MUI.svg",
+        },
+        {
             image: "/home/hero/types.svg",
         },
         {
@@ -50,6 +53,12 @@ export default function About({ countryCode }: { countryCode: Country }) {
         {
             image: "/home/hero/next.svg",
         },
+        {
+            image: "/home/hero/types.svg",
+        },
+        {
+            image: "/home/hero/js.svg",
+        },
     ];
 
     const dbList: AboutProps[] = [
@@ -65,9 +74,15 @@ export default function About({ countryCode }: { countryCode: Country }) {
         {
             image: "/home/hero/redis.svg",
         },
+        {
+            image: "/home/hero/mysql.svg",
+        },
+        {
+            image: "/home/hero/mongo.svg",
+        },
     ];
 
-    const studyList: AboutProps[] = [
+    const basicList: AboutProps[] = [
         {
             image: "/home/hero/java.svg",
         },
@@ -76,6 +91,12 @@ export default function About({ countryCode }: { countryCode: Country }) {
         },
         {
             image: "/home/hero/go.svg",
+        },
+    ];
+
+    const studyList: AboutProps[] = [
+        {
+            image: "/home/hero/rust.svg",
         },
     ];
 
@@ -142,6 +163,17 @@ export default function About({ countryCode }: { countryCode: Country }) {
                                     {dbList.map((about, index) => (
                                         <Fragment key={index}>
                                             <Image className="bg-bgGray shadow-sm p-2 md:p-4 my-1 rounded-full" src={about.image} alt="Tecnologia de banco de dados usada por Tiago Silverio Programador" width={65} height={65} />
+                                        </Fragment>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="flex items-center gap-4">
+                                <p>Conhecimento básico: </p>
+                                <ul className="flex flex-wrap items-center gap-2">
+
+                                    {basicList.map((about, index) => (
+                                        <Fragment key={index}>
+                                            <Image className="bg-bgGray shadow-sm p-2 md:p-4 my-1 rounded-full" src={about.image} alt="Tecnologia que o Tiago Silverio Programador está estudando" width={65} height={65} />
                                         </Fragment>
                                     ))}
                                 </ul>
