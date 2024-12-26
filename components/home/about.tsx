@@ -33,7 +33,7 @@ export default function About({ countryCode }: { countryCode: Country }) {
             image: "/home/hero/tailwind.svg",
         },
         {
-            image: "/home/hero/MUI.svg",
+            image: "/home/hero/mui.svg",
         },
         {
             image: "/home/hero/types.svg",
