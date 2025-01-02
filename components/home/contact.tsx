@@ -56,7 +56,7 @@ export default function Contact() {
                             target="_blank"
                             rel="noreferrer"
                             aria-label="Entre em contato com Tiago Silverio Programador pelo Whatsapp"
-                            href="https://api.whatsapp.com/send?phone=11982391118"
+                            href="https://api.whatsapp.com/send?phone=5511982391118"
                         >
 
                             <FaWhatsapp /> {texts.contact?.buttonLeadText || "Entrar em contato"}
