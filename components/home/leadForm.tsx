@@ -8,7 +8,6 @@ import { useForm } from "react-hook-form";
 import ptBR from "react-phone-number-input/locale/pt-BR.json";
 import { Country } from "react-phone-number-input";
 import PhoneInputWithCountry from "react-phone-number-input/react-hook-form";
-import { CreateLeadSchema, TCreateLead } from "@/components/commom/schemaLead";
 import "react-phone-number-input/style.css";
 import "@/styles/home/lead.css"
 
@@ -17,9 +16,43 @@ import Alert from "../commom/alert";
 import { FormBtnLead, Spin } from "@/styles/home/projects";
 import { PiSpinnerBold } from "react-icons/pi";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useLanguageStore } from "./context/languageContext";
+import { z } from 'zod';
+import { toTitle } from '../blog/commom/utils';
+import { isEmail } from 'validator';
+import { isPossiblePhoneNumber } from 'react-phone-number-input';
+
+
 
 export default function LeadForm({ countryCode }: { countryCode: Country }) {
     const [openPopup, setOpenPopup] = useState<boolean>(false)
+    const { texts } = useLanguageStore();
+
+    const CreateLeadSchema = z.object({
+        name: z
+            .string()
+            .min(1, texts.leadForm?.requiredField || "Campo obrigatório")
+            .transform((value) => toTitle(value))
+            .refine((value) => value.trim().split(' ').length >= 2, {
+                message: texts.leadForm?.requiredInputNameMessage || "Digite seu nome completo",
+            }),
+
+        email: z
+            .string()
+            .min(1, texts.leadForm?.requiredField || "Campo obrigatório")
+            .toLowerCase()
+            .refine((value) => isEmail(value), {
+                message: texts.leadForm?.requiredInputEmailMessage || "Digite um email válido",
+            }),
+        phone: z
+            .string()
+            .min(1, texts.leadForm?.requiredField || "Campo obrigatório")
+            .transform((value) => value.match(/\d/g)?.join(""))
+            .refine((value) => !value || isPossiblePhoneNumber("+" + value), {
+                message: texts.leadForm?.requiredInputPhoneMessage || "Digite um telefone válido",
+            }),
+    });
+    type TCreateLead = z.infer<typeof CreateLeadSchema>;
 
     const {
         handleSubmit,
@@ -93,10 +126,11 @@ export default function LeadForm({ countryCode }: { countryCode: Country }) {
         }
     }
 
+
     return (
         <section className="flex flex-col gap-8">
             <button className="flex items-center justify-center text-sm font-bold bg-textTitle text-bgFooter py-2 px-4 rounded-md w-fit" onClick={() => setOpenPopup(!openPopup)}>
-                Faça um orçamento
+                {texts.about?.buttonLeadText || "Faça um orçamento"}
             </button>
 
             {openPopup && (
@@ -118,17 +152,17 @@ export default function LeadForm({ countryCode }: { countryCode: Country }) {
                                 className="md:overflow-hidden overflow-y-scroll relative bg-bgFooter flex flex-col justify-center items-center gap-8 justify-items-center w-full h-full md:mx-auto md:h-[unset] md:w-5/6 max-w-[40rem] py-8"
                             >
                                 <div className="mx-auto w-full max-w-[40rem] relative flex justify-start gap-4 py-2">
-                                    <h1 className="uppercase font-semibold text-2xl text-textTitle text-center w-full">Contate-me:</h1>
+                                    <h1 className="uppercase font-semibold text-2xl text-textTitle text-center w-full">   {texts.leadForm?.title || "Contate-me:"}</h1>
                                 </div>
                                 {Object.keys(errors).length > 0 && (
                                     <Alert type="error">
                                         {errors.root?.message ??
-                                            "Corrija os campos abaixo e tente novamente!"}
+                                            (texts.leadForm?.errorMessage || "Corrija os campos abaixo e tente novamente!")}
                                     </Alert>
                                 )}
                                 {isSubmitSuccessful && (
                                     <Alert type="success">
-                                        Dados enviados com sucesso!
+                                        {texts.leadForm?.dataSendMessage || (texts.leadForm?.errorMessage || "Dados enviados com sucesso!")}
                                     </Alert>
                                 )}
                                 <FormFieldWrapper $error={!!errors.name}>
@@ -136,7 +170,7 @@ export default function LeadForm({ countryCode }: { countryCode: Country }) {
                                         <input
                                             {...register("name")}
                                             inputMode="text"
-                                            placeholder="Seu nome completo"
+                                            placeholder={texts.leadForm?.inputNamePlaceholder || "Seu nome completo"}
                                             maxLength={100}
                                             readOnly={isSubmitting}
                                         />
@@ -150,7 +184,7 @@ export default function LeadForm({ countryCode }: { countryCode: Country }) {
                                         <input
                                             {...register("email")}
                                             inputMode="text"
-                                            placeholder="Seu e-mail"
+                                            placeholder={texts.leadForm?.inputEmailPlaceholder || "Seu e-mail"}
                                             maxLength={100}
                                             readOnly={isSubmitting}
                                         />
@@ -163,7 +197,7 @@ export default function LeadForm({ countryCode }: { countryCode: Country }) {
                                     <FormFieldGrp>
                                         <PhoneInputWithCountry
                                             name="phone"
-                                            placeholder="Seu Whatsapp com DDD"
+                                            placeholder={texts.leadForm?.inputPhonePlaceholder || "Seu Whatsapp com DDD"}
                                             maxLength={25}
                                             control={control}
                                             defaultCountry={countryCode}
@@ -187,7 +221,7 @@ export default function LeadForm({ countryCode }: { countryCode: Country }) {
                                             </Spin>
                                         </div>
                                     )}
-                                    <span>Enviar</span>
+                                    <span>{texts.leadForm?.buttonSendText || "Enviar"}</span>
                                 </FormBtnLead>
                             </form>
                         </div>

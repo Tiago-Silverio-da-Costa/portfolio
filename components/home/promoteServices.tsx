@@ -9,16 +9,47 @@ import { useForm } from "react-hook-form";
 import ptBR from "react-phone-number-input/locale/pt-BR.json";
 import { Country } from "react-phone-number-input";
 import PhoneInputWithCountry from "react-phone-number-input/react-hook-form";
-import { CreateLeadSchema, TCreateLead } from "@/components/commom/schemaLead";
 import "react-phone-number-input/style.css";
 import "@/styles/home/lead.css"
 import Alert from "../commom/alert";
 import { FormBtnLead, Spin } from "@/styles/home/projects";
 import { PiSpinnerBold } from "react-icons/pi";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useLanguageStore } from "./context/languageContext";
+import { z } from 'zod';
+import { toTitle } from '../blog/commom/utils';
+import { isEmail } from 'validator';
+import { isPossiblePhoneNumber } from 'react-phone-number-input';
 
 export default function PromoteServices({ countryCode }: { countryCode: Country }) {
     const [openPopup, setOpenPopup] = useState<boolean>(false)
+    const { texts } = useLanguageStore();
+
+    const CreateLeadSchema = z.object({
+        name: z
+            .string()
+            .min(1, "Campo obrigatório")
+            .transform((value) => toTitle(value))
+            .refine((value) => value.trim().split(' ').length >= 2, {
+                message: texts.leadForm?.requiredInputNameMessage || "Digite seu nome completo",
+            }),
+
+        email: z
+            .string()
+            .min(1, "Campo obrigatório")
+            .toLowerCase()
+            .refine((value) => isEmail(value), {
+                message: texts.leadForm?.requiredInputEmailMessage || "Digite um email válido",
+            }),
+        phone: z
+            .string()
+            .min(1, "Campo obrigatório")
+            .transform((value) => value.match(/\d/g)?.join(""))
+            .refine((value) => !value || isPossiblePhoneNumber("+" + value), {
+                message: texts.leadForm?.requiredInputPhoneMessage || "Digite um telefone válido",
+            }),
+    });
+    type TCreateLead = z.infer<typeof CreateLeadSchema>;
 
     const {
         handleSubmit,

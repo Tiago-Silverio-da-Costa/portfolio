@@ -32,6 +32,20 @@
     "techStudyingTitle": "Estudando agora:",
     "experienceHistoryTitle": "Onde trabalhei e o que fiz"
   },
+  "leadForm": {
+    "errorMessage": "Corrija os campos abaixo e tente novamente!",
+    "requiredField": "Campo obrigatório",
+    "successMessage": "Dados enviados com sucesso!",
+    "title": "Contate-me:",
+    "dataSendMessage": "Dados enviados com sucesso!",
+    "buttonSendText": "Enviar",
+    "inputNamePlaceholder": "Seu nome completo",
+    "requiredInputNameMessage": "Digite seu nome completo",
+    "inputEmailPlaceholder": "Seu e-mail",
+    "requiredInputEmailMessage": "Digite um email válido",
+    "inputPhonePlaceholder": "Seu Whatsapp com DDD",
+    "requiredInputPhoneMessage": "Digite um telefone válido"
+  },
   "solutions": {
     "title": "O que eu ofereço para o seu negócio",
     "landingPageTitle": "Landing Pages",

@@ -12,6 +12,7 @@ import { PiSpinnerBold } from "react-icons/pi";
 import { IoMdClose } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
 import UpdateXP from "./update";
+import { useLanguageStore } from "../context/languageContext";
 
 export interface Experience {
     id: number;
@@ -197,11 +198,12 @@ export default function Experience() {
         }
     }
 
+    const { texts } = useLanguageStore();
 
     return (
         <section id="experience" className="py-8 w-full">
             <h1 className="text-2xl md:text-3xl font-bold text-textTitle">
-                Onde trabalhei e o que fiz
+            {texts.about?.experienceHistoryTitle || "Onde trabalhei e o que fiz"} 
             </h1>
             <div className="flex flex-col md:flex-row gap-4 items-start mt-8">
 

@@ -32,6 +32,20 @@
         "techStudyingTitle": "Currently studying:",
         "experienceHistoryTitle": "Where I've worked and what I've done"
     },
+    "leadForm": {
+        "errorMessage": "Please correct the fields below and try again!",
+        "requiredField": "Required field",
+        "successMessage": "Data sent successfully!",
+        "title": "Contact Me:",
+        "dataSendMessage": "Data sent successfully!",
+        "buttonSendText": "Send",
+        "inputNamePlaceholder": "Your full name",
+        "requiredInputNameMessage": "Please enter your full name",
+        "inputEmailPlaceholder": "Your email",
+        "requiredInputEmailMessage": "Please enter a valid email",
+        "inputPhonePlaceholder": "Your phone number with area code",
+        "requiredInputPhoneMessage": "Please enter a valid phone number"
+    },
     "solutions": {
         "title": "What I Offer for Your Business",
         "landingPageTitle": "Landing Pages",
