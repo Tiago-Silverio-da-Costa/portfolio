@@ -21,9 +21,8 @@ export default function Header() {
 
     const pathname = usePathname();
 
-    const { language, texts, setLanguage } = useLanguageStore();
+    const { texts, setLanguage } = useLanguageStore();
     useEffect(() => {
-        console.log("texts", texts)
         // const getAdminBoard = async () => {
         //     try {
         //         const user = JSON.parse(localStorage.getItem('user') as string)
