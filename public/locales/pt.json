@@ -64,7 +64,8 @@
     "suportDesc": "Garanta que seu site permaneça atualizado, seguro e funcional"
   },
   "projects": {
-    "title": "Projetos: Desenvolvedor Web Freelancer - Soluções Personalizadas"
+    "title": "Projetos: Desenvolvedor Web Freelancer - Soluções Personalizadas",
+    "aboutProjTitle": "Sobre o projeto"
   },
   "DevelopmentSteps": {
     "title": "Etapas de desenvolvimento",

@@ -129,7 +129,7 @@ export default function LeadForm({ countryCode }: { countryCode: Country }) {
 
     return (
         <section className="flex flex-col gap-8">
-            <button className="flex items-center justify-center text-sm font-bold bg-textTitle text-bgFooter py-2 px-4 rounded-md w-fit" onClick={() => setOpenPopup(!openPopup)}>
+            <button className="flex items-center justify-center text-sm font-bold bg-textTitle text-bgFooter border-2 border-bgFooter py-2 px-4 rounded-md w-fit" onClick={() => setOpenPopup(!openPopup)}>
                 {texts.about?.buttonLeadText || "Faça um orçamento"}
             </button>
 

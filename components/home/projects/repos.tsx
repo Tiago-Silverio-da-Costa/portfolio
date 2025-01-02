@@ -16,6 +16,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import Update from "./update";
 import Link from "next/link";
+import { useLanguageStore } from "../context/languageContext";
 
 export interface Project {
     id: number;
@@ -220,6 +221,8 @@ export default function Repos() {
         }
     }
 
+    const { texts } = useLanguageStore();
+
     return (
         <>
             <div className="relative flex flex-wrap  gap-6 flex-col md:flex-row items-center justify-center mt-6 w-full">
@@ -356,8 +359,8 @@ export default function Repos() {
                                             </div>
                                         </div>
                                         <div className="max-w-md w-full mt-4">
-                                            <h2 className="text-start text-lg font-semibold uppercase text-textTitle">Sobre o projeto</h2>
-                                            <div  dangerouslySetInnerHTML={{ __html: selectedDescription }} className="text-start mt-2 " />
+                                            <h2 className="text-start text-lg font-semibold uppercase text-textTitle">{texts.projects?.aboutProjTitle || "Sobre o projeto"}</h2>
+                                            <div dangerouslySetInnerHTML={{ __html: selectedDescription }} className="text-start mt-2 " />
                                         </div>
                                     </div>
                                     {/* <div className="flex flex-col items-start justify-center max-w-md w-full mt-4">

@@ -64,7 +64,8 @@
         "suportDesc": "Ensure your site remains updated, secure, and functional."
     },
     "projects": {
-        "title": "Projects: Freelance Web Developer - Customized Solutions"
+        "title": "Projects: Freelance Web Developer - Customized Solutions",
+       "aboutProjTitle": "About the project"
     },
     "DevelopmentSteps": {
         "title": "Development Steps",
