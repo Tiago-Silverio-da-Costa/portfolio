@@ -67,15 +67,13 @@ export default function Header() {
 
                 <Link href="/" aria-label="Logo do Tiago Costa" className="flex items-center gap-2">
                     <Image className="rounded-full" src="/home/header/logo.svg" alt="Logo do Tiago Silverio Programador" width={50} height={80} />
-                    <h1 className="hidden lg:block text-lg font-bold text-textTitle uppercase">Tiago S. C.</h1>
+                    <h1 className="hidden lg:block text-lg font-bold text-textTitle uppercase">{texts.header?.logoName || "Programador"}</h1>
                 </Link>
 
                 {
                     !hideContent && (
                         <>
-                            <button onClick={() => setLanguage(language === 'en' ? 'pt' : 'en')}>
-                                {'Switch'}
-                            </button>
+
                             <nav className="items-end gap-4 justify-center hidden lg:flex">
                                 <ul className="group">
                                     <li className="flex flex-col items-center">
@@ -90,7 +88,7 @@ export default function Header() {
                                         {pathname === "/about" && (
                                             <span className="text-textTitle leading-3 text-xl">•</span>
                                         )}
-                                        <Link className={`${pathname === "/about" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/about">Sobre</Link>
+                                        <Link className={`${pathname === "/about" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/about">{texts.header?.navbarAbout || "Sobre"}</Link>
                                     </li>
                                 </ul>
                                 <ul>
@@ -98,7 +96,7 @@ export default function Header() {
                                         {pathname === "/services" && (
                                             <span className="text-textTitle leading-3 text-xl">•</span>
                                         )}
-                                        <Link className={`${pathname === "/services" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/services">Serviços</Link>
+                                        <Link className={`${pathname === "/services" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/services">{texts.header?.navbarServices || "Serviços"}</Link>
                                     </li>
                                 </ul>
                                 <ul>
@@ -106,7 +104,7 @@ export default function Header() {
                                         {pathname === "/projects" && (
                                             <span className="text-textTitle leading-3 text-xl">•</span>
                                         )}
-                                        <Link className={`${pathname === "/projects" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/projects">Projetos</Link>
+                                        <Link className={`${pathname === "/projects" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/projects">{texts.header?.navbarProjects || "Projetos"}</Link>
                                     </li>
                                 </ul>
                                 <ul>
@@ -114,7 +112,7 @@ export default function Header() {
                                         {pathname === "/contact" && (
                                             <span className="text-textTitle leading-3 text-xl">•</span>
                                         )}
-                                        <Link className={`${pathname === "/contact" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/contact">Contato</Link>
+                                        <Link className={`${pathname === "/contact" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/contact">{texts.header?.navbarContact || "Contato"}</Link>
                                     </li>
                                 </ul>
                                 {/* <ul>
@@ -127,7 +125,14 @@ export default function Header() {
                                 </ul> */}
                             </nav>
                             {/* mobile */}
-
+                            <div className="flex items-center gap-2">
+                                <button onClick={() => setLanguage('en')}>
+                                    <Image className="bg-white shadow-sm p-1 my-1 rounded-full hover:scale-110" src="/home/header/usa.svg" alt="bandeira dos Estados Unidos" width={40} height={40} />
+                                </button>
+                                <button onClick={() => setLanguage('pt')}>
+                                    <Image className="bg-white shadow-sm p-1 my-1 rounded-full hover:scale-110" src="/home/header/brazil.svg" alt="bandeira do Brasil" width={40} height={40} />
+                                </button>
+                            </div>
                             <button
                                 aria-label="Menu"
                                 type="button"
@@ -153,31 +158,31 @@ export default function Header() {
                                                 {pathname === "/" && (
                                                     <span className="text-textTitle leading-3 text-xl">•</span>
                                                 )}
-                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/">Ínicio</Link>
+                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/">{texts.header?.navbarStart || "Ínicio"}</Link>
                                             </li>
                                             <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/about" && (
                                                     <span className="text-textTitle leading-3 text-xl">•</span>
                                                 )}
-                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/about" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/about">Sobre</Link>
+                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/about" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/about">{texts.header?.navbarAbout || "Sobre"}</Link>
                                             </li>
                                             <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/services" && (
                                                     <span className="text-textTitle leading-3 text-xl">•</span>
                                                 )}
-                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/projects" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/services">Serviços</Link>
+                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/projects" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/services">{texts.header?.navbarServices || "Serviços"}</Link>
                                             </li>
                                             <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/projects" && (
                                                     <span className="text-textTitle leading-3 text-xl">•</span>
                                                 )}
-                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/projects" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/projects">Projetos</Link>
+                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/projects" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/projects">{texts.header?.navbarProjects || "Projetos"}</Link>
                                             </li>
                                             <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/contact" && (
                                                     <span className="text-textTitle leading-3 text-xl">•</span>
                                                 )}
-                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/contact" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/contact">Contato</Link>
+                                                <Link onClick={() => setOpenPopup(false)} className={`${pathname === "/contact" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/contact">{texts.header?.navbarContact || "Contato"}</Link>
                                             </li>
                                             {/* <li className="flex gap-2 items-center justify-end">
                                                 {pathname === "/blog" && (
@@ -192,8 +197,6 @@ export default function Header() {
                         </>
                     )
                 }
-
-
             </div>
 
         </header >
