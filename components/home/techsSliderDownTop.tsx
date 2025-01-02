@@ -50,6 +50,14 @@ export default function TechsSliderDownTop() {
         {
             id: 8,
             image: "/home/hero/postgres.svg",
+        },
+        {
+            id: 9,
+            image: "/home/hero/mysql.svg",
+        },
+        {
+            id: 10,
+            image: "/home/hero/mui.svg",
         }
     ];
 

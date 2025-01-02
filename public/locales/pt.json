@@ -1,0 +1,81 @@
+{
+  "header": {
+    "logoName": "Tiago S. C.",
+    "navbarStart": "Ínicio",
+    "navbarAbout": "Sobre",
+    "navbarServices": "Serviços",
+    "navbarProjects": "Projetos",
+    "navbarContact": "Contato"
+  },
+  "hero": {
+    "greetings1": "Olá, meu nome é",
+    "greetings2": "Tiago Silverio da Costa",
+    "role": "Criação de sites e apps",
+    "experience": "Anos de experiência",
+    "projectsCount": "Projetos completos",
+    "workingHours": "Horas de trabalho"
+  },
+  "about": {
+    "title": "Quem sou eu",
+    "descFisrtParagraph": "Com mais de 2 anos de experiência no desenvolvimento de sites, ofereço soluções web personalizadas e de alta qualidade para empresas de todos os portes. Meus projetos se destacam por:",
+    "descBoldTextSecondParagraph": "Funcionalidades sob medida:",
+    "descSecondParagraph": "Desenvolvo sites que atendem às suas necessidades específicas, desde lojas virtuais e portais de e-commerce até plataformas de ensino online e sistemas de gestão de conteúdo (CMS).",
+    "descBoldTextThirdParagraph": "Tecnologia de ponta:",
+    "descThirdParagraph": "Utilizo as últimas ferramentas e linguagens de programação para garantir que seu site seja moderno, seguro e com alto desempenho.",
+    "descBoldTextFourthParagraph": "Foco em resultados:",
+    "descFourthParagraph": "Meu objetivo é criar um site que não apenas seja bonito, mas que também gere resultados concretos para o seu negócio, como aumento de leads, conversões e vendas.",
+    "buttonLeadText": "Faça um orçamento",
+    "techFrontTitle": "Frontend:",
+    "techBackTitle": "Backend:",
+    "techDBTitle": "Banco de dados:",
+    "techBasicTitle": "Conhecimento básico:",
+    "techStudyingTitle": "Estudando agora:",
+    "experienceHistoryTitle": "Onde trabalhei e o que fiz"
+  },
+  "solutions": {
+    "title": "O que eu ofereço para o seu negócio",
+    "landingPageTitle": "Landing Pages",
+    "landingPageDesc": "Converta visitantes em clientes potenciais de forma eficaz e direta.",
+    "ecommerceTitle": "Lojas Virtuais",
+    "ecommerceDesc": "Dê vida aos seus produtos online, facilitando compras seguras e práticas para seus clientes.",
+    "institutionalWebsitesTitle": "Sites Institucionais",
+    "institutionalWebsitesDesc": "Apresente sua empresa, produtos e serviços, além de fortalecer sua marca e conquistar novos clientes",
+    "webSystemsTitle": "Sistemas Web",
+    "webSystemsDesc": "Facilite suas operações, como vendas, gestão de clientes e controle de estoque, tudo integrado e seguro",
+    "AppTitle": "Aplicativo",
+    "AppDesc": "Desenvolvemos aplicativos personalizados que conectam, engajam e transformam.",
+    "seoTitle": "Estratégias de SEO",
+    "seoDesc": "Aumente a visibilidade do seu site e atraia mais tráfego qualificado.",
+    "suportTitle": "Suporte",
+    "suportDesc": "Garanta que seu site permaneça atualizado, seguro e funcional"
+  },
+  "projects": {
+    "title": "Projetos: Desenvolvedor Web Freelancer - Soluções Personalizadas"
+  },
+  "DevelopmentSteps": {
+    "title": "Etapas de desenvolvimento",
+    "firstStepTitle": "Coleta de informações",
+    "firstStepDesc": "Começamos organizando todas as informações e necessidades do seu projeto.",
+    "secondStepTitle": "Proposta e orçamento",
+    "secondStepDesc": "Estipulamos os requisitos, prazo, orçamento, forma de pagamento.",
+    "thirdStepTitle": "Design",
+    "thirdStepDesc": "Aqui sua ideia se torna realidade. Aqui você navega e avalia o design.",
+    "fourthStepTitle": "Desenvolvimento",
+    "fourthtepDesc": "Agora é hora de avançar para a fase de desenvolvimento do seu projeto, onde daremos vida ao seu site através da programação.",
+    "fifthStepTitle": "Finalização",
+    "fifthhtepDesc": "Chegamos à fase final, onde seu projeto será entregue, funcionando perfeitamente e pronto para uso."
+  },
+  "PromoteServices": {
+    "title": "Por que sua empresa precisa de um site",
+    "desc": "Em um mundo cada vez mais digital, ter um site profissional é essencial para o sucesso de qualquer empresa. Mas não se trata apenas de ter uma página na internet. Um site bem feito é a porta de entrada para o seu negócio, a vitrine que irá apresentar seus produtos ou serviços para o mundo.",
+    "buttonLeadText": "Faça um orçamento"
+  },
+  "contact": {
+    "title": "Trabalhe Comigo e Alcance Seus Objetivos",
+    "descFisrtParagraph": "Se você está buscando um desenvolvedor web freelancer confiável e experiente, entre em contato comigo hoje mesmo. Vamos discutir suas necessidades e como posso te ajudar a alcançar seus objetivos online.",
+    "descSecondParagraph": "Além das minhas habilidades técnicas, também sou um profissional proativo, organizado e com excelente comunicação. Acredito na importância de construir uma relação de confiança com meus clientes, por isso me dedico a entender suas necessidades e expectativas de forma clara e objetiva.",
+    "descThirdParagraph": "Juntos, podemos construir um site que seja a cara do seu negócio e te ajude a conquistar novos clientes e alcançar o sucesso online.",
+    "locationText": "Remoto - Brasil",
+    "buttonLeadText": "Entrar em contato"
+  }
+}

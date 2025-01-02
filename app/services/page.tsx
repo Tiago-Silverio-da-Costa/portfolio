@@ -1,4 +1,4 @@
-import Necessity from "@/components/home/createNecessity";
+import Necessity from "@/components/home/promoteServices";
 import Footer from "@/components/home/footer";
 import Header from "@/components/home/header";
 import Solutions from "@/components/home/solutions";

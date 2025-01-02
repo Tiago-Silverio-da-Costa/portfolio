@@ -1,0 +1,81 @@
+{
+    "header": {
+        "logoName": "Tiago S. C.",
+        "navbarStart": "Home",
+        "navbarAbout": "About",
+        "navbarServices": "Services",
+        "navbarProjects": "Projects",
+        "navbarContact": "Contact"
+    },
+    "hero": {
+        "greetings1": "Hello, my name is",
+        "greetings2": "Tiago Silverio da Costa",
+        "role": "Website and app creation",
+        "experience": "Years of experience",
+        "projectsCount": "Completed projects",
+        "workingHours": "Working hours"
+    },
+    "about": {
+        "title": "About Me",
+        "descFisrtParagraph": "With over 2 years of experience in website development, I offer customized and high-quality web solutions for businesses of all sizes. My projects stand out for:",
+        "descBoldTextSecondParagraph": "Tailored functionalities:",
+        "descSecondParagraph": "I develop websites that meet your specific needs, from online stores and e-commerce portals to online learning platforms and content management systems (CMS).",
+        "descBoldTextThirdParagraph": "Cutting-edge technology:",
+        "descThirdParagraph": "I use the latest tools and programming languages to ensure your website is modern, secure, and high-performing.",
+        "descBoldTextFourthParagraph": "Results-oriented focus:",
+        "descFourthParagraph": "My goal is to create a website that is not only visually appealing but also delivers tangible results for your business, such as increased leads, conversions, and sales.",
+        "buttonLeadText": "Request a quote",
+        "techFrontTitle": "Frontend:",
+        "techBackTitle": "Backend:",
+        "techDBTitle": "Database:",
+        "techBasicTitle": "Basic knowledge:",
+        "techStudyingTitle": "Currently studying:",
+        "experienceHistoryTitle": "Where I've worked and what I've done"
+    },
+    "solutions": {
+        "title": "What I Offer for Your Business",
+        "landingPageTitle": "Landing Pages",
+        "landingPageDesc": "Effectively and directly convert visitors into potential clients.",
+        "ecommerceTitle": "Online Stores",
+        "ecommerceDesc": "Bring your products to life online, making safe and convenient shopping for your customers.",
+        "institutionalWebsitesTitle": "Institutional Websites",
+        "institutionalWebsitesDesc": "Present your company, products, and services, strengthen your brand, and attract new clients.",
+        "webSystemsTitle": "Web Systems",
+        "webSystemsDesc": "Streamline your operations, such as sales, customer management, and inventory control, all integrated and secure.",
+        "AppTitle": "Applications",
+        "AppDesc": "We develop customized apps that connect, engage, and transform.",
+        "seoTitle": "SEO Strategies",
+        "seoDesc": "Increase your site's visibility and attract more qualified traffic.",
+        "suportTitle": "Support",
+        "suportDesc": "Ensure your site remains updated, secure, and functional."
+    },
+    "projects": {
+        "title": "Projects: Freelance Web Developer - Customized Solutions"
+    },
+    "DevelopmentSteps": {
+        "title": "Development Steps",
+        "firstStepTitle": "Information Gathering",
+        "firstStepDesc": "We start by organizing all the information and requirements of your project.",
+        "secondStepTitle": "Proposal and Budget",
+        "secondStepDesc": "We define the requirements, deadlines, budget, and payment terms.",
+        "thirdStepTitle": "Design",
+        "thirdStepDesc": "This is where your idea becomes reality. You can navigate and evaluate the design.",
+        "fourthStepTitle": "Development",
+        "fourthtepDesc": "Now it's time to move to the development phase, where we bring your site to life through programming.",
+        "fifthStepTitle": "Finalization",
+        "fifthhtepDesc": "We reach the final phase, where your project will be delivered, fully functional and ready to use."
+    },
+    "PromoteServices": {
+        "title": "Why Your Business Needs a Website",
+        "desc": "In an increasingly digital world, having a professional website is essential for the success of any business. But it's not just about having an online presence. A well-designed website is the gateway to your business, the showcase that presents your products or services to the world.",
+        "buttonLeadText": "Request a quote"
+    },
+    "contact": {
+        "title": "Work With Me and Achieve Your Goals",
+        "descFisrtParagraph": "If you are looking for a reliable and experienced freelance web developer, contact me today. Let's discuss your needs and how I can help you achieve your online goals.",
+        "descSecondParagraph": "In addition to my technical skills, I am a proactive, organized professional with excellent communication. I believe in building a trusting relationship with my clients, so I dedicate myself to understanding your needs and expectations clearly and objectively.",
+        "descThirdParagraph": "Together, we can build a website that represents your business and helps you attract new clients and achieve online success.",
+        "locationText": "Remote - Brazil",
+        "buttonLeadText": "Get in touch"
+    }
+}

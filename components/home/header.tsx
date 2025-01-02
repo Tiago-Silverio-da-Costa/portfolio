@@ -7,6 +7,7 @@ import { IoMdClose } from "react-icons/io";
 import { FormBtn } from "@/styles/home/projects";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { useLanguageStore } from "./context/languageContext"
 
 export function logout() {
     localStorage.removeItem("user");
@@ -20,32 +21,35 @@ export default function Header() {
 
     const pathname = usePathname();
 
+    const { language, texts, setLanguage } = useLanguageStore();
     useEffect(() => {
-        const getAdminBoard = async () => {
-            try {
-                const user = JSON.parse(localStorage.getItem('user') as string)
-                const response = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/api/test/admin", {
-                    method: 'GET',
-                    headers: {
-                        'x-access-token': user.accessToken
-                    }
-                });
-                if (response.status === 200) {
-                    setIsAdmin(true);
-                }
+        console.log("texts", texts)
+        // const getAdminBoard = async () => {
+        //     try {
+        //         const user = JSON.parse(localStorage.getItem('user') as string)
+        //         const response = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/api/test/admin", {
+        //             method: 'GET',
+        //             headers: {
+        //                 'x-access-token': user.accessToken
+        //             }
+        //         });
+        //         if (response.status === 200) {
+        //             setIsAdmin(true);
+        //         }
 
-            } catch (error) {
-                console.log(error)
-            }
-        }
+        //     } catch (error) {
+        //         console.log(error)
+        //     }
+        // }
 
-        getAdminBoard()
+        // getAdminBoard()
 
-        if (pathname === "/login" || pathname === "/register") {
-            setHideContent(true)
-        }
+        // if (pathname === "/login" || pathname === "/register") {
+        //     setHideContent(true)
+        // }
 
     }, [pathname])
+
 
     return (
         <header className="bg-[hsla(0,0%,100%,.5)] border border-[hsla(0,0%,100%,.5)] w-full">
@@ -63,20 +67,22 @@ export default function Header() {
 
                 <Link href="/" aria-label="Logo do Tiago Costa" className="flex items-center gap-2">
                     <Image className="rounded-full" src="/home/header/logo.svg" alt="Logo do Tiago Silverio Programador" width={50} height={80} />
-                    <h1 className="hidden lg:block text-lg font-bold text-textTitle uppercase">Programador</h1>
+                    <h1 className="hidden lg:block text-lg font-bold text-textTitle uppercase">Tiago S. C.</h1>
                 </Link>
 
                 {
                     !hideContent && (
                         <>
-
+                            <button onClick={() => setLanguage(language === 'en' ? 'pt' : 'en')}>
+                                {'Switch'}
+                            </button>
                             <nav className="items-end gap-4 justify-center hidden lg:flex">
                                 <ul className="group">
                                     <li className="flex flex-col items-center">
                                         {pathname === "/" && (
                                             <span className="text-textTitle leading-3 text-xl">•</span>
                                         )}
-                                        <Link className={`${pathname === "/" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/">Ínicio</Link>
+                                        <Link className={`${pathname === "/" ? "text-textTitle" : "text-textGray"} uppercase text-lg text-textTitle transition-all duration-300`} href="/">{texts.header?.navbarStart || "Ínicio"}</Link>
                                     </li>
                                 </ul>
                                 <ul>

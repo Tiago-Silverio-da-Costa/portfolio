@@ -1,4 +1,4 @@
-export default function Step() {
+export default function DevelopmentStep() {
 
     return (
         <section className="mx-auto w-5/6 max-w-5xl flex flex-col py-32">

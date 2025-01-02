@@ -45,7 +45,7 @@ export default function Contact() {
                         <div className="flex items-center gap-2 mt-2">
                             <TiLocation className="text-xl" />
                             <span className="text-sm">
-                                Remoto - Brazil
+                                Remoto - Brasil
                             </span>
                         </div>
                         <Link className="flex items-center gap-2 text-sm font-bold bg-textTitle text-bgFooter py-2 px-4 rounded-md w-fit mt-6"

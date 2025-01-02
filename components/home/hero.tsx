@@ -40,7 +40,7 @@ export default function Hero() {
                         className="flex flex-col items-center gap-4">
                         <div className="flex flex-col items-center justify-end">
                             <p className="text-2xl md:text-4xl text-textTitle font-bold uppercase tracking-wide">
-                                2+
+                                3+
                             </p>
                             <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide" aria-label="Mais de 2 anos de experiência">Anos de experiência</span>
                         </div>
@@ -52,7 +52,7 @@ export default function Hero() {
                         </div>
                         <div className="flex flex-col items-center">
                             <p className="text-2xl md:text-4xl text-textTitle font-bold uppercase tracking-wide">
-                                5,000+
+                                6.750+
                             </p>
                             <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide" aria-label="Mais de 5000 horas de experiência">Horas de trabalho</span>
                         </div>

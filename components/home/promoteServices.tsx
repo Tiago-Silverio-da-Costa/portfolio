@@ -17,7 +17,7 @@ import { FormBtnLead, Spin } from "@/styles/home/projects";
 import { PiSpinnerBold } from "react-icons/pi";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-export default function Necessity({ countryCode }: { countryCode: Country }) {
+export default function PromoteServices({ countryCode }: { countryCode: Country }) {
     const [openPopup, setOpenPopup] = useState<boolean>(false)
 
     const {
