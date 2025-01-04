@@ -66,7 +66,8 @@ export default function Experience() {
     useEffect(() => {
         const getExperience = async () => {
             try {
-                const response = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/getxps", {
+                const { language } = useLanguageStore();
+                const response = await fetch(`https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/getxps?language=${language}`, {
                     credentials: "include",
                     cache: "no-cache",
                     method: "GET",
