@@ -31,6 +31,8 @@ export default function Experience() {
     const [selectedExperienceId, setSelectedExperienceId] = useState<number | null>(null);
     const [isAdmin, setIsAdmin] = useState(false);
 
+    const { texts, language } = useLanguageStore();
+
     const {
         handleSubmit,
         clearErrors,
@@ -67,7 +69,7 @@ export default function Experience() {
         const getExperience = async () => {
             try {
                 const { language } = useLanguageStore();
-                const response = await fetch(`https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/getxps?language=${language}`, {
+                const response = await fetch(`https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/getxps?language=${language || "pt"}`, {
                     credentials: "include",
                     cache: "no-cache",
                     method: "GET",
@@ -119,7 +121,7 @@ export default function Experience() {
         } else {
             document.documentElement.style.overflow = "";
         }
-    }, [openPopupCreation, openPopupUpdate, setError, setExperience])
+    }, [openPopupCreation, openPopupUpdate, setError, setExperience, language])
 
 
     const onSubmit = async (data: TCreateExperience) => {
@@ -199,7 +201,6 @@ export default function Experience() {
         }
     }
 
-    const { texts } = useLanguageStore();
 
     return (
         <section id="experience" className="py-8 w-full">
