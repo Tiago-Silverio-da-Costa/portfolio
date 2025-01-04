@@ -16,7 +16,7 @@ export async function PUT(req: NextRequest) {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin":
             process.env.VERCEL_ENV === "production"
-              ? "https://www.tiagosc.com.br/"
+              ? "http://localhost:3000/"
               : "*",
         },
       }
@@ -59,7 +59,7 @@ export async function PUT(req: NextRequest) {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin":
             process.env.VERCEL_ENV === "production"
-              ? "https://www.tiagosc.com.br/"
+              ? "http://localhost:3000/"
               : "*",
         },
       }
@@ -90,7 +90,7 @@ export async function PUT(req: NextRequest) {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin":
               process.env.VERCEL_ENV === "production"
-                ? "https://www.tiagosc.com.br/"
+                ? "http://localhost:3000/"
                 : "*",
           },
         }
@@ -109,7 +109,7 @@ export async function PUT(req: NextRequest) {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin":
             process.env.VERCEL_ENV === "production"
-              ? "https://www.tiagosc.com.br/"
+              ? "http://localhost:3000/"
               : "*",
         },
       }
@@ -153,7 +153,7 @@ export async function PUT(req: NextRequest) {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin":
           process.env.VERCEL_ENV === "production"
-            ? "https://www.tiagosc.com.br/"
+            ? "http://localhost:3000/"
             : "*",
       },
     }

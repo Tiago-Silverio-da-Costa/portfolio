@@ -68,7 +68,6 @@ export default function Experience() {
     useEffect(() => {
         const getExperience = async () => {
             try {
-                const { language } = useLanguageStore();
                 const response = await fetch(`https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/getxps?language=${language || "pt"}`, {
                     credentials: "include",
                     cache: "no-cache",
@@ -77,6 +76,7 @@ export default function Experience() {
                         "Content-Type": "application/json"
                     }
                 })
+                console.log("response", response)
 
                 const responseData = await response.json()
 
@@ -205,7 +205,7 @@ export default function Experience() {
     return (
         <section id="experience" className="py-8 w-full">
             <h1 className="text-2xl md:text-3xl font-bold text-textTitle">
-            {texts.about?.experienceHistoryTitle || "Onde trabalhei e o que fiz"} 
+                {texts.about?.experienceHistoryTitle || "Onde trabalhei e o que fiz"}
             </h1>
             <div className="flex flex-col md:flex-row gap-4 items-start mt-8">
 
