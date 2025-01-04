@@ -42,7 +42,7 @@ export const generateMetadata = async ({ params }: { params: { article: string }
 	return {
 		title:
 			data?.title || "Tiago Silverio Programador – Blog",
-		metadataBase: new URL(`https://tiagosc.com.br//article/${id}`),
+		metadataBase: new URL(`https://wwww.tiagosc.com.br/article/${id}`),
 		description:
 			data?.subtitle || "Blog pessoal com artigos sobre tecnologia, programação e desenvolvimento web.",
 		keywords: ["Tecnologia", "Programação", "Desenvolvimento Web", "Blog de Tecnologia", "Artigos de Programação", "Next.js", "JavaScript", "React", "Node.js"],
@@ -54,7 +54,7 @@ export const generateMetadata = async ({ params }: { params: { article: string }
 			siteName: "Tiago Silverio Programador – Blog ",
 			images: [
 				{
-					url: data?.image || "https://tiagosc.com.br//tiagosc-port.png",
+					url: data?.image || "https://wwww.tiagosc.com.br/tiagosc-port.png",
 					width: 1280,
 					height: 720,
 				},
@@ -71,7 +71,7 @@ export const generateMetadata = async ({ params }: { params: { article: string }
 				data?.title || "Tiago Silverio Programador – Blog",
 			description:
 				data?.subtitle || "Blog pessoal com artigos sobre tecnologia, programação e desenvolvimento web.",
-			images: [data?.image || "https://tiagosc.com.br//tiagosc-port.png"],
+			images: [data?.image || "https://wwww.tiagosc.com.br/tiagosc-port.png"],
 		},
 	};
 };

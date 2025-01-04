@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin":
             process.env.VERCEL_ENV === "production"
-              ? "https://tiagosc.com.br//"
+              ? "https://wwww.tiagosc.com.br/"
               : "*",
         },
       }
@@ -65,7 +65,7 @@ export async function POST(req: NextRequest) {
           "Content-Type": "application/json",
           "Acess-Control-Allow-Origin":
             process.env.VERCEL_ENV === "production"
-              ? "https://tiagosc.com.br//"
+              ? "https://wwww.tiagosc.com.br/"
               : "*",
         },
       }
@@ -96,7 +96,7 @@ export async function POST(req: NextRequest) {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin":
               process.env.VERCEL_ENV === "production"
-                ? "https://tiagosc.com.br//"
+                ? "https://wwww.tiagosc.com.br/"
                 : "*",
           },
         }
@@ -134,7 +134,7 @@ export async function POST(req: NextRequest) {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin":
               process.env.VERCEL_ENV === "production"
-                ? "https://tiagosc.com.br//"
+                ? "https://wwww.tiagosc.com.br/"
                 : "*",
           },
         }
@@ -202,7 +202,7 @@ export async function POST(req: NextRequest) {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin":
             process.env.VERCEL_ENV === "production"
-              ? "https://tiagosc.com.br//"
+              ? "https://wwww.tiagosc.com.br/"
               : "*",
         },
       }
@@ -220,7 +220,7 @@ export async function POST(req: NextRequest) {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin":
             process.env.VERCEL_ENV === "production"
-              ? "https://tiagosc.com.br//"
+              ? "https://wwww.tiagosc.com.br/"
               : "*",
         },
       }

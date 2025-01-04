@@ -27,37 +27,37 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Geração das rotas do sitemap com base nos dados obtidos
   const staticEntries: MetadataRoute.Sitemap = [
     {
-      url: 'https://tiagosc.com.br//',
+      url: 'https://wwww.tiagosc.com.br/',
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 1,
     },
     {
-      url: 'https://tiagosc.com.br//about',
+      url: 'https://wwww.tiagosc.com.br/about',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: 'https://tiagosc.com.br//services',
+      url: 'https://wwww.tiagosc.com.br/services',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.5,
     },
     {
-      url: 'https://tiagosc.com.br//projects',
+      url: 'https://wwww.tiagosc.com.br/projects',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.5,
     },
     {
-      url: 'https://tiagosc.com.br//contact',
+      url: 'https://wwww.tiagosc.com.br/contact',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.5,
     },
     {
-      url: 'https://tiagosc.com.br//blog',
+      url: 'https://wwww.tiagosc.com.br/blog',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
@@ -66,7 +66,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Adicionando as entradas de artigos com base nos dados obtidos
   const postEntries: MetadataRoute.Sitemap = posts.map(post => ({
-    url: `https://tiagosc.com.br//article/${post.id}`,
+    url: `https://wwww.tiagosc.com.br/article/${post.id}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.9,
