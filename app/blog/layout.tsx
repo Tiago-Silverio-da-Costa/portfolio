@@ -12,7 +12,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
 	title:
 		"Tiago Silverio Programador – Blog",
-	metadataBase: new URL("http://localhost:3000/blog"),
+	metadataBase: new URL("https://tiagosc.com.br//blog"),
 	description:
 		"Blog pessoal com artigos sobre tecnologia, programação e desenvolvimento web.",
 	keywords: ["Tecnologia", "Programação", "Desenvolvimento Web", "Blog de Tecnologia", "Artigos de Programação", "Next.js", "JavaScript", "React", "Node.js"],
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 		siteName: "Tiago Silverio Programador – Blog ",
 		images: [
 			{
-				url: "http://localhost:3000/tiagosc-port.png",
+				url: "https://tiagosc.com.br//tiagosc-port.png",
 				width: 1280,
 				height: 720,
 			},
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 			"Tiago Silverio Programador – Blog",
 		description:
 			"Blog pessoal com artigos sobre tecnologia, programação e desenvolvimento web.",
-		images: ["http://localhost:3000/tiagosc-port.png"],
+		images: ["https://tiagosc.com.br//tiagosc-port.png"],
 	},
 };
 

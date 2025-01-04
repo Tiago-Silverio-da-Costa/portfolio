@@ -45,6 +45,8 @@ export default function Repos() {
     const [isAdmin, setIsAdmin] = useState(false);
     const [loading, setLoading] = useState(true);
 
+    const { texts, language } = useLanguageStore();
+
     const {
         handleSubmit,
         clearErrors,
@@ -80,8 +82,9 @@ export default function Repos() {
     useEffect(() => {
         const getProjects = async () => {
             try {
-
-                const response = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/getprojects", {
+                console.log("fois")
+                // const response = await fetch("https://us-central1-portfolio-backend-34b37.cloudfunctions.net/api/getprojects?language=${language || "pt"}", {
+                const response = await fetch(`http://127.0.0.1:5001/portfolio-backend-34b37/us-central1/api/getprojects?language=${language || "pt"}`, {
                     credentials: "include",
                     cache: "no-cache",
                     method: "GET",
@@ -89,7 +92,7 @@ export default function Repos() {
                         "Content-Type": "application/json"
                     }
                 })
-
+                console.log("responseasda", response)
                 const responseData = await response.json();
 
                 const projectsData: Project[] = responseData;
@@ -136,7 +139,7 @@ export default function Repos() {
         } else {
             document.documentElement.style.overflow = "";
         }
-    }, [openPopupCreation, openPopupUpdate, openPopupProject, setError, setProjects])
+    }, [openPopupCreation, openPopupUpdate, openPopupProject, setError, setProjects, language])
 
     const onSubmit = async (data: TCreateProject) => {
         clearErrors()
@@ -221,7 +224,6 @@ export default function Repos() {
         }
     }
 
-    const { texts } = useLanguageStore();
 
     return (
         <>

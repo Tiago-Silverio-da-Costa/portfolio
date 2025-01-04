@@ -7,7 +7,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
     title:
         "Contato – Tiago Silverio Programador",
-    metadataBase: new URL("http://localhost:3000/contact"),
+    metadataBase: new URL("https://tiagosc.com.br//contact"),
     description:
         "Alcance mais clientes, aumente suas vendas e impulsione a lucratividade do seu negócio com um site ou aplicativo sob medida. Desenvolva soluções digitais personalizadas que convertem visitantes em clientes e geram resultados concretos para sua empresa de serviços.",
     keywords: ["sites rentáveis para empresas de serviços", "desenvolvedor web freelancer para empresas de serviços", "criação de sites para empresas de serviços", "marketing digital para empresas de serviços", "aumentar vendas com site", "lucratividade com site", "desenvolvedor full-stack freelancer", "Tiago Silverio Programador freelancer", "desenvolvedor web Florianópolis", "desenvolvedor web Camboriú", "desenvolvedor web Balneário Camboriú", "SC"],
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         siteName: "Contato – Tiago Silverio Programador",
         images: [
             {
-                url: "http://localhost:3000/tiagosc-port.png",
+                url: "https://tiagosc.com.br//tiagosc-port.png",
                 width: 1280,
                 height: 720,
             },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
             "Contato – Tiago Silverio Programador",
         description:
             "Alcance mais clientes, aumente suas vendas e impulsione a lucratividade do seu negócio com um site ou aplicativo sob medida. Desenvolva soluções digitais personalizadas que convertem visitantes em clientes e geram resultados concretos para sua empresa de serviços.",
-        images: ["http://localhost:3000/tiagosc-port.png"],
+        images: ["https://tiagosc.com.br//tiagosc-port.png"],
     },
 };
 

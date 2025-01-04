@@ -15,7 +15,7 @@ export async function GET() {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin":
           process.env.VERCEL_ENV === "production"
-            ? "http://localhost:3000/"
+            ? "https://tiagosc.com.br//"
             : "*",
       },
     }
