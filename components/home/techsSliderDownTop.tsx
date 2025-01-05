@@ -58,6 +58,10 @@ export default function TechsSliderDownTop() {
         {
             id: 10,
             image: "/home/hero/mui.svg",
+        },
+        {
+            id: 11,
+            image: "/home/hero/firebase.svg",
         }
     ];
 

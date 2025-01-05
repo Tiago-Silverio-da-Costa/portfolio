@@ -90,7 +90,6 @@ export default function Repos() {
                         "Content-Type": "application/json"
                     }
                 })
-                console.log("responseasda", response)
                 const responseData = await response.json();
 
                 const projectsData: Project[] = responseData;

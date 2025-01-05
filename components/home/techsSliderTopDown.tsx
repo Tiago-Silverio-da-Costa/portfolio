@@ -58,6 +58,14 @@ export default function TechsSliderTopDown() {
         {
             id: 9,
             image: "/home/hero/rust.svg",
+        },
+        {
+            id: 10,
+            image: "/home/hero/postman.svg",
+        },
+        {
+            id: 11,
+            image: "/home/hero/aws.svg",
         }
 
     ];
