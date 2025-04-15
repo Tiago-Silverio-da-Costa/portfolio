@@ -34,6 +34,7 @@ const config: Config = {
         third: "#30302b",
         
         bgGo: "#00ADD8",
+        bgVue: "#41b883",
         bgPython: "rgb(53, 114, 165)",
         bgRuby: "rgb(112, 21, 22)",
         bgRust: "rgb(222, 165, 132)",
