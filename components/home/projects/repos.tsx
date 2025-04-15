@@ -284,6 +284,7 @@ export default function Repos() {
                                 <div className="flex items-center gap-2 justify-start">
                                     <div className={`flex rounded-full w-2 h-2 
                                     ${project.programming_language === "Go" ? "bg-bgGo" : ""}
+                                    ${project.programming_language === "Vue" ? "bg-bgVue" : ""}
                                     ${project.programming_language === "Python" ? "bg-bgPython" : ""}
                                     ${project.programming_language === "Ruby" ? "bg-bgRuby" : ""}
                                     ${project.programming_language === "Rust" ? "bg-bgRust" : ""}
