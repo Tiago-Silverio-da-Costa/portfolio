@@ -6,6 +6,8 @@ import Image from "next/image"
 import { useEffect, useRef, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FaRocket } from "react-icons/fa";
+import { TbWorldWww } from "react-icons/tb";
+import { BiSolidServer } from "react-icons/bi";
 import { FaPlus } from "react-icons/fa6";
 import { useForm } from "react-hook-form";
 import Alert from "../../commom/alert";
@@ -241,9 +243,20 @@ export default function Repos() {
                                         <FaGithub aria-label="ícone do GitHub" />
                                     </Link>
                                 )}
-                                <Link aria-label={`Visitar o site do projeto ${project.name}`} href={project.project_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-bgFooter">
-                                    <FaRocket aria-label="ícone do Produção" />
-                                </Link>
+                                {project.project_url.trim().split(" ").length === 2 ? <>
+
+                                    <Link aria-label={`Visitar o site do projeto ${project.name}`} href={project.project_url.split(" ")[0]} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-bgFooter">
+                                        <FaRocket aria-label="ícone do Produção" />
+                                    </Link>
+                                    <Link aria-label={`Visitar o site do projeto ${project.name}`} href={project.project_url.split(" ")[1]} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-bgFooter">
+                                        <BiSolidServer aria-label="ícone do Produção" />
+                                    </Link>
+                                </> :
+
+                                    <Link aria-label={`Visitar o site do projeto ${project.name}`} href={project.project_url} target="_blank" className="group-hover:flex border border-borderColor p-1 rounded-md bg-[#21262d] text-bgFooter">
+                                        <FaRocket aria-label="ícone do Produção" />
+                                    </Link>
+                                }
                                 {
                                     isAdmin && (
                                         <>
@@ -280,9 +293,73 @@ export default function Repos() {
                                     loading="lazy"
                                 />
                             </div>
-                            <div className="border border-bgFooter  rounded-bl-md rounded-br-md bg-bgFooter flex items-center h-6 px-2">
-                                <div className="flex items-center gap-2 justify-start">
-                                    <div className={`flex rounded-full w-2 h-2 
+                            <div className="flex gap-4 items-center border border-bgFooter  rounded-bl-md rounded-br-md bg-bgFooter h-6 px-2">
+                                {project.programming_language.trim().split(" ").length === 2 ? (<>
+
+                                    <div className="flex items-center gap-2 justify-start">
+                                        <div className={`flex rounded-full w-2 h-2 
+                                    ${project.programming_language.split(" ")[0] === "Go" ? "bg-bgGo" : ""}
+                                    ${project.programming_language.split(" ")[0] === "Vue" ? "bg-bgVue" : ""}
+                                    ${project.programming_language.split(" ")[0] === "Python" ? "bg-bgPython" : ""}
+                                    ${project.programming_language.split(" ")[0] === "Ruby" ? "bg-bgRuby" : ""}
+                                    ${project.programming_language.split(" ")[0] === "Rust" ? "bg-bgRust" : ""}
+                                    ${project.programming_language.split(" ")[0] === "Typescript" ? "bg-bgTypescript" : ""}
+                                    ${project.programming_language.split(" ")[0] === "Javascript" ? "bg-bgJavascript" : ""}
+                                    ${project.programming_language.split(" ")[0] === "Java" ? "bg-bgJava" : ""}
+                                    ${project.programming_language.split(" ")[0] === "C" ? "bg-bgC" : ""}
+                                    ${project.programming_language.split(" ")[0] === "C++" ? "bg-bgCpp" : ""}
+                                    ${project.programming_language.split(" ")[0] === "Crystal" ? "bg-bgCrystal" : ""}
+                                    ${project.programming_language.split(" ")[0] === "Dart" ? "bg-bgDart" : ""}
+                                    ${project.programming_language.split(" ")[0] === "Elixir" ? "bg-bgElixir" : ""}
+                                    ${project.programming_language.split(" ")[0] === "Erlang" ? "bg-bgErlang" : ""}
+                                    ${project.programming_language.split(" ")[0] === "Haskell" ? "bg-bgHaskell" : ""}
+                                    ${project.programming_language.split(" ")[0] === "HTML" ? "bg-bgHtml" : ""}
+                                    ${project.programming_language.split(" ")[0] === "CSS" ? "bg-bgCss" : ""}
+                                    ${project.programming_language.split(" ")[0] === "PHP" ? "bg-bgPhp" : ""}
+                                    ${project.programming_language.split(" ")[0] === "Shell" ? "bg-bgShell" : ""}
+                                    ${project.programming_language.split(" ")[0] === "Swift" ? "bg-bgSwift" : ""}
+                                    ${project.programming_language.split(" ")[0] === "Kotlin" ? "bg-bgKotlin" : ""}
+                                    ${project.programming_language.split(" ")[0] === "Lua" ? "bg-bgLua" : ""}
+                                    ${project.programming_language.split(" ")[0] === "Perl" ? "bg-bgPerl" : ""}
+                                    ${project.programming_language.split(" ")[0] === "R" ? "bg-bgR" : ""}
+                                    ${project.programming_language.split(" ")[0] === "Scala" ? "bg-bgScala" : ""}
+                                        `}></div>
+                                        <p className="text-xs text-textOpacity tracking-tighter">{project.programming_language.split(" ")[0]}</p>
+                                    </div>
+                                    <div className="flex items-center gap-2 justify-start">
+                                        <div className={`flex rounded-full w-2 h-2 
+                                    ${project.programming_language.split(" ")[1] === "Go" ? "bg-bgGo" : ""}
+                                    ${project.programming_language.split(" ")[1] === "Vue" ? "bg-bgVue" : ""}
+                                    ${project.programming_language.split(" ")[1] === "Python" ? "bg-bgPython" : ""}
+                                    ${project.programming_language.split(" ")[1] === "Ruby" ? "bg-bgRuby" : ""}
+                                    ${project.programming_language.split(" ")[1] === "Rust" ? "bg-bgRust" : ""}
+                                    ${project.programming_language.split(" ")[1] === "Typescript" ? "bg-bgTypescript" : ""}
+                                    ${project.programming_language.split(" ")[1] === "Javascript" ? "bg-bgJavascript" : ""}
+                                    ${project.programming_language.split(" ")[1] === "Java" ? "bg-bgJava" : ""}
+                                    ${project.programming_language.split(" ")[1] === "C" ? "bg-bgC" : ""}
+                                    ${project.programming_language.split(" ")[1] === "C++" ? "bg-bgCpp" : ""}
+                                    ${project.programming_language.split(" ")[1] === "Crystal" ? "bg-bgCrystal" : ""}
+                                    ${project.programming_language.split(" ")[1] === "Dart" ? "bg-bgDart" : ""}
+                                    ${project.programming_language.split(" ")[1] === "Elixir" ? "bg-bgElixir" : ""}
+                                    ${project.programming_language.split(" ")[1] === "Erlang" ? "bg-bgErlang" : ""}
+                                    ${project.programming_language.split(" ")[1] === "Haskell" ? "bg-bgHaskell" : ""}
+                                    ${project.programming_language.split(" ")[1] === "HTML" ? "bg-bgHtml" : ""}
+                                    ${project.programming_language.split(" ")[1] === "CSS" ? "bg-bgCss" : ""}
+                                    ${project.programming_language.split(" ")[1] === "PHP" ? "bg-bgPhp" : ""}
+                                    ${project.programming_language.split(" ")[1] === "Shell" ? "bg-bgShell" : ""}
+                                    ${project.programming_language.split(" ")[1] === "Swift" ? "bg-bgSwift" : ""}
+                                    ${project.programming_language.split(" ")[1] === "Kotlin" ? "bg-bgKotlin" : ""}
+                                    ${project.programming_language.split(" ")[1] === "Lua" ? "bg-bgLua" : ""}
+                                    ${project.programming_language.split(" ")[1] === "Perl" ? "bg-bgPerl" : ""}
+                                    ${project.programming_language.split(" ")[1] === "R" ? "bg-bgR" : ""}
+                                    ${project.programming_language.split(" ")[1] === "Scala" ? "bg-bgScala" : ""}
+                                        `}></div>
+                                        <p className="text-xs text-textOpacity tracking-tighter">{project.programming_language.split(" ")[1]}</p>
+                                    </div>
+                                </>) : (
+
+                                    <div className="flex items-center gap-2 justify-start">
+                                        <div className={`flex rounded-full w-2 h-2 
                                     ${project.programming_language === "Go" ? "bg-bgGo" : ""}
                                     ${project.programming_language === "Vue" ? "bg-bgVue" : ""}
                                     ${project.programming_language === "Python" ? "bg-bgPython" : ""}
@@ -309,8 +386,10 @@ export default function Repos() {
                                     ${project.programming_language === "R" ? "bg-bgR" : ""}
                                     ${project.programming_language === "Scala" ? "bg-bgScala" : ""}
                                         `}></div>
-                                    <p className="text-xs text-textOpacity tracking-tighter">{project.programming_language}</p>
-                                </div>
+                                        <p className="text-xs text-textOpacity tracking-tighter">{project.programming_language}</p>
+                                    </div>
+                                )}
+
                             </div>
                         </article>
                     ))}

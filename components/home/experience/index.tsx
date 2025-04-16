@@ -76,7 +76,6 @@ export default function Experience() {
                         "Content-Type": "application/json"
                     }
                 })
-                console.log("response", response)
 
                 const responseData = await response.json()
 
