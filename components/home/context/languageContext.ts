@@ -7,7 +7,7 @@ interface LanguageStore {
 }
 
 export const useLanguageStore = create<LanguageStore>((set) => ({
-  language: 'en',
+  language: 'pt',
   texts: {},
   setLanguage: async (lang: string) => {
     try {
