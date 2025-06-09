@@ -13,18 +13,18 @@ import { headers } from "next/headers";
 export default function Home() {
   const headersList = headers();
   const countryCode: Country =
-  (headersList.get("cf-ipcountry") as Country) ?? "BR";
-  
+    (headersList.get("cf-ipcountry") as Country) ?? "BR";
+
   return (
     <>
       <Header />
       <Hero />
       <About countryCode={countryCode} />
-      <Solutions />
+      {/* <Solutions /> */}
       <Projects />
-      <DevelopmentSteps />
-      <PromoteServices countryCode={countryCode} />
-      <Contact />
+      {/* <DevelopmentSteps /> */}
+      {/* <PromoteServices countryCode={countryCode} /> */}
+      {/* <Contact /> */}
       <Footer />
     </>
 

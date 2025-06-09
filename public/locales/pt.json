@@ -17,11 +17,11 @@
   },
   "about": {
     "title": "Quem sou eu",
-    "descFisrtParagraph": "Com mais de 2 anos de experiência no desenvolvimento de sites, ofereço soluções web personalizadas e de alta qualidade para empresas de todos os portes. Meus projetos se destacam por:",
+    "descFisrtParagraph": "Desenvolvedor Full-Stack com mais de 3 anos de experiência em desenvolvimento web.",
     "descBoldTextSecondParagraph": "Funcionalidades sob medida:",
-    "descSecondParagraph": "Desenvolvo sites que atendem às suas necessidades específicas, desde lojas virtuais e portais de e-commerce até plataformas de ensino online e sistemas de gestão de conteúdo (CMS).",
+    "descSecondParagraph": "Atuação focada na construção de aplicações escaláveis, seguras e de fácil manutenção, com atenção à arquitetura, desempenho e experiência do usuário.",
     "descBoldTextThirdParagraph": "Tecnologia de ponta:",
-    "descThirdParagraph": "Utilizo as últimas ferramentas e linguagens de programação para garantir que seu site seja moderno, seguro e com alto desempenho.",
+    "descThirdParagraph": "Interessa-se por boas práticas de desenvolvimento, código limpo e evolução contínua de processos e ferramentas em ambientes de produção.",
     "descBoldTextFourthParagraph": "Foco em resultados:",
     "descFourthParagraph": "Meu objetivo é criar um site que não apenas seja bonito, mas que também gere resultados concretos para o seu negócio, como aumento de leads, conversões e vendas.",
     "buttonLeadText": "Faça um orçamento",
@@ -64,7 +64,7 @@
     "suportDesc": "Garanta que seu site permaneça atualizado, seguro e funcional"
   },
   "projects": {
-    "title": "Projetos: Desenvolvedor Web Freelancer - Soluções Personalizadas",
+    "title": "Projetos:",
     "aboutProjTitle": "Sobre o projeto"
   },
   "DevelopmentSteps": {
