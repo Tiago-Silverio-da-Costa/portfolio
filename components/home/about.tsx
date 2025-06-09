@@ -103,6 +103,9 @@ export default function About({ countryCode }: { countryCode: Country }) {
 
     const { texts } = useLanguageStore();
 
+    const currentYear = new Date().getFullYear();
+    const yearsOfExperience = currentYear - 2022
+
     return (
         <motion.section
             initial={{ scale: 0 }}
@@ -119,15 +122,27 @@ export default function About({ countryCode }: { countryCode: Country }) {
 
 
                         <p className="text-start text-lg py-4 max-w-md leading-6 tracking-tighter">
-                            {texts.about?.descFisrtParagraph || "Com mais de 2 anos de experiência no desenvolvimento de sites, ofereço soluções web personalizadas e de alta qualidade para empresas de todos os portes. Meus projetos se destacam por:"}
+                            {/* {texts.about?.descFisrtParagraph || `Com mais de ${yearsOfExperience} anos de experiência no desenvolvimento de sites, ofereço soluções web personalizadas e de alta qualidade para empresas de todos os portes. Meus projetos se destacam por:`}
                             <br />
                             <br />
                             <strong>{texts.about?.descBoldTextSecondParagraph || "Funcionalidades sob medida:"}</strong>{texts.about?.descSecondParagraph || "Desenvolvo sites que atendem às suas necessidades específicas, desde lojas virtuais e portais de e-commerce até plataformas de ensino online e sistemas de gestão de conteúdo (CMS)."}  <br /> <br />
                             <strong>{texts.about?.descBoldTextThirdParagraph || "Tecnologia de ponta:"}</strong>{texts.about?.descThirdParagraph || "Utilizo as últimas ferramentas e linguagens de programação para garantir que seu site seja moderno, seguro e com alto desempenho."} <br /> <br />
-                            <strong>{texts.about?.descBoldTextFourthParagraph || "Foco em resultados:"}</strong>{texts.about?.descFourthParagraph || "Meu objetivo é criar um site que não apenas seja bonito, mas que também gere resultados concretos para o seu negócio, como aumento de leads, conversões e vendas."}  <br /> <br />
+                            <strong>{texts.about?.descBoldTextFourthParagraph || "Foco em resultados:"}</strong>{texts.about?.descFourthParagraph || "Meu objetivo é criar um site que não apenas seja bonito, mas que também gere resultados concretos para o seu negócio, como aumento de leads, conversões e vendas."}  <br /> <br /> */}
+
+
+                            {texts.about?.descFisrtParagraph || ` Desenvolvedor Full-Stack com mais de ${yearsOfExperience} anos de experiência em desenvolvimento web.`}
+
+                            <br /><br />
+
+                            {texts.about?.descSecondParagraph || "Atuação focada na construção de aplicações escaláveis, seguras e de fácil manutenção, com atenção à arquitetura, desempenho e experiência do usuário."}
+
+                            <br /><br />
+
+                            {texts.about?.descThirdParagraph || "Interessa-se por boas práticas de desenvolvimento, código limpo e evolução contínua de processos e ferramentas em ambientes de produção."}
+
                         </p>
 
-                        <LeadForm countryCode={countryCode} />
+                        {/* <LeadForm countryCode={countryCode} /> */}
 
                     </section>
 

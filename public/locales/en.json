@@ -17,20 +17,20 @@
     },
     "about": {
         "title": "About Me",
-        "descFisrtParagraph": "With over 2 years of experience in website development, I offer customized and high-quality web solutions for businesses of all sizes. My projects stand out for:",
+        "descFisrtParagraph": "Full-Stack Developer with over 3 years of experience in web development.",
         "descBoldTextSecondParagraph": "Tailored functionalities:",
-        "descSecondParagraph": "I develop websites that meet your specific needs, from online stores and e-commerce portals to online learning platforms and content management systems (CMS).",
+        "descSecondParagraph": "Focused on building scalable, secure, and maintainable applications, with attention to architecture, performance, and user experience.",
         "descBoldTextThirdParagraph": "Cutting-edge technology:",
-        "descThirdParagraph": "I use the latest tools and programming languages to ensure your website is modern, secure, and high-performing.",
-        "descBoldTextFourthParagraph": "Results-oriented focus:",
-        "descFourthParagraph": "My goal is to create a website that is not only visually appealing but also delivers tangible results for your business, such as increased leads, conversions, and sales.",
+        "descThirdParagraph": "Interested in best development practices, clean code, and the continuous improvement of processes and tools in production environments.",
+        "descBoldTextFourthParagraph": "Results-oriented:",
+        "descFourthParagraph": "My goal is to build not just visually appealing websites, but systems that deliver concrete results such as improved user experience, optimized flows, and measurable business impact.",
         "buttonLeadText": "Request a quote",
         "techFrontTitle": "Frontend:",
         "techBackTitle": "Backend:",
         "techDBTitle": "Database:",
         "techBasicTitle": "Basic knowledge:",
         "techStudyingTitle": "Currently studying:",
-        "experienceHistoryTitle": "Where I've worked and what I've done"
+        "experienceHistoryTitle": "Work history and contributions"
     },
     "leadForm": {
         "errorMessage": "Please correct the fields below and try again!",
@@ -65,7 +65,7 @@
     },
     "projects": {
         "title": "Projects: Freelance Web Developer - Customized Solutions",
-       "aboutProjTitle": "About the project"
+        "aboutProjTitle": "About the project"
     },
     "DevelopmentSteps": {
         "title": "Development Steps",
