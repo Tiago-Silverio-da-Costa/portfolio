@@ -54,7 +54,7 @@ export default function Hero() {
                         </div>
                         <div className="flex flex-col items-center">
                             <p className="text-2xl md:text-4xl text-textTitle font-bold uppercase tracking-wide">
-                                6.750+
+                                10,000+
                             </p>
                             <span className="text-defaultText text-center text-sm max-w-md leading-6 tracking-wide" aria-label="Mais de 5000 horas de experiência">{texts.hero?.workingHours || "Horas de trabalho"}</span>
                         </div>
